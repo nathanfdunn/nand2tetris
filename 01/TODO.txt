@@ -1,0 +1,15 @@
+And.cmp			X
+And16.cmp		X
+DMux.cmp		X
+DMux4Way.cmp	X
+DMux8Way.cmp	X
+Mux.cmp			X
+Mux16.cmp		X
+Mux4Way16.cmp	X
+Mux8Way16.cmp	X
+Not.cmp			X
+Not16.cmp		X
+Or.cmp			X
+Or16.cmp		X
+Or8Way.cmp		X
+Xor.cmp			X
