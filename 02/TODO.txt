@@ -1,0 +1,5 @@
+02/ALU.hdl
+02/Add16.hdl		X
+02/FullAdder.hdl	X
+02/HalfAdder.hdl	X
+02/Inc16.hdl		X
