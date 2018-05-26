@@ -16,5 +16,12 @@ CHIP PC {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+
+    Inc16(in=mCurVal, out=mCurValPlusOne);
+
+    Mux16(a=mCurVal, b=mCurValPlusOne, sel=inc, out=mPayloadLesser);		// Starting down the hierarchy
+    Mux16(a=mPayloadLesser, b=in, sel=load, out=mPayloadGreater);
+    Mux16(a=mPayloadGreater, b=false, sel=reset, out=mPayloadGrand);
+
+    Register(load=true, in=mPayloadGrand, out=mCurVal, out=out);
 }
