@@ -1,14 +1,78 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/04/Fill.asm
+// Keyboard register - 24576
+// Screen start - 16384
+// Screen end 24576 (+8192)
 
-// Runs an infinite loop that listens to the keyboard input.
-// When a key is pressed (any key), the program blackens the screen,
-// i.e. writes "black" in every pixel;
-// the screen should remain fully black as long as the key is pressed. 
-// When no key is pressed, the program clears the screen, i.e. writes
-// "white" in every pixel;
-// the screen should remain fully clear as long as no key is pressed.
 
-// Put your code here.
+// Set fill color based on keyboard
+// //TEST
+// @24576
+// M=1			// Dummy keyboard press
+// //TEST
+
+
+(TestKeyboard)
+@24576
+D=M
+@FillWhite
+D;JEQ
+
+
+
+(FillBlack)
+@16384
+D=A
+@1					// R1 will hold the current screen address
+M=D
+
+(FillBlackInner)
+// Set RAM[R1] to black
+@1
+A=M
+M=0
+M=M-1
+
+// Increment R1
+D=A+1
+@1
+M=D
+
+// Test if we are on the last pixel
+// @1
+// D=M
+@24576
+D=A-D
+@TestKeyboard
+D;JLE
+
+@FillBlackInner
+0;JMP
+
+
+
+(FillWhite)
+@16384
+D=A
+@1					// R1 will hold the current screen address
+M=D
+
+(FillWhiteInner)
+// Set RAM[R1] to white
+@1
+A=M
+M=0
+
+// Increment R1
+D=A+1
+@1
+M=D
+
+// Test if we are on the last pixel
+@1
+D=M
+@24576
+D=A-D
+@TestKeyboard
+D;JLE
+
+@FillWhiteInner
+0;JMP
