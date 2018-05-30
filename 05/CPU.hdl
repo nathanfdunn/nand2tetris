@@ -39,5 +39,47 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
-    // Put your code here:
+    // Set program counter
+    PC(in[0..14]=mJmpLocation, out[0..14]=pc, load=mShouldJump, reset=reset, inc=true);
+
+    Mux16(a=mARegisterValue, b=inM, sel=instruction[12], out=mYValue);
+
+    ALU(zx=instruction[11], 
+        nx=instruction[10],
+        zy=instruction[9],
+        ny=instruction[8],
+        f=instruction[7],
+        no=instruction[6],
+        x=mDRegister,
+        y=mYValue,
+        zr=mAluZr,
+        ng=mAluNg,
+        out=mAluOutput,
+
+        out=outM
+        );
+
+    // Set A register
+    Not(in=instruction[15], out=mIsAInstruction);
+    And(a=instruction[15], b=instruction[5], out=mACShouldStoreInAForCInst);
+    Or(a=mACShouldStoreInAForCInst, b=mIsAInstruction, out=mAShouldStoreInA);
+    Mux16(a=mAluOutput, b[0..14]=instruction[0..14], sel=mIsAInstruction, out=mPayloadForARegister);
+    ARegister(in=mPayloadForARegister, load=mAShouldStoreInA, out[0..14]=addressM, out[0..14]=mJmpLocation, out=mARegisterValue);
+
+    // Set D register
+    And(a=instruction[15], b=instruction[4], out=mDShouldStoreInD);
+    DRegister(in=mAluOutput, out=mDRegister, load=mDShouldStoreInD);
+
+    // Only write to M if it's a C instruction specifying M as destination
+    And(a=instruction[15], b=instruction[3], out=writeM);
+
+    // Jump!
+    Or(a=mAluZr, b=mAluNg, out=mNotAluPs);
+    Not(in=mNotAluPs, out=mAluPs);
+    And(a=mAluPs, b=instruction[0], out=mShouldJumpPs);
+    And(a=mAluZr, b=instruction[1], out=mShouldJumpZr);
+    And(a=mAluNg, b=instruction[2], out=mShouldJumpNg);
+    Or8Way(in[0]=mShouldJumpPs, in[1]=mShouldJumpZr, in[2]=mShouldJumpNg, out=mJumpAny);
+    // Only jump if it's a C-instruction
+    And(a=mJumpAny, b=instruction[15], out=mShouldJump);
 }
