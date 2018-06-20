@@ -19,6 +19,8 @@ def parseCommand(line):
 		return Command('label', line, line.strip('label').strip())
 	elif line.startswith('if-goto'):
 		return Command('if-goto', line, line.strip('if-goto').strip())
+	elif line.startswith('goto'):
+		return Command('goto', line, line.strip('goto').strip())
 	else:
 		cmdtype = {
 			'eq': 'cmp',
@@ -106,12 +108,17 @@ for cmd in commands:
 			{incsp}
 			''')
 	elif cmd.type == 'label':
-		out.write(f'({cmd.arg})')
+		out.write(f'\n({cmd.arg})\n')
 	elif cmd.type == 'if-goto':
 		out.write(f'''
 			{loadone}
 			@{cmd.arg}
 			D;JNE
+			''')
+	elif cmd.type == 'goto':
+		out.write(f'''
+			@{cmd.arg}
+			0;JMP
 			''')
 			
 	else:
