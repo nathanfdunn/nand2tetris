@@ -21,6 +21,12 @@ def parseCommand(line):
 		return Command('if-goto', line, line.strip('if-goto').strip())
 	elif line.startswith('goto'):
 		return Command('goto', line, line.strip('goto').strip())
+	elif line.startswith('function'):
+		_, name, parmcount = line.split()
+		# Overloading raw with the function name
+		return Command('function', name, int(parmcount))
+	elif line.startswith('return'):
+		return Command('return', line, None)
 	else:
 		cmdtype = {
 			'eq': 'cmp',
@@ -68,20 +74,6 @@ incsp = '''
 M=M+1
 '''
 
-pushDReg = '''
-@SP
-A=M
-M=D
-@SP
-M=M+1
-'''
-
-popIntoDReg = '''
-@SP
-M=M-1		// decrement first
-A=M
-D=M 		// now it's loaded up
-'''
 
 for cmd in commands:
 	out.write(f'// {cmd}')
@@ -120,7 +112,81 @@ for cmd in commands:
 			@{cmd.arg}
 			0;JMP
 			''')
-			
+	elif cmd.type == 'function':
+		out.write(f'''
+			({cmd.raw})
+			''')
+		# Seems like we can assume #args >= #locals...
+		for i in range(cmd.arg):
+			# Push zero onto the stack for each argument...
+			out.write(f'''
+				@SP
+				A=M
+				M=0				// Initialize to zero
+				{incsp}
+				''')
+	elif cmd.type == 'return':
+		out.write('''
+			@LCL
+			D=M
+			@R15	//FRAME
+			M=D
+
+			// write stack to arg[0]
+			// set sp to arg
+			@SP 		// D = value at top of stack
+			A=M-1
+			D=M
+
+			@ARG 		// arg[0] = D
+			A=M
+			M=D
+
+			@ARG 		// D = &arg[0]
+			D=M
+
+			@SP 		// SP = ARG+1
+			M=D+1
+
+
+			@R15
+			AM=M-1		// FRAME - 1
+			D=M
+
+			@THAT
+			M=D
+
+
+			@R15
+			AM=M-1		// FRAME - 2
+			D=M
+
+			@THIS
+			M=D
+
+
+			@R15
+			AM=M-1		// FRAME - 3
+			D=M
+
+			@ARG
+			M=D
+
+			@R15
+			AM=M-1		// FRAME - 4
+			D=M
+
+			@LCL
+			M=D
+
+
+			@R15
+			AM=M-1		// FRAME - 5
+			A=M
+
+			0;JMP
+
+			''')
 	else:
 
 		if cmd.type == 'pushc':
@@ -163,7 +229,6 @@ for cmd in commands:
 
 				D=M 			// Save the value
 
-				{pushDReg*0}
 @SP
 A=M
 M=D
@@ -190,7 +255,6 @@ M=M+1
 				addrcalc = 'D=M'
 
 			out.write(f'''
-				{popIntoDReg*0}
 @SP
 M=M-1		// decrement first
 A=M
