@@ -22,11 +22,15 @@ def parseCommand(line):
 	elif line.startswith('goto'):
 		return Command('goto', line, line.strip('goto').strip())
 	elif line.startswith('function'):
-		_, name, parmcount = line.split()
+		_, name, localcount = line.split()
 		# Overloading raw with the function name
-		return Command('function', name, int(parmcount))
+		return Command('function', name, int(localcount))
 	elif line.startswith('return'):
 		return Command('return', line, None)
+	elif line.startswith('call'):
+		_, name, parmcount = line.split()
+		# Overloading raw with the function name
+		return Command('call', line, int(parmcount))
 	else:
 		cmdtype = {
 			'eq': 'cmp',
@@ -74,6 +78,14 @@ incsp = '''
 M=M+1
 '''
 
+pushd = '''
+@SP
+A=M
+M=D
+@SP
+M=M+1
+'''
+
 
 for cmd in commands:
 	out.write(f'// {cmd}')
@@ -116,9 +128,8 @@ for cmd in commands:
 		out.write(f'''
 			({cmd.raw})
 			''')
-		# Seems like we can assume #args >= #locals...
 		for i in range(cmd.arg):
-			# Push zero onto the stack for each argument...
+			# Push zero onto the stack for each local
 			out.write(f'''
 				@SP
 				A=M
@@ -187,6 +198,56 @@ for cmd in commands:
 			0;JMP
 
 			''')
+	elif cmd.type == 'call':
+		returnaddr = 'RET' + uuid.uuid4().hex
+		out.write(f'''
+			// push returnaddr
+			@{returnaddr}
+			D=A
+			{pushd}
+
+			// push LCL
+			@LCL
+			D=M
+			{pushd}
+
+			@ARG
+			D=M
+			{pushd}
+
+			@THIS
+			D=M
+			{pushd}
+
+			@THAT
+			D=M
+			{pushd}
+
+
+			// LCL = SP
+			@SP
+			D=M
+			@LCL
+			M=D
+
+			// ARG = SP-n-5
+			@SP
+			D=M
+			@5
+			D=D-A
+			@{cmd.arg}
+			D=D-A
+
+			@ARG
+			M=D
+
+			@{cmd.raw}
+			0;JMP
+
+			({returnaddr})
+
+			''')
+
 	else:
 
 		if cmd.type == 'pushc':
