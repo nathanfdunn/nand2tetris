@@ -1,13 +1,30 @@
+import os
 import sys
 import uuid
 from collections import namedtuple
 
 progname = sys.argv[1]
-assert progname.endswith('.vm')
+
+if progname.endswith('.vm'):
+	isfile = True
+	files = [progname]
+	root = progname.strip('.vm')
+else:
+	isfile = False
+	# need to check that it's a directory of .vm files
+	assert os.path.isdir(progname)
+	root, _, files = next(os.walk(progname))
+	files = [os.path.join(root, f) for f in files if f.endswith('.vm')]
+	if not files:
+		raise Exception(f'Directory {progname} has no .vm files!')
+	
+# for f in files:
+	# print(os.path.basename(f))
+# exit()
 
 Command = namedtuple('Command', 'type, raw, arg')
 
-def parseCommand(line):
+def parseCommand(line, base):
 	line = line.strip()
 	if line.startswith('push constant'):
 		return Command('pushc', line, int(line.lstrip('push constant').strip()))
@@ -24,13 +41,13 @@ def parseCommand(line):
 	elif line.startswith('function'):
 		_, name, localcount = line.split()
 		# Overloading raw with the function name
-		return Command('function', name, int(localcount))
+		return Command('function', base + '.' + name, int(localcount))
 	elif line.startswith('return'):
 		return Command('return', line, None)
 	elif line.startswith('call'):
 		_, name, parmcount = line.split()
 		# Overloading raw with the function name
-		return Command('call', line, int(parmcount))
+		return Command('call', base + '.' + name, int(parmcount))
 	else:
 		cmdtype = {
 			'eq': 'cmp',
@@ -51,10 +68,20 @@ def parsable(line):
 	line = line.split('//')[0].strip()
 	return bool(line)
 
-commands = [parseCommand(line.split('//')[0]) for line in open(progname) if parsable(line)]
+commands = []
+for f in files:
+	base = os.path.basename(f).strip('.vm')
+	with open(f) as prog:
+		commands.extend(parseCommand(line.split('//')[0], base) for line in prog if parsable(line))
+	
+# with open(progname) as f:
+	# commands = [parseCommand(line.split('//')[0]) for line in open(progname) if parsable(line)]
 
-out = open(progname.rstrip('.vm') + '.asm', 'w')
-
+if isfile:
+	out = open(root + '.asm', 'w')
+else:
+	out = open(os.path.join(root, os.path.basename(root)) + '.asm', 'w')
+	
 loadone = '''
 	@SP
 	M=M-1	// decrement SP
