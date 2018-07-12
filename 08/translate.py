@@ -69,6 +69,8 @@ def parsable(line):
 	return bool(line)
 
 commands = []
+files.sort(key=lambda x: not x.lower().endswith('sys.vm'))
+print(files)
 for f in files:
 	base = os.path.basename(f).strip('.vm')
 	with open(f) as prog:

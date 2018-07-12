@@ -1,5 +1,5 @@
-// Command(type='function', raw='SimpleFunction.test', arg=2)
-			(SimpleFunction.test)
+// Command(type='function', raw='SimpleFunction.SimpleFunction.test', arg=2)
+			(SimpleFunction.SimpleFunction.test)
 			
 				@SP
 				A=M
