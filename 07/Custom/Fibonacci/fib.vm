@@ -1,0 +1,80 @@
+// No control flow, so just going to manually calculate terms
+
+push constant 0				// F_0
+push constant 1				// F_1
+
+pop temp 0					// Store F_1 in temp0
+push temp 0					// Get it back on the stack
+
+add							// F_2 is on the top of the stack now
+
+
+pop temp 1					// Store F_2 in temp1
+push temp 1					// Get it back on the stack
+
+push temp 0					// Get F_1 on top of the stack now
+add							// F_3 is on the top now					
+
+
+
+pop temp 0					
+push temp 0					
+
+push temp 1
+add
+
+
+
+pop temp 1
+push temp 1
+
+push temp 0
+add
+
+
+
+pop temp 0					
+push temp 0					
+
+push temp 1
+add
+
+
+
+pop temp 1
+push temp 1
+
+push temp 0
+add
+
+
+
+pop temp 0					
+push temp 0					
+
+push temp 1
+add
+
+
+
+pop temp 1
+push temp 1
+
+push temp 0
+add
+
+
+
+pop temp 0					
+push temp 0					
+
+push temp 1
+add
+
+
+
+pop temp 1
+push temp 1
+
+push temp 0
+add

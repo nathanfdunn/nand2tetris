@@ -8,7 +8,7 @@ assert progname.endswith('.vm')
 Command = namedtuple('Command', 'type, raw, arg')
 
 def parseCommand(line):
-	line = line.strip()
+	line = line.split('//')[0].strip()
 	if line.startswith('push constant'):
 		return Command('pushc', line, int(line.lstrip('push constant').strip()))
 	elif line.startswith('push') or line.startswith('pop'):
@@ -37,14 +37,10 @@ def parsable(line):
 
 commands = [parseCommand(line) for line in open(progname) if parsable(line)]
 
-out = open(progname.rstrip('.vm') + '.asm', 'w')
+prognamebase = progname.rsplit('.vm', 1)[0]
+out = open(prognamebase + '.asm', 'w')
+prognamebase = [x for x in prognamebase.split('/') if x][-1]
 
-loadone = '''
-	@SP
-	M=M-1	// decrement SP
-	A=M
-	D=M 	// save arg
-'''
 
 loadfirst2 = '''
 @SP
@@ -70,12 +66,29 @@ M=D
 M=M+1
 '''
 
-popIntoDReg = '''
-@SP
-M=M-1		// decrement first
-A=M
-D=M 		// now it's loaded up
+# popIntoDReg = '''
+# @SP
+# M=M-1		// decrement first
+# A=M
+# D=M 		// now it's loaded up
+# '''
+
+loadone = '''
+	@SP
+	M=M-1	// decrement SP
+	A=M
+	D=M 	// save arg
 '''
+
+
+# # Is this a thing?
+# out.write('''
+# // Initialize stack pointer
+# @256
+# D=A
+# @SP
+# M=D
+#        ''')
 
 for cmd in commands:
 	out.write(f'// {cmd}')
@@ -115,88 +128,103 @@ for cmd in commands:
 				M=M+1
 				''')
 		elif cmd.type == 'push':
-			segmentbase = {
-				'this': 'THIS',
-				'local': 'LCL',
-				'that': 'THAT',
-				'argument': 'ARG',
-				'temp': '5',
-				'pointer': '3',
-				'static': '16'
-			}[cmd.raw]
-
-			if cmd.raw in ['temp', 'pointer', 'static']:
-				# Temp always has a fixed base...
-				addrcalc = 'D=A'
+			if cmd.raw == 'static':
+				out.write(f'''
+					@{prognamebase}.{cmd.arg}	// @Xxx.3
+					D=M
+					{pushDReg}
+					''')
 			else:
-				addrcalc = 'D=M'
+				segmentbase = {
+					'this': 'THIS',
+					'local': 'LCL',
+					'that': 'THAT',
+					'argument': 'ARG',
+					'temp': '5',
+					'pointer': '3',
+					# 'static': '16'
+				}[cmd.raw]
 
-			out.write(f'''
-				// Get the segment base
-				// Add the index
-				// Load the value there
-				// Push it on the stack
-				@{segmentbase}
-				{addrcalc}
-				@{cmd.arg}
-				A=D+A 			// Now we have the index
+				if cmd.raw in ['temp', 'pointer']: #, 'static']:
+					# Temp always has a fixed base...
+					addrcalc = 'D=A'
+				else:
+					addrcalc = 'D=M'
 
-				D=M 			// Save the value
+				out.write(f'''
+					// Get the segment base
+					// Add the index
+					// Load the value there
+					// Push it on the stack
+					@{segmentbase}
+					{addrcalc}
+					@{cmd.arg}
+					A=D+A 			// Now we have the index
 
-				{pushDReg*0}
-@SP
-A=M
-M=D
-@SP
-M=M+1
+					D=M 			// Save the value
 
-				''')
+					{pushDReg*0}
+	@SP
+	A=M
+	M=D
+	@SP
+	M=M+1
+
+					''')
 
 		elif cmd.type == 'pop':
-			segmentbase = {
-				'this': 'THIS',
-				'local': 'LCL',
-				'that': 'THAT',
-				'argument': 'ARG',
-				'temp': '5',
-				'pointer': '3',
-				'static': '16'
-			}[cmd.raw]
-
-			if cmd.raw in ['temp', 'pointer', 'static']:
-				# Temp always has a fixed base...
-				addrcalc = 'D=A'
+			if cmd.raw == 'static':
+				out.write(f'''
+					{loadone}
+					@{prognamebase}.{cmd.arg}	// @Xxx.3
+					M=D
+					''')
 			else:
-				addrcalc = 'D=M'
+				segmentbase = {
+					'this': 'THIS',
+					'local': 'LCL',
+					'that': 'THAT',
+					'argument': 'ARG',
+					'temp': '5',		# 
+					'pointer': '3',		# Problem? 3 is already taken by THIS
+										# Oh, nevermind, it's an indirect reference
+					# 'static': '16'
+				}[cmd.raw]
 
-			out.write(f'''
-				{popIntoDReg*0}
-@SP
-M=M-1		// decrement first
-A=M
-D=M 		// now it's loaded up
+				# Oh..mistreating static - can't treat it just as another segment, have to translate it to a variable
+				if cmd.raw in ['temp', 'pointer']:
+					# Temp always has a fixed base...
+					addrcalc = 'D=A'
+				else:
+					addrcalc = 'D=M'
 
-@R13 			// R13 will hold the value til we can figure out where to write it
-M=D 
+				out.write(f'''
+	@SP
+	M=M-1		// decrement first
+	A=M
+	D=M 		// now it's loaded up
 
-
-				@{segmentbase}
-				{addrcalc}
-				@{cmd.arg}
-				D=D+A 			// Now we have the index
-
-@R14
-M=D  			// Cache the write address
+	@R13 			// R13 will hold the value til we can figure out where to write it
+	M=D 
 
 
-@R13  			// Fetch the value
-D=M
+					@{segmentbase}
+					{addrcalc}
+					@{cmd.arg}
+					D=D+A 			// Now we have the index
 
-@R14
-A=M
-M=D 			// FINALLY write the value...
+	@R14
+	M=D  			// Cache the write address
 
-				''')
+
+	@R13  			// Fetch the value
+	D=M
+
+	@R14
+	A=M
+	M=D 			// FINALLY write the value...
+
+					''')
 
 
 		elif cmd.type == 'arith':
