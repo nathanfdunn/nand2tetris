@@ -1,13 +1,30 @@
+import os
 import sys
 import uuid
 from collections import namedtuple
 
 progname = sys.argv[1]
-assert progname.endswith('.vm')
+
+if progname.endswith('.vm'):
+	isfile = True
+	files = [progname]
+	root = progname.strip('.vm')
+else:
+	isfile = False
+	# need to check that it's a directory of .vm files
+	assert os.path.isdir(progname)
+	root, _, files = next(os.walk(progname))
+	files = [os.path.join(root, f) for f in files if f.endswith('.vm')]
+	if not files:
+		raise Exception(f'Directory {progname} has no .vm files!')
+	
+# for f in files:
+	# print(os.path.basename(f))
+# exit()
 
 Command = namedtuple('Command', 'type, raw, arg')
 
-def parseCommand(line):
+def parseCommand(line, base):
 	line = line.strip()
 	if line.startswith('push constant'):
 		return Command('pushc', line, int(line.lstrip('push constant').strip()))
@@ -15,6 +32,22 @@ def parseCommand(line):
 		action, segment, index = line.split()
 		# Overloading raw with the segment
 		return Command(action, segment, int(index))
+	elif line.startswith('label'):
+		return Command('label', line, line.strip('label').strip())
+	elif line.startswith('if-goto'):
+		return Command('if-goto', line, line.strip('if-goto').strip())
+	elif line.startswith('goto'):
+		return Command('goto', line, line.strip('goto').strip())
+	elif line.startswith('function'):
+		_, name, localcount = line.split()
+		# Overloading raw with the function name
+		return Command('function', name, int(localcount))
+	elif line.startswith('return'):
+		return Command('return', line, None)
+	elif line.startswith('call'):
+		_, name, parmcount = line.split()
+		# Overloading raw with the function name
+		return Command('call', name, int(parmcount))
 	else:
 		cmdtype = {
 			'eq': 'cmp',
@@ -35,10 +68,26 @@ def parsable(line):
 	line = line.split('//')[0].strip()
 	return bool(line)
 
-commands = [parseCommand(line) for line in open(progname) if parsable(line)]
+commands = []
+files.sort(key=lambda x: not x.lower().endswith('sys.vm'))
+# print(files)
+for f in files:
+	base = os.path.basename(f).strip('.vm')
+	with open(f) as prog:
+		commands.extend(parseCommand(line.split('//')[0], base) for line in prog if parsable(line))
+	
+# with open(progname) as f:
+	# commands = [parseCommand(line.split('//')[0]) for line in open(progname) if parsable(line)]
 
-out = open(progname.rstrip('.vm') + '.asm', 'w')
-
+if isfile:
+	fname = root + '.asm'
+	out = open(root + '.asm', 'w')
+else:
+	# Seriously, why is this so hard?
+	dirname = root.strip('/').split('/')[-1]
+	fname = os.path.join(root, dirname) + '.asm'
+	out = open(fname, 'w')
+	
 loadone = '''
 	@SP
 	M=M-1	// decrement SP
@@ -62,7 +111,7 @@ incsp = '''
 M=M+1
 '''
 
-pushDReg = '''
+pushd = '''
 @SP
 A=M
 M=D
@@ -70,15 +119,63 @@ M=D
 M=M+1
 '''
 
-popIntoDReg = '''
+# TODO understand the bootstrap code
+out.write('''
+@256
+D=A
 @SP
-M=M-1		// decrement first
-A=M
-D=M 		// now it's loaded up
-'''
+M=D
+@BOOTSTRAP
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+@LCL
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@ARG
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@THIS
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@THAT
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+@5
+D=A
+@SP
+D=M-D
+@ARG
+M=D
+@SP
+D=M
+@LCL
+M=D
+@Sys.init
+0;JMP
+(BOOTSTRAP)
+	''')
+
 
 for cmd in commands:
 	out.write(f'// {cmd}')
+	# if cmd.type == 'call':
+	# 	out.write('// CALL HERE')
+
 	if cmd.raw in ['add', 'sub', 'and', 'or']:
 		op = {
 			'add': '+',
@@ -101,6 +198,160 @@ for cmd in commands:
 			M={op}D
 			{incsp}
 			''')
+	elif cmd.type == 'label':
+		out.write(f'\n({cmd.arg})\n')
+	elif cmd.type == 'if-goto':
+		out.write(f'''
+			{loadone}
+			@{cmd.arg}
+			D;JNE
+			''')
+	elif cmd.type == 'goto':
+		out.write(f'''
+			@{cmd.arg}
+			0;JMP
+			''')
+	elif cmd.type == 'function':
+		out.write(f'''
+			({cmd.raw})
+			''')
+		for i in range(cmd.arg):
+			# Push zero onto the stack for each local
+			out.write(f'''
+				@SP
+				A=M
+				M=0				// Initialize to zero
+				{incsp}
+				''')
+	elif cmd.type == 'return':
+		out.write('''
+			@LCL
+			D=M
+			@R15	//FRAME
+			M=D
+
+			@5
+			A=D-A
+			D=M
+			@MyRet
+			M=D
+
+			// write stack to arg[0]
+			// set sp to arg
+			@SP 		// D = value at top of stack
+			//A=M-1
+			AM=M-1		// REVISION
+			D=M
+
+			@ARG 		// arg[0] = D
+			A=M
+			M=D
+
+			@ARG 		// D = &arg[0]
+			D=M
+
+			@SP 		// SP = ARG+1
+			M=D+1
+
+
+			@R15
+			D=M
+			D=D-1		// FRAME - 1
+			A=D
+			D=M
+			@THAT
+			M=D
+
+
+			@R15
+			D=M
+			D=D-1
+			D=D-1		// FRAME - 2
+			A=D
+			D=M
+			@THIS
+			M=D
+
+
+			@R15
+			D=M
+			D=D-1
+			D=D-1
+			D=D-1		// FRAME - 3
+			A=D
+			D=M
+			@ARG
+			M=D
+
+
+			@R15
+			D=M
+			D=D-1
+			D=D-1
+			D=D-1
+			D=D-1		// FRAME - 4
+			A=D
+			D=M
+			@LCL
+			M=D
+
+
+			@MyRet
+			A=M
+
+			0;JMP
+
+			''')
+	elif cmd.type == 'call':
+		returnaddr = 'RET' + uuid.uuid4().hex
+		out.write(f'''
+			// push returnaddr
+			@{returnaddr}
+			D=A
+			{pushd}
+
+			// push LCL
+			@LCL
+			D=M
+			{pushd}
+
+			@ARG
+			D=M
+			{pushd}
+
+			@THIS
+			D=M
+			{pushd}
+
+			@THAT
+			D=M
+			{pushd}
+
+
+			// LCL = SP
+			@SP
+			D=M
+			@LCL
+			M=D
+
+			// ARG = SP-n-5
+			@SP
+			D=M
+			@{cmd.arg}
+			D=D-A
+			@5
+			D=D-A
+
+			@ARG
+			M=D
+
+			@{cmd.raw}
+			0;JMP
+
+			({returnaddr})
+
+			''')
+
 	else:
 
 		if cmd.type == 'pushc':
@@ -143,7 +394,6 @@ for cmd in commands:
 
 				D=M 			// Save the value
 
-				{pushDReg*0}
 @SP
 A=M
 M=D
@@ -170,7 +420,6 @@ M=M+1
 				addrcalc = 'D=M'
 
 			out.write(f'''
-				{popIntoDReg*0}
 @SP
 M=M-1		// decrement first
 A=M
@@ -247,6 +496,17 @@ M=D 			// FINALLY write the value...
 				''')
 
 out.close()
+
+# addresses = set()
+# references = set()
+# for line in open(fname):
+# 	line = line.split('//')[0].strip()
+# 	if line.startswith('(') and line.endswith(')'):
+# 		addresses.add(line.strip('(').strip(')'))
+# 	elif line.startswith('@'):
+# 		references.add(line.strip('@'))
+
+
 
 # # We might be running out of execut
 # outfilename = progname.rstrip('.vm') + '.asm'
