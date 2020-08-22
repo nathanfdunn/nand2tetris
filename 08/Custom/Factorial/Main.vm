@@ -1,0 +1,74 @@
+
+
+call Main.test 0
+
+
+
+
+
+function Main.factorial 0
+push argument 0
+push constant 1
+lt
+if-goto BASECASE
+
+// (n-1)!
+push argument 0
+push constant 1
+sub
+call Main.factorial 1
+
+// return n * (n-1)!
+push argument 0
+call Main.multpos 2
+return
+
+label BASECASE
+push constant 1
+return
+
+
+//function Main.mult ?
+
+
+// Both must be non-negative
+// Arg 0
+// Arg 1
+function Main.multpos 0
+push argument 0
+push constant 0
+eq
+if-goto ZERO
+
+push argument 1
+push constant 0
+eq
+if-goto ZERO
+
+push argument 0
+push argument 1
+push constant 1
+sub
+// get result of (arg0) * (arg1 - 1)
+call Main.multpos 2
+
+// return (arg0) * (arg1 - 1) + arg0
+push argument 0
+add
+return
+
+// return 0 if arg0 is 0
+label ZERO
+push constant 0
+return
+
+
+
+
+function Main.test 0
+push constant 3
+call Main.factorial 1
+label WHILE
+goto WHILE              // loops infinitely
+
+

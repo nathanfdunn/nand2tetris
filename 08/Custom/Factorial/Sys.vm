@@ -1,0 +1,7 @@
+
+//call Sys.init 0
+
+
+
+function Sys.init 0
+call Main.test 0
