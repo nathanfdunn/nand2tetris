@@ -1,0 +1,5 @@
+
+
+function Sys.init 0
+push constant 345
+return

@@ -4,6 +4,10 @@ import uuid
 from collections import namedtuple
 
 progname = sys.argv[1]
+notshouldbootstrap = len(sys.argv) > 2 and sys.argv[2] == '-b'
+# Supply -b flag to suppress initializing pointers
+
+shouldbootstrap = not notshouldbootstrap
 
 if progname.endswith('.vm'):
 	isfile = True
@@ -72,8 +76,11 @@ def parsable(line):
 commands = []
 files.sort(key=lambda x: not x.lower().endswith('sys.vm'))
 # print(files)
+containsSysFile = False
 for f in files:
-	base = os.path.basename(f).strip('.vm')
+	base = os.path.basename(f).rsplit('.vm', 1)[0]  #.strip('.vm')
+	if base == 'Sys':
+		containsSysFile = True
 	with open(f) as prog:
 		commands.extend(parseCommand(line.split('//')[0], base) for line in prog if parsable(line))
 	
@@ -120,15 +127,62 @@ M=D
 M=M+1
 '''
 
-commands.append(parseCommand('call Sys.init 0', 'SYSTEM'))
 
-# Init stack pointer to 256
-out.write('''
-	@256
-	D=A
-	@SP
-	M=D
-''')
+if containsSysFile:
+	commands.insert(0, parseCommand('call Sys.init 0', 'SYSTEM'))
+	print('Sys.vm found')
+	out.write('''
+		// Sys.vm detected. Inserting call Sys.init 0
+	''')
+else:
+	print('No Sys.vm present')
+	out.write('''
+		// Sys.vm absent. Supressing call Sys.init 0 command
+	''')
+
+if not shouldbootstrap:
+	out.write('''
+		// Compiled with -b flag
+		// Relying on external stack pointer initialization
+	''')
+	print('Skipping stackpointer initialization')
+else:
+	out.write('''
+		// -b flag absent
+		// Initalizing stack pointer
+	''')
+
+	# Init stack pointer to 256
+	out.write('''
+		@256
+		D=A
+		@SP
+		M=D
+	'''
+			+ '''
+		// Initialize other segments to invalid
+		@1
+		D=-A
+		@LCL
+		M=D
+	
+		@2
+		D=-A
+		@ARG
+		M=D
+	
+		@3
+		D=-A
+		@THIS
+		M=D
+	
+		@4
+		D=-A
+		@THAT
+		M=D
+		// End bootstrap
+	'''
+			)
 
 for cmd in commands:
 	out.write(f'// {cmd}')
