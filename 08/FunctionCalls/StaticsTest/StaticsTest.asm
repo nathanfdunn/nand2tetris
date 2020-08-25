@@ -32,7 +32,7 @@
 		// End bootstrap
 	// Command(type='call', raw='Sys.init', arg=0, source='SYSTEM')
 			// push returnaddr
-			@RET09e3a6ed6ceb4840a6c58d8817dd34c5
+			@RETc5d05731c82a4b6e90934bafbdce056e
 			D=A
 			
 @SP
@@ -104,7 +104,7 @@ M=M+1
 			@Sys.init
 			0;JMP
 
-			(RET09e3a6ed6ceb4840a6c58d8817dd34c5)
+			(RETc5d05731c82a4b6e90934bafbdce056e)
 
 			// Command(type='function', raw='Sys.init', arg=0, source='Sys')
 			(Sys.init)		// Need to disambiguate?
@@ -126,7 +126,7 @@ M=M+1
 				M=M+1
 				// Command(type='call', raw='Class1.set', arg=2, source='Sys')
 			// push returnaddr
-			@RET9bee7300fc1146ccade498892cc0b068
+			@RETe0ef69375f4c405391ddad11c03a7984
 			D=A
 			
 @SP
@@ -198,7 +198,7 @@ M=M+1
 			@Class1.set
 			0;JMP
 
-			(RET9bee7300fc1146ccade498892cc0b068)
+			(RETe0ef69375f4c405391ddad11c03a7984)
 
 			// Command(type='pop', raw='temp', arg=0, source='Sys')
 	@SP
@@ -244,7 +244,7 @@ M=M+1
 				M=M+1
 				// Command(type='call', raw='Class2.set', arg=2, source='Sys')
 			// push returnaddr
-			@RET9583834aa9224c4aa470ead51bdfb44c
+			@RET1867436f24974652b0cff5b3168b7cf0
 			D=A
 			
 @SP
@@ -316,7 +316,7 @@ M=M+1
 			@Class2.set
 			0;JMP
 
-			(RET9583834aa9224c4aa470ead51bdfb44c)
+			(RET1867436f24974652b0cff5b3168b7cf0)
 
 			// Command(type='pop', raw='temp', arg=0, source='Sys')
 	@SP
@@ -346,7 +346,7 @@ M=M+1
 
 					// Command(type='call', raw='Class1.get', arg=0, source='Sys')
 			// push returnaddr
-			@RET3c6881d101794e44976d352ea8ae9f65
+			@RET470056699b344bd292e54c7b71c26c92
 			D=A
 			
 @SP
@@ -418,11 +418,11 @@ M=M+1
 			@Class1.get
 			0;JMP
 
-			(RET3c6881d101794e44976d352ea8ae9f65)
+			(RET470056699b344bd292e54c7b71c26c92)
 
 			// Command(type='call', raw='Class2.get', arg=0, source='Sys')
 			// push returnaddr
-			@RETcdde47f1b2184ee98c444af0ded8c14d
+			@RETd1d4fa08c2b3427ba7a85a066e406109
 			D=A
 			
 @SP
@@ -494,7 +494,7 @@ M=M+1
 			@Class2.get
 			0;JMP
 
-			(RETcdde47f1b2184ee98c444af0ded8c14d)
+			(RETd1d4fa08c2b3427ba7a85a066e406109)
 
 			// Command(type='label', raw='label WHILE', arg='WHILE', source='Sys')
 (WHILE)
