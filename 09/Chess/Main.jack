@@ -3,34 +3,20 @@
 
 class Main {
     function void main() {
+        //var Piece p;
+
+        do Piece.init();
 
         do Main.drawBoard();
-
-      do Output.printString("Hello world!");
-      do Output.println();      // New line
-      return;
+        return;
     }
 
     function void drawBoard() {
+        var Board b;
+        let b = Board.new();
 
-        do Output.printString("rnbqkbnr");
-        do Output.println();
-        do Screen.setColor(false);
-        do Output.printString("pppppppp");
-        do Screen.setColor(true);
-        do Output.println();
-        do Output.printString("        ");
-        do Output.println();
-        do Output.printString("        ");
-        do Output.println();
-        do Output.printString("        ");
-        do Output.println();
-        do Output.printString("        ");
-        do Output.println();
-        do Output.printString("PPPPPPPP");
-        do Output.println();
-        do Output.printString("RNBQKBNR");
-        do Output.println();
+        do b.print();
+
         return;
     }
 }

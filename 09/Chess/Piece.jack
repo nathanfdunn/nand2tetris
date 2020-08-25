@@ -1,0 +1,76 @@
+class Piece {
+    // true -> white
+    field boolean color;
+    // 1 = pawn, 2 = knight, 3 = bishop, 4 = rook, 5 = queen, 6 = king
+    field int pieceType;
+
+    static Array pieceMapWhite;
+    static Array pieceMapBlack;
+
+    function void init(){
+        let pieceMapWhite = Array.new(7);
+        let pieceMapWhite[1] = "P";
+        let pieceMapWhite[2] = "N";
+        let pieceMapWhite[3] = "B";
+        let pieceMapWhite[4] = "R";
+        let pieceMapWhite[5] = "Q";
+        let pieceMapWhite[6] = "K";
+
+        let pieceMapBlack = Array.new(7);
+        let pieceMapBlack[1] = "p";
+        let pieceMapBlack[2] = "n";
+        let pieceMapBlack[3] = "b";
+        let pieceMapBlack[4] = "r";
+        let pieceMapBlack[5] = "q";
+        let pieceMapBlack[6] = "k";
+
+        return;
+    }
+
+    method String toString(){
+        var String map;
+        if (color){
+            return pieceMapWhite[pieceType];
+        }
+        else{
+            return pieceMapBlack[pieceType];
+        }
+    }
+
+    constructor Piece pawn(boolean _color){
+        let color = _color;
+        let pieceType = 1;
+        return this;
+    }
+
+    constructor Piece knight(boolean _color){
+        let color = _color;
+        let pieceType = 2;
+        return this;
+    }
+
+    constructor Piece bishop(boolean _color){
+        let color = _color;
+        let pieceType = 3;
+        return this;
+    }
+
+    constructor Piece rook(boolean _color){
+        let color = _color;
+        let pieceType = 4;
+        return this;
+    }
+
+    constructor Piece queen(boolean _color){
+        let color = _color;
+        let pieceType = 5;
+        return this;
+    }
+
+    constructor Piece king(boolean _color){
+        let color = _color;
+        let pieceType = 6;
+        return this;
+    }
+
+}
