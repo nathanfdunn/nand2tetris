@@ -57,13 +57,47 @@ class Board {
         return this;
     }
 
+    method boolean isEven(int blah){
+
+        return (blah - (2 * (blah / 2))) > 0;
+    }
+
     method void print(){
         var int i;
         var int j;
         var Array rank;
         var Piece piece;
+        var boolean color;
+        var int dim;
         let i = 0;
+        let color = true;
+        let dim = 16;
 
+        while (i < 8){
+            let j = 0;
+            while (j < 8){
+
+                let color = ~color;
+
+
+                let color = isEven(i + j);
+                do Screen.setColor(color);
+
+                do Screen.drawRectangle(
+                    i * dim, j * dim, (i + 1) * dim, (j + 1) * dim
+                );
+
+                let j = j + 1;
+            }
+
+            let color = ~color;
+
+            let i = i + 1;
+        }
+
+        return;
+
+        let i = 0;
         while (i < 8){
             let rank = ranks[i];
             let j = 0;
