@@ -69,6 +69,11 @@ class Board {
         var Piece piece;
         var boolean color;
         var int dim;
+        var int x1;
+        var int x2;
+        var int y1;
+        var int y2;
+
         let i = 0;
         let color = true;
         let dim = 16;
@@ -77,46 +82,84 @@ class Board {
             let j = 0;
             while (j < 8){
 
-                let color = ~color;
-
-
                 let color = isEven(i + j);
                 do Screen.setColor(color);
 
-                do Screen.drawRectangle(
-                    i * dim, j * dim, (i + 1) * dim, (j + 1) * dim
-                );
+                let x1 = j * dim;
+                let y1 = i * dim;
+                let x2 = x1 + dim;
+                let y2 = y1 + dim;
 
-                let j = j + 1;
-            }
+                //do Screen.drawRectangle(x1, y1, x2, y2);
 
-            let color = ~color;
+                // Open up a white center for black squares
+                // let color = false;
+                // if (color){
+                //     let x1 = x1 + (dim / 4);
+                //     let y1 = y1 + (dim / 4);
+                //     let x2 = x2 - (dim / 4);
+                //     let y2 = y2 - (dim / 4);
 
-            let i = i + 1;
-        }
+                //     do Screen.setColor(~color);
+                //     do Screen.drawRectangle(x1, y1, x2, y2);
+                // }
 
-        return;
-
-        let i = 0;
-        while (i < 8){
-            let rank = ranks[i];
-            let j = 0;
-            while (j < 8){
+                let rank = ranks[i];
                 let piece = rank[j];
-                if (piece = 0){
-                    do Output.printString(" ");
+                //do Screen.drawRectangle(x1, y1)
+                if (~(piece = 0)){
+                    do piece.draw(x1, y1);
                 }
-                else{
-                    do Output.printString(piece.toString());
-                }
+
 
                 let j = j + 1;
             }
 
-            do Output.println();
-
             let i = i + 1;
         }
+
+        //return;
+
+        
+
+        // while (i < 8){
+        //     let rank = ranks[i];
+        //     let j = 0;
+        //     while (j < 8){
+        //         let piece = rank[j];
+        //         let color = isEven(i + j);
+
+        //         if (color){
+        //             do Output.printString(" ");
+        //         }
+        //         else{
+        //             do Output.printString("[");
+        //         }
+
+        //         if (piece = 0){
+        //             do Output.printString(" ");
+        //         }
+        //         else{
+        //             do Output.printString(piece.toString());
+        //         }
+
+        //         if (color){
+        //             do Output.printString(" ");
+        //         }
+        //         else{
+        //             do Output.printString("]");
+        //         }
+
+
+        //         let j = j + 1;
+        //     }
+
+        //     do Output.println();
+        //     do Output.println();
+        //     //do Output.println();
+
+        //     let i = i + 1;
+        // }
 
         return;
     }

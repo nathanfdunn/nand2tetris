@@ -4,8 +4,26 @@
 class Main {
     function void main() {
         //var Piece p;
+        var int i;
+        var int j;
 
         do Piece.init();
+
+        do Screen.setColor(true);
+
+        // let i = 0;
+        // let j = 0;
+
+        // while (i < 10){
+        //     while (j < 10){
+        //         do Screen.drawPixel(i+100, j+100);
+        //         let j = j + 1;
+        //         do Output.printString("X");
+        //     }
+        //     do Output.printString("H");
+        //     let i = i + 1;
+        // }
+
 
         do Main.drawBoard();
         return;
