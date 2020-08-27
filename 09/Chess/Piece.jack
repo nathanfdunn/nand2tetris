@@ -45,45 +45,156 @@ class Piece {
         var char current;
         var String curString;
 
-        if (bitMap = 0){
-            return;
-        }
-        // else{
-        //     do Output.printString("h");
+// start of line 0
+
+// start of line 1
+do Screen.setColor(~color);
+do Screen.drawLine(x + 3, y + 1, x + 4, y + 1);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 7, y + 1, x + 8, y + 1);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 11, y + 1, x + 12, y + 1);
+
+// start of line 2
+do Screen.setColor(~color);
+do Screen.drawLine(x + 3, y + 2, x + 3, y + 2);
+do Screen.setColor(color);
+do Screen.drawLine(x + 4, y + 2, x + 4, y + 2);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 5, y + 2, x + 6, y + 2);
+do Screen.setColor(color);
+do Screen.drawLine(x + 7, y + 2, x + 8, y + 2);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 9, y + 2, x + 10, y + 2);
+do Screen.setColor(color);
+do Screen.drawLine(x + 11, y + 2, x + 11, y + 2);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 12, y + 2, x + 12, y + 2);
+
+// start of line 3
+do Screen.setColor(~color);
+do Screen.drawLine(x + 3, y + 3, x + 3, y + 3);
+do Screen.setColor(color);
+do Screen.drawLine(x + 4, y + 3, x + 11, y + 3);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 12, y + 3, x + 12, y + 3);
+
+// start of line 4
+do Screen.setColor(~color);
+do Screen.drawLine(x + 3, y + 4, x + 12, y + 4);
+
+// start of line 5
+do Screen.setColor(~color);
+do Screen.drawLine(x + 4, y + 5, x + 4, y + 5);
+do Screen.setColor(color);
+do Screen.drawLine(x + 5, y + 5, x + 10, y + 5);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 11, y + 5, x + 11, y + 5);
+
+// start of line 6
+do Screen.setColor(~color);
+do Screen.drawLine(x + 4, y + 6, x + 4, y + 6);
+do Screen.setColor(color);
+do Screen.drawLine(x + 5, y + 6, x + 10, y + 6);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 11, y + 6, x + 11, y + 6);
+
+// start of line 7
+do Screen.setColor(~color);
+do Screen.drawLine(x + 4, y + 7, x + 4, y + 7);
+do Screen.setColor(color);
+do Screen.drawLine(x + 5, y + 7, x + 10, y + 7);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 11, y + 7, x + 11, y + 7);
+
+// start of line 8
+do Screen.setColor(~color);
+do Screen.drawLine(x + 4, y + 8, x + 4, y + 8);
+do Screen.setColor(color);
+do Screen.drawLine(x + 5, y + 8, x + 10, y + 8);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 11, y + 8, x + 11, y + 8);
+
+// start of line 9
+do Screen.setColor(~color);
+do Screen.drawLine(x + 4, y + 9, x + 4, y + 9);
+do Screen.setColor(color);
+do Screen.drawLine(x + 5, y + 9, x + 10, y + 9);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 11, y + 9, x + 11, y + 9);
+
+// start of line 10
+do Screen.setColor(~color);
+do Screen.drawLine(x + 4, y + 10, x + 4, y + 10);
+do Screen.setColor(color);
+do Screen.drawLine(x + 5, y + 10, x + 10, y + 10);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 11, y + 10, x + 11, y + 10);
+
+// start of line 11
+do Screen.setColor(~color);
+do Screen.drawLine(x + 4, y + 11, x + 4, y + 11);
+do Screen.setColor(color);
+do Screen.drawLine(x + 5, y + 11, x + 10, y + 11);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 11, y + 11, x + 11, y + 11);
+
+// start of line 12
+do Screen.setColor(~color);
+do Screen.drawLine(x + 3, y + 12, x + 12, y + 12);
+
+// start of line 13
+do Screen.setColor(~color);
+do Screen.drawLine(x + 3, y + 13, x + 3, y + 13);
+do Screen.setColor(color);
+do Screen.drawLine(x + 4, y + 13, x + 11, y + 13);
+do Screen.setColor(~color);
+do Screen.drawLine(x + 12, y + 13, x + 12, y + 13);
+
+// start of line 14
+do Screen.setColor(~color);
+do Screen.drawLine(x + 3, y + 14, x + 12, y + 14);
+
+// start of line 15
+        // if (bitMap = 0){
+        //     return;
         // }
+        // // else{
+        // //     do Output.printString("h");
+        // // }
         
-        let i = 0;
-        let j = 0;
+        // let i = 0;
+        // let j = 0;
 
-        // do Screen.drawRectangle(x, y, x + 10, y + 10);
+        // // do Screen.drawRectangle(x, y, x + 10, y + 10);
 
-        while (i < 16){
-            let curString = bitMap[i];
-            let j = 0;
-            while (j < 32){
-                let current = curString.charAt(j);
+        // while (i < 16){
+        //     let curString = bitMap[i];
+        //     let j = 0;
+        //     while (j < 32){
+        //         let current = curString.charAt(j);
 
-                // do Screen.setColor(true);
-                // do Screen.drawPixel(x + i, y + (j/2));//, x+i, j + j);
-                // do Screen.drawPixel(x + 1, y);//, x+i, j + j);
-                // do Screen.drawPixel(x + 2, y);//, x+i, j + j);
+        //         // do Screen.setColor(true);
+        //         // do Screen.drawPixel(x + i, y + (j/2));//, x+i, j + j);
+        //         // do Screen.drawPixel(x + 1, y);//, x+i, j + j);
+        //         // do Screen.drawPixel(x + 2, y);//, x+i, j + j);
 
-                if (current = 45){      // '-'
-                    do Screen.setColor(~color);
-                    do Screen.drawPixel(x + (j / 2), y + i);
-                }
-                if (current = 88){       // 'X'
-                    do Screen.setColor(true);
-                    do Screen.drawPixel(x + (j / 2), y + i);
-                }
+        //         if (current = 45){      // '-'
+        //             do Screen.setColor(~color);
+        //             do Screen.drawPixel(x + (j / 2), y + i);
+        //         }
+        //         if (current = 88){       // 'X'
+        //             do Screen.setColor(true);
+        //             do Screen.drawPixel(x + (j / 2), y + i);
+        //         }
 
 
-                //do Output.printChar(current);
+        //         //do Output.printChar(current);
 
-                let j = j + 2;
-            }
-            let i = i + 1;
-        }
+        //         let j = j + 2;
+        //     }
+        //     let i = i + 1;
+        // }
 
         // while (i8 < 16){
         //     while (j8 < 16){
@@ -179,24 +290,24 @@ class Piece {
         let color = _color;
         let pieceType = 4;
 
-        let bitMap = Array.new(16);
+        // let bitMap = Array.new(16);
 
-        let bitMap[ 0] = "                                ";
-        let bitMap[ 1] = "      XXXX    XXXX    XXXX      ";
-        let bitMap[ 2] = "      XX--XXXX----XXXX--XX      ";
-        let bitMap[ 3] = "      XX----------------XX      ";
-        let bitMap[ 4] = "      XXXXXXXXXXXXXXXXXXXX      ";
-        let bitMap[ 5] = "        XX------------XX        ";
-        let bitMap[ 6] = "        XX------------XX        ";
-        let bitMap[ 7] = "        XX------------XX        ";
-        let bitMap[ 8] = "        XX------------XX        ";
-        let bitMap[ 9] = "        XX------------XX        ";
-        let bitMap[10] = "        XX------------XX        ";
-        let bitMap[11] = "        XX------------XX        ";
-        let bitMap[12] = "      XXXXXXXXXXXXXXXXXXXX      ";
-        let bitMap[13] = "      XX----------------XX      ";
-        let bitMap[14] = "      XXXXXXXXXXXXXXXXXXXX      ";
-        let bitMap[15] = "                                ";
+        // let bitMap[ 0] = "                                ";
+        // let bitMap[ 1] = "      XXXX    XXXX    XXXX      ";
+        // let bitMap[ 2] = "      XX--XXXX----XXXX--XX      ";
+        // let bitMap[ 3] = "      XX----------------XX      ";
+        // let bitMap[ 4] = "      XXXXXXXXXXXXXXXXXXXX      ";
+        // let bitMap[ 5] = "        XX------------XX        ";
+        // let bitMap[ 6] = "        XX------------XX        ";
+        // let bitMap[ 7] = "        XX------------XX        ";
+        // let bitMap[ 8] = "        XX------------XX        ";
+        // let bitMap[ 9] = "        XX------------XX        ";
+        // let bitMap[10] = "        XX------------XX        ";
+        // let bitMap[11] = "        XX------------XX        ";
+        // let bitMap[12] = "      XXXXXXXXXXXXXXXXXXXX      ";
+        // let bitMap[13] = "      XX----------------XX      ";
+        // let bitMap[14] = "      XXXXXXXXXXXXXXXXXXXX      ";
+        // let bitMap[15] = "                                ";
 
         return this;
     }
