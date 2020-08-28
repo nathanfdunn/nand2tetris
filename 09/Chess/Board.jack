@@ -68,6 +68,7 @@ class Board {
         var Array rank;
         var Piece piece;
         var boolean color;
+        var boolean squareColor;
         var int dim;
         var int x1;
         var int x2;
@@ -81,8 +82,8 @@ class Board {
         while (i < 8){
             let j = 0;
             while (j < 8){
-
-                let color = isEven(i + j);
+                let squareColor = ~isEven(i + j);
+                let color =squareColor;
                 do Screen.setColor(color);
 
                 let x1 = j * dim;
@@ -90,7 +91,7 @@ class Board {
                 let x2 = x1 + dim;
                 let y2 = y1 + dim;
 
-                //do Screen.drawRectangle(x1, y1, x2, y2);
+                do Screen.drawRectangle(x1, y1, x2, y2);
 
                 // Open up a white center for black squares
                 // let color = false;
@@ -108,7 +109,7 @@ class Board {
                 let piece = rank[j];
                 //do Screen.drawRectangle(x1, y1)
                 if (~(piece = 0)){
-                    do piece.draw(x1, y1);
+                    do piece.draw(x1, y1, squareColor);
                 }
 
 
