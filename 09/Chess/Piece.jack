@@ -39,123 +39,33 @@ class Piece {
         }
     }
 
-    method void draw(int x, int y){
+    method void draw(int x, int y, boolean squareColor){
         var int i;
         var int j;
         var char current;
         var String curString;
 
-// start of line 0
+    // 1 = pawn, 2 = knight, 3 = bishop, 4 = rook, 5 = queen, 6 = king
 
-// start of line 1
-do Screen.setColor(~color);
-do Screen.drawLine(x + 3, y + 1, x + 4, y + 1);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 7, y + 1, x + 8, y + 1);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 11, y + 1, x + 12, y + 1);
-
-// start of line 2
-do Screen.setColor(~color);
-do Screen.drawLine(x + 3, y + 2, x + 3, y + 2);
-do Screen.setColor(color);
-do Screen.drawLine(x + 4, y + 2, x + 4, y + 2);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 5, y + 2, x + 6, y + 2);
-do Screen.setColor(color);
-do Screen.drawLine(x + 7, y + 2, x + 8, y + 2);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 9, y + 2, x + 10, y + 2);
-do Screen.setColor(color);
-do Screen.drawLine(x + 11, y + 2, x + 11, y + 2);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 12, y + 2, x + 12, y + 2);
-
-// start of line 3
-do Screen.setColor(~color);
-do Screen.drawLine(x + 3, y + 3, x + 3, y + 3);
-do Screen.setColor(color);
-do Screen.drawLine(x + 4, y + 3, x + 11, y + 3);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 12, y + 3, x + 12, y + 3);
-
-// start of line 4
-do Screen.setColor(~color);
-do Screen.drawLine(x + 3, y + 4, x + 12, y + 4);
-
-// start of line 5
-do Screen.setColor(~color);
-do Screen.drawLine(x + 4, y + 5, x + 4, y + 5);
-do Screen.setColor(color);
-do Screen.drawLine(x + 5, y + 5, x + 10, y + 5);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 11, y + 5, x + 11, y + 5);
-
-// start of line 6
-do Screen.setColor(~color);
-do Screen.drawLine(x + 4, y + 6, x + 4, y + 6);
-do Screen.setColor(color);
-do Screen.drawLine(x + 5, y + 6, x + 10, y + 6);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 11, y + 6, x + 11, y + 6);
-
-// start of line 7
-do Screen.setColor(~color);
-do Screen.drawLine(x + 4, y + 7, x + 4, y + 7);
-do Screen.setColor(color);
-do Screen.drawLine(x + 5, y + 7, x + 10, y + 7);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 11, y + 7, x + 11, y + 7);
-
-// start of line 8
-do Screen.setColor(~color);
-do Screen.drawLine(x + 4, y + 8, x + 4, y + 8);
-do Screen.setColor(color);
-do Screen.drawLine(x + 5, y + 8, x + 10, y + 8);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 11, y + 8, x + 11, y + 8);
-
-// start of line 9
-do Screen.setColor(~color);
-do Screen.drawLine(x + 4, y + 9, x + 4, y + 9);
-do Screen.setColor(color);
-do Screen.drawLine(x + 5, y + 9, x + 10, y + 9);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 11, y + 9, x + 11, y + 9);
-
-// start of line 10
-do Screen.setColor(~color);
-do Screen.drawLine(x + 4, y + 10, x + 4, y + 10);
-do Screen.setColor(color);
-do Screen.drawLine(x + 5, y + 10, x + 10, y + 10);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 11, y + 10, x + 11, y + 10);
-
-// start of line 11
-do Screen.setColor(~color);
-do Screen.drawLine(x + 4, y + 11, x + 4, y + 11);
-do Screen.setColor(color);
-do Screen.drawLine(x + 5, y + 11, x + 10, y + 11);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 11, y + 11, x + 11, y + 11);
-
-// start of line 12
-do Screen.setColor(~color);
-do Screen.drawLine(x + 3, y + 12, x + 12, y + 12);
-
-// start of line 13
-do Screen.setColor(~color);
-do Screen.drawLine(x + 3, y + 13, x + 3, y + 13);
-do Screen.setColor(color);
-do Screen.drawLine(x + 4, y + 13, x + 11, y + 13);
-do Screen.setColor(~color);
-do Screen.drawLine(x + 12, y + 13, x + 12, y + 13);
-
-// start of line 14
-do Screen.setColor(~color);
-do Screen.drawLine(x + 3, y + 14, x + 12, y + 14);
-
-// start of line 15
+        if (pieceType = 1){
+            do Sprites.drawPawn(x, y, squareColor, color);
+        }
+        if (pieceType = 2){
+            do Sprites.drawKnight(x, y, squareColor, color);
+        }
+        if (pieceType = 3){
+            do Sprites.drawBishop(x, y, squareColor, color);
+        }
+        if (pieceType = 4){
+            do Sprites.drawRook(x, y, squareColor, color);
+        }
+        if (pieceType = 5){
+            do Sprites.drawQueen(x, y, squareColor, color);
+        }
+        if (pieceType = 6){
+            do Sprites.drawKing(x, y, squareColor, color);
+        }
+        
         // if (bitMap = 0){
         //     return;
         // }

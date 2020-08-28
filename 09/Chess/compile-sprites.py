@@ -1,11 +1,11 @@
-
+import os.path
 
 rook = '''\
                                 
       XXXX    XXXX    XXXX      
       XX--XXXX----XXXX--XX      
       XX----------------XX      
-      XXXXXXXXXXXXXXXXXXXX      
+      XX????????????????XX      
         XX------------XX        
         XX------------XX        
         XX------------XX        
@@ -13,7 +13,7 @@ rook = '''\
         XX------------XX        
         XX------------XX        
         XX------------XX        
-      XXXXXXXXXXXXXXXXXXXX      
+      XX????????????????XX      
       XX----------------XX      
       XXXXXXXXXXXXXXXXXXXX      
                                 '''
@@ -32,25 +32,108 @@ pawn = '''\
           XX----------XX        
           XX----------XX        
           XX----------XX        
-        XXXX----------XXXX      
+        XX??----------??XX      
         XXXXXXXXXXXXXXXXXX      
                                 '''
 
 
-test = '''\
-XXXX----
-'''
+bishop = '''\
+                                
+                XX              
+              XX--XX            
+            XX------XX          
+            XX------XX          
+            XX------XX          
+              XX--XX            
+            XX------XX          
+            XX------XX          
+          XX----------XX        
+          XX----------XX        
+          XX----------XX        
+          XX----------XX        
+            XX------XX        
+        XXXXXXXXXXXXXXXXXX      
+                                '''
 
 
-def compile(piece):
+
+
+queen = '''\
+                                
+            XX  XX  XX          
+          XX--XX--XX--XX        
+          XX----------XX          
+          XX----------XX          
+          XX----------XX          
+            XX------XX          
+            XX------XX          
+            XX------XX          
+          XX----------XX        
+          XX----------XX        
+          XX----------XX        
+          XX----------XX        
+          XX----------XX      
+        XXXXXXXXXXXXXXXXXX      
+                                '''
+
+king = '''\
+                XX              
+              XXXXXX            
+                XX            
+              XXXXXX          
+            XX------XX          
+            XX------XX          
+            XX------XX          
+              XX--XX            
+            XX------XX          
+            XX------XX          
+          XX----------XX        
+          XX----------XX        
+          XX----------XX        
+          XXXX------XXXX      
+        XXXXXXXXXXXXXXXXXX      
+                                '''
+
+
+
+
+knight = '''\
+                    XX          
+                    XXXX
+              XXXXXX----XX        
+        XXXXXX----------XX          
+      XX----------------XX          
+      XX----------------XX          
+        XXXXXX----------XX          
+              XX------XX            
+            XX--------XX          
+            XX--------XX          
+          XX----------XX        
+          XX------------XX      
+          XX------------XX        
+          XXXX--------XXXX      
+        XXXXXXXXXXXXXXXXXXXX      
+                                '''
+
+path = os.path.join(os.path.dirname(__file__), 'Sprites.jack')
+
+def compile(piece, methodName):
 	out = []
 	for i, line in enumerate(piece.split('\n')):
 		out.append(f'// start of line {i}')
-		line = line.replace('  ', ' ').replace('XX', 'X').replace('--', '-')
+		line = line.replace('  ', ' ').replace('XX', 'X').replace('--', '-').replace('??', '?')
 		out.extend(parseLine(line, i))
 		out.append('')
-	for x in out:
-		print(x)	
+	body = '\n'.join(out)
+	with open(path, 'a') as file:
+		file.write(f'''\
+	function void {methodName} (int x, int y, boolean squareColor, boolean pieceColor) {{
+		{body}
+		return;
+	}}
+''')
+	# for x in out:
+		# print(x)	
 
 
 def parseLine(line, y):
@@ -65,7 +148,13 @@ def parseLine(line, y):
 		else:
 			# runs[start, end] = currentLetter
 			if currentLetter not in (None, ' '):
-				col = 'color' if c == 'X' else '~color'
+				if currentLetter == 'X':
+					col = '~squareColor'
+				elif currentLetter == '-':
+					col = 'pieceColor'
+				elif currentLetter == '?':
+					col = '~pieceColor'
+				# col = '~squareColor' if currentLetter == 'X' else 'pieceColor'
 				ret.append(f'do Screen.setColor({col});')
 				ret.append(f'do Screen.drawLine(x + {start}, y + {y}, x + {end}, y + {y});')
 
@@ -79,5 +168,21 @@ def parseLine(line, y):
 	# 	col = 'color' if char == 'X' else '~color'
 	# 	ret.append(f'Screen.setColor({col})')
 	# 	ret.append(f'Screen.drawLine(x + {})')
-compile(rook)
+
+with open(path, 'w') as file:
+	file.write('''
+class Sprites {
+		''')
+
+compile(pawn, 'drawPawn')
+compile(knight, 'drawKnight')
+compile(bishop, 'drawBishop')
+compile(rook, 'drawRook')
+compile(queen, 'drawQueen')
+compile(king, 'drawKing')
+
+with open(path, 'a') as file:
+	file.write('''
+}
+		''')
 # compile(test)
