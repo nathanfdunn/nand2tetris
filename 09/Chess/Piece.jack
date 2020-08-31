@@ -65,7 +65,7 @@ class Piece {
         if (pieceType = 6){
             do Sprites.drawKing(x, y, squareColor, color);
         }
-        
+
         // if (bitMap = 0){
         //     return;
         // }

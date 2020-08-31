@@ -77,7 +77,7 @@ class Board {
 
         let i = 0;
         let color = true;
-        let dim = 16;
+        let dim = 32;
 
         while (i < 8){
             let j = 0;
@@ -91,7 +91,7 @@ class Board {
                 let x2 = x1 + dim;
                 let y2 = y1 + dim;
 
-                do Screen.drawRectangle(x1, y1, x2, y2);
+                do Screen.drawRectangle(x1, y1, x2-1, y2-1);
 
                 // Open up a white center for black squares
                 // let color = false;

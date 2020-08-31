@@ -1,5 +1,7 @@
 import os.path
 
+dedupe = False
+
 rook = '''\
                                 
       XXXX    XXXX    XXXX      
@@ -121,7 +123,8 @@ def compile(piece, methodName):
 	out = []
 	for i, line in enumerate(piece.split('\n')):
 		out.append(f'// start of line {i}')
-		line = line.replace('  ', ' ').replace('XX', 'X').replace('--', '-').replace('??', '?')
+		if dedupe:
+			line = line.replace('  ', ' ').replace('XX', 'X').replace('--', '-').replace('??', '?')
 		out.extend(parseLine(line, i))
 		out.append('')
 	body = '\n'.join(out)
@@ -156,7 +159,25 @@ def parseLine(line, y):
 					col = '~pieceColor'
 				# col = '~squareColor' if currentLetter == 'X' else 'pieceColor'
 				ret.append(f'do Screen.setColor({col});')
-				ret.append(f'do Screen.drawLine(x + {start}, y + {y}, x + {end}, y + {y});')
+				yscale = 1 if dedupe else 2
+				ret.append(f'do Screen.drawLine(x + {start}, y + {yscale * y}, x + {end}, y + {y * yscale});')
+				if not dedupe:
+					ret.append(f'do Screen.drawLine(x + {start}, y + {yscale * y} + 1, x + {end}, y + {yscale * y} + 1);')
+
+				# ret.append(f'''do Screen.drawLine(
+				# 	x + (2 * {start}), 
+				# 	y + (2 * {y}), 
+				# 	x + (2 * {end}), 
+				# 	y + (2 * {y})
+				# );''')
+				# ret.append(f'''do Screen.drawLine(
+				# 	x + (2 * {start}), 
+				# 	y + (2 * {y}) + 1, 
+				# 	x + (2 * {end}), 
+				# 	y + (2 * {y}) + 1
+				# );''')
+				# ret.append(f'do Screen.drawLine(x + {start}, y + {y}, x + {end}, y + {y});')
+				# ret.append(f'do Screen.drawLine(x + {start}, y + {y} + 1, x + {end}, y + {y} + 1);')
 
 			currentLetter = c
 			start = end = end+1
