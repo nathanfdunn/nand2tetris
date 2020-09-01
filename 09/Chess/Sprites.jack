@@ -199,60 +199,66 @@ do Screen.drawLine(x + 7, y + 28, x + 23, y + 28);
 	}
 	function void drawKnight (int x, int y, boolean squareColor, boolean pieceColor) {
 		// start of line 0
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 0, x + 20, y + 0);
 
 // start of line 1
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 1, x + 20, y + 1);
+do Screen.drawLine(x + 20, y + 1, x + 21, y + 1);
 
 // start of line 2
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 2, x + 21, y + 2);
+do Screen.drawLine(x + 20, y + 2, x + 20, y + 2);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 21, y + 2, x + 21, y + 2);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 2, x + 22, y + 2);
 
 // start of line 3
 do Screen.setColor(~squareColor);
 do Screen.drawLine(x + 20, y + 3, x + 20, y + 3);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 21, y + 3, x + 21, y + 3);
+do Screen.drawLine(x + 21, y + 3, x + 22, y + 3);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 3, x + 22, y + 3);
+do Screen.drawLine(x + 23, y + 3, x + 23, y + 3);
 
 // start of line 4
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 4, x + 20, y + 4);
+do Screen.drawLine(x + 15, y + 4, x + 19, y + 4);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 21, y + 4, x + 22, y + 4);
+do Screen.drawLine(x + 20, y + 4, x + 22, y + 4);
 do Screen.setColor(~squareColor);
 do Screen.drawLine(x + 23, y + 4, x + 23, y + 4);
 
 // start of line 5
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 5, x + 19, y + 5);
+do Screen.drawLine(x + 14, y + 5, x + 14, y + 5);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 20, y + 5, x + 22, y + 5);
+do Screen.drawLine(x + 15, y + 5, x + 23, y + 5);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 5, x + 23, y + 5);
+do Screen.drawLine(x + 24, y + 5, x + 24, y + 5);
 
 // start of line 6
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 6, x + 14, y + 6);
+do Screen.drawLine(x + 10, y + 6, x + 13, y + 6);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 6, x + 23, y + 6);
+do Screen.drawLine(x + 14, y + 6, x + 24, y + 6);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 6, x + 24, y + 6);
+do Screen.drawLine(x + 25, y + 6, x + 25, y + 6);
 
 // start of line 7
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 7, x + 13, y + 7);
+do Screen.drawLine(x + 7, y + 7, x + 9, y + 7);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 7, x + 24, y + 7);
+do Screen.drawLine(x + 10, y + 7, x + 25, y + 7);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 7, x + 25, y + 7);
+do Screen.drawLine(x + 26, y + 7, x + 26, y + 7);
 
 // start of line 8
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 8, x + 9, y + 8);
+do Screen.drawLine(x + 6, y + 8, x + 6, y + 8);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 8, x + 25, y + 8);
+do Screen.drawLine(x + 7, y + 8, x + 25, y + 8);
 do Screen.setColor(~squareColor);
 do Screen.drawLine(x + 26, y + 8, x + 26, y + 8);
 
@@ -276,33 +282,33 @@ do Screen.drawLine(x + 26, y + 10, x + 26, y + 10);
 do Screen.setColor(~squareColor);
 do Screen.drawLine(x + 6, y + 11, x + 6, y + 11);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 7, y + 11, x + 25, y + 11);
+do Screen.drawLine(x + 7, y + 11, x + 24, y + 11);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 11, x + 26, y + 11);
+do Screen.drawLine(x + 25, y + 11, x + 25, y + 11);
 
 // start of line 12
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 6, y + 12, x + 6, y + 12);
+do Screen.drawLine(x + 7, y + 12, x + 8, y + 12);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 7, y + 12, x + 24, y + 12);
+do Screen.drawLine(x + 9, y + 12, x + 24, y + 12);
 do Screen.setColor(~squareColor);
 do Screen.drawLine(x + 25, y + 12, x + 25, y + 12);
 
 // start of line 13
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 13, x + 8, y + 13);
+do Screen.drawLine(x + 9, y + 13, x + 13, y + 13);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 13, x + 24, y + 13);
+do Screen.drawLine(x + 14, y + 13, x + 23, y + 13);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 13, x + 25, y + 13);
+do Screen.drawLine(x + 24, y + 13, x + 24, y + 13);
 
 // start of line 14
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 14, x + 13, y + 14);
+do Screen.drawLine(x + 14, y + 14, x + 14, y + 14);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 14, x + 23, y + 14);
+do Screen.drawLine(x + 15, y + 14, x + 22, y + 14);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 14, x + 24, y + 14);
+do Screen.drawLine(x + 23, y + 14, x + 23, y + 14);
 
 // start of line 15
 do Screen.setColor(~squareColor);
@@ -314,17 +320,17 @@ do Screen.drawLine(x + 23, y + 15, x + 23, y + 15);
 
 // start of line 16
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 16, x + 14, y + 16);
+do Screen.drawLine(x + 13, y + 16, x + 13, y + 16);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 16, x + 22, y + 16);
+do Screen.drawLine(x + 14, y + 16, x + 22, y + 16);
 do Screen.setColor(~squareColor);
 do Screen.drawLine(x + 23, y + 16, x + 23, y + 16);
 
 // start of line 17
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 13, y + 17, x + 13, y + 17);
+do Screen.drawLine(x + 12, y + 17, x + 12, y + 17);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 17, x + 22, y + 17);
+do Screen.drawLine(x + 13, y + 17, x + 22, y + 17);
 do Screen.setColor(~squareColor);
 do Screen.drawLine(x + 23, y + 17, x + 23, y + 17);
 
@@ -346,9 +352,9 @@ do Screen.drawLine(x + 23, y + 19, x + 23, y + 19);
 
 // start of line 20
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 20, x + 12, y + 20);
+do Screen.drawLine(x + 11, y + 20, x + 11, y + 20);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 20, x + 22, y + 20);
+do Screen.drawLine(x + 12, y + 20, x + 22, y + 20);
 do Screen.setColor(~squareColor);
 do Screen.drawLine(x + 23, y + 20, x + 23, y + 20);
 
@@ -356,15 +362,15 @@ do Screen.drawLine(x + 23, y + 20, x + 23, y + 20);
 do Screen.setColor(~squareColor);
 do Screen.drawLine(x + 11, y + 21, x + 11, y + 21);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 21, x + 22, y + 21);
+do Screen.drawLine(x + 12, y + 21, x + 23, y + 21);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 21, x + 23, y + 21);
+do Screen.drawLine(x + 24, y + 21, x + 24, y + 21);
 
 // start of line 22
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 22, x + 11, y + 22);
+do Screen.drawLine(x + 10, y + 22, x + 10, y + 22);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 22, x + 23, y + 22);
+do Screen.drawLine(x + 11, y + 22, x + 23, y + 22);
 do Screen.setColor(~squareColor);
 do Screen.drawLine(x + 24, y + 22, x + 24, y + 22);
 
@@ -372,9 +378,9 @@ do Screen.drawLine(x + 24, y + 22, x + 24, y + 22);
 do Screen.setColor(~squareColor);
 do Screen.drawLine(x + 10, y + 23, x + 10, y + 23);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 23, x + 23, y + 23);
+do Screen.drawLine(x + 11, y + 23, x + 24, y + 23);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 23, x + 24, y + 23);
+do Screen.drawLine(x + 25, y + 23, x + 25, y + 23);
 
 // start of line 24
 do Screen.setColor(~squareColor);
@@ -386,49 +392,57 @@ do Screen.drawLine(x + 25, y + 24, x + 25, y + 24);
 
 // start of line 25
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 25, x + 10, y + 25);
+do Screen.drawLine(x + 9, y + 25, x + 9, y + 25);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 25, x + 24, y + 25);
+do Screen.drawLine(x + 10, y + 25, x + 25, y + 25);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 25, x + 25, y + 25);
+do Screen.drawLine(x + 26, y + 25, x + 26, y + 25);
 
 // start of line 26
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 26, x + 10, y + 26);
+do Screen.drawLine(x + 8, y + 26, x + 8, y + 26);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 26, x + 24, y + 26);
+do Screen.drawLine(x + 9, y + 26, x + 26, y + 26);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 26, x + 25, y + 26);
+do Screen.drawLine(x + 27, y + 26, x + 27, y + 26);
 
 // start of line 27
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 27, x + 10, y + 27);
+do Screen.drawLine(x + 8, y + 27, x + 8, y + 27);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 27, x + 24, y + 27);
+do Screen.drawLine(x + 9, y + 27, x + 26, y + 27);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 27, x + 25, y + 27);
+do Screen.drawLine(x + 27, y + 27, x + 27, y + 27);
 
 // start of line 28
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 28, x + 10, y + 28);
+do Screen.drawLine(x + 9, y + 28, x + 9, y + 28);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 28, x + 24, y + 28);
+do Screen.drawLine(x + 10, y + 28, x + 25, y + 28);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 28, x + 25, y + 28);
+do Screen.drawLine(x + 26, y + 28, x + 26, y + 28);
 
 // start of line 29
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 29, x + 9, y + 29);
+do Screen.drawLine(x + 10, y + 29, x + 10, y + 29);
 do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 29, x + 25, y + 29);
+do Screen.drawLine(x + 11, y + 29, x + 24, y + 29);
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 29, x + 27, y + 29);
+do Screen.drawLine(x + 25, y + 29, x + 25, y + 29);
 
 // start of line 30
 do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 30, x + 27, y + 30);
+do Screen.drawLine(x + 8, y + 30, x + 9, y + 30);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 30, x + 25, y + 30);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 26, y + 30, x + 27, y + 30);
 
 // start of line 31
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 31, x + 27, y + 31);
+
+// start of line 32
 
 		return;
 	}
