@@ -64,9 +64,9 @@ queen = '''\
                                 
             XX  XX  XX          
           XX--XX--XX--XX        
-          XX----------XX          
-          XX----------XX          
-          XX----------XX          
+          XX----------XX        
+          XX----------XX        
+          XX----------XX        
             XX------XX          
             XX------XX          
             XX------XX          
@@ -74,7 +74,7 @@ queen = '''\
           XX----------XX        
           XX----------XX        
           XX----------XX        
-          XX----------XX      
+          XX----------XX        
         XXXXXXXXXXXXXXXXXX      
                                 '''
 
@@ -202,8 +202,37 @@ compile(rook, 'drawRook')
 compile(queen, 'drawQueen')
 compile(king, 'drawKing')
 
+
+
+def exportPico8(*pieces):
+	def translateLine(line):
+		return ''.join({
+			' ': '0',
+			'X': '7',
+			'-': 'f',
+			'?': '5'
+		}[c] for c in line)
+
+	out = [''] * len(pieces[0].split('\n'))
+	for piece in pieces:
+		lines = [
+			translateLine(line[::2]) for line in piece.split('\n')
+		]
+		out = [(existing + new).ljust(128, '0') for existing, new in zip(out, lines)]
+
+	print('\n'.join(out))
+
+	# for line in piece.split('\n'):
+	# 	deduped = line[::2]
+
+	# 	pass
+
+
+
 with open(path, 'a') as file:
 	file.write('''
 }
 		''')
+
+exportPico8(rook) #, rook, queen)
 # compile(test)
