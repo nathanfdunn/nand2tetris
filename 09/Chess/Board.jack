@@ -85,8 +85,8 @@ class Board {
                 let squareColor = ~isEven(i + j);
                 let color =squareColor;
                 do Screen.setColor(color);
-
-                let x1 = j * dim;
+                // Add 8 to draw the board on the right side
+                let x1 = (j + 8) * dim;
                 let y1 = i * dim;
                 let x2 = x1 + dim;
                 let y2 = y1 + dim;

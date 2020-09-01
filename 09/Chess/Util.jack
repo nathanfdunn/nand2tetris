@@ -1,0 +1,31 @@
+class Util {
+	// Returns true if equal 	
+	function boolean strCmp(String str1, String str2) {
+		var int index;
+
+		// Same instance
+		if (str1 = str2) {
+			return true;
+		}
+
+		// Nulls would have been handled above
+		if ((str1 = 0) | (str2 = 0)) {
+			return false;
+		}
+
+		if (~(str1.length() = str2.length())) {
+			return false;
+		}
+
+		let index = str1.length() - 1;
+		while (index > 0) {
+			if (~(str1.charAt(index) = str2.charAt(index))) {
+				return false;
+			}
+
+			let index = index - 1;
+		}
+
+		return true;
+	}
+}

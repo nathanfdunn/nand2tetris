@@ -2,30 +2,47 @@
 
 
 class Main {
-    function void main() {
-        //var Piece p;
-        var int i;
-        var int j;
+    static boolean boardHasChanges;
+    static Array commandBuffer;
 
+    function void main() {
+        do Main.init();
+
+        while (true) {
+            do Main.update();
+            do Main.draw();
+        }
+
+        return;
+    }
+
+    function void init() {
+        let boardHasChanges = false;
         do Piece.init();
 
-        do Screen.setColor(true);
+        let commandBuffer = Array.new(32);
 
-        // let i = 0;
-        // let j = 0;
+        return;
+    }
 
-        // while (i < 10){
-        //     while (j < 10){
-        //         do Screen.drawPixel(i+100, j+100);
-        //         let j = j + 1;
-        //         do Output.printString("X");
-        //     }
-        //     do Output.printString("H");
-        //     let i = i + 1;
-        // }
+    function void update() {
+        var String command;
+        let command = Keyboard.readLine(">");
+
+        do Main.processCommand(command);
+        return;
+    }
+
+    function void draw() {
+        if (boardHasChanges){
+            do Screen.setColor(true);
+
+            do Main.drawBoard();
+        }
 
 
-        do Main.drawBoard();
+        let boardHasChanges = false;
+
         return;
     }
 
@@ -35,6 +52,18 @@ class Main {
 
         do b.print();
 
+        return;
+    }
+
+    function void processCommand(String command) {
+        if (Util.strCmp(command, "QUIT")){
+            do Output.printString("Good bye. TODO stop processing.");
+            do Output.println();
+        }
+        else {
+            do Output.printString("Invalid command");
+            do Output.println();
+        }
         return;
     }
 }
