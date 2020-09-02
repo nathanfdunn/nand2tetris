@@ -1,0 +1,19 @@
+
+class Commands {
+	
+	// Returns null if invalid
+	function Move parseUciCommand(String uciCommand) {
+		// Assumes of format 
+		// UCI A1 B2
+		return Move.new(
+			Util.parseAlgebraicFile(uciCommand.charAt(4)),
+			Util.parseAlgebraicRank(uciCommand.charAt(5)),
+
+			Util.parseAlgebraicFile(uciCommand.charAt(7)),
+			Util.parseAlgebraicRank(uciCommand.charAt(8))
+		);
+	}
+
+
+
+}

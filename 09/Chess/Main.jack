@@ -2,8 +2,8 @@
 
 
 class Main {
-    static boolean boardHasChanges;
     static Array commandBuffer;
+    static Board board;
 
     function void main() {
         do Main.init();
@@ -17,7 +17,7 @@ class Main {
     }
 
     function void init() {
-        let boardHasChanges = false;
+        let board = Board.new();
         do Piece.init();
 
         let commandBuffer = Array.new(32);
@@ -34,36 +34,62 @@ class Main {
     }
 
     function void draw() {
-        if (boardHasChanges){
+        // let condition = board.getHasChanges(); //asfd.asdf;
+        if (board.getHasChanges()){
             do Screen.setColor(true);
 
             do Main.drawBoard();
         }
 
-
-        let boardHasChanges = false;
+        do board.acknowledgeChanges();
 
         return;
     }
 
     function void drawBoard() {
-        var Board b;
-        let b = Board.new();
-
-        do b.print();
+        do board.print();
 
         return;
     }
 
     function void processCommand(String command) {
+        var Move move;
+        if (Util.strCmp(command, "")){
+            return;
+        }
+
+        if (Util.startsWith(command, "UCI")) {
+            // do Output.printString("TODO make a UCI move.");
+            // do Output.println();
+            let move = Commands.parseUciCommand(command);
+            // do Output.printString(move.toString());
+            do board.makeMove(move);
+
+            return;
+        }
+
+        if (Util.strCmp(command, "REFRESH")) {
+            do board.touch();
+            do Main.draw();
+            return;
+        }
+
         if (Util.strCmp(command, "QUIT")){
             do Output.printString("Good bye. TODO stop processing.");
             do Output.println();
+            return;
         }
-        else {
-            do Output.printString("Invalid command");
+        
+        if (Util.strCmp(command, "RESTART")){
+            let board = Board.new();
+            do Output.printString("Restarting Game");
             do Output.println();
+            return;
         }
+
+        do Output.printString("Invalid command");
+        do Output.println();            
+
         return;
     }
 }

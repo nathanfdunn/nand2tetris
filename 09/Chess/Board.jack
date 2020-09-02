@@ -1,12 +1,29 @@
 class Board {
     field Array ranks;
 
+    field boolean hasChanges;
+
+    method boolean getHasChanges() {
+        return hasChanges;
+    }
+
+    method void acknowledgeChanges() {
+        let hasChanges = false;
+        return;
+    }
+
+    method void touch() {
+        let hasChanges = true;
+        return;
+    }
 
     constructor Board new(){
         var int i;
         var Array temp;
         let i = 0;
         let ranks = Array.new(8);
+
+        let hasChanges = true;
 
         while (i < 8){
             let ranks[i] = Array.new(8);
@@ -60,6 +77,24 @@ class Board {
     method boolean isEven(int blah){
 
         return (blah - (2 * (blah / 2))) > 0;
+    }
+
+    method void makeMove(Move move) {
+        // TODO add validation that the move is legal and even exists
+        var Array rank;
+        var Piece piece;
+
+        let rank = ranks[move.getStartRank() - 1];
+        let piece = rank[move.getStartFile() - 1];
+        let rank[move.getStartFile() - 1] = 0;
+
+        // TODO dispose of the piece that was there
+        let rank = ranks[move.getEndRank() - 1];
+        let rank[move.getEndFile() - 1] = piece;
+
+        let hasChanges = true;
+
+        return;
     }
 
     method void print(){

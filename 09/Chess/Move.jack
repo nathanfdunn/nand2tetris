@@ -1,0 +1,47 @@
+class Move {
+	// Note that these are 1-indexed
+	field int startFile;
+	field int startRank;
+	field int endFile;
+	field int endRank;
+
+	constructor Move new(int startFile_, int startRank_, int endFile_, int endRank_) {
+		let startFile = startFile_;
+		let startRank = startRank_;
+		let endFile = endFile_;
+		let endRank = endRank_;
+		return this;
+	}
+
+	method String toString() {
+		var String out;
+		let out = String.new(4);
+		do out.appendChar(Util.numericFileToChar(startFile));
+		do out.appendChar(Util.numericRankToChar(startRank));
+		do out.appendChar(Util.numericFileToChar(endFile));
+		do out.appendChar(Util.numericRankToChar(endRank));
+		// do out.setCharAt(0, Util.numericFileToChar(startFile));
+		// do out.setCharAt(1, Util.numericRankToChar(startRank));
+		// do out.setCharAt(2, Util.numericFileToChar(endFile));
+		// do out.setCharAt(3, Util.numericRankToChar(endRank));
+		
+		return out;
+	}
+
+	method int getStartFile() {
+		return startFile;
+	}
+
+	method int getStartRank() { 
+		return startRank;
+	}
+
+	method int getEndFile() {
+		return endFile;
+	}
+
+	method int getEndRank() {
+		return endRank;
+	}
+
+}
