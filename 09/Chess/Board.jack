@@ -122,7 +122,8 @@ class Board {
                 do Screen.setColor(color);
                 // Add 8 to draw the board on the right side
                 let x1 = (j + 8) * dim;
-                let y1 = i * dim;
+                // 7 - i so that we draw from white's perspective
+                let y1 = (7 - i) * dim;
                 let x2 = x1 + dim;
                 let y2 = y1 + dim;
 
@@ -146,7 +147,6 @@ class Board {
                 if (~(piece = 0)){
                     do piece.draw(x1, y1, squareColor);
                 }
-
 
                 let j = j + 1;
             }
