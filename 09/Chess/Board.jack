@@ -129,18 +129,6 @@ class Board {
 
                 do Screen.drawRectangle(x1, y1, x2-1, y2-1);
 
-                // Open up a white center for black squares
-                // let color = false;
-                // if (color){
-                //     let x1 = x1 + (dim / 4);
-                //     let y1 = y1 + (dim / 4);
-                //     let x2 = x2 - (dim / 4);
-                //     let y2 = y2 - (dim / 4);
-
-                //     do Screen.setColor(~color);
-                //     do Screen.drawRectangle(x1, y1, x2, y2);
-                // }
-
                 let rank = ranks[i];
                 let piece = rank[j];
                 //do Screen.drawRectangle(x1, y1)
@@ -154,50 +142,29 @@ class Board {
             let i = i + 1;
         }
 
-        //return;
-
-        
-
-        // while (i < 8){
-        //     let rank = ranks[i];
-        //     let j = 0;
-        //     while (j < 8){
-        //         let piece = rank[j];
-        //         let color = isEven(i + j);
-
-        //         if (color){
-        //             do Output.printString(" ");
-        //         }
-        //         else{
-        //             do Output.printString("[");
-        //         }
-
-        //         if (piece = 0){
-        //             do Output.printString(" ");
-        //         }
-        //         else{
-        //             do Output.printString(piece.toString());
-        //         }
-
-        //         if (color){
-        //             do Output.printString(" ");
-        //         }
-        //         else{
-        //             do Output.printString("]");
-        //         }
-
-
-        //         let j = j + 1;
-        //     }
-
-        //     do Output.println();
-        //     do Output.println();
-        //     //do Output.println();
-
-        //     let i = i + 1;
-        // }
-
         return;
+    }
+
+    method Piece getPieceAt(int x, int y) {
+        var Array rank;
+        let rank = ranks[y];
+        return rank[y];
+    }
+
+    // x, y is in 0-based coordinates
+    method Array getLegalMovesAt(int x, int y) {
+        var Array ret;
+        var Piece piece;
+        // TODO optimize
+        let ret = Array.new(32);
+
+        let piece = getPieceAt(x, y);
+
+        if (piece = 0) {
+            return ret;
+        }
+
+        return ret;
     }
 
 }

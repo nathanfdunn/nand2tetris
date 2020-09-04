@@ -2,6 +2,58 @@ import os.path
 
 dedupe = True
 
+eightByEight = '''
+King        Queen       Bishop  
+////////    ////////    ////////
+///#.#//    /#.#.#.#    ///#.#//
+//#...#/    //#...#/    //##..#/
+///#.#//    ///###//    //#.#.#/
+///###//    //#...#/    ///###//
+//#...#/    //#...#/    //#...#/
+//#...#/    //#...#/    //#...#/
+//#.#.#/    //#.#.#/    //#.#.#/
+
+kNight      Rook        Pawn    
+////////    ////////    ////////
+////////    /#.#.#.#    ////////
+//#..#//    /#.....#    ////////
+/#....#/    /##...##    ///#.#//
+///#..#/    //#...#/    //#...#/
+//#..#//    //#...#/    ///#.#//
+//#...#/    //#...#/    //#...#/
+//#...#/    //#...#/    //#...#/
+'''
+
+bishop3 = '''\
+                
+      XX--XX    
+    XXXX----XX  
+    XX--XX--XX  
+      XXXXXX    
+    XX------XX  
+    XX------XX  
+    XX--XX--XX  
+'''
+
+def double(string):
+  ret = ''
+  for c in string:
+    ret += c + c
+  return ret
+
+eightByEight = (eightByEight
+    .replace(' ', '*')
+    .replace('/', ' ')
+    .replace('.', '-')
+    .replace('#', 'X')
+    )
+eightByEight = '\n'.join(
+  double(line) for line in eightByEight.split('\n')
+  )
+
+print(eightByEight)
+
+
 rook = '''\
                                 
       XXXX    XXXX    XXXX      
@@ -472,3 +524,6 @@ with open(path, 'a') as file:
 	file.write('''
 }
 		''')
+
+exportPico8(bishop3)
+  

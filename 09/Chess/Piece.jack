@@ -4,8 +4,6 @@ class Piece {
     // 1 = pawn, 2 = knight, 3 = bishop, 4 = rook, 5 = queen, 6 = king
     field int pieceType;
 
-    field Array bitMap;
-
     static Array pieceMapWhite;
     static Array pieceMapBlack;
 
@@ -66,79 +64,12 @@ class Piece {
             do Sprites.drawKing(x, y, squareColor, color);
         }
 
-        // if (bitMap = 0){
-        //     return;
-        // }
-        // // else{
-        // //     do Output.printString("h");
-        // // }
-        
-        // let i = 0;
-        // let j = 0;
-
-        // // do Screen.drawRectangle(x, y, x + 10, y + 10);
-
-        // while (i < 16){
-        //     let curString = bitMap[i];
-        //     let j = 0;
-        //     while (j < 32){
-        //         let current = curString.charAt(j);
-
-        //         // do Screen.setColor(true);
-        //         // do Screen.drawPixel(x + i, y + (j/2));//, x+i, j + j);
-        //         // do Screen.drawPixel(x + 1, y);//, x+i, j + j);
-        //         // do Screen.drawPixel(x + 2, y);//, x+i, j + j);
-
-        //         if (current = 45){      // '-'
-        //             do Screen.setColor(~color);
-        //             do Screen.drawPixel(x + (j / 2), y + i);
-        //         }
-        //         if (current = 88){       // 'X'
-        //             do Screen.setColor(true);
-        //             do Screen.drawPixel(x + (j / 2), y + i);
-        //         }
-
-
-        //         //do Output.printChar(current);
-
-        //         let j = j + 2;
-        //     }
-        //     let i = i + 1;
-        // }
-
-        // while (i8 < 16){
-        //     while (j8 < 16){
-        //         do Screen.drawPixel(x + i8, y + j8);
-        //         let j8 = j8 + 1;
-        //     }
-        //     let i8 = i8 + 1;
-        // }
-
         return;
     }
 
     constructor Piece pawn(boolean _color){
         let color = _color;
         let pieceType = 1;
-
-        // let bitMap = Array.new(16);
-
-        // let bitMap[ 0] = "                                ";
-        // let bitMap[ 1] = "                                ";
-        // let bitMap[ 2] = "                                ";
-        // let bitMap[ 3] = "              XXXXXX            ";
-        // let bitMap[ 4] = "            XX------XX          ";
-        // let bitMap[ 5] = "            XX------XX          ";
-        // let bitMap[ 6] = "            XX------XX          ";
-        // let bitMap[ 7] = "              XX--XX            ";
-        // let bitMap[ 8] = "            XX------XX          ";
-        // let bitMap[ 9] = "            XX------XX          ";
-        // let bitMap[10] = "          XX----------XX        ";
-        // let bitMap[11] = "          XX----------XX        ";
-        // let bitMap[12] = "          XX----------XX        ";
-        // let bitMap[13] = "        XXXX----------XXXX      ";
-        // let bitMap[14] = "        XXXXXXXXXXXXXXXXXX      ";
-        // let bitMap[15] = "                                ";
 
         return this;
     }
@@ -147,25 +78,6 @@ class Piece {
         let color = _color;
         let pieceType = 2;
 
-        // let bitMap = Array.new(16);
-
-        // let bitMap[ 0] = "                                ";
-        // let bitMap[ 1] = "                                ";
-        // let bitMap[ 2] = "                                ";
-        // let bitMap[ 3] = "                                ";
-        // let bitMap[ 4] = "                                ";
-        // let bitMap[ 5] = "                                ";
-        // let bitMap[ 6] = "                                ";
-        // let bitMap[ 7] = "                                ";
-        // let bitMap[ 8] = "                                ";
-        // let bitMap[ 9] = "        XX----------XX          ";
-        // let bitMap[10] = "        XX------------XX        ";
-        // let bitMap[11] = "        XX------------XX        ";
-        // let bitMap[12] = "        XX------------XX        ";
-        // let bitMap[13] = "      XXXX------------XXXX      ";
-        // let bitMap[14] = "      XXXXXXXXXXXXXXXXXXXX      ";
-        // let bitMap[15] = "                                ";
-
         return this;
     }
 
@@ -173,51 +85,12 @@ class Piece {
         let color = _color;
         let pieceType = 3;
 
-        // let bitMap = Array.new(16);
-
-        //                 //--  --  --  --  --  --  --  -- 
-        // let bitMap[ 0] = "                                ";
-        // let bitMap[ 1] = "                XX              ";
-        // let bitMap[ 2] = "              XX  XX            ";
-        // let bitMap[ 3] = "                XX              ";
-        // let bitMap[ 4] = "              XX                ";
-        // let bitMap[ 5] = "            XX                  ";
-        // let bitMap[ 6] = "                                ";
-        // let bitMap[ 7] = "                                ";
-        // let bitMap[ 8] = "                                ";
-        // let bitMap[ 9] = "        XX----------XX          ";
-        // let bitMap[10] = "          XX----------XX        ";
-        // let bitMap[11] = "        XX------------XX        ";
-        // let bitMap[12] = "        XX------------XX        ";
-        // let bitMap[13] = "      XXXX------------XXXX      ";
-        // let bitMap[14] = "      XXXXXXXXXXXXXXXXXXXX      ";
-        // let bitMap[15] = "                                ";
-
         return this;
     }
 
     constructor Piece rook(boolean _color){
         let color = _color;
         let pieceType = 4;
-
-        // let bitMap = Array.new(16);
-
-        // let bitMap[ 0] = "                                ";
-        // let bitMap[ 1] = "      XXXX    XXXX    XXXX      ";
-        // let bitMap[ 2] = "      XX--XXXX----XXXX--XX      ";
-        // let bitMap[ 3] = "      XX----------------XX      ";
-        // let bitMap[ 4] = "      XXXXXXXXXXXXXXXXXXXX      ";
-        // let bitMap[ 5] = "        XX------------XX        ";
-        // let bitMap[ 6] = "        XX------------XX        ";
-        // let bitMap[ 7] = "        XX------------XX        ";
-        // let bitMap[ 8] = "        XX------------XX        ";
-        // let bitMap[ 9] = "        XX------------XX        ";
-        // let bitMap[10] = "        XX------------XX        ";
-        // let bitMap[11] = "        XX------------XX        ";
-        // let bitMap[12] = "      XXXXXXXXXXXXXXXXXXXX      ";
-        // let bitMap[13] = "      XX----------------XX      ";
-        // let bitMap[14] = "      XXXXXXXXXXXXXXXXXXXX      ";
-        // let bitMap[15] = "                                ";
 
         return this;
     }
