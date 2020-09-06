@@ -3,6 +3,19 @@ class Board {
 
     field boolean hasChanges;
 
+    static boolean debug;
+
+    // static int boardDim;
+
+    function void init() {
+        let debug = true;
+        return;
+    }
+
+    // function boolean getDebug() {
+    //     return debug;
+    // }
+
     method boolean getHasChanges() {
         return hasChanges;
     }
@@ -30,46 +43,51 @@ class Board {
             let i = i + 1;
         }
 
-        let temp = ranks[0];
-        let temp[0] = Piece.rook(false);
-        let temp[1] = Piece.knight(false);
-        let temp[2] = Piece.bishop(false);
-        let temp[3] = Piece.queen(false);
-        let temp[4] = Piece.king(false);
-        let temp[5] = Piece.bishop(false);
-        let temp[6] = Piece.knight(false);
-        let temp[7] = Piece.rook(false);
+        if (debug) {
+            let temp = ranks[3];
+            let temp[3] = Piece.knight(true);
+        }
+        else {
+            let temp = ranks[0];
+            let temp[0] = Piece.rook(false);
+            let temp[1] = Piece.knight(false);
+            let temp[2] = Piece.bishop(false);
+            let temp[3] = Piece.queen(false);
+            let temp[4] = Piece.king(false);
+            let temp[5] = Piece.bishop(false);
+            let temp[6] = Piece.knight(false);
+            let temp[7] = Piece.rook(false);
 
-        let temp = ranks[1];
-        let temp[0] = Piece.pawn(false);
-        let temp[1] = Piece.pawn(false);
-        let temp[2] = Piece.pawn(false);
-        let temp[3] = Piece.pawn(false);
-        let temp[4] = Piece.pawn(false);
-        let temp[5] = Piece.pawn(false);
-        let temp[6] = Piece.pawn(false);
-        let temp[7] = Piece.pawn(false);
+            let temp = ranks[1];
+            let temp[0] = Piece.pawn(false);
+            let temp[1] = Piece.pawn(false);
+            let temp[2] = Piece.pawn(false);
+            let temp[3] = Piece.pawn(false);
+            let temp[4] = Piece.pawn(false);
+            let temp[5] = Piece.pawn(false);
+            let temp[6] = Piece.pawn(false);
+            let temp[7] = Piece.pawn(false);
 
-        let temp = ranks[6];
-        let temp[0] = Piece.pawn(true);
-        let temp[1] = Piece.pawn(true);
-        let temp[2] = Piece.pawn(true);
-        let temp[3] = Piece.pawn(true);
-        let temp[4] = Piece.pawn(true);
-        let temp[5] = Piece.pawn(true);
-        let temp[6] = Piece.pawn(true);
-        let temp[7] = Piece.pawn(true);
+            let temp = ranks[6];
+            let temp[0] = Piece.pawn(true);
+            let temp[1] = Piece.pawn(true);
+            let temp[2] = Piece.pawn(true);
+            let temp[3] = Piece.pawn(true);
+            let temp[4] = Piece.pawn(true);
+            let temp[5] = Piece.pawn(true);
+            let temp[6] = Piece.pawn(true);
+            let temp[7] = Piece.pawn(true);
 
-        let temp = ranks[7];
-        let temp[0] = Piece.rook(true);
-        let temp[1] = Piece.knight(true);
-        let temp[2] = Piece.bishop(true);
-        let temp[3] = Piece.queen(true);
-        let temp[4] = Piece.king(true);
-        let temp[5] = Piece.bishop(true);
-        let temp[6] = Piece.knight(true);
-        let temp[7] = Piece.rook(true);
-
+            let temp = ranks[7];
+            let temp[0] = Piece.rook(true);
+            let temp[1] = Piece.knight(true);
+            let temp[2] = Piece.bishop(true);
+            let temp[3] = Piece.queen(true);
+            let temp[4] = Piece.king(true);
+            let temp[5] = Piece.bishop(true);
+            let temp[6] = Piece.knight(true);
+            let temp[7] = Piece.rook(true);
+        }
 
         return this;
     }
@@ -151,20 +169,97 @@ class Board {
         return rank[y];
     }
 
+    // squares, pseudoLegal, legal
+
     // x, y is in 0-based coordinates
     method Array getLegalMovesAt(int x, int y) {
-        var Array ret;
+        // i.e. could capture own piece, etc.
+        var Array validSquares;
+        var Array pseudoLegal;
         var Piece piece;
+        var Square pos;
+        var Array ret;
+
+        let pos = Square.fromBoardIndices(x, y);
         // TODO optimize
         let ret = Array.new(32);
 
         let piece = getPieceAt(x, y);
 
+
+
         if (piece = 0) {
             return ret;
+        }
+        
+        if (piece.isPawn()) {
+            // return getLegalMovesForPawn(x, y, piece.getColor());
+        }
+
+        if (piece.isKnight()) {
+            let validSquares = getKnightSquares(pos);
         }
 
         return ret;
     }
+
+    // method Array getMoves
+
+    method Array getKnightSquares(Square start) {
+        var Square testSquare;
+        var Array ret;
+        var int index;
+
+        let index = 0;
+
+
+        // Maximum of 8, + 1 for the null marker
+        let ret = Array.new(9);
+
+        let testSquare = start.add(2, 3);
+        if (testSquare.isOnBoard()) {
+            let ret[index] = testSquare;
+            let index = index + 1;
+        }
+
+        return ret;
+    }
+
+    method Array getRookSquares(Square start) {
+        var Array ret;
+        var Square testSquare;
+        var int off;
+        var int index;
+        
+        let off = 7;
+        let ret = Array.new(32);
+        let index = 0;
+
+        while (off > -7) {
+            let testSquare = start.add(off, 0);
+            if (testSquare.isOnBoard()) {
+                let ret[index] = testSquare;
+                let index = index + 1;
+            }
+            
+            let testSquare = start.add(0, off);
+            if (testSquare.isOnBoard()) {
+                let ret[index] = testSquare;
+                let index = index + 1;
+            }
+        }
+
+        return ret;
+    }
+
+    method Array getBishopSquares(Square start) {
+        var Array ret;
+        var Square testSquare;
+        return ret;
+    }
+
+    // method Array getLegalMovesForPawn(int x, int y, boolean color) {
+    //     if (y = )
+    // }
 
 }

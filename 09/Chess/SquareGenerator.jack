@@ -1,0 +1,81 @@
+
+
+// Uses our algebra to generate all squares
+class SquareGenerator {
+	static Array kingSquares;
+
+	function void init() {
+		// DEBUG
+		var Array testArr;
+		var int arrLen;
+
+		let arrLen = 3;
+		let testArr = Array.new(arrLen);
+		let testArr[0] = Square.fromBoardIndices(0, 0);
+		let testArr[1] = Square.fromBoardIndices(3, 2);
+		let testArr[2] = Square.fromBoardIndices(6, 5);
+		do SquareGenerator.printSquares(testArr, arrLen);
+
+		do Output.println();
+
+		let testArr = SquareGenerator.multiplyScalar(testArr, arrLen, 2);
+		do SquareGenerator.printSquares(testArr, arrLen);
+		return;
+		// END DEBUG
+	}
+
+	function void printSquares(Array squares, int length) {
+		var Square temp;
+
+		let length = length - 1;
+		while (length > -1) {
+			let temp = squares[length];
+			do Output.printString(temp.toString());
+			do Output.println();
+			let length = length - 1;
+		}
+
+		return;
+	}
+
+	// function Array riderClosure(Array arr, int length) {
+
+	// }
+
+	// // Arrays must be of same length
+	// function Array zipUnion(Array arr1, Array arr2, int length) {
+
+	// }
+
+	// // Arrays must be of same length
+	// // permute option allows elminiating permute function.
+	// // This is called a cyclic self sum
+	// function Array addElements(Array arr1, Array arr2, int length, boolean permute) {
+
+	// }
+
+	// function Array permute(Array arr, int length) {
+
+	// }
+
+
+	// function Array transposeElements(Array arr, int length) {
+
+	// }
+
+	function Array multiplyScalar(Array arr, int length, int scalar) {
+		var Array ret;
+		var Square temp;
+
+		let ret = Array.new(length);
+
+		let length = length - 1;
+		while (length > -1) {
+			let temp = arr[length];
+			let ret[length] = temp.multiplyScalar(scalar);
+			let length = length - 1;
+		}
+
+		return ret;
+	}
+}

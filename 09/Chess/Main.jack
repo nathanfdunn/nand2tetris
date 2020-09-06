@@ -2,7 +2,6 @@
 
 
 class Main {
-    static Array commandBuffer;
     static Board board;
 
     function void main() {
@@ -17,10 +16,12 @@ class Main {
     }
 
     function void init() {
+        do Board.init();
+
         let board = Board.new();
         do Piece.init();
 
-        let commandBuffer = Array.new(32);
+        do SquareGenerator.init();
 
         return;
     }
