@@ -7,61 +7,177 @@ class SquareGenerator {
 	function void init() {
 		// DEBUG
 		var Array testArr;
+		var Array testArr2;
 		var int arrLen;
+		var int arrLen2;
+		var int index;
 
 		let arrLen = 3;
+
 		let testArr = Array.new(arrLen);
-		let testArr[0] = Square.fromBoardIndices(0, 0);
+		let testArr[0] = Square.fromBoardIndices(0, 1);
 		let testArr[1] = Square.fromBoardIndices(3, 2);
 		let testArr[2] = Square.fromBoardIndices(6, 5);
+
 		do SquareGenerator.printSquares(testArr, arrLen);
 
 		do Output.println();
 
-		let testArr = SquareGenerator.multiplyScalar(testArr, arrLen, 2);
-		do SquareGenerator.printSquares(testArr, arrLen);
+		// let testArr2 = Array.new();
+		// let testArr2[0] = Square.fromBoardIndices(2,4);
+		// let testArr2[1] = Square.fromBoardIndices(3,4);
+		// let testArr2[2] = Square.fromBoardIndices(9,5);
+
+		let testArr2 = SquareGenerator.riderClosure(testArr, arrLen);
+
+		// let testArr = SquareGenerator.transposeElements(testArr, arrLen);
+		// let testArr = SquareGenerator.addElements(testArr, testArr2, arrLen, true);
+		let arrLen2 = Math.multiply(arrLen, SquareGenerator.getRiderDist());
+		// let testArr2 = Array.new(arrLen2);
+		// // do Output.printInt(arrLen2);
+		// // do Output.println();
+		// let index = 0;
+		// while (index < arrLen2) {
+		// 	let testArr2[index] = Square.fromBoardIndices(0,0);
+		// 	let index = index + 1;
+		// }
+
+		do SquareGenerator.printSquares(testArr2, arrLen2);
+
 		return;
 		// END DEBUG
 	}
 
 	function void printSquares(Array squares, int length) {
 		var Square temp;
+		var int index;
 
-		let length = length - 1;
-		while (length > -1) {
-			let temp = squares[length];
-			do Output.printString(temp.toString());
-			do Output.println();
-			let length = length - 1;
+		let index = 0;
+		while (index < length) {
+			let temp = squares[index];
+			if (temp = 0) {
+				do Output.printString("NULL");
+				do Output.println();
+			}
+			else {
+				do Output.printString(temp.toString());
+				do Output.println();
+			}
+
+			let index = index + 1;
 		}
 
 		return;
 	}
 
-	// function Array riderClosure(Array arr, int length) {
+	function int getRiderDist() {
+		return 8;
+	}
+
+	function Array riderClosure(Array arr, int length) {
+		var Array ret;
+		var Array step;
+		var int maxDist;
+		var int distance;
+		var int retIndex;
+		var int index;
+		let maxDist = SquareGenerator.getRiderDist();
+		let ret = Array.new(Math.multiply(maxDist, length));
+		let retIndex = 0;
+
+		// Initialize step to 0 vectors
+		let step = Array.new(length);
+		let index = 0;
+		while (index < length) {
+			let step[index] = Square.fromBoardIndices(0, 0);
+			let index = index + 1;
+		}
+
+		// This will effectively be distance + 1...
+		let distance = 0;
+		while (distance < maxDist) {
+			let step = SquareGenerator.addElements(arr, step, length, false);
+		// do SquareGenerator.printSquares(ret, Math.multiply(maxDist, length));
+
+			// Copy step to the output array
+			let index = 0;
+			while (index < length) {
+				let ret[retIndex] = step[index];
+				let index = index + 1;
+				let retIndex = retIndex + 1;
+			}
+
+			let distance = distance + 1;
+		}
+
+		return ret;
+	}
+
+	// function Array union(Array arr1, int length1, Array arr2, int length2) {
 
 	// }
 
-	// // Arrays must be of same length
-	// function Array zipUnion(Array arr1, Array arr2, int length) {
+	// Like union, but interleaves elements
+	// Arrays must be of same length
+	function Array zipUnion(Array arr1, Array arr2, int length) {
+		var Array ret;
 
-	// }
+		let ret = Array.new(2 * length);
 
-	// // Arrays must be of same length
-	// // permute option allows elminiating permute function.
-	// // This is called a cyclic self sum
-	// function Array addElements(Array arr1, Array arr2, int length, boolean permute) {
+		let length = length - 1;
+		while (length > -1) {
+			let ret[2 * length] = arr1[length];
+			let ret[(2 * length) + 1] = arr2[length];
+			let length = length - 1;
+		}
 
-	// }
+		return ret;
+	}
 
-	// function Array permute(Array arr, int length) {
+	// Arrays must be of same length
+	// permute option allows elminiating separate permute function.
+	// This is called a cyclic self sum
+	function Array addElements(Array arr1, Array arr2, int length, boolean permute) {
+		var Array ret;
+		var Square temp;
+		var int index;
+		var int index2;
+		
+		let ret = Array.new(length);
 
-	// }
+		let index = 0;
+		while (index < length) {
+			if (permute) {
+				let index2 = Util.modularIncrement(index, length);
+			}
+			else {
+				let index2 = index;
+			}
+			let temp = arr1[index];
 
+			let ret[index] = temp.addSquare(arr2[index2]);
 
-	// function Array transposeElements(Array arr, int length) {
+			let index = index + 1;
+		}
 
-	// }
+		return ret;
+	}
+
+	function Array transposeElements(Array arr, int length) {
+		var Array ret;
+		var Square temp;
+
+		let ret = Array.new(length);
+
+		let length = length - 1;
+		while (length > -1) {
+			let temp = arr[length];
+			let ret[length] = Square.fromBoardIndices(temp.getY(), temp.getX());
+			let length = length - 1;
+		}
+
+		return ret;
+	}
 
 	function Array multiplyScalar(Array arr, int length, int scalar) {
 		var Array ret;

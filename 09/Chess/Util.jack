@@ -82,4 +82,14 @@ class Util {
 		}
 	}
 
+	// Requires 0 <= value < 2*modulus - 1
+	function int modularIncrement(int value, int modulus) {
+		let value = value + 1;
+		if (value > (modulus - 1)) {
+			let value = value - modulus;
+		}
+
+		return value;
+	}
+
 }
