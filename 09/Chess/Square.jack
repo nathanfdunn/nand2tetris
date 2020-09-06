@@ -45,10 +45,26 @@ class Square {
 
 	method String toString() {
 		var String ret;
-		let ret = String.new(3);
-		do ret.appendChar(Util.digitToChar(x));
+		let ret = String.new(5);
+		if (x < 0) {
+			do ret.appendChar(45);		// '-'
+			do ret.appendChar(Util.digitToChar(-x));
+		}
+		else {
+			do ret.appendChar(32);		// ' '
+			do ret.appendChar(Util.digitToChar(x));
+		}
+
 		do ret.appendChar(44);		// ','
-		do ret.appendChar(Util.digitToChar(y));
+
+		if (y < 0) {
+			do ret.appendChar(45);		// '-'
+			do ret.appendChar(Util.digitToChar(-y));
+		}
+		else {
+			do ret.appendChar(32);		// ' '
+			do ret.appendChar(Util.digitToChar(y));
+		}
 
 		return ret;
 	}

@@ -3,49 +3,73 @@
 // Uses our algebra to generate all squares
 class SquareGenerator {
 	static Array kingSquares;
+	static Array queenSquares;
+	static Array bishopSquares;
+	static Array rookSquares;
+	static Array knightSquares;
+
 
 	function void init() {
-		// DEBUG
-		var Array testArr;
-		var Array testArr2;
-		var int arrLen;
-		var int arrLen2;
-		var int index;
+		// proto pawn that can only move forward
+		var Array p0;
+		// proto pawn that can move forward or backward
+		var Array p1;
 
-		let arrLen = 3;
+		// Fairy chess pieces are useful intermediary steps
+		var Array wazirSquares;
+		var Array ferzSquares;
 
-		let testArr = Array.new(arrLen);
-		let testArr[0] = Square.fromBoardIndices(0, 1);
-		let testArr[1] = Square.fromBoardIndices(3, 2);
-		let testArr[2] = Square.fromBoardIndices(6, 5);
+		let p0 = Array.new(1);
+		let p0[0] = Square.fromBoardIndices(0, 1);
 
-		do SquareGenerator.printSquares(testArr, arrLen);
+		let p1 = SquareGenerator.zipUnion(
+			p0,
+			SquareGenerator.multiplyScalar(p0, 1, -1),
+			1
+		);
 
-		do Output.println();
+		let wazirSquares = SquareGenerator.zipUnion(
+			p1,
+			SquareGenerator.transposeElements(p1, 2),
+			2
+		);
 
-		// let testArr2 = Array.new();
-		// let testArr2[0] = Square.fromBoardIndices(2,4);
-		// let testArr2[1] = Square.fromBoardIndices(3,4);
-		// let testArr2[2] = Square.fromBoardIndices(9,5);
+		let ferzSquares = SquareGenerator.addElements(
+			wazirSquares,
+			wazirSquares,
+			4,
+			true
+		);
 
-		let testArr2 = SquareGenerator.riderClosure(testArr, arrLen);
+		let kingSquares = SquareGenerator.zipUnion(
+			wazirSquares,
+			ferzSquares,
+			4
+		);
 
-		// let testArr = SquareGenerator.transposeElements(testArr, arrLen);
-		// let testArr = SquareGenerator.addElements(testArr, testArr2, arrLen, true);
-		let arrLen2 = Math.multiply(arrLen, SquareGenerator.getRiderDist());
-		// let testArr2 = Array.new(arrLen2);
-		// // do Output.printInt(arrLen2);
-		// // do Output.println();
-		// let index = 0;
-		// while (index < arrLen2) {
-		// 	let testArr2[index] = Square.fromBoardIndices(0,0);
-		// 	let index = index + 1;
-		// }
+		let knightSquares = SquareGenerator.addElements(
+			kingSquares,
+			kingSquares,
+			8,
+			true
+		);
 
-		do SquareGenerator.printSquares(testArr2, arrLen2);
+		let bishopSquares = SquareGenerator.riderClosure(
+			ferzSquares,
+			4
+		);
+
+		let rookSquares = SquareGenerator.riderClosure(
+			wazirSquares,
+			4
+		);
+
+		let queenSquares = SquareGenerator.riderClosure(
+			kingSquares,
+			8
+		);
 
 		return;
-		// END DEBUG
 	}
 
 	function void printSquares(Array squares, int length) {
