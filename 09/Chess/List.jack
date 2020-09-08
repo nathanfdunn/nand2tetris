@@ -1,0 +1,176 @@
+class List {
+	field Array data;
+	field int length;
+	field int maxLength;
+
+	function int defaultLength() {
+		return 16;
+	}
+
+	function void init() {
+		var List test;
+		var int index;
+		var Array base;
+
+		let base = Array.new(3);
+
+		let base[0] = "hi";
+		let base[1] = "there";
+		let base[2] = "youo";
+
+		let test = List.newFromArray(base, 3);
+
+
+		do Output.printInt(test.getLength());
+		do Output.printInt(test.getMaxLength());
+		do Output.println();
+
+		do test.printStringList();
+
+
+        do Keyboard.readLine(">");
+
+		// do test.setElement(0, "Hi");
+		// do test.setElement(1, "there");
+		// do test.setElement(2, "you");
+
+		// let index = 0;
+		// while (index < 45) {
+		// 	do test.append("something");
+		// 	let index = index + 1;
+		// }
+
+		do test.append("ok");
+
+
+
+		do Output.printInt(test.getMaxLength());
+		do Output.println();
+		do Output.printInt(test.getLength());
+
+		do Output.printString(test.getElement(3));
+
+        do Keyboard.readLine(">");
+
+
+		do test.printStringList();
+
+        do test.dispose();
+
+		return;
+	}
+
+	constructor List newFromArray(Array data_, int length_) {
+		var int i;
+		if (length_ = 0) {
+			do initEmpty();
+			return this;
+		}
+
+		if (length_ < List.defaultLength()) {
+			let maxLength = List.defaultLength();
+		}
+		else {
+			let maxLength = length_ + List.defaultLength();
+		}
+
+		let data = Array.new(maxLength);
+		let i = length_ - 1;
+		while (i > 0) {
+			let data[i] = data_[i];
+			let i = i - 1;
+		}
+
+
+		let data = data_;
+		let length = length_;
+
+		return this;
+	}
+
+	method void initEmpty() {
+		let maxLength = List.defaultLength();
+		let data = Array.new(maxLength);
+		let length = 0;
+		return;
+	}
+
+	constructor List empty() {
+		do initEmpty();
+		return this;
+	}
+
+	constructor List newFromLength(int length_) {
+		if (length_ < List.defaultLength()) {
+			let maxLength = List.defaultLength();
+		}
+		else {
+			let maxLength = length_;
+		}
+
+		let data = Array.new(maxLength);
+		let length = length_;
+
+		return this;
+	}
+
+	method void setElement(int index, int object) {
+		// todo bounds checking
+		let data[index] = object;
+		return;
+	}
+
+	method int getElement(int index) {
+		// todo bounds checking
+		return data[index];
+	}
+
+	method int getLength() {
+		return length;
+	}
+
+	method int getMaxLength() {
+		return maxLength;
+	}
+
+	method void append(int object) {
+		var Array newData;
+		var int index;
+		if ((length + 1) > maxLength) {
+			let newData = Array.new(Math.multiply(2, maxLength));
+			let index = 0;
+			while (index < length) {
+				let newData[index] = data[index];
+				let index = index + 1;
+			}
+			do data.dispose();
+			let data = newData;
+			let maxLength = Math.multiply(2, maxLength);
+		}
+
+		let data[length] = object;
+		let length = length + 1;
+		return;
+	}
+
+	method void dispose() {
+		do data.dispose();
+
+		return;
+	}
+
+	// Prints as string
+    method void printStringList() {
+        var int i;
+        var String temp;
+        let i = 0;
+        while (i < length) {
+            let temp = data[i];
+            do Output.printString(temp);
+            do Output.println();
+            let i = i + 1;
+        }
+
+        return;
+    }
+}

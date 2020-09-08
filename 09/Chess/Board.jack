@@ -172,7 +172,7 @@ class Board {
     // squares, pseudoLegal, legal
 
     // x, y is in 0-based coordinates
-    method Array getLegalMovesAt(int x, int y) {
+    method List getLegalMovesAt(int x, int y) {
         // i.e. could capture own piece, etc.
         var Array validSquares;
         var Array pseudoLegal;
@@ -181,8 +181,6 @@ class Board {
         var Array ret;
 
         let pos = Square.fromBoardIndices(x, y);
-        // TODO optimize
-        let ret = Array.new(32);
 
         let piece = getPieceAt(x, y);
 
@@ -197,69 +195,23 @@ class Board {
         }
 
         if (piece.isKnight()) {
-            let validSquares = getKnightSquares(pos);
+            // let validSquares = getKnightSquares(pos);
         }
 
         return ret;
     }
 
-    // method Array getMoves
-
-    method Array getKnightSquares(Square start) {
-        var Square testSquare;
+    method Array getPotentialSquares(Square pos, Array offsets, int offsetsLength) {
         var Array ret;
-        var int index;
+        let ret = Array.new(offsetsLength);
 
-        let index = 0;
-
-
-        // Maximum of 8, + 1 for the null marker
-        let ret = Array.new(9);
-
-        let testSquare = start.add(2, 3);
-        if (testSquare.isOnBoard()) {
-            let ret[index] = testSquare;
-            let index = index + 1;
+        let offsetsLength = offsetsLength - 1;
+        while (offsetsLength > -1) {
+            let ret[offsetsLength] = pos.addSquare(offsets[offsetsLength]);
+            let offsetsLength = offsetsLength - 1;
         }
 
         return ret;
     }
-
-    method Array getRookSquares(Square start) {
-        var Array ret;
-        var Square testSquare;
-        var int off;
-        var int index;
-        
-        let off = 7;
-        let ret = Array.new(32);
-        let index = 0;
-
-        while (off > -7) {
-            let testSquare = start.add(off, 0);
-            if (testSquare.isOnBoard()) {
-                let ret[index] = testSquare;
-                let index = index + 1;
-            }
-            
-            let testSquare = start.add(0, off);
-            if (testSquare.isOnBoard()) {
-                let ret[index] = testSquare;
-                let index = index + 1;
-            }
-        }
-
-        return ret;
-    }
-
-    method Array getBishopSquares(Square start) {
-        var Array ret;
-        var Square testSquare;
-        return ret;
-    }
-
-    // method Array getLegalMovesForPawn(int x, int y, boolean color) {
-    //     if (y = )
-    // }
 
 }

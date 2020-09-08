@@ -21,7 +21,10 @@ class Main {
         let board = Board.new();
         do Piece.init();
 
-        do SquareGenerator.init();
+        // TODO
+        // do SquareGenerator.init();
+
+        do List.init();
 
         return;
     }

@@ -1,6 +1,7 @@
 
 
 // Uses our algebra to generate all squares
+// Reminisicent of Betza Notation https://en.wikipedia.org/wiki/Betza%27s_funny_notation
 class SquareGenerator {
 	static Array kingSquares;
 	static Array queenSquares;
@@ -217,5 +218,33 @@ class SquareGenerator {
 		}
 
 		return ret;
+	}
+
+	// Returns a 2-valued array, [offsets, offsetsLength]
+	function List getOffsetsByPiece(Piece piece) {
+
+		// TODO pawn??
+
+		if (piece.isKnight()) {
+			return List.newFromArray(knightSquares, 8);
+		}
+
+		if (piece.isBishop()) {
+			return List.newFromArray(bishopSquares, 32);
+		}
+
+		if (piece.isRook()) {
+			return List.newFromArray(rookSquares, 32);
+		}
+
+		if (piece.isQueen()) {
+			return List.newFromArray(queenSquares, 64);
+		}
+
+		if (piece.isKing()) {
+			return List.newFromArray(kingSquares, 8);
+		}
+
+		return 0;
 	}
 }
