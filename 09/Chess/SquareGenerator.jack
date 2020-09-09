@@ -225,24 +225,30 @@ class SquareGenerator {
 
 		// TODO pawn??
 
+		if (piece.isKing()) {
+			return List.newFromArray(kingSquares, 8);
+		}
+
 		if (piece.isKnight()) {
 			return List.newFromArray(knightSquares, 8);
 		}
 
 		if (piece.isBishop()) {
-			return List.newFromArray(bishopSquares, 32);
+			return List.newFromArray(bishopSquares, Math.multiply(
+				SquareGenerator.getRiderDist(), 4
+			));
 		}
 
 		if (piece.isRook()) {
-			return List.newFromArray(rookSquares, 32);
+			return List.newFromArray(rookSquares, Math.multiply(
+				SquareGenerator.getRiderDist(), 4
+			));
 		}
 
 		if (piece.isQueen()) {
-			return List.newFromArray(queenSquares, 64);
-		}
-
-		if (piece.isKing()) {
-			return List.newFromArray(kingSquares, 8);
+			return List.newFromArray(queenSquares, Math.multiply(
+				SquareGenerator.getRiderDist(), 8
+			));
 		}
 
 		return 0;

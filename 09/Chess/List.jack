@@ -7,67 +7,29 @@ class List {
 		return 16;
 	}
 
-	method void incLength() {
-		let length = length + 1;
-		return;
-	}
-
 	function void init() {
-		var List test;
-		var int index;
-		var Array base;
-		var String junk;
-		let index = 0;
+		// var List test;
+		// var int index;
+		// var Array base;
+		// var String junk;
+		// let index = 0;
 
-		let base = Array.new(4);
+		// let base = Array.new(4);
 
-		let base[0] = "hi";
-		let base[1] = "there";
-		let base[2] = "you";
+		// let base[0] = "hi";
+		// let base[1] = "there";
+		// let base[2] = "you";
 
-		let test = List.newFromArray(base, 3);
-
-		// let test = List.empty(); //List.newFromLength(4);
 		// let test = List.newFromArray(base, 3);
-
+		// do Output.printInt(test.getLength());
+		// while (index < 75) {
+		// 	do test.append("ok");
+		// 	let index = index + 1;
+		// }
 		// do test.printStringList();
-		do Output.printInt(test.getLength());
-		// let junk = Keyboard.readLine("p");
-		while (index < 75) {
-			do test.append("ok");
-		// do test.setElement(index, "ok");
-		// do test.incLength();
-			let index = index + 1;
-		}
-		// let junk = Keyboard.readLine("p");
-
-		// do test.pop();
 
 		// do Output.printInt(test.getLength());
 		// do Output.printInt(test.getMaxLength());
-		// do Output.println();
-
-		// let junk = Keyboard.readLine("p");
-
-		do test.printStringList();
-
-		// do test.append("ok");
-		// do Output.printString(test.pop());
-
-		// do test.printStringList();
-
-		// do test.printStringList();
-
-		// // while (index < 13) {
-		// 	do test.append("ok");
-		// // }
-
-		do Output.printInt(test.getLength());
-		do Output.printInt(test.getMaxLength());
-
-  //       do Keyboard.readLine(">");
-
-		// do test.printStringList();
 
 		return;
 	}
@@ -148,9 +110,14 @@ class List {
 		return maxLength;
 	}
 
-	method Array getArray() {
-		return data;
-	}
+	// method Array getArray() {
+	// 	return data;
+	// }
+
+	// method void incLength() {
+	// 	let length = length + 1;
+	// 	return;
+	// }
 
 	method void append(int object) {
 		var Array newData;

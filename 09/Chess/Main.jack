@@ -21,10 +21,9 @@ class Main {
         let board = Board.new();
         do Piece.init();
 
-        // TODO
-        // do SquareGenerator.init();
-
         do List.init();
+
+        do SquareGenerator.init();
 
         return;
     }
@@ -88,6 +87,12 @@ class Main {
             let board = Board.new();
             do Output.printString("Restarting Game");
             do Output.println();
+            return;
+        }
+
+        if (Util.strCmp(command, "TEST")){
+            let board = Board.new();
+            do board.printLegalMovesAt(3, 3);
             return;
         }
 

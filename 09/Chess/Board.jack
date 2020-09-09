@@ -169,36 +169,71 @@ class Board {
         return rank[y];
     }
 
-    // squares, pseudoLegal, legal
+
+    // TODO remove?    
+    method void printLegalMovesAt(int x, int y) {
+        var List moves;
+        var int index;
+        var Square square;
+        let moves = getLegalMovesAt(x, y);
+
+        if (moves = 0) {
+            do Output.printString("NULL");
+        }
+        else {
+            let index = moves.getLength() - 1;
+            while (index > -1) {
+                let square = moves.getElement(index);
+                do Output.printString(square.toString());
+                do Output.println();
+                
+                let index = index - 1;
+            }
+        }
+
+        return;
+    }
 
     // x, y is in 0-based coordinates
+    // TODO return Moves instead of Squares
     method List getLegalMovesAt(int x, int y) {
         // i.e. could capture own piece, etc.
-        var Array validSquares;
-        var Array pseudoLegal;
+        var List offsets;
+        var List pseudoLegal;
         var Piece piece;
         var Square pos;
         var Array ret;
-
-        let pos = Square.fromBoardIndices(x, y);
+        var int index;
+        var Square potentialSquare;
 
         let piece = getPieceAt(x, y);
 
-
-
         if (piece = 0) {
-            return ret;
+            return 0;
         }
+
+        let pos = Square.fromBoardIndices(x, y);
+
+        let offsets = SquareGenerator.getOffsetsByPiece(piece);
         
-        if (piece.isPawn()) {
-            // return getLegalMovesForPawn(x, y, piece.getColor());
+        let pseudoLegal = List.empty();
+
+        let index = offsets.getLength() - 1;
+
+        while (index > -1) {
+            let potentialSquare = offsets.getElement(index);
+            let potentialSquare = potentialSquare.addSquare(pos);
+            if (potentialSquare.isOnBoard()) {
+                do pseudoLegal.append(potentialSquare);
+            }
+
+            let index = index - 1;
         }
 
-        if (piece.isKnight()) {
-            // let validSquares = getKnightSquares(pos);
-        }
+        // TODO check legality
 
-        return ret;
+        return pseudoLegal;
+        // return ret;
     }
 
     method Array getPotentialSquares(Square pos, Array offsets, int offsetsLength) {
