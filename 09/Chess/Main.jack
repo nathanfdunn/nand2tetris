@@ -57,6 +57,11 @@ class Main {
 
     function void processCommand(String command) {
         var Move move;
+
+        var int index1;
+        var int index2;
+        var Piece piece;
+
         if (Util.strCmp(command, "")){
             return;
         }
@@ -91,8 +96,29 @@ class Main {
         }
 
         if (Util.strCmp(command, "TEST")){
-            let board = Board.new();
-            do board.printLegalMovesAt(3, 3);
+            // let index1 = 0;
+            // while (index1 < 8) {
+            //     let index2 = 0;
+            //     while (index2 < 8) {
+            //         let piece = board.getPieceAt(index1, index2);
+            //         if (~ (piece = 0)) {
+            //             do Output.printInt(index1);
+            //             do Output.printString(",");
+            //             do Output.printInt(index2);
+            //             do Output.printString(" ");
+            //             do Output.printInt(piece);
+            //             do Output.println();
+            //         }
+
+            //         let index2 = index2 + 1;
+            //     }
+
+            //     let index1 = index1 + 1;
+            // }
+
+            do Output.printString("2, 3");
+            do Output.println();
+            do board.printLegalMovesAt(2, 3);
             return;
         }
 

@@ -7,9 +7,11 @@ class Piece {
     static Array pieceMapWhite;
     static Array pieceMapBlack;
 
-    
+    method boolean isEnemy(Piece other) {
+        return ~(color = other.getColor());
+    }
 
-    function void init(){
+    function void init() {
         let pieceMapWhite = Array.new(7);
         let pieceMapWhite[1] = "P";
         let pieceMapWhite[2] = "N";

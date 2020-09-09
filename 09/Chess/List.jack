@@ -151,6 +151,18 @@ class List {
 		return;
 	}
 
+	// TODO optimize
+	method void extend(List other) {
+		var int index;
+		let index = 0;
+		while (index < other.getLength()) {
+			do append(other.getElement(index));
+			let index = index + 1;
+		}
+
+		return;
+	}
+
 	// Prints as string
     method void printStringList() {
         var int i;

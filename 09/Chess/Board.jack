@@ -166,7 +166,7 @@ class Board {
     method Piece getPieceAt(int x, int y) {
         var Array rank;
         let rank = ranks[y];
-        return rank[y];
+        return rank[x];
     }
 
 
@@ -194,17 +194,27 @@ class Board {
         return;
     }
 
+
+
     // x, y is in 0-based coordinates
     // TODO return Moves instead of Squares
+    // TODO put this in SquareGenerator or maybe even a different class
     method List getLegalMovesAt(int x, int y) {
         // i.e. could capture own piece, etc.
         var List offsets;
+        // var List potentials;
         var List pseudoLegal;
         var Piece piece;
         var Square pos;
-        var Array ret;
+        var List ret;
         var int index;
         var Square potentialSquare;
+        var Piece otherPiece;
+
+        var int dirIndex;
+        var int dirDist;
+        var int dirIndex;
+        var int riderDist;
 
         let piece = getPieceAt(x, y);
 
@@ -215,24 +225,86 @@ class Board {
         let pos = Square.fromBoardIndices(x, y);
 
         let offsets = SquareGenerator.getOffsetsByPiece(piece);
-        
-        let pseudoLegal = List.empty();
 
+
+
+        let riderDist = SquareGenerator.getRiderDist();
+
+        let dirIndex = Math.divide(offsets.getLength(), riderDist) - 1;
+
+        while (dirIndex > -1) {
+            let dirDist = 0;
+            while (dirDist < riderDist) {
+                let potentialSquare = offsets.getElement(Math.multiply(dirDist, riderDist) + dirIndex);
+                let potentialSquare = pos.add(potentialSquare);
+
+                if (~potentialSquare.isOnBoard()) {
+                    // break;
+                    let dirDist = riderDist;
+                }
+                else {
+                    let otherPiece = board.getPieceAtSquare(potentialSquare);
+
+                    if (otherPiece = 0) {
+                        // All good, and can keep going
+                        ret.append(potentialSquare);
+                        let dirDist = dirDist + 1;
+                    }
+                    else {
+                        if (piece.isEnemy(otherPiece)) {
+                            // Hey a capture! Can't go past this though
+                            ret.append(potentialSquare);
+                            let dirDist = riderDist;        // break;
+                        }
+                        else {
+                            // Can't capture friendly piece, we're blocked
+                            let dirDist = riderDist;        // break;
+                        }
+                    }
+                }
+            }
+
+            let dirIndex = dirIndex - 1;
+        }
+        // while (num)
+
+        // while (dirDist < )
+
+        // for dirIndex in range(dirCount):
+        //     for i in range(8):       // rider distance
+        //         x = offsets[i + dirIndex]
+        //         if x is capture:
+        //             append
+        //             i = 9;
+        //         elif x is friendlypiece or off board:
+        //             i = 9
+        //         else:
+        //             // do nothing and don't break;
+        //             i = i + 1
+
+        let potentials = List.empty();
         let index = offsets.getLength() - 1;
-
         while (index > -1) {
             let potentialSquare = offsets.getElement(index);
             let potentialSquare = potentialSquare.addSquare(pos);
             if (potentialSquare.isOnBoard()) {
-                do pseudoLegal.append(potentialSquare);
+                do potentials.append(potentialSquare);
             }
 
             let index = index - 1;
         }
 
+
+        // let pseudoLegal = List.empty();
+        // let index = potentials.getLength() - 1;
+        // while (index > -1) {
+        //     let potentialSquare = potentials.getElement(index);
+        //     let otherPiece = board.
+        // }
+
         // TODO check legality
 
-        return pseudoLegal;
+        return potentials;
         // return ret;
     }
 
