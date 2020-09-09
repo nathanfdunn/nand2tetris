@@ -25,18 +25,22 @@ class List {
 		let base[1] = "there";
 		let base[2] = "you";
 
-		// let test = List.newFromArray(base, 3);
+		let test = List.newFromArray(base, 3);
+
+		// let test = List.empty(); //List.newFromLength(4);
 		// let test = List.newFromArray(base, 3);
 
 		// do test.printStringList();
-
+		do Output.printInt(test.getLength());
 		// let junk = Keyboard.readLine("p");
-		while (index < 1) {
+		while (index < 4) {
 			do test.append("ok");
-		// do test.setElement(3, "ok");
+		// do test.setElement(index, "ok");
 		// do test.incLength();
-		// 	let index = index + 1;
+			let index = index + 1;
 		}
+		// let junk = Keyboard.readLine("p");
+
 		// do test.pop();
 
 		// do Output.printInt(test.getLength());
@@ -79,7 +83,7 @@ class List {
 			let maxLength = List.defaultLength();
 		}
 		else {
-			let maxLength = length_ + List.defaultLength();
+			let maxLength = length_;
 		}
 
 		let data = Array.new(maxLength);
@@ -89,7 +93,6 @@ class List {
 			let i = i - 1;
 		}
 
-		let data = data_;
 		let length = length_;
 
 		return this;
