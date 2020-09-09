@@ -7,55 +7,63 @@ class List {
 		return 16;
 	}
 
+	method void incLength() {
+		let length = length + 1;
+		return;
+	}
+
 	function void init() {
 		var List test;
 		var int index;
 		var Array base;
+		var String junk;
+		let index = 0;
 
-		let base = Array.new(3);
+		let base = Array.new(4);
 
 		let base[0] = "hi";
 		let base[1] = "there";
-		let base[2] = "youo";
+		let base[2] = "you";
 
-		let test = List.newFromArray(base, 3);
+		// let test = List.newFromArray(base, 3);
+		// let test = List.newFromArray(base, 3);
 
+		// do test.printStringList();
 
-		do Output.printInt(test.getLength());
-		do Output.printInt(test.getMaxLength());
-		do Output.println();
-
-		do test.printStringList();
-
-
-        do Keyboard.readLine(">");
-
-		// do test.setElement(0, "Hi");
-		// do test.setElement(1, "there");
-		// do test.setElement(2, "you");
-
-		// let index = 0;
-		// while (index < 45) {
-		// 	do test.append("something");
+		// let junk = Keyboard.readLine("p");
+		while (index < 1) {
+			do test.append("ok");
+		// do test.setElement(3, "ok");
+		// do test.incLength();
 		// 	let index = index + 1;
-		// }
+		}
+		// do test.pop();
 
-		do test.append("ok");
+		// do Output.printInt(test.getLength());
+		// do Output.printInt(test.getMaxLength());
+		// do Output.println();
 
-
-
-		do Output.printInt(test.getMaxLength());
-		do Output.println();
-		do Output.printInt(test.getLength());
-
-		do Output.printString(test.getElement(3));
-
-        do Keyboard.readLine(">");
-
+		// let junk = Keyboard.readLine("p");
 
 		do test.printStringList();
 
-        do test.dispose();
+		// do test.append("ok");
+		// do Output.printString(test.pop());
+
+		// do test.printStringList();
+
+		// do test.printStringList();
+
+		// // while (index < 13) {
+		// 	do test.append("ok");
+		// // }
+
+		// do Output.printInt(test.getLength());
+		// do Output.printInt(test.getMaxLength());
+
+  //       do Keyboard.readLine(">");
+
+		// do test.printStringList();
 
 		return;
 	}
@@ -76,11 +84,10 @@ class List {
 
 		let data = Array.new(maxLength);
 		let i = length_ - 1;
-		while (i > 0) {
+		while (i > -1) {
 			let data[i] = data_[i];
 			let i = i - 1;
 		}
-
 
 		let data = data_;
 		let length = length_;
@@ -101,6 +108,11 @@ class List {
 	}
 
 	constructor List newFromLength(int length_) {
+		if (length_ = 0) {
+			do initEmpty();
+			return this;
+		}
+
 		if (length_ < List.defaultLength()) {
 			let maxLength = List.defaultLength();
 		}
@@ -133,24 +145,34 @@ class List {
 		return maxLength;
 	}
 
+	method Array getArray() {
+		return data;
+	}
+
 	method void append(int object) {
 		var Array newData;
 		var int index;
 		if ((length + 1) > maxLength) {
-			let newData = Array.new(Math.multiply(2, maxLength));
-			let index = 0;
-			while (index < length) {
+			let maxLength = Math.multiply(2, maxLength);
+			let newData = Array.new(maxLength);
+			let index = length - 1;
+			while (index > -1) {
 				let newData[index] = data[index];
-				let index = index + 1;
+				let index = index - 1;
 			}
 			do data.dispose();
 			let data = newData;
-			let maxLength = Math.multiply(2, maxLength);
 		}
 
 		let data[length] = object;
 		let length = length + 1;
 		return;
+	}
+
+	method int pop() {
+		// todo check if non empty
+		let length = length - 1;
+		return data[length];
 	}
 
 	method void dispose() {
@@ -166,6 +188,8 @@ class List {
         let i = 0;
         while (i < length) {
             let temp = data[i];
+            do Output.printInt(i);
+            do Output.printString(": ");
             do Output.printString(temp);
             do Output.println();
             let i = i + 1;
