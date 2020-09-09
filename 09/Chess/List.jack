@@ -33,7 +33,7 @@ class List {
 		// do test.printStringList();
 		do Output.printInt(test.getLength());
 		// let junk = Keyboard.readLine("p");
-		while (index < 4) {
+		while (index < 75) {
 			do test.append("ok");
 		// do test.setElement(index, "ok");
 		// do test.incLength();
@@ -62,8 +62,8 @@ class List {
 		// 	do test.append("ok");
 		// // }
 
-		// do Output.printInt(test.getLength());
-		// do Output.printInt(test.getMaxLength());
+		do Output.printInt(test.getLength());
+		do Output.printInt(test.getMaxLength());
 
   //       do Keyboard.readLine(">");
 
