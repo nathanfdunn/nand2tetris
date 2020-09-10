@@ -13,6 +13,14 @@ class Move {
 		return this;
 	}
 
+	constructor Move fromSquares(Square start, Square end) {
+		let startFile = start.getX() + 1;
+		let startRank = start.getY() + 1;
+		let endFile = end.getX() + 1;
+		let endRank = end.getY() + 1;
+		return this;
+	}
+
 	method String toString() {
 		var String out;
 		let out = String.new(4);
@@ -42,6 +50,23 @@ class Move {
 
 	method int getEndRank() {
 		return endRank;
+	}
+
+
+	method int getStartX() {
+		return startFile - 1;
+	}
+
+	method int getStartY() {
+		return startRank - 1;
+	}
+
+	method int getEndX() {
+		return endFile - 1;
+	}
+
+	method int getEndY() {
+		return endRank - 1;
 	}
 
 }

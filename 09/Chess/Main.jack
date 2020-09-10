@@ -88,7 +88,12 @@ class Main {
             // do Output.println();
             let move = Commands.parseUciCommand(command);
             // do Output.printString(move.toString());
-            do board.makeMove(move);
+            if (board.moveIsLegal(move)) {
+                do board.makeMove(move);
+            }
+            else {
+                do Util.printLineString("INVALID MOVE");
+            }
 
             return;
         }

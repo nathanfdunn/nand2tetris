@@ -8,7 +8,7 @@ class Board {
     // static int boardDim;
 
     function void init() {
-        let debug = true;
+        let debug = false;
         return;
     }
 
@@ -192,7 +192,7 @@ class Board {
         do Output.printInt(y);
         do Output.println();
 
-        let moves = getLegalMovesAt(x, y);
+        let moves = getLegalSquaresAt(x, y);
 
         if (moves = 0) {
             do Output.printString("NULL");
@@ -212,11 +212,37 @@ class Board {
     }
 
 
+    method boolean moveIsLegal(Move move) {
+        var List legalSquares;
+        var Square square;
+        var int index;
+
+        let legalSquares = getLegalSquaresAt(move.getStartX(), move.getStartY());
+        if (legalSquares = 0) {
+            return false;
+        }
+
+        let index = legalSquares.getLength() - 1;
+        while (index > -1) {
+            let square = legalSquares.getElement(index);
+            if ((square.getX() = move.getEndX()) &
+                (square.getY() = move.getEndY())) {
+                return true;
+            }
+
+            let index = index - 1;
+        }
+
+        return false;
+    }
+    // method List getLegalMovesAt(int x, int y) {
+
+    // }
 
     // x, y is in 0-based coordinates
     // TODO return Moves instead of Squares
     // TODO put this in SquareGenerator or maybe even a different class
-    method List getLegalMovesAt(int x, int y) {
+    method List getLegalSquaresAt(int x, int y) {
         var List offsets;
         var Piece piece;
         var Square pos;
