@@ -120,6 +120,15 @@ class SquareGenerator {
 		return 8;
 	}
 
+	function int getRiderDistForPiece(Piece piece) {
+		// todo pawn
+		if (piece.isKnight() | piece.isKing()) {
+			return 1;
+		}
+
+		return SquareGenerator.getRiderDist();
+	}
+
 	function Array riderClosure(Array arr, int length) {
 		var Array ret;
 		var Array step;

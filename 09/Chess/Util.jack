@@ -92,4 +92,25 @@ class Util {
 		return value;
 	}
 
+	function void alertIfNull(int object) {
+		if (object = 0) {
+			do Output.printString("Object is null");
+			do Output.println();
+		}
+
+		return;
+	}
+
+	function void printLineString(String str) {
+		do Output.printString(str);
+		do Output.println();
+		return;
+	}
+
+	function void printLineInt(int val) {
+		do Output.printInt(val);
+		do Output.println();
+		return;
+	}
+
 }

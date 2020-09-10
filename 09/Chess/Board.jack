@@ -44,8 +44,8 @@ class Board {
         }
 
         if (debug) {
-            let temp = ranks[3];
-            let temp[3] = Piece.knight(true);
+            let temp = ranks[Main.getX()];
+            let temp[Main.getY()] = Piece.knight(true);
         }
         else {
             let temp = ranks[0];
@@ -169,12 +169,27 @@ class Board {
         return rank[x];
     }
 
+    method Piece getPieceAtSquare(Square square) {
+        return getPieceAt(square.getX(), square.getY());
+    }
+
 
     // TODO remove?    
-    method void printLegalMovesAt(int x, int y) {
+    method void printLegalMovesAt() {    
         var List moves;
         var int index;
         var Square square;
+        var int x;
+        var int y;
+
+        let x = Main.getX();
+        let y = Main.getY();
+
+        do Output.printInt(x);
+        do Output.printString(",");
+        do Output.printInt(y);
+        do Output.println();
+
         let moves = getLegalMovesAt(x, y);
 
         if (moves = 0) {
@@ -200,20 +215,15 @@ class Board {
     // TODO return Moves instead of Squares
     // TODO put this in SquareGenerator or maybe even a different class
     method List getLegalMovesAt(int x, int y) {
-        // i.e. could capture own piece, etc.
         var List offsets;
-        // var List potentials;
-        var List pseudoLegal;
         var Piece piece;
         var Square pos;
         var List ret;
-        var int index;
         var Square potentialSquare;
         var Piece otherPiece;
-
         var int dirIndex;
+        var int dirCount;
         var int dirDist;
-        var int dirIndex;
         var int riderDist;
 
         let piece = getPieceAt(x, y);
@@ -222,38 +232,54 @@ class Board {
             return 0;
         }
 
+        let ret = List.empty();
+
         let pos = Square.fromBoardIndices(x, y);
 
         let offsets = SquareGenerator.getOffsetsByPiece(piece);
 
+        let riderDist = SquareGenerator.getRiderDistForPiece(piece);
 
+        let dirCount = Math.divide(offsets.getLength(), riderDist);
+        let dirIndex = 0;
 
-        let riderDist = SquareGenerator.getRiderDist();
+        // do Util.printLineInt(dirCount);
 
-        let dirIndex = Math.divide(offsets.getLength(), riderDist) - 1;
+        // do Util.printLineInt(offsets.getLength());
 
-        while (dirIndex > -1) {
+        while (dirIndex < dirCount) {
             let dirDist = 0;
             while (dirDist < riderDist) {
-                let potentialSquare = offsets.getElement(Math.multiply(dirDist, riderDist) + dirIndex);
-                let potentialSquare = pos.add(potentialSquare);
+                // do Util.printLineInt(Math.multiply(dirDist, dirCount) + dirIndex);
+                let potentialSquare = offsets.getElement(Math.multiply(dirDist, dirCount) + dirIndex);
+                let potentialSquare = pos.addSquare(potentialSquare);
+
+                // do Util.printLineString("potential:");
+                // do Util.printLineString(potentialSquare.toString());
+                // if (potentialSquare = 0) {
+                // do Util.printLineInt(dirDist);
+                // do Util.printLineInt(dirCount);
+                // do Util.printLineInt(dirIndex);
+                // do Util.alertIfNull(potentialSquare);
+                // }
+
 
                 if (~potentialSquare.isOnBoard()) {
                     // break;
                     let dirDist = riderDist;
                 }
                 else {
-                    let otherPiece = board.getPieceAtSquare(potentialSquare);
+                    let otherPiece = getPieceAtSquare(potentialSquare);
 
                     if (otherPiece = 0) {
                         // All good, and can keep going
-                        ret.append(potentialSquare);
+                        do ret.append(potentialSquare);
                         let dirDist = dirDist + 1;
                     }
                     else {
                         if (piece.isEnemy(otherPiece)) {
                             // Hey a capture! Can't go past this though
-                            ret.append(potentialSquare);
+                            do ret.append(potentialSquare);
                             let dirDist = riderDist;        // break;
                         }
                         else {
@@ -264,48 +290,10 @@ class Board {
                 }
             }
 
-            let dirIndex = dirIndex - 1;
+            let dirIndex = dirIndex + 1;
         }
-        // while (num)
-
-        // while (dirDist < )
-
-        // for dirIndex in range(dirCount):
-        //     for i in range(8):       // rider distance
-        //         x = offsets[i + dirIndex]
-        //         if x is capture:
-        //             append
-        //             i = 9;
-        //         elif x is friendlypiece or off board:
-        //             i = 9
-        //         else:
-        //             // do nothing and don't break;
-        //             i = i + 1
-
-        let potentials = List.empty();
-        let index = offsets.getLength() - 1;
-        while (index > -1) {
-            let potentialSquare = offsets.getElement(index);
-            let potentialSquare = potentialSquare.addSquare(pos);
-            if (potentialSquare.isOnBoard()) {
-                do potentials.append(potentialSquare);
-            }
-
-            let index = index - 1;
-        }
-
-
-        // let pseudoLegal = List.empty();
-        // let index = potentials.getLength() - 1;
-        // while (index > -1) {
-        //     let potentialSquare = potentials.getElement(index);
-        //     let otherPiece = board.
-        // }
-
-        // TODO check legality
-
-        return potentials;
-        // return ret;
+        
+        return ret;
     }
 
     method Array getPotentialSquares(Square pos, Array offsets, int offsetsLength) {

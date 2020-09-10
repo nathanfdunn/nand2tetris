@@ -4,6 +4,17 @@
 class Main {
     static Board board;
 
+    static int myX;
+    static int myY;
+
+    function int getX() {
+        return myX;
+    }
+
+    function int getY() {
+        return myY;
+    }
+
     function void main() {
         do Main.init();
 
@@ -16,6 +27,9 @@ class Main {
     }
 
     function void init() {
+        let myX = 1;
+        let myY = 1;
+
         do Board.init();
 
         let board = Board.new();
@@ -116,9 +130,8 @@ class Main {
             //     let index1 = index1 + 1;
             // }
 
-            do Output.printString("2, 3");
             do Output.println();
-            do board.printLegalMovesAt(2, 3);
+            do board.printLegalMovesAt();
             return;
         }
 
