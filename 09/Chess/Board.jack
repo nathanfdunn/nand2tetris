@@ -45,7 +45,9 @@ class Board {
 
         if (debug) {
             let temp = ranks[Main.getX()];
-            let temp[Main.getY()] = Piece.knight(true);
+            let temp[Main.getY()] = Piece.queen(true);
+
+            let temp[Main.getY() + 2] = Piece.knight(false);
         }
         else {
             let temp = ranks[0];
@@ -182,8 +184,8 @@ class Board {
         var int x;
         var int y;
 
-        let x = Main.getX();
-        let y = Main.getY();
+        let y = Main.getX();
+        let x = Main.getY();
 
         do Output.printInt(x);
         do Output.printString(",");

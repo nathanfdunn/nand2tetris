@@ -27,7 +27,7 @@ class Main {
     }
 
     function void init() {
-        let myX = 1;
+        let myX = 0;
         let myY = 1;
 
         do Board.init();
@@ -38,6 +38,9 @@ class Main {
         do List.init();
 
         do SquareGenerator.init();
+
+        do Main.processCommand("TEST");
+        do Main.draw();
 
         return;
     }
