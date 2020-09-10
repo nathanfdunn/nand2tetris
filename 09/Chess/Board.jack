@@ -5,6 +5,8 @@ class Board {
 
     static boolean debug;
 
+    field List dirtySquares;
+
     // static int boardDim;
 
     function void init() {
@@ -112,9 +114,33 @@ class Board {
         let rank = ranks[move.getEndRank() - 1];
         let rank[move.getEndFile() - 1] = piece;
 
+        let dirtySquares = List.empty();
+        do dirtySquares.append(Square.fromBoardIndices(move.getStartX(), move.getStartY()));
+        do dirtySquares.append(Square.fromBoardIndices(move.getEndX(), move.getEndY()));
+
         let hasChanges = true;
 
         return;
+    }
+
+    method boolean squareIsDirty(int x, int y) {
+        var int index;
+        var Square square;
+        if (dirtySquares = 0) {
+            return true;
+        }
+        let index = dirtySquares.getLength() - 1;
+        while (index > -1) {
+            let square = dirtySquares.getElement(index);
+            if ((square.getX() = x) &
+                (square.getY() = y)) {
+                return true;
+            }
+
+            let index = index - 1;
+        }
+
+        return false;
     }
 
     method void print(){
@@ -137,23 +163,25 @@ class Board {
         while (i < 8){
             let j = 0;
             while (j < 8){
-                let squareColor = ~isEven(i + j);
-                let color =squareColor;
-                do Screen.setColor(color);
-                // Add 8 to draw the board on the right side
-                let x1 = (j + 8) * dim;
-                // 7 - i so that we draw from white's perspective
-                let y1 = (7 - i) * dim;
-                let x2 = x1 + dim;
-                let y2 = y1 + dim;
+                if (squareIsDirty(j, i)) {
+                    let squareColor = ~isEven(i + j);
+                    let color =squareColor;
+                    do Screen.setColor(color);
+                    // Add 8 to draw the board on the right side
+                    let x1 = (j + 8) * dim;
+                    // 7 - i so that we draw from white's perspective
+                    let y1 = (7 - i) * dim;
+                    let x2 = x1 + dim;
+                    let y2 = y1 + dim;
 
-                do Screen.drawRectangle(x1, y1, x2-1, y2-1);
+                    do Screen.drawRectangle(x1, y1, x2-1, y2-1);
 
-                let rank = ranks[i];
-                let piece = rank[j];
-                //do Screen.drawRectangle(x1, y1)
-                if (~(piece = 0)){
-                    do piece.draw(x1, y1, squareColor);
+                    let rank = ranks[i];
+                    let piece = rank[j];
+                    //do Screen.drawRectangle(x1, y1)
+                    if (~(piece = 0)){
+                        do piece.draw(x1, y1, squareColor);
+                    }
                 }
 
                 let j = j + 1;
@@ -161,6 +189,8 @@ class Board {
 
             let i = i + 1;
         }
+
+        let dirtySquares = List.empty();
 
         return;
     }
