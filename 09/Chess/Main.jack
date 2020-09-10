@@ -55,11 +55,11 @@ class Main {
 
     function void draw() {
         // let condition = board.getHasChanges(); //asfd.asdf;
-        if (board.getHasChanges()){
+        // if (board.getHasChanges()){
             do Screen.setColor(true);
 
             do Main.drawBoard();
-        }
+        // }
 
         do board.acknowledgeChanges();
 
@@ -131,7 +131,8 @@ class Main {
 
             //     let index1 = index1 + 1;
             // }
-
+            let piece = board.getPieceAt(Main.getX(), Main.getY());
+            do Output.printString(piece.toString());
             do Output.println();
             do board.printLegalMovesAt();
             return;

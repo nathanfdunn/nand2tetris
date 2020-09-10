@@ -15,7 +15,7 @@ class Board {
     // static int boardDim;
 
     function void init() {
-        let debug = true;
+        let debug = false;
         return;
     }
 
@@ -301,9 +301,68 @@ class Board {
 
         return 3;
     }
-    // method List getLegalMovesAt(int x, int y) {
 
-    // }
+    method List getLegalPawnSquaresAt(Piece pawn, int x, int y) {
+        var int yDir;
+        var int xDir;
+        var boolean firstMove;
+        var List ret;
+        var Square potentialSquare;
+        var Piece otherPiece;
+
+        do Util.printLineString("Calculating legal pawn moves");
+
+        let firstMove = false;
+
+        // If black
+        if (pawn.getColor()) {
+            let yDir = -1;
+            if (y = 6) {
+                let firstMove = true;
+            }
+            // let firstMove = (y = 6);
+        }
+        // If white
+        else {
+            let yDir = 1;
+            // let firstMove = (y = 1);
+            if (y = 1) {
+                let firstMove = true;
+            }
+        }
+
+        let ret = List.empty();
+
+        // Interesting, we never have to check if the potential square is on the board
+        let potentialSquare = Square.fromBoardIndices(x, y + yDir);
+
+        do Util.printLineString(potentialSquare.toString());
+
+        if (getPieceAtSquare(potentialSquare) = 0) {
+            do ret.append(potentialSquare);
+            let potentialSquare = Square.fromBoardIndices(x, y + yDir + yDir);
+
+            if ((getPieceAtSquare(potentialSquare) = 0) & firstMove) {
+                do ret.append(potentialSquare);
+            }
+        }
+
+        // Now check captures
+        let xDir = -1;
+        while (xDir < 2) {
+            let potentialSquare = Square.fromBoardIndices(x + xDir, y + yDir);
+            let otherPiece = getPieceAtSquare(potentialSquare);
+            if (~(otherPiece = 0)) {
+                if (~(otherPiece.getColor() = pawn.getColor())) {
+                    do ret.append(potentialSquare);
+                }
+            }
+
+            let xDir = xDir + 2;
+        }
+
+        return ret;
+    }
 
     // x, y is in 0-based coordinates
     // TODO return Moves instead of Squares
@@ -324,6 +383,11 @@ class Board {
 
         if (piece = 0) {
             return 0;
+        }
+
+        // Don't even bother for pawns
+        if (piece.isPawn()) {
+            return getLegalPawnSquaresAt(piece, x, y);
         }
 
         let ret = List.empty();

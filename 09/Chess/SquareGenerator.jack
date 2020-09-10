@@ -253,8 +253,6 @@ class SquareGenerator {
 	// Returns a 2-valued array, [offsets, offsetsLength]
 	function List getOffsetsByPiece(Piece piece) {
 
-		// TODO pawn??
-
 		if (piece.isKing()) {
 			return List.newFromArray(kingSquares, 8);
 		}
