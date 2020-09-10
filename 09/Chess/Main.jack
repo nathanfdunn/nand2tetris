@@ -87,13 +87,7 @@ class Main {
             // do Output.printString("TODO make a UCI move.");
             // do Output.println();
             let move = Commands.parseUciCommand(command);
-            // do Output.printString(move.toString());
-            if (board.moveIsLegal(move)) {
-                do board.makeMove(move);
-            }
-            else {
-                do Util.printLineString("INVALID MOVE");
-            }
+            do Commands.tryMakeMove(board, move);
 
             return;
         }

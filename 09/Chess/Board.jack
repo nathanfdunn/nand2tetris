@@ -1,16 +1,21 @@
 class Board {
     field Array ranks;
 
+    // TODO remove field
     field boolean hasChanges;
 
     static boolean debug;
 
     field List dirtySquares;
 
+    // i.e. who's turn is it?
+    // true -> black
+    field boolean activePlayer;
+
     // static int boardDim;
 
     function void init() {
-        let debug = false;
+        let debug = true;
         return;
     }
 
@@ -35,6 +40,7 @@ class Board {
     constructor Board new(){
         var int i;
         var Array temp;
+        let activePlayer = false;       // white to play
         let i = 0;
         let ranks = Array.new(8);
 
@@ -46,10 +52,10 @@ class Board {
         }
 
         if (debug) {
-            let temp = ranks[Main.getX()];
-            let temp[Main.getY()] = Piece.queen(true);
+            let temp = ranks[Main.getY()];
+            let temp[Main.getX()] = Piece.queen(true);
 
-            let temp[Main.getY() + 2] = Piece.knight(false);
+            let temp[Main.getX() + 2] = Piece.knight(false);
         }
         else {
             let temp = ranks[0];
@@ -101,10 +107,22 @@ class Board {
         return (blah - (2 * (blah / 2))) > 0;
     }
 
+    // We are assuming that by now the move has been validated
     method void makeMove(Move move) {
-        // TODO add validation that the move is legal and even exists
         var Array rank;
         var Piece piece;
+
+        if (debug) {
+            do Output.printString("Executing move: ");
+            do Util.printLineString(move.toString());
+            do Output.printInt(move.getStartX());
+            do Output.printString(" ");
+            do Output.printInt(move.getStartY());
+            do Output.printString(",");
+            do Output.printInt(move.getEndX());
+           do Output.printString(" ");
+            do Output.printInt(move.getEndY());
+        }
 
         let rank = ranks[move.getStartRank() - 1];
         let piece = rank[move.getStartFile() - 1];
@@ -118,11 +136,11 @@ class Board {
         do dirtySquares.append(Square.fromBoardIndices(move.getStartX(), move.getStartY()));
         do dirtySquares.append(Square.fromBoardIndices(move.getEndX(), move.getEndY()));
 
-        let hasChanges = true;
-
+        let activePlayer = ~activePlayer;
         return;
     }
 
+    // TODO remove and just
     method boolean squareIsDirty(int x, int y) {
         var int index;
         var Square square;
@@ -242,28 +260,46 @@ class Board {
     }
 
 
-    method boolean moveIsLegal(Move move) {
+    // 0 -> all good
+    // 1 -> no piece there
+    // 2 -> wrong color piece
+    // 3 -> unspecified invalid move
+    method boolean moveErrorCode(Move move) {
         var List legalSquares;
         var Square square;
         var int index;
+        var Piece piece;
+
+        let piece = getPieceAt(move.getStartX(), move.getStartY());
+        if (piece = 0) {
+            return 1;
+        }
+
+        if (~(piece.getColor() = activePlayer)) {
+            return 2;
+        }
 
         let legalSquares = getLegalSquaresAt(move.getStartX(), move.getStartY());
         if (legalSquares = 0) {
-            return false;
+            // Only happens when there's no piece
+            // SHOULDN'T HAPPEN
+            return 1;
         }
+
+
 
         let index = legalSquares.getLength() - 1;
         while (index > -1) {
             let square = legalSquares.getElement(index);
             if ((square.getX() = move.getEndX()) &
                 (square.getY() = move.getEndY())) {
-                return true;
+                return 0;
             }
 
             let index = index - 1;
         }
 
-        return false;
+        return 3;
     }
     // method List getLegalMovesAt(int x, int y) {
 
@@ -293,11 +329,13 @@ class Board {
         let ret = List.empty();
 
         let pos = Square.fromBoardIndices(x, y);
-
+        
+        do Util.printLineString(pos.toString());
+        do Util.printLineString(piece.toString());
         let offsets = SquareGenerator.getOffsetsByPiece(piece);
+        // do Util.alertIfNull(piece);
 
         let riderDist = SquareGenerator.getRiderDistForPiece(piece);
-
         let dirCount = Math.divide(offsets.getLength(), riderDist);
         let dirIndex = 0;
 
