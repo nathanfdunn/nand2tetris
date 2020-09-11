@@ -248,7 +248,34 @@ class Board {
         do dirtySquares.append(Square.fromBoardIndices(move.getEndX(), move.getEndY()));
 
         if (piece.isRook()) {
+            if (piece.getColor() & (move.getStartY() = 7)) {     // if black
+                if (move.getStartX() = 0) {
+                    let castling[2] = false;        // black long castling
+                }
+                if (move.getStartX() = 7) {
+                    let castling[3] = false;        // black short castling
+                }
+            }
 
+            if ((~piece.getColor()) & (move.getStartY() = 0)) {
+                if (move.getStartX() = 0) {
+                    let castling[0] = false;        // white long castling
+                }
+                if (move.getStartX() = 7) {
+                    let castling[1] = false;        // white short castling
+                }
+            }
+        }
+
+        if (piece.isKing()) {
+            if (piece.getColor()) {     // if black
+                let castling[2] = false;
+                let castling[3] = false;
+            }
+            else {
+                let castling[0] = false;
+                let castling[1] = false;
+            }
         }
 
         let activePlayer = ~activePlayer;
@@ -328,7 +355,23 @@ class Board {
         // if (debug){
             do Output.printString("En Passant: ");
             do Util.printLineInt(getEnPassantIndicator());
-
+            do Util.printLineString("Castling:");
+            do Output.printString(" White = ");
+            if (castling[0]) {
+                do Output.printString("O-O-O;");
+            }
+            if (castling[1]) {
+                do Output.printString("O-O;");
+            }
+            do Output.println();
+            do Output.printString(" Black = ");
+            if (castling[2]) {
+                do Output.printString("O-O-O;");
+            }
+            if (castling[3]) {
+                do Output.printString("O-O;");
+            }
+            do Output.println();
         // }
 
         return;
@@ -603,14 +646,14 @@ class Board {
         let ret = List.empty();
 
         if (piece.getColor()) {     // black
-            if (castling[2]) {
+            if (castling[3]) {
                 if ((getPieceAt(x + 1, y) = 0) &
                     (getPieceAt(x + 2, y) = 0)) {
                     do ret.append(Square.fromBoardIndices(x + 2, y));
                 }
             }
 
-            if (castling[3]) {
+            if (castling[2]) {
                 if ((getPieceAt(x - 1, y) = 0) &
                     (getPieceAt(x - 2, y) = 0) &
                     (getPieceAt(x - 3, y) = 0)) {
@@ -619,14 +662,14 @@ class Board {
             }
         }
         else {
-            if (castling[0]) {
+            if (castling[1]) {
                 if ((getPieceAt(x + 1, y) = 0) &
                     (getPieceAt(x + 2, y) = 0)) {
                     do ret.append(Square.fromBoardIndices(x + 2, y));
                 }
             }
 
-            if (castling[1]) {
+            if (castling[0]) {
                 if ((getPieceAt(x - 1, y) = 0) &
                     (getPieceAt(x - 2, y) = 0) &
                     (getPieceAt(x - 3, y) = 0)) {
