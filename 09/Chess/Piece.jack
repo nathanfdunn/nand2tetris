@@ -31,6 +31,11 @@ class Piece {
         return;
     }
 
+    method void dispose() {
+        // TODO I guess
+        return;
+    }
+
     method boolean getColor(){
         return color;
     }

@@ -69,4 +69,11 @@ class Move {
 		return endRank - 1;
 	}
 
+	method Square getStartSquare() {
+		return Square.fromBoardIndices(getStartX(), getStartY());
+	}
+
+	method Square getEndSquare() {
+		return Square.fromBoardIndices(getEndX(), getEndY());
+	}
 }

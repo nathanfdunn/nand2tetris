@@ -1,4 +1,9 @@
 class Board {
+    field int enPassant;
+    // 0, 1 = long white, short white
+    // 2, 3 = long black, short black
+    field Array castling;
+
     field Array ranks;
 
     // TODO remove field
@@ -45,6 +50,8 @@ class Board {
         let ranks = Array.new(8);
 
         let hasChanges = true;
+
+        let enPassant = -1;
 
         while (i < 8){
             let ranks[i] = Array.new(8);
@@ -107,10 +114,42 @@ class Board {
         return (blah - (2 * (blah / 2))) > 0;
     }
 
+    method int getEnPassantIndicator() {
+        return enPassant;
+    }
+
+    // Returns
+    method int enPassantFromMove(Move move) {
+        var Piece startPiece;
+        let startPiece = getPieceAtSquare(move.getStartSquare());
+        // assume it's a valid move...therefore piece cannot be null
+        
+        // No pawn, no deal
+        if (~startPiece.isPawn()) {
+            return -1;
+        }
+
+        if (startPiece.getColor()) { // if black
+            if ((move.getStartY() = 6) & (move.getEndY() = 4)) {
+                return move.getStartX();
+            }
+        }
+        else {              // if white
+            if ((move.getStartY() = 1) & (move.getEndY() = 3)) {
+                return move.getStartX();
+            }
+        }
+
+        return -1;
+    }
+
+
+
     // We are assuming that by now the move has been validated
     method void makeMove(Move move) {
         var Array rank;
         var Piece piece;
+        var Piece capturedPiece;
 
         if (debug) {
             do Output.printString("Executing move: ");
@@ -124,17 +163,26 @@ class Board {
             do Output.printInt(move.getEndY());
         }
 
+        let enPassant = enPassantFromMove(move);
+
         let rank = ranks[move.getStartRank() - 1];
         let piece = rank[move.getStartFile() - 1];
         let rank[move.getStartFile() - 1] = 0;
 
-        // TODO dispose of the piece that was there
         let rank = ranks[move.getEndRank() - 1];
+        let capturedPiece = rank[move.getEndFile() - 1];
+        if (~(capturedPiece = 0)) {
+            do capturedPiece.dispose();
+        }
         let rank[move.getEndFile() - 1] = piece;
 
         let dirtySquares = List.empty();
         do dirtySquares.append(Square.fromBoardIndices(move.getStartX(), move.getStartY()));
         do dirtySquares.append(Square.fromBoardIndices(move.getEndX(), move.getEndY()));
+
+        if (piece.isRook()) {
+
+        }
 
         let activePlayer = ~activePlayer;
         return;
@@ -209,6 +257,12 @@ class Board {
         }
 
         let dirtySquares = List.empty();
+
+        // if (debug){
+            do Output.printString("En Passant: ");
+            do Util.printLineInt(getEnPassantIndicator());
+
+        // }
 
         return;
     }
