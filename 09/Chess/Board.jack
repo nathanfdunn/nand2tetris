@@ -57,6 +57,12 @@ class Board {
 
         let hasChanges = true;
 
+        let castling = Array.new(4);
+        let castling[0] = true;
+        let castling[1] = true;
+        let castling[2] = true;
+        let castling[3] = true;
+
         let enPassant = -1;
 
         while (i < 8){
@@ -73,42 +79,42 @@ class Board {
         else {
             let temp = ranks[0];
             let temp[0] = Piece.rook(false);
-            let temp[1] = Piece.knight(false);
-            let temp[2] = Piece.bishop(false);
-            let temp[3] = Piece.queen(false);
+            // let temp[1] = Piece.knight(false);
+            // let temp[2] = Piece.bishop(false);
+            // let temp[3] = Piece.queen(false);
             let temp[4] = Piece.king(false);
-            let temp[5] = Piece.bishop(false);
-            let temp[6] = Piece.knight(false);
+            // let temp[5] = Piece.bishop(false);
+            // let temp[6] = Piece.knight(false);
             let temp[7] = Piece.rook(false);
 
             let temp = ranks[1];
-            let temp[0] = Piece.pawn(false);
-            let temp[1] = Piece.pawn(false);
-            let temp[2] = Piece.pawn(false);
-            let temp[3] = Piece.pawn(false);
-            let temp[4] = Piece.pawn(false);
-            let temp[5] = Piece.pawn(false);
-            let temp[6] = Piece.pawn(false);
-            let temp[7] = Piece.pawn(false);
+            // let temp[0] = Piece.pawn(false);
+            // let temp[1] = Piece.pawn(false);
+            // let temp[2] = Piece.pawn(false);
+            // let temp[3] = Piece.pawn(false);
+            // let temp[4] = Piece.pawn(false);
+            // let temp[5] = Piece.pawn(false);
+            // let temp[6] = Piece.pawn(false);
+            // let temp[7] = Piece.pawn(false);
 
             let temp = ranks[6];
-            let temp[0] = Piece.pawn(true);
-            let temp[1] = Piece.pawn(true);
-            let temp[2] = Piece.pawn(true);
-            let temp[3] = Piece.pawn(true);
-            let temp[4] = Piece.pawn(true);
-            let temp[5] = Piece.pawn(true);
-            let temp[6] = Piece.pawn(true);
-            let temp[7] = Piece.pawn(true);
+            // let temp[0] = Piece.pawn(true);
+            // let temp[1] = Piece.pawn(true);
+            // let temp[2] = Piece.pawn(true);
+            // let temp[3] = Piece.pawn(true);
+            // let temp[4] = Piece.pawn(true);
+            // let temp[5] = Piece.pawn(true);
+            // let temp[6] = Piece.pawn(true);
+            // let temp[7] = Piece.pawn(true);
 
             let temp = ranks[7];
             let temp[0] = Piece.rook(true);
-            let temp[1] = Piece.knight(true);
-            let temp[2] = Piece.bishop(true);
-            let temp[3] = Piece.queen(true);
+            // let temp[1] = Piece.knight(true);
+            // let temp[2] = Piece.bishop(true);
+            // let temp[3] = Piece.queen(true);
             let temp[4] = Piece.king(true);
-            let temp[5] = Piece.bishop(true);
-            let temp[6] = Piece.knight(true);
+            // let temp[5] = Piece.bishop(true);
+            // let temp[6] = Piece.knight(true);
             let temp[7] = Piece.rook(true);
         }
 
@@ -161,6 +167,8 @@ class Board {
         var Array rank;
         var Piece piece;
         var Piece capturedPiece;
+        var Piece supplementalPiece;
+        var int xDiff;
 
         if (debug) {
             do Output.printString("Executing move: ");
@@ -212,6 +220,29 @@ class Board {
             do capturedPiece.dispose();
         }
         let rank[move.getEndFile() - 1] = piece;
+
+        // TODO clear flags
+
+        // Test for castling
+        let xDiff = move.getStartX() - move.getEndX();
+        if (piece.isKing() & (Util.abs(xDiff) > 1)) {
+            if (xDiff > 0) {    // castling long
+                let rank = ranks[move.getStartY()];
+                let supplementalPiece = rank[0];
+                let rank[0] = 0;
+                let rank[move.getEndX() + 1] = supplementalPiece;
+                do dirtySquares.append(Square.fromBoardIndices(0, move.getStartY()));
+                do dirtySquares.append(Square.fromBoardIndices( move.getEndX() + 1, move.getStartY() ));
+            }
+            else {
+                let rank = ranks[move.getStartY()];
+                let supplementalPiece = rank[7];
+                let rank[7] = 0;
+                let rank[move.getEndX() - 1] = supplementalPiece;
+                do dirtySquares.append(Square.fromBoardIndices(7, move.getStartY()));
+                do dirtySquares.append(Square.fromBoardIndices( move.getEndX() - 1, move.getStartY() ));
+            }
+        }
 
         do dirtySquares.append(Square.fromBoardIndices(move.getStartX(), move.getStartY()));
         do dirtySquares.append(Square.fromBoardIndices(move.getEndX(), move.getEndY()));
@@ -558,8 +589,54 @@ class Board {
 
             let dirIndex = dirIndex + 1;
         }
+
+        if (piece.isKing() & (x = 4)) {
+            do ret.extend(getCastlingMoves(piece, x, y));
+        }
         
         return ret;
+    }
+
+    method List getCastlingMoves(Piece piece, int x, int y) {
+        var List ret;
+
+        let ret = List.empty();
+
+        if (piece.getColor()) {     // black
+            if (castling[2]) {
+                if ((getPieceAt(x + 1, y) = 0) &
+                    (getPieceAt(x + 2, y) = 0)) {
+                    do ret.append(Square.fromBoardIndices(x + 2, y));
+                }
+            }
+
+            if (castling[3]) {
+                if ((getPieceAt(x - 1, y) = 0) &
+                    (getPieceAt(x - 2, y) = 0) &
+                    (getPieceAt(x - 3, y) = 0)) {
+                    do ret.append(Square.fromBoardIndices(x - 2, y));
+                }
+            }
+        }
+        else {
+            if (castling[0]) {
+                if ((getPieceAt(x + 1, y) = 0) &
+                    (getPieceAt(x + 2, y) = 0)) {
+                    do ret.append(Square.fromBoardIndices(x + 2, y));
+                }
+            }
+
+            if (castling[1]) {
+                if ((getPieceAt(x - 1, y) = 0) &
+                    (getPieceAt(x - 2, y) = 0) &
+                    (getPieceAt(x - 3, y) = 0)) {
+                    do ret.append(Square.fromBoardIndices(x - 2, y));
+                }
+            }
+        }
+
+        return ret;
+        // if (castling[0])
     }
 
     method Array getPotentialSquares(Square pos, Array offsets, int offsetsLength) {

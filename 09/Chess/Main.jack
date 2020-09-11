@@ -39,11 +39,11 @@ class Main {
 
         do SquareGenerator.init();
 
-        do Main.processCommand("TEST");
-        do Main.processCommand("UCI E2 E4");
-        do Main.processCommand("UCI G8 F6");
-        do Main.processCommand("UCI E4 E5");
-        do Main.processCommand("UCI D7 D5");
+        // do Main.processCommand("TEST");
+        // do Main.processCommand("UCI E2 E4");
+        // do Main.processCommand("UCI G8 F6");
+        // do Main.processCommand("UCI E4 E5");
+        // do Main.processCommand("UCI D7 D5");
 
 
         do Main.draw();
