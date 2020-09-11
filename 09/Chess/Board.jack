@@ -32,6 +32,12 @@ class Board {
         return hasChanges;
     }
 
+    method void refresh() {
+        let dirtySquares = 0;
+        // do Screen.clearScreen();
+        return;
+    }
+
     method void acknowledgeChanges() {
         let hasChanges = false;
         return;
@@ -143,7 +149,12 @@ class Board {
         return -1;
     }
 
-
+    method void removePiece(int x, int y) {
+        var Array rank;
+        let rank = ranks[y];
+        let rank[x] = 0;
+        return;
+    }
 
     // We are assuming that by now the move has been validated
     method void makeMove(Move move) {
@@ -169,14 +180,39 @@ class Board {
         let piece = rank[move.getStartFile() - 1];
         let rank[move.getStartFile() - 1] = 0;
 
+        let dirtySquares = List.empty();
+
         let rank = ranks[move.getEndRank() - 1];
         let capturedPiece = rank[move.getEndFile() - 1];
-        if (~(capturedPiece = 0)) {
+        if (capturedPiece = 0) {
+            // Time to infer if this is en passant
+            // Definitely a capture but there was no piece there
+            if (piece.isPawn() & (~(move.getStartX() = move.getEndX()))) {
+                if (piece.getColor()) {     // black
+                    // black en passant must be capturing 
+                    let capturedPiece = getPieceAt(move.getEndX(), move.getEndY() + 1);
+                    do removePiece(move.getEndX(), move.getEndY() + 1);
+                    do capturedPiece.dispose();
+                    do dirtySquares.append(Square.fromBoardIndices(
+                        move.getEndX(), move.getEndY() + 1
+                        ));
+                }
+                else {      // white
+                    // white en passant must be capturing 
+                    let capturedPiece = getPieceAt(move.getEndX(), move.getEndY() - 1);
+                    do removePiece(move.getEndX(), move.getEndY() - 1);
+                    do capturedPiece.dispose();
+                    do dirtySquares.append(Square.fromBoardIndices(
+                        move.getEndX(), move.getEndY() - 1
+                        ));
+                }
+            }
+        }
+        else {
             do capturedPiece.dispose();
         }
         let rank[move.getEndFile() - 1] = piece;
 
-        let dirtySquares = List.empty();
         do dirtySquares.append(Square.fromBoardIndices(move.getStartX(), move.getStartY()));
         do dirtySquares.append(Square.fromBoardIndices(move.getEndX(), move.getEndY()));
 
@@ -406,7 +442,23 @@ class Board {
         while (xDir < 2) {
             let potentialSquare = Square.fromBoardIndices(x + xDir, y + yDir);
             let otherPiece = getPieceAtSquare(potentialSquare);
-            if (~(otherPiece = 0)) {
+            if (otherPiece = 0) {
+                // Might still be ok so long as we can take en passant
+                if ((x + xDir) = enPassant) {
+                    if (pawn.getColor()) {      // black
+                        if (y = 3) {        // black must be on 4th rank
+                            do ret.append(potentialSquare);
+                        }
+                    }
+                    else {
+                        if (y = 4) {        // white must be on 5th rank
+                            do ret.append(potentialSquare);
+                        }
+                    } 
+                }
+
+            }
+            else {
                 if (~(otherPiece.getColor() = pawn.getColor())) {
                     do ret.append(potentialSquare);
                 }

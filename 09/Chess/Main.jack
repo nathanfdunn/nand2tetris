@@ -40,6 +40,12 @@ class Main {
         do SquareGenerator.init();
 
         do Main.processCommand("TEST");
+        do Main.processCommand("UCI E2 E4");
+        do Main.processCommand("UCI G8 F6");
+        do Main.processCommand("UCI E4 E5");
+        do Main.processCommand("UCI D7 D5");
+
+
         do Main.draw();
 
         return;
@@ -93,8 +99,8 @@ class Main {
         }
 
         if (Util.strCmp(command, "REFRESH")) {
-            do board.touch();
-            do Main.draw();
+            do board.refresh();
+            // do Main.draw();
             return;
         }
 
@@ -110,6 +116,8 @@ class Main {
             do Output.println();
             return;
         }
+
+
 
         if (Util.strCmp(command, "TEST")){
             // let index1 = 0;
