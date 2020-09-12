@@ -78,14 +78,15 @@ class Board {
         }
         else {
             let temp = ranks[0];
-            let temp[0] = Piece.rook(false);
+            // let temp[0] = Piece.rook(false);
             // let temp[1] = Piece.knight(false);
             // let temp[2] = Piece.bishop(false);
             // let temp[3] = Piece.queen(false);
+            let temp[3] = Piece.king(false);
             let temp[4] = Piece.king(false);
             // let temp[5] = Piece.bishop(false);
             // let temp[6] = Piece.knight(false);
-            let temp[7] = Piece.rook(false);
+            // let temp[7] = Piece.rook(false);
 
             let temp = ranks[1];
             // let temp[0] = Piece.pawn(false);
@@ -108,14 +109,15 @@ class Board {
             // let temp[7] = Piece.pawn(true);
 
             let temp = ranks[7];
-            let temp[0] = Piece.rook(true);
+            // let temp[0] = Piece.rook(true);
             // let temp[1] = Piece.knight(true);
             // let temp[2] = Piece.bishop(true);
             // let temp[3] = Piece.queen(true);
+            let temp[3] = Piece.king(true);
             let temp[4] = Piece.king(true);
             // let temp[5] = Piece.bishop(true);
             // let temp[6] = Piece.knight(true);
-            let temp[7] = Piece.rook(true);
+            // let temp[7] = Piece.rook(true);
         }
 
         return this;
