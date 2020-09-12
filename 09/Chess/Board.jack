@@ -217,6 +217,22 @@ class Board {
             }
         }
         else {
+                // 0, 1 = long white, short white
+                // 2, 3 = long black, short black
+            if (capturedPiece.isRook()) {
+                if ((move.getEndX() = 0) & (move.getEndY() = 0)) {
+                    let castling[0] = false;
+                }
+                if ((move.getEndX() = 7) & (move.getEndY() = 0)) {
+                    let castling[1] = false;
+                }
+               if ((move.getEndX() = 0) & (move.getEndY() = 7)) {
+                    let castling[2] = false;
+                }
+                if ((move.getEndX() = 7) & (move.getEndY() = 7)) {
+                    let castling[3] = false;
+                }             
+            }
             do capturedPiece.dispose();
         }
         let rank[move.getEndFile() - 1] = piece;
