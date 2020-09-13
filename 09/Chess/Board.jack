@@ -162,6 +162,23 @@ class Board {
         return;
     }
 
+    // 
+    method boolean moveRequiresPromotion(Move move) {
+        var Piece piece;
+        let piece = getPieceAtSquare(move.getStartSquare());
+
+        if ((piece = 0) | (~piece.isPawn())) {
+            return false;
+        }
+
+        if (piece.getColor()) {     // black
+            return move.getEndY() = 0;
+        }
+        else {          // white
+            return move.getEndY() = 7;
+        }
+    }
+
     // We are assuming that by now the move has been validated
     method void makeMove(Move move) {
         var Array rank;
@@ -291,6 +308,16 @@ class Board {
             else {
                 let castling[0] = false;
                 let castling[1] = false;
+            }
+        }
+
+        if (piece.isPawn()) {
+            if (
+                (piece.getColor() & (move.getEndY() = 0)) |
+                ((~piece.getColor()) & (move.getEndY() = 7)) 
+            ) 
+            {
+                do piece.promote(move.getPromotionPieceType());
             }
         }
 
@@ -473,6 +500,13 @@ class Board {
             let square = legalSquares.getElement(index);
             if ((square.getX() = move.getEndX()) &
                 (square.getY() = move.getEndY())) {
+                if (moveRequiresPromotion(move) & (~move.isPromotion())) {
+                    return 4;   // piece requires promotion
+                }
+                if ((~moveRequiresPromotion(move)) & move.isPromotion()) {
+                    return 5;   // piece cannot be a promotion
+                }
+
                 return 0;
             }
 
@@ -481,6 +515,21 @@ class Board {
 
         return 3;
     }
+
+    // method String getPromotionErrorMessage(Move move) {
+    //     if (moveRequiresPromotion(move)) {
+    //         if (~move.isPromotion()) {
+    //             return "MOVE REQUIRES PRMOTION";
+    //         }
+    //     }
+    //     else {
+    //         if (move.isPromotion()) {
+    //             return "MOVE CANNOT BE PROMOTION";
+    //         }
+    //     }
+
+    //     return 0;
+    // }
 
     method List getLegalPawnSquaresAt(Piece pawn, int x, int y) {
         var int yDir;

@@ -5,6 +5,21 @@ class Move {
 	field int endFile;
 	field int endRank;
 
+	field int promotionPieceType;
+
+	method void setPromotionPieceType(int ppt) {
+		let promotionPieceType = ppt;
+		return;
+	}
+
+    method boolean isPromotion() {
+        return promotionPieceType > 0;
+    }
+
+	method int getPromotionPieceType() {
+		return promotionPieceType;
+	}
+
 	constructor Move new(int startFile_, int startRank_, int endFile_, int endRank_) {
 		let startFile = startFile_;
 		let startRank = startRank_;

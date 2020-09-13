@@ -59,6 +59,7 @@ class Main {
         return;
     }
 
+
     function void draw() {
         // let condition = board.getHasChanges(); //asfd.asdf;
         // if (board.getHasChanges()){

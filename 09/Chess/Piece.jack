@@ -11,6 +11,33 @@ class Piece {
         return ~(color = other.getColor());
     }
 
+    method void promote(int promotedPieceType) {
+        let pieceType = promotedPieceType;
+        return;
+    }
+
+    function int pieceTypeFromPieceChar(char symbol) {
+        if (symbol = 78) {      // 'N'
+            return 2;           // Knight
+        }
+
+        if (symbol = 66) {      // 'B'
+            return 3;           // Bishop
+        }
+
+        if (symbol = 82) {      // 'R'
+            return 4;           // Rook
+        }
+
+        if (symbol = 81) {      // 'Q'
+            return 5;           // Queen
+        }
+
+        // Don't need king since this is just for promotion
+
+        return 0;
+    }
+
     function void init() {
         let pieceMapWhite = Array.new(7);
         let pieceMapWhite[1] = "P";

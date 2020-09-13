@@ -3,15 +3,25 @@ class Commands {
 	
 	// Returns null if invalid
 	function Move parseUciCommand(String uciCommand) {
+		var Move ret;
 		// Assumes of format 
 		// UCI A1 B2
-		return Move.new(
+		let ret = Move.new(
 			Util.parseAlgebraicFile(uciCommand.charAt(4)),
 			Util.parseAlgebraicRank(uciCommand.charAt(5)),
 
 			Util.parseAlgebraicFile(uciCommand.charAt(7)),
 			Util.parseAlgebraicRank(uciCommand.charAt(8))
 		);
+
+		// Check on promotion...
+		if (uciCommand.length() = 11) {
+			do ret.setPromotionPieceType(
+				Piece.pieceTypeFromPieceChar(uciCommand.charAt(10))
+				);
+		}
+
+		return ret;
 	}
 
 	function void tryMakeMove(Board board, Move move) {
@@ -30,7 +40,24 @@ class Commands {
 					do Util.printLineString("WRONG COLOR PIECE");
 				}
 				else {
-					do Util.printLineString("INVALID MOVE");
+					if (errorCode = 3) {
+						do Util.printLineString("INVALID MOVE");
+					}
+					else {
+						if (errorCode = 4) {
+							// requires promotion
+							do Util.printLineString("MOVE REQUIRES PROMOTION");
+						}
+						else {
+							if (errorCode = 5) {
+								// no promotion
+								do Util.printLineString("MOVE CANNOT BE PROMOTION");
+							}
+							else {
+								do Util.printLineString("UNKNOWN ERROR");
+							}
+						}
+					}
 				}
 			}
 		}
