@@ -395,7 +395,7 @@ class Board {
 
         let dirtySquares = List.empty();
 
-        // if (debug){
+        if (debug){
             do Output.printString("En Passant: ");
             do Util.printLineInt(getEnPassantIndicator());
             do Util.printLineString("Castling:");
@@ -415,7 +415,7 @@ class Board {
                 do Output.printString("O-O;");
             }
             do Output.println();
-        // }
+        }
 
         return;
     }
@@ -539,7 +539,9 @@ class Board {
         var Square potentialSquare;
         var Piece otherPiece;
 
-        do Util.printLineString("Calculating legal pawn moves");
+        if (debug) {
+            do Util.printLineString("Calculating legal pawn moves");
+        }
 
         let firstMove = false;
 
@@ -565,7 +567,9 @@ class Board {
         // Interesting, we never have to check if the potential square is on the board
         let potentialSquare = Square.fromBoardIndices(x, y + yDir);
 
-        do Util.printLineString(potentialSquare.toString());
+        if (debug) {
+            do Util.printLineString(potentialSquare.toString());
+        }
 
         if (getPieceAtSquare(potentialSquare) = 0) {
             do ret.append(potentialSquare);
@@ -639,8 +643,11 @@ class Board {
 
         let pos = Square.fromBoardIndices(x, y);
         
-        do Util.printLineString(pos.toString());
-        do Util.printLineString(piece.toString());
+        if (debug) {
+            do Util.printLineString(pos.toString());
+            do Util.printLineString(piece.toString());            
+        }
+
         let offsets = SquareGenerator.getOffsetsByPiece(piece);
         // do Util.alertIfNull(piece);
 

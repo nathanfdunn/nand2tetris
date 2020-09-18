@@ -53,9 +53,12 @@ class Main {
 
     function void update() {
         var String command;
+        var int index;
+
         let command = Keyboard.readLine(">");
 
         do Main.processCommand(command);
+        // Clear out the line for the next command
         return;
     }
 
@@ -96,6 +99,13 @@ class Main {
             let move = Commands.parseUciCommand(command);
             do Commands.tryMakeMove(board, move);
 
+            return;
+        }
+
+        if (Util.strCmp(command, "CLS")) {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(0, 0, 255, 255);
+            do Output.moveCursor(0, 0);
             return;
         }
 
