@@ -55,8 +55,8 @@ keywords = [
 	'true',
 	'boolean',
 	'int',
-	# 'Array',
-	# 'String',
+	'if',
+	'else',
 	'null'
 ]
 
@@ -68,7 +68,7 @@ class Parser:
 	def __init__(self):
 		pass
 
-	def parseTokens(self, tsm: TokenStateMachine):
+	def parseTokens(self, tsm: 'TokenStateMachine'):
 		pass
 
 
