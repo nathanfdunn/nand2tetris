@@ -3,6 +3,7 @@ import os
 from enum import Enum
 import re
 from string import digits, ascii_letters as letters, whitespace
+from xml.sax.saxutils import escape
 alphanumeric = digits + letters
 
 class TokenState(Enum):
@@ -21,9 +22,9 @@ class TokenState(Enum):
 
 class TokenType(Enum):
 	Identifier = 1
-	Integer = 2
+	IntegerConstant = 2
 	Symbol = 3
-	String = 4
+	StringConstant = 4
 	Whitespace = 5			# won't actually use this...
 	Keyword = 6
 	Comment = 7
@@ -54,14 +55,21 @@ keywords = [
 	'true',
 	'boolean',
 	'int',
-	'Array',
-	'String',
+	# 'Array',
+	# 'String',
 	'null'
 ]
 
 symbols = '()+=-~<>.{};,|&/*[]'
 
-commentChar = '#'
+commentChar = '\x80'
+
+class Parser:
+	def __init__(self):
+		pass
+
+	def parseTokens(self, tsm: TokenStateMachine):
+		pass
 
 
 class TokenStateMachine:
@@ -69,6 +77,19 @@ class TokenStateMachine:
 		self.state = TokenState.Nothing
 		self.tokens = []
 		self.curToken = ''
+
+	def toXml(self):
+		lines = []
+		lines.append('<tokens>')
+		for token in self.tokens:
+			xmlTag = str(token.type).split('.')[1]
+			xmlTag = xmlTag[0].lower() + xmlTag[1:]
+			lines.append(f'<{xmlTag}>{escape(token.text)}</{xmlTag}>')
+
+		lines.append('</tokens>')
+
+		return '\n'.join(lines)
+
 
 	def addToken(self, token):
 		if token is not None:
@@ -81,7 +102,11 @@ class TokenStateMachine:
 				return Token(self.curToken, TokenType.Keyword)
 			else:
 				return Token(self.curToken, TokenType.Identifier)
+		elif self.state == TokenState.String:
+			return Token(self.curToken.replace(commentChar, '//'), TokenType.StringConstant)
 		elif self.state == TokenState.Nothing:
+			return None
+		elif self.state == TokenState.Comment:
 			return None
 
 		return Token(self.curToken, TokenType(self.state.value))
@@ -187,16 +212,18 @@ if not sys.flags.interactive:
 			raise Exception(f'Directory {progname} has no .jack files!')
 
 	for file in files:
-		# filename = 
-		# print(os.path.join(root, 'output', os.path.basename(file), '.test'))
 		content = open(file).read() + ' '		# todo make the trailing whitespace unnecessary
 		content = content.replace('//', commentChar)
-		content = re.compile(r'/\*.+\*/').sub('', content)
-		# print(content)
-		# print(content)
+		content1 = content
+		content = re.compile(r'/\*.*?\*/', re.DOTALL).sub('', content)
+		# print(content == content1)
 		tsm = TokenStateMachine()
 		tsm.read(content)
-		print(tsm)
-		print(tsm.curToken)
-		print(tsm.state)
-		tsm.assertNothing()
+
+		if True:
+			outFileName = file.rsplit('.jack', 1)[0] + 'T.xml'
+			outFileName = outFileName.split('/')[0] + '/output/' + outFileName.split('/')[1]
+			with open(outFileName, 'w') as outFile:
+				outFile.write(tsm.toXml())
+		else:
+			print(tsm.toXml())

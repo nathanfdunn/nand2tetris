@@ -1,0 +1,7 @@
+<tokens>
+<identifier> x </identifier>
+<symbol> &lt; </symbol>
+<identifier> y </identifier>
+<symbol> &amp; </symbol>
+<integerConstant> 3 </integerConstant>
+</tokens>
