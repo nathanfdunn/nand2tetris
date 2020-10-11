@@ -70,6 +70,7 @@ keywords = [
 	'do',
 	'method',
 	'function',
+	'constructor',
 	'void',
 	'return',
 	'static',
