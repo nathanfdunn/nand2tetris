@@ -1,3 +1,4 @@
 .idea/
 09/Chess/*.vm
 extensions.plan
+__pycache__/
