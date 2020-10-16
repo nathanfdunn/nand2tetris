@@ -4,6 +4,14 @@ from enum import Enum
 import re
 from tokenizer import TokenStateMachine, commentChar, TokenType
 from dataclasses import dataclass
+from typing import List
+
+
+# class StatementType(Enum):
+# 	Let = 1
+# 	While = 2
+# 	If = 3
+# 	Return = 4
 
 
 class ClassVarType(Enum):
@@ -45,6 +53,49 @@ class LocalVariable:
 		return f'var {self.varType} {self.varName}'
 
 
+class StatementNode:
+	# TODO add type?
+	pass
+
+class ExpressionNode:
+	pass
+
+@dataclass
+class SubroutineCallNode(ExpressionNode):
+	objName: str
+	methodName: str
+	argumentList: List[ExpressionNode]
+
+	def __str__(self):
+		argString = ', '.join(self.argumentList)
+		return f'{self.objName}.{self.methodName}({argString})'
+
+@dataclass
+class DoStatementNode(StatementNode):
+	subroutineCall: SubroutineCallNode
+
+	def __str__(self):
+		return f'do {self.subroutineCall};'
+
+class LetStatementNode(StatementNode):
+	pass
+
+class WhileStatementNode(StatementNode):
+	pass
+
+class IfStatementNode(StatementNode):
+	pass
+
+class ReturnStatementNode(StatementNode):
+	pass
+
+
+@dataclass
+class StatementBlockNode:
+	statements: List[StatementNode]
+	# def __str__(self):
+	# 	return '\n'.join(str(statement) for statement in self.statements)
+
 class AstNode:
 	def __init__(self, children):
 		self.children = children
@@ -66,17 +117,23 @@ class ClassNode(AstNode):
 		self.subroutines = subroutines
 
 class SubroutineNode(AstNode):
-	def __init__(self, subroutineType, returnType, parameters, localVariables):
+	def __init__(self, subroutineType, returnType, parameters, localVariables, statementBlock):
 		self.subroutineType = subroutineType
 		self.returnType = returnType
 		self.parameters = parameters
 		self.localVariables = localVariables
+		self.statementBlock = statementBlock
 
 	def __str__(self):
 		parmList = ', '.join(str(parm) for parm in self.parameters)
+		localVariables = '\n'.join(f'\t{localVar};' for localVar in self.localVariables)
+		statementBlock = '\n'.join(f'\t{statement}' for statement in self.statementBlock.statements)
+			# def __str__(self):
+		# return '\n'.join(str(statement) for statement in self.statements)
 		return (
-			f'{self.subroutineType} {self.returnType} ({parmList})\n' + 
-				f'\t{self.localVariables}'
+			f'{self.subroutineType} {self.returnType} ({parmList})\n\n' + 
+				f'{localVariables}\n\n' +
+				f'{statementBlock}'
 			)
 
 dataTypeKeyword = [
@@ -105,7 +162,7 @@ class CompilationEngine:
 		if increment:
 			self.incToken()
 
-	def checkIfKeyword(self, keywordList):
+	def checkIfKeyword(self, *keywordList):
 		if self.nextToken().type != TokenType.Keyword:
 			return False
 
@@ -198,11 +255,66 @@ class CompilationEngine:
 				varName = self.getCurText()
 				localVariables.append(LocalVariable(varType, varName))
 				self.incToken()
-				
+
 			self.assertIsSymbol(';')
 
 
-		return SubroutineNode(subType, returnType, parameters, localVariables)
+		statementBlock = self.compileStatements()
+		# while not self.checkIfSymbol('}'):
+
+		return SubroutineNode(subType, returnType, parameters, localVariables, statementBlock)
+
+	def checkIfStatement(self):
+		return self.checkIfKeyword('do', 'let', 'while', 'if', 'return')
+
+	def compileStatements(self):
+		statements = []
+		while self.checkIfStatement():
+			if self.checkIfKeyword('do'):
+				statements.append(self.compileDoStatement())
+			elif self.checkIfKeyword('let'):
+				statements.append(self.compileLetStatement())
+			elif self.checkIfKeyword('while'):
+				statements.append(self.compileWhileStatement())
+			elif self.checkIfKeyword('if'):
+				statements.append(self.compileIfStatement())
+			elif self.checkIfKeyword('return'):
+				statements.append(self.compileReturnStatement())
+			else:
+				raise Exception('Unknown statement type')
+
+		return StatementBlockNode(statements)
+
+	def compileDoStatement(self):
+		self.assertIsKeyword('do')
+		self.assertIsType(TokenType.Identifier)
+		objName = self.getCurText()
+		self.incToken()
+		self.assertIsSymbol('.')
+		self.assertIsType(TokenType.Identifier)
+		methodName = self.getCurText()
+		self.incToken()
+		self.assertIsSymbol('(')
+
+		assert self.getCurText() == ')', 'TODO allow parameter passing'
+		self.incToken()
+
+		self.assertIsSymbol(';')
+		return DoStatementNode(SubroutineCallNode(objName, methodName, []))
+
+
+	def compileLetStatement(self):
+		self.assertIsKeyword('let')
+
+	def compileWhileStatement(self):
+		self.assertIsKeyword('while')
+
+	def compileIfStatement(self):
+		self.assertIsKeyword('if')
+
+	def compileReturnStatement(self):
+		self.assertIsKeyword('return')
+
 
 	def compileClass(self):
 		self.assertIsKeyword('class')
@@ -212,7 +324,7 @@ class CompilationEngine:
 		self.assertIsSymbol('{')
 
 		vars = []
-		while self.checkIfKeyword(['static', 'field']):
+		while self.checkIfKeyword('static', 'field'):
 			varModifier = ClassVarType.Static if self.getCurText() == 'static' else ClassVarType.Field
 			self.incToken()
 
@@ -243,8 +355,9 @@ class CompilationEngine:
 
 		subroutines = []
 		# raise Exception(self.nextToken())
-		while self.checkIfKeyword(['function', 'method', 'constructor']):
+		while self.checkIfKeyword('function', 'method', 'constructor'):
 			subroutines.append(self.compileSubroutine())
+		# raise Exception('///')
 
 		return ClassNode(className, vars, subroutines)
 
