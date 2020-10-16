@@ -36,6 +36,14 @@ class SubroutineParameter:
 	def __str__(self):
 		return f'{self.paramType} {self.paramName}'
 
+@dataclass
+class LocalVariable:
+	varType: str
+	varName: str
+
+	def __str__(self):
+		return f'var {self.varType} {self.varName}'
+
 
 class AstNode:
 	def __init__(self, children):
@@ -58,14 +66,18 @@ class ClassNode(AstNode):
 		self.subroutines = subroutines
 
 class SubroutineNode(AstNode):
-	def __init__(self, subroutineType, returnType, parameters):
+	def __init__(self, subroutineType, returnType, parameters, localVariables):
 		self.subroutineType = subroutineType
 		self.returnType = returnType
 		self.parameters = parameters
+		self.localVariables = localVariables
 
 	def __str__(self):
 		parmList = ', '.join(str(parm) for parm in self.parameters)
-		return f'{self.subroutineType} {self.returnType} ({parmList})'
+		return (
+			f'{self.subroutineType} {self.returnType} ({parmList})\n' + 
+				f'\t{self.localVariables}'
+			)
 
 dataTypeKeyword = [
 	'boolean',
@@ -107,7 +119,7 @@ class CompilationEngine:
 
 	def assertIsSymbol(self, symbol, increment=True):
 		self.assertIsType(TokenType.Symbol)
-		assert self.nextToken().text == symbol
+		assert self.nextToken().text == symbol, f'{self.nextToken().text} is not the expected symbol {symbol}'
 		if increment:
 			self.incToken()
 
@@ -166,7 +178,31 @@ class CompilationEngine:
 			if not self.checkIfSymbol(')'):
 				self.assertIsSymbol(',')
 
-		return SubroutineNode(subType, returnType, parameters)
+		# Must be if we exited the while loop
+		self.assertIsSymbol(')')
+		self.assertIsSymbol('{')
+
+		localVariables = []
+		while self.checkIfKeyword('var'):
+			self.incToken()
+			self.assertIsDataType()
+			varType = self.getCurText()
+			self.incToken()
+			self.assertIsType(TokenType.Identifier)
+			varName = self.getCurText()
+			localVariables.append(LocalVariable(varType, varName))
+			self.incToken()
+			while self.checkIfSymbol(','):
+				self.incToken()
+				self.assertIsType(TokenType.Identifier)
+				varName = self.getCurText()
+				localVariables.append(LocalVariable(varType, varName))
+				self.incToken()
+				
+			self.assertIsSymbol(';')
+
+
+		return SubroutineNode(subType, returnType, parameters, localVariables)
 
 	def compileClass(self):
 		self.assertIsKeyword('class')
