@@ -662,25 +662,39 @@ if not sys.flags.interactive and __name__ == '__main__':
 			raise Exception(f'Directory {progname} has no .jack files!')
 
 	# TODO put this somewhere
+
+	# def printErrorInContext(token, content):
+
+
 	for file in files:
 		content = open(file).read() + ' '		# todo make the trailing whitespace unnecessary
+		
 		content = content.replace('//', commentChar)
 		content1 = content
 		content = re.compile(r'/\*.*?\*/', re.DOTALL).sub('', content)
-		# print(content == content1)
-		tsm = TokenStateMachine()
-		tsm.read(content)
-		ce = CompilationEngine(tsm)
+		print(content == content1)
+
+		ce = None
 		try:
+			tsm = TokenStateMachine()
+			tsm.read(content)
+			ce = CompilationEngine(tsm)
 			classNode = ce.compileClass()
 		except Exception as ex:
-			print('Exception encountered:')
+			if ce is None:
+				print('Exception encountered while tokenizing:')
+			else:
+				print('Exception ecnountered while parsing:')
 			print(ex)
 			print(' at token position:')
-			pos = ce.nextToken().span.start
-			posDesc = f'line {pos.lineNumber}; column {pos.columnNumber}'
-			print(posDesc)
-			print(ce.nextToken().text)
+			if ce is None:
+
+				print(tsm.tokens[-1])
+			else:
+				pos = ce.nextToken().span.start
+				posDesc = f'line {pos.lineNumber}; column {pos.columnNumber}'
+				print(posDesc)
+				print(ce.nextToken().text)
 		else:
 			print(classNode)
 		# # print(classNode.subroutines[0])
