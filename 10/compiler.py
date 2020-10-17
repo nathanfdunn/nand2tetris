@@ -671,8 +671,18 @@ if not sys.flags.interactive and __name__ == '__main__':
 		tsm = TokenStateMachine()
 		tsm.read(content)
 		ce = CompilationEngine(tsm)
-		classNode = ce.compileClass()
-		print(classNode)
+		try:
+			classNode = ce.compileClass()
+		except Exception as ex:
+			print('Exception encountered:')
+			print(ex)
+			print(' at token position:')
+			pos = ce.nextToken().span.start
+			posDesc = f'line {pos.lineNumber}; column {pos.columnNumber}'
+			print(posDesc)
+			print(ce.nextToken().text)
+		else:
+			print(classNode)
 		# # print(classNode.subroutines[0])
 		# for sub in classNode.subroutines:
 		# 	print(sub)

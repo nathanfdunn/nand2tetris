@@ -6,6 +6,7 @@ class Main {
     //                         // in the Square files.
 
     function void OtherMethod2 (){
+    	{}
     }
 
 

@@ -5,6 +5,7 @@ import re
 from string import digits, ascii_letters as letters, whitespace
 from xml.sax.saxutils import escape
 alphanumeric = digits + letters + '_'
+from dataclasses import dataclass
 
 class TokenState(Enum):
 	Error = -1
@@ -31,13 +32,43 @@ class TokenType(Enum):
 
 	# TODO
 
+@dataclass
+class TextPosition:
+	index: int 				# 0-based
+	lineNumber: int 		# 1-based
+	columnNumber: int 		# 1-based
+
+	@classmethod
+	def initial(cls):
+		return cls(0, 1, 1)
+
+	def advancePosition(self):
+		return TextPosition(
+			self.index + 1,
+			self.lineNumber,
+			self.columnNumber + 1
+			)
+
+	def carriageReturn(self):
+		return TextPosition(
+			self.index + 1,
+			self.lineNumber + 1,
+			1
+			)
+
+@dataclass
+class TextSpan:
+	start: TextPosition
+	end: TextPosition
+
 class Token:
-	def __init__(self, text, type):
+	def __init__(self, text, type, span):
 		self.text = text
 		self.type = type
+		self.span = span
 
 	def __repr__(self):
-		return f'Token({repr(self.text)}, {repr(self.type)})'
+		return f'Token({repr(self.text)}, {repr(self.type)}, {repr(self.span)})'
 
 	@property
 	def keyword(self):
@@ -105,6 +136,8 @@ class TokenStateMachine:
 		self.state = TokenState.Nothing
 		self.tokens = []
 		self.curToken = ''
+		self.curTokenStartPos = None
+		self.currentPos = None
 
 	def toXml(self):
 		lines = []
@@ -125,24 +158,27 @@ class TokenStateMachine:
 			# self.tokens.append(Token(tokenText, tokenType))
 
 	def normalizeToken(self):
+		span = TextSpan(self.curTokenStartPos, self.currentPos)
+
 		if self.state == TokenState.Identifier:
 			if self.curToken in keywords:
-				return Token(self.curToken, TokenType.Keyword)
+				return Token(self.curToken, TokenType.Keyword, span)
 			else:
-				return Token(self.curToken, TokenType.Identifier)
+				return Token(self.curToken, TokenType.Identifier, span)
 		elif self.state == TokenState.String:
-			return Token(self.curToken.replace(commentChar, '//'), TokenType.StringConstant)
+			return Token(self.curToken.replace(commentChar, '//'), TokenType.StringConstant, span)
 		elif self.state == TokenState.Nothing:
 			return None
 		elif self.state == TokenState.Comment:
 			return None
 
-		return Token(self.curToken, TokenType(self.state.value))
+		return Token(self.curToken, TokenType(self.state.value), span)
 
 	# And also reset state and stuff
 	def addCurrentToken(self):
 		self.addToken(self.normalizeToken())
 		self.curToken = ''
+		self.curTokenStartPos = self.currentPos
 		self.state = TokenState.Nothing
 
 	def addCurrentAndStartFromChar(self, char):
@@ -180,8 +216,20 @@ class TokenStateMachine:
 	# 	self.assertNothing()
 	# 	self.tokens.append(Token(char, TokenType.Symbol))
 
+	# def advancePosition(self):
+	# 	self.currentPos
+
+	# def carriageReturn(self):
+	# 	pass
+
 	def read(self, content):
-		for c in content:
+		self.currentPos = TextPosition.initial()
+		for index, c in enumerate(content):
+			if c == '\n':
+				self.currentPos = self.currentPos.carriageReturn()
+			else:
+				self.currentPos = self.currentPos.advancePosition()
+
 			self.consumeChar(c)
 
 	def __str__(self):
