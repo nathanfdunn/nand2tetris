@@ -13,6 +13,9 @@ from typing import List
 # 	If = 3
 # 	Return = 4
 
+unaryOperators = '-~'
+binaryOperators = '+-*/&|<>='
+
 
 class ClassVarType(Enum):
 	Static = 1
@@ -78,6 +81,14 @@ class BinaryExpression(ExpressionNode):
 
 	def __str__(self):
 		return f'{self.first} {self.operator} {self.second}'
+
+# @dataclass
+# class UnaryExpression(TermNode):
+# 	operator: str
+# 	term: TermNode
+
+# 	def __str__(self):
+# 		return f'{self.operator}{self.term}'
 
 @dataclass
 class ParentheticalTerm(TermNode):
@@ -222,14 +233,18 @@ class CompilationEngine:
 	def parseTokens(self, tsm: 'TokenStateMachine'):
 		pass
 
+	# TODO rename to curToken
 	def nextToken(self):
 		if self.index >= len(self.tokens):
 			return None
 		return self.tokens[self.index]
 
+	def lookAhead(self):
+		return self.tokens[self.index + 1]
+
 	def assertIsKeyword(self, *keywords, increment=True):
 		self.assertIsType(TokenType.Keyword)
-		assert self.nextToken().text in keywords, f'{self.nextToken().text} is not {keywords}'
+		assert self.nextToken().text in keywords, f'{self.nextToken().text} is not in {keywords}'
 		if increment:
 			self.incToken()
 
@@ -412,9 +427,27 @@ class CompilationEngine:
 			self.incToken()
 			assert self.getCurText() != '.', 'TODO parse subroutineCall'
 		elif self.isType(TokenType.Identifier):
-			ret = VarNameTerm(self.getCurText());
+			varName = self.getCurText()
+			tokenAfter = self.lookAhead()
+			if tokenAfter.text == '[':
+				self.incToken()
+				self.assertIsSymbol('[')		# Just in case??
+				expr = self.compileExpression()
+				self.assertIsSymbol(']')
+				ret = ArrayIndexTerm(varName, expr)
+			else:
+				ret = VarNameTerm(varName);
+				self.incToken()
+		elif self.checkIfSymbol(unaryOperators):
+			op = self.getCurText()
 			self.incToken()
-			assert self.getCurText() not in '[', 'TODO parse indexing'
+			term = self.compileTerm()
+			ret = UnaryOperatorTerm(op, term)
+		elif self.checkIfSymbol('('):
+			self.incToken()
+			expr = self.compileExpression()
+			self.assertIsSymbol(')')
+			ret = ParentheticalTerm(expr)
 		else:
 			raise Exception('Unsupported term: ' + self.getCurText())
 
