@@ -154,7 +154,7 @@ class TokenStateMachine:
 		if char in symbols:
 			self.curToken = char
 			self.state = TokenState.Symbol
-		elif char in letters:
+		elif char in letters + '_':
 			self.curToken = char
 			self.state = TokenState.Identifier
 		elif char in digits:
