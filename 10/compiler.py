@@ -77,7 +77,7 @@ class TermExpression(ExpressionNode):
 class BinaryExpression(ExpressionNode):
 	first: TermNode
 	operator: str
-	second: TermNode
+	second: ExpressionNode
 
 	def __str__(self):
 		return f'{self.first} {self.operator} {self.second}'
@@ -385,12 +385,10 @@ class CompilationEngine:
 		# Parse parameters
 		arguments = []
 		while not self.checkIfSymbol(')'):
+			if arguments:
+				self.assertIsSymbol(',')
+				
 			arguments.append(self.compileExpression())
-			if self.checkIfSymbol(','):
-				self.incToken()
-				assert not self.checkIfSymbol(')'), 'Prevent trailing comma - call(arg,)'
-			# else:
-				# self.incToken()
 
 		self.assertIsSymbol(')')
 
@@ -411,7 +409,14 @@ class CompilationEngine:
 		self.assertIsKeyword('return')
 
 	def compileExpression(self):
-		return TermExpression(self.compileTerm())
+		term = self.compileTerm()
+		if self.checkIfSymbol(binaryOperators):
+			operator = self.getCurText()
+			self.incToken()
+			expr = self.compileExpression()
+			return BinaryExpression(term, operator, expr)
+		else:
+			return TermExpression(term)
 
 	def compileTerm(self):
 		ret = None

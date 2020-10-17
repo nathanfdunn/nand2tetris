@@ -7,7 +7,7 @@ class Main {
         var String s;
         var Array a;
 
-        do Something.Test(1 , 12, "hello", arr[(arr[10])], hello);
+        do Something.Test(1 + 2 + a |9 ,3, (3 + arr[5]),3,);
 
         do SomethingElse.Test2();
 
