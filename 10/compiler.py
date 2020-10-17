@@ -4,9 +4,10 @@ from enum import Enum
 import re
 from tokenizer import TokenStateMachine, commentChar, TokenType
 from dataclasses import dataclass
-from typing import List
+from typing import List, Optional
+from textwrap import indent
 
-
+tab = "\t"
 # class StatementType(Enum):
 # 	Let = 1
 # 	While = 2
@@ -163,24 +164,59 @@ class DoStatementNode(StatementNode):
 	def __str__(self):
 		return f'do {self.subroutineCall};'
 
+@dataclass
 class LetStatementNode(StatementNode):
-	pass
+	varName: str
+	indexExpr: Optional[ExpressionNode]
+	rhsExpr: ExpressionNode
+	
+	def __str__(self):
+		indexStr = '' if self.indexExpr is None else f'[{self.indexExpr}]'
+		return f'let {self.varName}{indexStr} = {self.rhsExpr};'
 
+	def hasIndex(self):
+		return self.indexExpr is not None
+
+@dataclass
+class StatementBlockNode:
+	statements: List[StatementNode]
+
+	def __str__(self):
+		return '\n'.join(str(stmt) for stmt in self.statements)
+
+
+@dataclass
 class WhileStatementNode(StatementNode):
-	pass
+	conditionExpr: ExpressionNode
+	statements: StatementBlockNode
+	
+	def __str__(self):
+		return f'while ({self.conditionExpr}){{\n{indent(str(self.statements), tab)}\n}}'
 
+@dataclass
 class IfStatementNode(StatementNode):
-	pass
+	conditionExpr: ExpressionNode
+	positiveStatements: StatementBlockNode
+	negativeStatements: Optional[StatementBlockNode]
+
+	def hasElse(self):
+		return self.negativeStatements is not None
+
+	def __str__(self):
+		ret = (
+			f'if ({self.conditionExpr}) {{\n' +
+				indent(str(self.positiveStatements), tab) + "\n}"
+		)
+		if self.hasElse():
+			ret += ('\nelse {\n' +
+				indent(str(self.negativeStatements), tab) + '\n}'
+		)
+		return ret
 
 class ReturnStatementNode(StatementNode):
 	pass
 
 
-@dataclass
-class StatementBlockNode:
-	statements: List[StatementNode]
-	# def __str__(self):
-	# 	return '\n'.join(str(statement) for statement in self.statements)
 
 class AstNode:
 	def __init__(self, children):
@@ -213,7 +249,7 @@ class SubroutineNode(AstNode):
 	def __str__(self):
 		parmList = ', '.join(str(parm) for parm in self.parameters)
 		localVariables = '\n'.join(f'\t{localVar};' for localVar in self.localVariables)
-		statementBlock = '\n'.join(f'\t{statement}' for statement in self.statementBlock.statements)
+		statementBlock = '\n'.join(f'{indent(str(statement), tab)}' for statement in self.statementBlock.statements)
 			# def __str__(self):
 		# return '\n'.join(str(statement) for statement in self.statements)
 		return (
@@ -266,6 +302,7 @@ class CompilationEngine:
 
 	def assertIsSymbol(self, symbol, increment=True):
 		self.assertIsType(TokenType.Symbol)
+		# assert self.nextToken().type == TokenType.Symbol, f'{self.nextToken().text} is not a Symbol'
 		assert self.nextToken().text == symbol, f'{self.nextToken().text} is not the expected symbol {symbol}'
 		if increment:
 			self.incToken()
@@ -280,7 +317,7 @@ class CompilationEngine:
 		if type(typeArg) is str:
 			raise ArgumentException('Must pass TokenType, not str')
 		assert self.nextToken() is not None
-		assert self.isType(typeArg), f'{self.nextToken().type} is not {typeArg}'
+		assert self.isType(typeArg), f'{self.nextToken().text} is not {typeArg}'
 
 	def isType(self, type):
 		return self.nextToken().type == type
@@ -386,7 +423,7 @@ class CompilationEngine:
 		objName = self.getCurText()
 		methodName = None
 		self.incToken()
-		
+
 		if self.checkIfSymbol('.'):
 			self.incToken()
 			self.assertIsType(TokenType.Identifier)
@@ -411,12 +448,53 @@ class CompilationEngine:
 
 	def compileLetStatement(self):
 		self.assertIsKeyword('let')
+		self.assertIsType(TokenType.Identifier)
+		varName = self.getCurText()
+		indexExpr = None
+		self.incToken()
+
+		if not self.checkIfSymbol('='):
+			self.assertIsSymbol('[')
+			indexExpr = self.compileExpression()
+			self.assertIsSymbol(']')
+
+		self.assertIsSymbol('=')
+
+		rhs = self.compileExpression()
+
+		self.assertIsSymbol(';')
+
+		return LetStatementNode(varName, indexExpr, rhs)
+
 
 	def compileWhileStatement(self):
 		self.assertIsKeyword('while')
+		self.assertIsSymbol('(')
+		conditionExpr = self.compileExpression()
+		self.assertIsSymbol(')')
+		self.assertIsSymbol('{')
+		statements = self.compileStatements()
+		self.assertIsSymbol('}')
+
+		return WhileStatementNode(conditionExpr, statements)
 
 	def compileIfStatement(self):
 		self.assertIsKeyword('if')
+		self.assertIsSymbol('(')
+		conditionExpr = self.compileExpression()
+		self.assertIsSymbol(')')
+		self.assertIsSymbol('{')
+		positiveStatements = self.compileStatements()
+		self.assertIsSymbol('}')
+		negativeStatements = None
+		if self.checkIfKeyword('else'):
+			self.incToken()
+			self.assertIsSymbol('{')
+			negativeStatements = self.compileStatements()
+			self.assertIsSymbol('}')
+
+		return IfStatementNode(conditionExpr, positiveStatements, negativeStatements)
+
 
 	def compileReturnStatement(self):
 		self.assertIsKeyword('return')

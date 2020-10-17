@@ -9,7 +9,22 @@ class Main {
 
         do SomethingTest(1 + OK() + something.ok(3, arr[3]) + a |9 ,3, (3 + arr[5]),3);
 
+        let x[x] = getValue();
+
         do SomethingElse.Test2();
+
+        while (x > 10) {
+        	do Ok();
+        }
+
+        if (x > 10) {
+        	if (x) {} else {
+        		while (x + y){
+
+        		}
+        	}
+        }
+        
 
         // if (false) {
         //     let s = "string constant";
