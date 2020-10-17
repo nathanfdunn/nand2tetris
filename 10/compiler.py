@@ -143,18 +143,22 @@ class UnaryOperatorTerm(TermNode):
 		return f'{self.operator}{self.term}'
 
 @dataclass
-class SubroutineCallNode(TermNode):
+class SubroutineCallExpression(ExpressionNode):
 	objName: str
 	methodName: str
 	argumentList: List[ExpressionNode]
 
 	def __str__(self):
 		argString = ', '.join(str(arg) for arg in self.argumentList)
-		return f'{self.objName}.{self.methodName}({argString})'
+		target = f'{self.objName}.{self.methodName}' if self.methodName else self.objName
+		return f'{target}({argString})'
+
+	def isObjMethod(self):
+		return methodName is not None
 
 @dataclass
 class DoStatementNode(StatementNode):
-	subroutineCall: SubroutineCallNode
+	subroutineCall: SubroutineCallExpression
 
 	def __str__(self):
 		return f'do {self.subroutineCall};'
@@ -291,7 +295,7 @@ class CompilationEngine:
 	def getCurText(self):
 		return self.nextToken().text
 
-	def compileSubroutine(self):
+	def compileSubroutineDefinition(self):
 		subType = SubroutineType.parse(self.getCurText())
 		self.incToken()
 		# self.assertIsTypes(['keyword', 'identifier'])
@@ -373,27 +377,36 @@ class CompilationEngine:
 
 	def compileDoStatement(self):
 		self.assertIsKeyword('do')
+		subroutineCall = self.compileSubroutineCall()
+		self.assertIsSymbol(';')
+		return DoStatementNode(subroutineCall)
+
+	def compileSubroutineCall(self):
 		self.assertIsType(TokenType.Identifier)
 		objName = self.getCurText()
+		methodName = None
 		self.incToken()
-		self.assertIsSymbol('.')
-		self.assertIsType(TokenType.Identifier)
-		methodName = self.getCurText()
-		self.incToken()
+		
+		if self.checkIfSymbol('.'):
+			self.incToken()
+			self.assertIsType(TokenType.Identifier)
+			methodName = self.getCurText()
+			self.incToken()
+
 		self.assertIsSymbol('(')
+
 
 		# Parse parameters
 		arguments = []
 		while not self.checkIfSymbol(')'):
 			if arguments:
 				self.assertIsSymbol(',')
-				
+
 			arguments.append(self.compileExpression())
 
 		self.assertIsSymbol(')')
 
-		self.assertIsSymbol(';')
-		return DoStatementNode(SubroutineCallNode(objName, methodName, arguments))
+		return SubroutineCallExpression(objName, methodName, arguments)
 
 
 	def compileLetStatement(self):
@@ -440,6 +453,8 @@ class CompilationEngine:
 				expr = self.compileExpression()
 				self.assertIsSymbol(']')
 				ret = ArrayIndexTerm(varName, expr)
+			elif tokenAfter.text in ['.', '(']:		# both indicate a subroutine
+				ret = self.compileSubroutineCall()
 			else:
 				ret = VarNameTerm(varName);
 				self.incToken()
@@ -498,7 +513,7 @@ class CompilationEngine:
 		subroutines = []
 		# raise Exception(self.nextToken())
 		while self.checkIfKeyword('function', 'method', 'constructor'):
-			subroutines.append(self.compileSubroutine())
+			subroutines.append(self.compileSubroutineDefinition())
 		# raise Exception('///')
 
 		return ClassNode(className, vars, subroutines)
