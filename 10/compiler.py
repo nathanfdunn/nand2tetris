@@ -22,6 +22,9 @@ class ClassVarType(Enum):
 	Static = 1
 	Field = 2
 
+	def __str__(self):
+		return self.name.lower()
+
 class SubroutineType(Enum):
 	Function = 1
 	Method = 2
@@ -39,6 +42,9 @@ class SubroutineType(Enum):
 			raise ArgumentException(f'invalid sub type: {text}')
 
 		return ret
+
+	def toString(self):
+		return self.name.lower()
 
 @dataclass
 class SubroutineParameter:
@@ -227,14 +233,22 @@ class AstNode:
 	def __init__(self, children):
 		self.children = children
 
+@dataclass
 class ClassVar:
-	def __init__(self, varName, modifier, varType):
-		self.varName = varName
-		self.modifier = modifier
-		self.varType = varType
+	varName: str
+	modifier: ClassVarType
+	varType: str
 
-	def __repr__(self):
-		return f'ClassVar({repr(self.varName)}, {repr(self.modifier)}, {repr(self.varType)})'
+	def __str__(self):
+		return f'{self.modifier} {self.varType} {self.varName};'
+	# def __init__(self, varName, modifier, varType):
+	# 	self.varName = varName
+	# 	self.modifier = modifier
+	# 	self.varType = varType
+
+	# def __repr__(self):
+	# 	return f'ClassVar({repr(self.varName)}, {repr(self.modifier)}, {repr(self.varType)})'
+
 
 class ClassNode(AstNode):
 	def __init__(self, className, vars, subroutines):
@@ -243,10 +257,24 @@ class ClassNode(AstNode):
 		self.vars = vars
 		self.subroutines = subroutines
 
+	def __str__(self):
+		varsSection = '\n'.join(str(var) for var in self.vars)
+		if varsSection:
+			varsSection = indent(varsSection, tab) + '\n\n'
+		subroutines = '\n\n'.join(str(sub) for sub in self.subroutines)
+		if subroutines:
+			subroutines = indent(subroutines, tab) + '\n'
+		return (
+			f'class {self.className} {{\n' +
+				varsSection +
+				subroutines + '}'
+			)
+
 class SubroutineNode(AstNode):
-	def __init__(self, subroutineType, returnType, parameters, localVariables, statementBlock):
+	def __init__(self, subroutineType, returnType, subroutineName, parameters, localVariables, statementBlock):
 		self.subroutineType = subroutineType
 		self.returnType = returnType
+		self.subroutineName = subroutineName
 		self.parameters = parameters
 		self.localVariables = localVariables
 		self.statementBlock = statementBlock
@@ -254,13 +282,17 @@ class SubroutineNode(AstNode):
 	def __str__(self):
 		parmList = ', '.join(str(parm) for parm in self.parameters)
 		localVariables = '\n'.join(f'\t{localVar};' for localVar in self.localVariables)
+		if localVariables:
+			localVariables += '\n'
 		statementBlock = '\n'.join(f'{indent(str(statement), tab)}' for statement in self.statementBlock.statements)
+		if statementBlock:
+			statementBlock += '\n'
 			# def __str__(self):
 		# return '\n'.join(str(statement) for statement in self.statements)
 		return (
-			f'{self.subroutineType} {self.returnType} ({parmList})\n\n' + 
-				f'{localVariables}\n\n' +
-				f'{statementBlock}'
+			f'{self.subroutineType.toString()} {self.returnType} {self.subroutineName} ({parmList}) {{\n' + 
+				localVariables +
+				f'{statementBlock}}}'
 			)
 
 dataTypeKeyword = [
@@ -355,9 +387,6 @@ class CompilationEngine:
 			paramType = self.getCurText()
 			self.incToken()
 
-			# if self.getCurText() != 'Ax':
-			# 	raise Exception(self.nextToken())
-
 			self.assertIsType(TokenType.Identifier)
 			paramName = self.getCurText()
 			parameters.append(SubroutineParameter(paramType, paramName))
@@ -393,8 +422,9 @@ class CompilationEngine:
 
 		statementBlock = self.compileStatements()
 		# while not self.checkIfSymbol('}'):
+		self.assertIsSymbol('}')
 
-		return SubroutineNode(subType, returnType, parameters, localVariables, statementBlock)
+		return SubroutineNode(subType, returnType, subroutineName, parameters, localVariables, statementBlock)
 
 	def checkIfStatement(self):
 		return self.checkIfKeyword('do', 'let', 'while', 'if', 'return')
@@ -642,6 +672,7 @@ if not sys.flags.interactive and __name__ == '__main__':
 		tsm.read(content)
 		ce = CompilationEngine(tsm)
 		classNode = ce.compileClass()
-		# print(classNode.subroutines[0])
-		for sub in classNode.subroutines:
-			print(sub)
+		print(classNode)
+		# # print(classNode.subroutines[0])
+		# for sub in classNode.subroutines:
+		# 	print(sub)

@@ -1,46 +1,57 @@
 class Main {
-    static boolean test;    // Added for testing -- there is no static keyword
-                            // in the Square files.
+    // static boolean test;    // Added for testing -- there is no static keyword
+    // static boolean test;    // Added for testing -- there is no static keyword
+    // static boolean test;    // Added for testing -- there is no static keyword
+    // static boolean test;    // Added for testing -- there is no static keyword
+    //                         // in the Square files.
 
-    function void test() {  // Added to test Jack syntax that is not use in
-        var int i, j, k, h;       // the Square files.
-        var String s;
-        var Array a;
-
-        do SomethingTest(1 + OK() + something.ok(3, arr[3]) + a |9 ,3, (3 + arr[5]),3);
-
-        let x[x] = getValue();
-
-        do SomethingElse.Test2();
-
-        while (x > 10) {
-        	do Ok();
-        }
-
-        if (x > 10) {
-        	if (x) {} else {
-        		while (x + y){
-        			return;
-
-        			// TODO check this
-        			return x + OK();
-
-        			return x[x];
-        		}
-        	}
-        }
-        
-
-        // if (false) {
-        //     let s = "string constant";
-        //     let s = null;
-        //     let a[1] = a[2];
-        // }
-        // else {              // There is no else keyword in the Square files.
-        //     let i = i * (-j);
-        //     let j = j / (-2);   // note: unary negate constant 2
-        //     let i = i | j;
-        // }
-        // return;
+    function void OtherMethod2 (){
     }
+
+
+    // function void test() {  // Added to test Jack syntax that is not use in
+    //     var int i, j, k, h;       // the Square files.
+    //     var String s;
+    //     var Array a;
+
+    //     do SomethingTest(1 + OK() + something.ok(3, arr[3]) + a |9 ,3, (3 + arr[5]),3);
+
+    //     let x[x] = getValue();
+
+    //     do SomethingElse.Test2();
+
+    //     while (x > 10) {
+    //     	do Ok();
+    //     }
+
+    //     if (x > 10) {
+    //     	if (x) {} else {
+    //     		while (x + y){
+    //     			return;
+
+    //     			// TODO check this
+    //     			return x + OK();
+
+    //     			return x[x];
+    //     		}
+    //     	}
+    //     }        
+
+    //     // if (false) {
+    //     //     let s = "string constant";
+    //     //     let s = null;
+    //     //     let a[1] = a[2];
+    //     // }
+    //     // else {              // There is no else keyword in the Square files.
+    //     //     let i = i * (-j);
+    //     //     let j = j / (-2);   // note: unary negate constant 2
+    //     //     let i = i | j;
+    //     // }
+    //     // return;
+    // }
+
+    // function void OtherMethod (){
+
+    // }
+
 }
