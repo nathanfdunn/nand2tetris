@@ -20,7 +20,12 @@ class Main {
         if (x > 10) {
         	if (x) {} else {
         		while (x + y){
+        			return;
 
+        			// TODO check this
+        			return x + OK();
+
+        			return x[x];
         		}
         	}
         }

@@ -213,9 +213,14 @@ class IfStatementNode(StatementNode):
 		)
 		return ret
 
+@dataclass
 class ReturnStatementNode(StatementNode):
-	pass
+	returnExpr: Optional[ExpressionNode]
 
+	def __str__(self):
+		if self.returnExpr is None:
+			return 'return;'
+		return f'return {self.returnExpr};'
 
 
 class AstNode:
@@ -498,6 +503,14 @@ class CompilationEngine:
 
 	def compileReturnStatement(self):
 		self.assertIsKeyword('return')
+		if self.checkIfSymbol(';'):
+			self.incToken()
+			return ReturnStatementNode(None)
+
+		returnExpr = self.compileExpression()
+		self.assertIsSymbol(';')
+		return ReturnStatementNode(returnExpr)
+
 
 	def compileExpression(self):
 		term = self.compileTerm()
