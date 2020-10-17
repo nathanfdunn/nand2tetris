@@ -60,14 +60,85 @@ class StatementNode:
 class ExpressionNode:
 	pass
 
+class TermNode(ExpressionNode):
+	pass
+
 @dataclass
-class SubroutineCallNode(ExpressionNode):
+class TermExpression(ExpressionNode):
+	term: TermNode
+
+	def __str__(self):
+		return str(self.term)
+
+@dataclass
+class BinaryExpression(ExpressionNode):
+	first: TermNode
+	operator: str
+	second: TermNode
+
+	def __str__(self):
+		return f'{self.first} {self.operator} {self.second}'
+
+@dataclass
+class ParentheticalTerm(TermNode):
+	expression: ExpressionNode
+
+	def __str__(self):
+		return f'({self.expression})'
+
+@dataclass
+class IntegerConstantTerm(TermNode):
+	integerValue: int
+
+	def __str__(self):
+		return str(self.integerValue)
+
+@dataclass
+class StringConstantTerm(TermNode):
+	stringValue: str
+
+	def __str__(self):
+		return f'"{self.stringValue}"'
+
+@dataclass
+class KeywordConstantTerm(TermNode):
+	'''true, false, null, this'''
+	keyword: str
+
+	def __str__(self):
+		return self.keyword
+
+@dataclass
+class VarNameTerm(TermNode):
+	varName: str
+
+	def __str__(self):
+		return self.varName
+
+@dataclass
+class ArrayIndexTerm(TermNode):
+	varName: str
+	index: ExpressionNode
+
+	def __str__(self):
+		return f'{self.varName}[{self.index}]'
+
+@dataclass
+class UnaryOperatorTerm(TermNode):
+	operator: str
+	term: TermNode
+
+	def __str__(self):
+		return f'{self.operator}{self.term}'
+
+@dataclass
+class SubroutineCallNode(TermNode):
 	objName: str
 	methodName: str
 	argumentList: List[ExpressionNode]
 
 	def __str__(self):
-		argString = ', '.join(self.argumentList)
+		argString = ', '.join(str(arg) for arg in self.argumentList)
 		return f'{self.objName}.{self.methodName}({argString})'
 
 @dataclass
@@ -156,9 +227,9 @@ class CompilationEngine:
 			return None
 		return self.tokens[self.index]
 
-	def assertIsKeyword(self, keyword, increment=True):
+	def assertIsKeyword(self, *keywords, increment=True):
 		self.assertIsType(TokenType.Keyword)
-		assert self.nextToken().text == keyword, f'{self.nextToken().text} is not {keyword}'
+		assert self.nextToken().text in keywords, f'{self.nextToken().text} is not {keywords}'
 		if increment:
 			self.incToken()
 
@@ -296,11 +367,20 @@ class CompilationEngine:
 		self.incToken()
 		self.assertIsSymbol('(')
 
-		assert self.getCurText() == ')', 'TODO allow parameter passing'
-		self.incToken()
+		# Parse parameters
+		arguments = []
+		while not self.checkIfSymbol(')'):
+			arguments.append(self.compileExpression())
+			if self.checkIfSymbol(','):
+				self.incToken()
+				assert not self.checkIfSymbol(')'), 'Prevent trailing comma - call(arg,)'
+			# else:
+				# self.incToken()
+
+		self.assertIsSymbol(')')
 
 		self.assertIsSymbol(';')
-		return DoStatementNode(SubroutineCallNode(objName, methodName, []))
+		return DoStatementNode(SubroutineCallNode(objName, methodName, arguments))
 
 
 	def compileLetStatement(self):
@@ -315,6 +395,30 @@ class CompilationEngine:
 	def compileReturnStatement(self):
 		self.assertIsKeyword('return')
 
+	def compileExpression(self):
+		return TermExpression(self.compileTerm())
+
+	def compileTerm(self):
+		ret = None
+		if self.isType(TokenType.IntegerConstant):
+			ret = IntegerConstantTerm(int(self.getCurText()))
+			self.incToken()
+		elif self.isType(TokenType.StringConstant):
+			ret = StringConstantTerm(self.getCurText())
+			self.incToken()
+		elif self.isType(TokenType.Keyword):
+			self.assertIsKeyword('true', 'false', 'null', 'this', increment=False)
+			ret = KeywordConstantTerm(self.getCurText())
+			self.incToken()
+			assert self.getCurText() != '.', 'TODO parse subroutineCall'
+		elif self.isType(TokenType.Identifier):
+			ret = VarNameTerm(self.getCurText());
+			self.incToken()
+			assert self.getCurText() not in '[', 'TODO parse indexing'
+		else:
+			raise Exception('Unsupported term: ' + self.getCurText())
+
+		return ret
 
 	def compileClass(self):
 		self.assertIsKeyword('class')

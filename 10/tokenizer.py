@@ -81,7 +81,8 @@ keywords = [
 	'int',
 	'if',
 	'else',
-	'null'
+	'null',
+	'this'
 ]
 
 
