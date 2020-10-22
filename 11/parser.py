@@ -256,13 +256,20 @@ class ClassVar:
 
 
 class SubroutineDefinitionNode(AstNode):
-	def __init__(self, subroutineType, returnType, subroutineName, parameters, localVariables: List[LocalVariable], statementBlock):
+	def __init__(self, subroutineType, returnType, subroutineName, parameters: List[SubroutineParameter], localVariables: List[LocalVariable], statementBlock):
 		self.subroutineType = subroutineType
 		self.returnType = returnType
 		self.subroutineName = subroutineName
 		self.parameters = parameters
 		self.localVariables = localVariables
 		self.statementBlock = statementBlock
+
+	def getParameterByName(self, paramName):
+		for param in self.parameters:
+			if param.paramName == paramName:
+				return param
+
+		return None
 
 	def __str__(self):
 		parmList = ', '.join(str(parm) for parm in self.parameters)
@@ -360,7 +367,7 @@ class CompilationEngine:
 
 	def assertIsType(self, typeArg):
 		if type(typeArg) is str:
-			raise ArgumentException('Must pass TokenType, not str')
+			raise Exception('Must pass TokenType, not str')
 		assert self.nextToken() is not None
 		assert self.isType(typeArg), f'{self.nextToken().text} is not {typeArg}'
 

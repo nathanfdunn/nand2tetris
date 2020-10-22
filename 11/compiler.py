@@ -34,6 +34,10 @@ from enum import Enum
 from functools import singledispatchmethod
 from typing import Union
 from dataclasses import dataclass
+import uuid
+
+def uniqueString():
+	return 'X' + str(uuid.uuid4()).replace('-', '')
 
 class VariableModifier(Enum):
 	Static = 1
@@ -78,8 +82,8 @@ class Compiler:
 	# def __init__(self):
 	# 	self.currentSubroutine = None
 
-	def writeToFile(self, string):
-		# self.file.write(string)
+	def writeToFile(self, string: str):
+		self.file.write(string + '\n')
 		print(string)
 
 	def writePush(self, segment: Segments, value: int):
@@ -133,15 +137,21 @@ class Compiler:
 		self.classLevel = classLevel
 		self.subroutineLevel = subroutineLevel
 
-	def compileClass(self, node: ClassDefinitionNode, pathRoot):
+	def compileClass(self, node: ClassDefinitionNode, pathRoot, addInitCall: bool):
 		path = Path(pathRoot) / (node.className + '.vm')
 		self.file = open(path, 'w')
+
+		if addInitCall:
+			self.writeToFile('call Sys.init 0')
+			self.writeToFile('')
+
 		self.constructSymbolTable(node)
 		self.currentClass = node
 
 		# print(self.classLevel)
 		# print(self.subroutineLevel)
 		self.writeCode(node)
+
 
 
 	@singledispatchmethod
@@ -181,7 +191,14 @@ class Compiler:
 
 	@writeCode.register
 	def _(self, node: VarNameTerm):
-		pass
+		if node.varName in self.subroutineLevel[self.currentSubroutine.subroutineName]:
+			symbol = self.subroutineLevel[self.currentSubroutine.subroutineName][node.varName]
+		# elif self.currentSubroutine.getParameterByName(node.varName) is not None:
+		# 	symbol = s
+		else:
+			symbol = self.classLevel[self.currentClass.className][node.varName]
+
+		self.writePush(symbol.modifier.toSegment(), symbol.assignedIndex)
 
 	@writeCode.register
 	def _(self, node: LetStatementNode):
@@ -190,7 +207,12 @@ class Compiler:
 			raise Exception('todo')
 
 		# self.subroutineLevel[self.currentSubroutine.subroutineName][node.varName].modifier
-		symbol = self.classLevel[node.varName]
+		try:
+			symbol = self.subroutineLevel[self.currentSubroutine.subroutineName][node.varName]
+		except KeyError:
+			symbol = self.classLevel[node.varName]
+
+		# symbol = self.classLevel[node.varName]
 		self.writePop(
 			symbol.modifier.toSegment(),
 			symbol.assignedIndex
@@ -213,7 +235,33 @@ class Compiler:
 		else:
 			raise NotImplementedError()
 
+	@writeCode.register
+	def _(self, node: IfStatementNode):
+		label1 = uniqueString()
+		label2 = uniqueString()
 
+		self.writeCode(node.conditionExpr)
+		self.writeToFile('not')
+		self.writeToFile('if-goto ' + label1)
+		self.writeCode(node.positiveStatements)
+		self.writeToFile('goto ' + label2)
+		self.writeToFile('label ' + label1)
+		if node.hasElse():
+			self.writeCode(node.negativeStatements)
+		self.writeToFile('label ' + label2)
+
+	@writeCode.register
+	def _(self, node: WhileStatementNode):
+		label1 = 'LABEL1_' + uniqueString()
+		label2 = 'LABEL2_' + uniqueString()
+
+		self.writeToFile('label ' + label1)
+		self.writeCode(node.conditionExpr)
+		self.writeToFile('not')
+		self.writeToFile('if-goto ' + label2)
+		self.writeCode(node.statements)
+		self.writeToFile('goto ' + label1)
+		self.writeToFile('label ' + label2)
 
 	@writeCode.register
 	def _(self, node: IntegerConstantTerm):
@@ -266,5 +314,6 @@ if __name__ == '__main__':
 		# TODO add a validation step i.e. no duplicated variable names, flow analysis, etc.
 		# TODO Voids not being used in expressions, void matches return statements
 		comp = Compiler()
-		comp.compileClass(classNode, path)
+		comp.compileClass(classNode, path, True)
+
 
