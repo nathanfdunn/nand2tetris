@@ -86,6 +86,12 @@ class Compiler:
 		self.file.write(string + '\n')
 		print(string)
 
+	def popVariable(self, symbol: Symbol):
+		self.writePop(symbol.modifier.toSegment(), symbol.assignedIndex)
+
+	def pushVariable(self, symbol: Symbol):
+		self.writePush(symbol.modifier.toSegment(), symbol.assignedIndex)
+
 	def writePush(self, segment: Segments, value: int):
 		self.writeToFile(f'push {segment.toString()} {value}')
 
@@ -95,6 +101,12 @@ class Compiler:
 	def getParameters(self, subroutine: SubroutineDefinitionNode):
 		if subroutine.subroutineType == SubroutineType.Function:
 			return subroutine.parameters
+
+	def getSymbolByName(self, varName: str):
+		try:
+			return self.subroutineLevel[self.currentSubroutine.subroutineName][varName]
+		except KeyError:
+			return self.classLevel[varName]
 
 	def getLocalCount(self, subroutineName):
 		return sum(1 for sym in self.subroutineLevel[subroutineName].values() if sym.modifier == VariableModifier.Local)
@@ -143,7 +155,7 @@ class Compiler:
 
 		if addInitCall:
 			self.writeToFile('call Sys.init 0')
-			self.writeToFile('')
+			# self.writeToFile('')
 
 		self.constructSymbolTable(node)
 		self.currentClass = node
@@ -158,8 +170,8 @@ class Compiler:
 	def writeCode(self, node):
 		if type(node) is str:
 			raise TypeError('Did you mean writeToFile?')
-		print('TODO raise not implemented')
-		# raise NotImplementedError('Unrecognized node type ' + repr(node))
+		# print('TODO raise not implemented')
+		raise NotImplementedError('Unrecognized node type ' + repr(node))
 
 	@writeCode.register
 	def _(self, node: ClassDefinitionNode):
@@ -202,21 +214,40 @@ class Compiler:
 
 	@writeCode.register
 	def _(self, node: LetStatementNode):
+		symbol = self.getSymbolByName(node.varName)
+
 		self.writeCode(node.rhsExpr)
+
 		if node.hasIndex():
-			raise Exception('todo')
+			# We're assuming the variable corresponds to an array
+			# Let's get the memory address stored there
+			self.pushVariable(symbol)
 
-		# self.subroutineLevel[self.currentSubroutine.subroutineName][node.varName].modifier
-		try:
-			symbol = self.subroutineLevel[self.currentSubroutine.subroutineName][node.varName]
-		except KeyError:
-			symbol = self.classLevel[node.varName]
+			# TODO optimization where if the index is a constant we use `pop that 4` for example
+			self.writeCode(node.indexExpr)
+			self.writeToFile('add')
 
-		# symbol = self.classLevel[node.varName]
-		self.writePop(
-			symbol.modifier.toSegment(),
-			symbol.assignedIndex
-		)
+			# Set `that` to the index
+			self.writePop(Segments.Pointer, 1)
+
+			self.writePop(Segments.That, 0)
+		else:
+			# symbol = self.classLevel[node.varName]
+			self.writePop(
+				symbol.modifier.toSegment(),
+				symbol.assignedIndex
+			)
+
+	@writeCode.register
+	def _(self, node: ArrayIndexTerm):
+		self.writeCode(node.index)
+		symbol = self.getSymbolByName(node.varName)
+		self.pushVariable(symbol)
+		self.writeToFile('add')
+		self.writePop(Segments.Pointer, 1)
+
+		self.writePush(Segments.That, 0)
+
 
 	@writeCode.register
 	def _(self, node: TermExpression):
@@ -303,6 +334,8 @@ class Compiler:
 			self.writePush(Segments.Constant, 0)
 
 		self.writeToFile('return')
+
+
 
 
 if __name__ == '__main__':
