@@ -39,7 +39,7 @@ class SubroutineType(Enum):
 		}.get(text)
 
 		if ret is None:
-			raise ArgumentException(f'invalid sub type: {text}')
+			raise Exception(f'invalid sub type: {text}')
 
 		return ret
 
@@ -152,7 +152,7 @@ class UnaryOperatorTerm(TermNode):
 @dataclass
 class SubroutineCallExpression(ExpressionNode):
 	objName: str
-	methodName: str
+	methodName: Optional[str]
 	argumentList: List[ExpressionNode]
 
 	def __str__(self):
@@ -163,6 +163,8 @@ class SubroutineCallExpression(ExpressionNode):
 	def isObjMethod(self):
 		return self.methodName is not None
 
+	# def isClass(self):
+	# 	return self.
 
 @dataclass
 class DoStatementNode(StatementNode):

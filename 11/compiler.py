@@ -83,6 +83,8 @@ class Compiler:
 	# 	self.currentSubroutine = None
 
 	def writeToFile(self, string: str):
+		if 'constant -1' in string:
+			raise Exception('not good')
 		self.file.write(string + '\n')
 		print(string)
 
@@ -93,6 +95,9 @@ class Compiler:
 		self.writePush(symbol.modifier.toSegment(), symbol.assignedIndex)
 
 	def writePush(self, segment: Segments, value: int):
+		# if segment == Segments.Constant and value == -1:
+		# 	raise Exception('hello')
+
 		self.writeToFile(f'push {segment.toString()} {value}')
 
 	def writePop(self, segment: Segments, value: int):
@@ -112,9 +117,13 @@ class Compiler:
 		subroutineLevel = self.compositeSub[self.currentClass.className]
 		return sum(1 for sym in subroutineLevel[subroutineName].values() if sym.modifier == VariableModifier.Local)
 
+	def getArgumentCount(self, subroutineName):
+		subroutineLevel = self.compositeSub[self.currentClass.className]
+		return sum(1 for sym in subroutineLevel[subroutineName].values() if sym.modifier == VariableModifier.Parameter)
+
 	def getFieldCount(self, className):
 		classLevel = self.compositeClass[self.currentClass.className]
-		return sum(1 for sym in classLevel[className].values() if sym.modifier == VariableModifier.Field)
+		return sum(1 for sym in classLevel.values() if sym.modifier == VariableModifier.Field)
 
 	def constructSymbolTableComplete(self, nodes: List[ClassDefinitionNode]):
 		self.compositeClass = {}
@@ -177,7 +186,9 @@ class Compiler:
 		# print(self.classLevel)
 		self.writeCode(node)
 
-
+	def receiveClasses(self, classes: List[ClassDefinitionNode]):
+		self.allClasses = { cls.className: cls for cls in classes }
+		comp.constructSymbolTableComplete(classes)
 
 	@singledispatchmethod
 	def writeCode(self, node):
@@ -210,7 +221,9 @@ class Compiler:
 			self.writePop(Segments.Pointer, 0)
 
 		elif node.subroutineType == SubroutineType.Method:
-			raise Exception('not implmeneted')
+			argCount = self.getArgumentCount(node.subroutineName)
+			# Hidden (n+1)th argument
+			self.writePop(Segments.This, argCount)
 
 		self.writeCode(node.statementBlock)
 
@@ -274,9 +287,11 @@ class Compiler:
 		if node.keyword == 'this':
 			# Push the `this` memory address onto the stack
 			self.writePush(Segments.Pointer, 0)
+		elif node.keyword == 'true':
+			self.writePush(Segments.Pointer, 0)
+			self.writeToFile('not')
 		else:
 			self.writePush(Segments.Constant, {
-				'true': -1,
 				'false': 0,
 				'null': 0
 			}[node.keyword])
@@ -284,11 +299,14 @@ class Compiler:
 	@writeCode.register
 	def _(self, node: TermExpression):
 		self.writeCode(node.term)
+	#
+	# def getParameterCount(self, className, subroutineName):
+	# 	self.compositeSub[className][subroutineName]
 
 	@writeCode.register
 	def _(self, node: SubroutineCallExpression):
-		if not node.isObjMethod():
-			raise Exception('todo call')
+		# if not node.isObjMethod():
+		# 	raise Exception('todo call')
 
 		for arg in node.argumentList:
 			self.writeCode(arg)
@@ -296,7 +314,10 @@ class Compiler:
 		if node.isObjMethod():
 			self.writeToFile(f'call {node.objName}.{node.methodName} {len(node.argumentList)}')
 		else:
-			raise NotImplementedError()
+			# Push `this` pointer as (n+1)th argument
+			self.writePush(Segments.Pointer, 0)
+			self.writeToFile(f'call {self.currentClass.className}.{node.objName} {len(node.argumentList) + 1}')
+
 
 	@writeCode.register
 	def _(self, node: IfStatementNode):
@@ -346,16 +367,20 @@ class Compiler:
 	def _(self, node: BinaryExpression):
 		self.writeCode(node.first)
 		self.writeCode(node.second)
-		# TODO support multiplication and division
-		self.writeToFile({
-			'+': 'add',
-			'&': 'and',
-			'|': 'or',
-			'-': 'sub',
-			'>': 'gt',
-			'<': 'lt',
-			'=': 'eq'
-		}[node.operator])
+		if node.operator == '*':
+			self.writeToFile('call Math.multiply 2')
+		elif node.operator == '/':
+			self.writeToFile('call Math.divide 2')
+		else:
+			self.writeToFile({
+				'+': 'add',
+				'&': 'and',
+				'|': 'or',
+				'-': 'sub',
+				'>': 'gt',
+				'<': 'lt',
+				'=': 'eq'
+			}[node.operator])
 
 	@writeCode.register
 	def _(self, node: ReturnStatementNode):
@@ -367,13 +392,22 @@ class Compiler:
 
 		self.writeToFile('return')
 
+	@writeCode.register
+	def _(self, node: StringConstantTerm):
+		self.writePush(Segments.Constant, len(node.stringValue))
+		self.writeToFile('call String.new 1')
+		self.writePop(Segments.Temp, 1)
+		for c in node.stringValue:
+			self.writePush(Segments.Constant, ord(c))
+			self.writeToFile('call String.appendChar 2')
+
 
 
 
 if __name__ == '__main__':
 	classes = parseAll(sys.argv[1])
 	comp = Compiler()
-	comp.constructSymbolTableComplete(classes)
+	comp.receiveClasses(classes)
 
 	for classNode in classes:
 		path = Path(sys.argv[1])
