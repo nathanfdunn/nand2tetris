@@ -32,7 +32,7 @@ from collections import defaultdict
 from pathlib import Path
 from enum import Enum
 from functools import singledispatchmethod
-from typing import Union
+from typing import Union, List
 from dataclasses import dataclass
 import uuid
 
@@ -111,6 +111,12 @@ class Compiler:
 	def getLocalCount(self, subroutineName):
 		return sum(1 for sym in self.subroutineLevel[subroutineName].values() if sym.modifier == VariableModifier.Local)
 
+	def getFieldCount(self, className):
+		return sum(1 for sym in self.classLevel[className].values() if sym.modifier == VariableModifier.Field)
+
+	def constructSymbolTableComplete(self, nodes: List[ClassDefinitionNode]):
+		pass
+
 	def constructSymbolTable(self, node: ClassDefinitionNode):
 		classLevel = {}
 		subroutineLevel = defaultdict(dict)
@@ -186,6 +192,20 @@ class Compiler:
 		self.currentSubroutine = node
 		# self.subroutineLevel
 		self.writeToFile(f'function {self.currentClass.className}.{node.subroutineName} {self.getLocalCount(node.subroutineName)}')
+		if node.subroutineType == SubroutineType.Function:
+			pass
+		elif node.subroutineType == SubroutineType.Constructor:
+			fieldCount = self.getFieldCount(self.currentClass.className)
+			self.writePush(Segments.Constant, fieldCount)
+
+			# Allocate memory
+			self.writeToFile('call Memory.alloc 1')
+			# Now `this` points to blank memory
+			self.writePop(Segments.Pointer, 0)
+
+		elif node.subroutineType == SubroutineType.Method:
+			raise Exception('not implmeneted')
+
 		self.writeCode(node.statementBlock)
 
 	@writeCode.register
@@ -240,14 +260,26 @@ class Compiler:
 
 	@writeCode.register
 	def _(self, node: ArrayIndexTerm):
-		self.writeCode(node.index)
 		symbol = self.getSymbolByName(node.varName)
 		self.pushVariable(symbol)
+
+		self.writeCode(node.index)
 		self.writeToFile('add')
 		self.writePop(Segments.Pointer, 1)
 
 		self.writePush(Segments.That, 0)
 
+	@writeCode.register
+	def _(self, node: KeywordConstantTerm):
+		if node.keyword == 'this':
+			# Push the `this` memory address onto the stack
+			self.writePush(Segments.Pointer, 0)
+		else:
+			self.writePush(Segments.Constant, {
+				'true': -1,
+				'false': 0,
+				'null': 0
+			}[node.keyword])
 
 	@writeCode.register
 	def _(self, node: TermExpression):
