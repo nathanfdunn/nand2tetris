@@ -104,18 +104,25 @@ class Compiler:
 
 	def getSymbolByName(self, varName: str):
 		try:
-			return self.subroutineLevel[self.currentSubroutine.subroutineName][varName]
+			return self.compositeSub[self.currentClass.className][self.currentSubroutine.subroutineName][varName]
 		except KeyError:
-			return self.classLevel[varName]
+			return self.compositeClass[self.currentClass.className][varName]
 
 	def getLocalCount(self, subroutineName):
-		return sum(1 for sym in self.subroutineLevel[subroutineName].values() if sym.modifier == VariableModifier.Local)
+		subroutineLevel = self.compositeSub[self.currentClass.className]
+		return sum(1 for sym in subroutineLevel[subroutineName].values() if sym.modifier == VariableModifier.Local)
 
 	def getFieldCount(self, className):
-		return sum(1 for sym in self.classLevel[className].values() if sym.modifier == VariableModifier.Field)
+		classLevel = self.compositeClass[self.currentClass.className]
+		return sum(1 for sym in classLevel[className].values() if sym.modifier == VariableModifier.Field)
 
 	def constructSymbolTableComplete(self, nodes: List[ClassDefinitionNode]):
-		pass
+		self.compositeClass = {}
+		self.compositeSub = {}
+		for node in nodes:
+			classLevel, subLevel = self.constructSymbolTable(node)
+			self.compositeClass[node.className] = classLevel
+			self.compositeSub[node.className] = subLevel
 
 	def constructSymbolTable(self, node: ClassDefinitionNode):
 		classLevel = {}
@@ -152,8 +159,9 @@ class Compiler:
 
 				index += 1
 
-		self.classLevel = classLevel
-		self.subroutineLevel = subroutineLevel
+		return classLevel, subroutineLevel
+		# self.classLevel = classLevel
+		# self.subroutineLevel = subroutineLevel
 
 	def compileClass(self, node: ClassDefinitionNode, pathRoot, addInitCall: bool):
 		path = Path(pathRoot) / (node.className + '.vm')
@@ -163,11 +171,10 @@ class Compiler:
 			self.writeToFile('call Sys.init 0')
 			# self.writeToFile('')
 
-		self.constructSymbolTable(node)
+		# self.constructSymbolTable(node)
 		self.currentClass = node
 
 		# print(self.classLevel)
-		# print(self.subroutineLevel)
 		self.writeCode(node)
 
 
@@ -190,7 +197,6 @@ class Compiler:
 	@writeCode.register
 	def _(self, node: SubroutineDefinitionNode):
 		self.currentSubroutine = node
-		# self.subroutineLevel
 		self.writeToFile(f'function {self.currentClass.className}.{node.subroutineName} {self.getLocalCount(node.subroutineName)}')
 		if node.subroutineType == SubroutineType.Function:
 			pass
@@ -223,13 +229,7 @@ class Compiler:
 
 	@writeCode.register
 	def _(self, node: VarNameTerm):
-		if node.varName in self.subroutineLevel[self.currentSubroutine.subroutineName]:
-			symbol = self.subroutineLevel[self.currentSubroutine.subroutineName][node.varName]
-		# elif self.currentSubroutine.getParameterByName(node.varName) is not None:
-		# 	symbol = s
-		else:
-			symbol = self.classLevel[self.currentClass.className][node.varName]
-
+		symbol = self.getSymbolByName(node.varName)
 		self.writePush(symbol.modifier.toSegment(), symbol.assignedIndex)
 
 	@writeCode.register
@@ -371,14 +371,17 @@ class Compiler:
 
 
 if __name__ == '__main__':
-	for classNode in parseAll(sys.argv[1]):
+	classes = parseAll(sys.argv[1])
+	comp = Compiler()
+	comp.constructSymbolTableComplete(classes)
+
+	for classNode in classes:
 		path = Path(sys.argv[1])
 		if path.is_file():
 			path = path.parent
 
 		# TODO add a validation step i.e. no duplicated variable names, flow analysis, etc.
 		# TODO Voids not being used in expressions, void matches return statements
-		comp = Compiler()
 		comp.compileClass(classNode, path, True)
 
 
