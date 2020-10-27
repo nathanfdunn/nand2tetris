@@ -396,7 +396,7 @@ class Compiler:
 	def _(self, node: StringConstantTerm):
 		self.writePush(Segments.Constant, len(node.stringValue))
 		self.writeToFile('call String.new 1')
-		self.writePop(Segments.Temp, 1)
+		# self.writePop(Segments.Temp, 1)
 		for c in node.stringValue:
 			self.writePush(Segments.Constant, ord(c))
 			self.writeToFile('call String.appendChar 2')
