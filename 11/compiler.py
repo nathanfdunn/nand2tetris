@@ -290,7 +290,7 @@ class Compiler:
 			# Push the `this` memory address onto the stack
 			self.writePush(Segments.Pointer, 0)
 		elif node.keyword == 'true':
-			self.writePush(Segments.Pointer, 0)
+			self.writePush(Segments.Constant, 0)
 			self.writeToFile('not')
 		else:
 			self.writePush(Segments.Constant, {
