@@ -137,7 +137,7 @@ class Compiler:
 		classLevel = {}
 		subroutineLevel = defaultdict(dict)
 		for var in node.vars:
-			varModifier = VariableModifier.Static if var.varType == ClassVarType.Static else VariableModifier.Field
+			varModifier = VariableModifier.Static if var.modifier == ClassVarType.Static else VariableModifier.Field
 			classLevel[var.varName] = Symbol(
 				var.varName,
 				var.varType,
@@ -176,7 +176,7 @@ class Compiler:
 		path = Path(pathRoot) / (node.className + '.vm')
 		self.file = open(path, 'w')
 
-		if addInitCall:
+		if addInitCall and False:
 			self.writeToFile('call Sys.init 0')
 			# self.writeToFile('')
 
@@ -223,7 +223,9 @@ class Compiler:
 		elif node.subroutineType == SubroutineType.Method:
 			argCount = self.getArgumentCount(node.subroutineName)
 			# Hidden (n+1)th argument
-			self.writePop(Segments.This, argCount)
+			# self.writePop(Segments.This, argCount)
+			self.writePush(Segments.Argument, argCount)
+			self.writePop(Segments.Pointer, 0)
 
 		self.writeCode(node.statementBlock)
 
@@ -312,7 +314,18 @@ class Compiler:
 			self.writeCode(arg)
 
 		if node.isObjMethod():
-			self.writeToFile(f'call {node.objName}.{node.methodName} {len(node.argumentList)}')
+			try:
+				symbol = self.getSymbolByName(node.objName)
+				# Must be an object call
+				className = symbol.dataType
+				self.writePush(symbol.modifier.toSegment(), symbol.assignedIndex)
+				hasThisArgument = True
+			except KeyError:
+				# Must be a static function
+				className = node.objName
+				hasThisArgument = False
+
+			self.writeToFile(f'call {className}.{node.methodName} {len(node.argumentList) + hasThisArgument}')
 		else:
 			# Push `this` pointer as (n+1)th argument
 			self.writePush(Segments.Pointer, 0)
