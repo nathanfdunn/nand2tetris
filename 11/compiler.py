@@ -136,13 +136,21 @@ class Compiler:
 	def constructSymbolTable(self, node: ClassDefinitionNode):
 		classLevel = {}
 		subroutineLevel = defaultdict(dict)
+		staticIndex = 0
+		fieldIndex = 0
 		for var in node.vars:
 			varModifier = VariableModifier.Static if var.modifier == ClassVarType.Static else VariableModifier.Field
+			if varModifier == VariableModifier.Static:
+				index = staticIndex
+				staticIndex += 1
+			else:
+				index = fieldIndex
+				fieldIndex += 1
 			classLevel[var.varName] = Symbol(
 				var.varName,
 				var.varType,
 				varModifier,
-				len(classLevel)
+				index
 				)
 
 		for sub in node.subroutines:
