@@ -1,0 +1,74 @@
+class Main {
+
+
+// Tests if str1 starts with str2
+    // function boolean startsWith(String str1, String str2) {
+    //     var int index;
+
+    //     if ((str1 = 0) | (str2 = 0)) {
+    //         return false;
+    //     }
+
+    //     if (str2.length() = 0) {
+    //         return true;
+    //     }
+
+    //     if (str1.length() < str2.length()) {
+    //         return false;
+    //     }
+
+    //     let index = str2.length() - 1;
+    //     while ((index = 0) | (index > 0)) {
+    //         if (~(str1.charAt(index) = str2.charAt(index))) {
+    //             return false;
+    //         }
+
+    //         let index = index - 1;
+    //     }
+
+    //     return true;
+    // }
+        static int myX;
+    static int myY;
+
+    function int getX() {
+        return myX;
+    }
+
+    function int getY() {
+        return myY;
+    }
+
+
+    function void main() {
+    	var MyObj x;
+
+        do MyObj.new();
+        // do Board.new();
+        // var String str;
+        // let str = " i";
+        // do Output.printInt( str.charAt(0) );
+        // do Output.println();
+
+        // do startsWith(" i", "hi");
+    	// let x = "h";
+    	let x = MyObj.new();
+        // let x = x.makeNew(70);
+    	// do x.printArr3();
+    	// let x = Array.new(2);
+    	// let x[0] = 34;
+    	// let x[1] = 84;
+
+    	//do x.printX();
+    	// do Output.printInt(x[0]);
+    	// do Output.printInt(x[2]);
+
+    	// do Output.printString("Hello");
+    	// do Output.printInt(3);
+    	// do Output.printString("h");
+    	// do Output.println("h");
+    	// do Output.printInt(3);
+        return;
+    }
+
+}

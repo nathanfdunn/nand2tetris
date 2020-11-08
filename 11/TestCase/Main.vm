@@ -1,0 +1,13 @@
+function Main.getX 0
+push static 0
+return
+function Main.getY 0
+push static 1
+return
+function Main.main 1
+call MyObj.new 0
+pop temp 7
+call MyObj.new 0
+pop local 0
+push constant 0
+return

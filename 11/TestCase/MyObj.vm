@@ -1,0 +1,28 @@
+function MyObj.new 2
+push constant 6
+call Memory.alloc 1
+pop pointer 0
+push constant 0
+pop this 5
+push constant 0
+pop local 0
+push constant 0
+not
+pop this 3
+push constant 1
+neg
+pop this 0
+label LABEL1_X3428b9aababb4fda9a3159c7aaca5c41
+push local 0
+push constant 8
+lt
+not
+if-goto LABEL2_Xc83cebebd0e64ec5837929dfada97d23
+push local 0
+push constant 1
+add
+pop local 0
+goto LABEL1_X3428b9aababb4fda9a3159c7aaca5c41
+label LABEL2_Xc83cebebd0e64ec5837929dfada97d23
+push pointer 0
+return

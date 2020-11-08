@@ -1,0 +1,117 @@
+class MyObj {
+    field int enPassant;
+    // 0, 1 = long white, short white
+    // 2, 3 = long black, short black
+    field Array castling;
+
+    field Array ranks;
+
+    // TODO remove field
+    field boolean hasChanges;
+
+    static boolean debug;
+
+    field List dirtySquares;
+
+    // i.e. who's turn is it?
+    // true -> black
+    field boolean activePlayer;
+
+    // field Array myarr;
+    // field int myInt;
+    constructor MyObj new(){
+        var int i;
+        var Array temp;
+        let activePlayer = false;       // white to play
+        let i = 0;
+        // let ranks = Array.new(8);
+
+        let hasChanges = true;
+
+        // let castling = Array.new(4);
+        // let castling[0] = true;
+        // let castling[1] = true;
+        // let castling[2] = true;
+        // let castling[3] = true;
+
+        let enPassant = -1;
+
+        while (i < 8){
+            // let ranks[i] = Array.new(8);
+            let i = i + 1;
+        }
+
+        // if (debug) {
+        //     let temp = ranks[Main.getY()];
+        //     let temp[Main.getX()] = Piece.queen(true);
+
+        //     let temp[Main.getX() + 2] = Piece.knight(false);
+        // }
+        // else {
+        //     let temp = ranks[0];
+        //     let temp[0] = Piece.rook(false);
+        //     let temp[1] = Piece.knight(false);
+        //     let temp[2] = Piece.bishop(false);
+        //     let temp[3] = Piece.queen(false);
+        //     let temp[4] = Piece.king(false);
+        //     let temp[5] = Piece.bishop(false);
+        //     let temp[6] = Piece.knight(false);
+        //     let temp[7] = Piece.rook(false);
+
+        //     let temp = ranks[1];
+        //     let temp[0] = Piece.pawn(false);
+        //     let temp[1] = Piece.pawn(false);
+        //     let temp[2] = Piece.pawn(false);
+        //     let temp[3] = Piece.pawn(false);
+        //     let temp[4] = Piece.pawn(false);
+        //     let temp[5] = Piece.pawn(false);
+        //     let temp[6] = Piece.pawn(false);
+        //     let temp[7] = Piece.pawn(false);
+
+        //     let temp = ranks[6];
+        //     let temp[0] = Piece.pawn(true);
+        //     let temp[1] = Piece.pawn(true);
+        //     let temp[2] = Piece.pawn(true);
+        //     let temp[3] = Piece.pawn(true);
+        //     let temp[4] = Piece.pawn(true);
+        //     let temp[5] = Piece.pawn(true);
+        //     let temp[6] = Piece.pawn(true);
+        //     let temp[7] = Piece.pawn(true);
+
+        //     let temp = ranks[7];
+        //     let temp[0] = Piece.rook(true);
+        //     let temp[1] = Piece.knight(true);
+        //     let temp[2] = Piece.bishop(true);
+        //     let temp[3] = Piece.queen(true);
+        //     let temp[4] = Piece.king(true);
+        //     let temp[5] = Piece.bishop(true);
+        //     let temp[6] = Piece.knight(true);
+        //     let temp[7] = Piece.rook(true);
+        // }
+
+        return this;
+    }
+
+    // method void printArr3() {
+    //     var int index;
+    //     let index = 1 + 1;
+    //     do Output.printInt(myarr[index + 1]);
+    //     do Output.println();
+    //     do Output.printInt(myInt);
+    //     return;
+    // }
+
+    // method MyObj makeNew(int sum){
+    //     return MyObj.new(myInt + sum);
+    // }
+
+    
+    //method void printX() {
+    //    do Output.printInt(x);
+    //    do Output.printInt(y);
+    //    return;
+    //}
+
+
+
+}
