@@ -146,7 +146,12 @@ class Compiler:
 				)
 
 		for sub in node.subroutines:
-			index = 0
+			if sub.subroutineType == SubroutineType.Method:
+				# Methods get `this` pointer passed as magic first argument
+				index = 1
+			else:
+				index = 0
+
 			for param in sub.parameters:
 				subroutineLevel[sub.subroutineName][param.paramName] = Symbol(
 					param.paramName,
@@ -221,10 +226,8 @@ class Compiler:
 			self.writePop(Segments.Pointer, 0)
 
 		elif node.subroutineType == SubroutineType.Method:
-			argCount = self.getArgumentCount(node.subroutineName)
-			# Hidden (n+1)th argument
-			# self.writePop(Segments.This, argCount)
-			self.writePush(Segments.Argument, argCount)
+			# Set `this` segment to the 0th argument
+			self.writePush(Segments.Argument, 0)
 			self.writePop(Segments.Pointer, 0)
 
 		self.writeCode(node.statementBlock)
@@ -310,8 +313,6 @@ class Compiler:
 		# if not node.isObjMethod():
 		# 	raise Exception('todo call')
 
-		for arg in node.argumentList:
-			self.writeCode(arg)
 
 		if node.isObjMethod():
 			try:
@@ -325,10 +326,17 @@ class Compiler:
 				className = node.objName
 				hasThisArgument = False
 
+			for arg in node.argumentList:
+				self.writeCode(arg)
+
 			self.writeToFile(f'call {className}.{node.methodName} {len(node.argumentList) + hasThisArgument}')
 		else:
-			# Push `this` pointer as (n+1)th argument
+			# Push `this` pointer as (0)th argument
 			self.writePush(Segments.Pointer, 0)
+
+			for arg in node.argumentList:
+				self.writeCode(arg)
+
 			self.writeToFile(f'call {self.currentClass.className}.{node.objName} {len(node.argumentList) + 1}')
 
 
