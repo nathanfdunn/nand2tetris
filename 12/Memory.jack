@@ -9,26 +9,124 @@
  * consists of 32,768 words, each holding a 16-bit binary number.
  */ 
 class Memory {
+    static Array mem;
+    static int heapBase;
+    static int maxHeapAddress;
+    static Array freeListStart;
+
+    static int lengthInd;
+    static int nextInd;
+    static int blockStartInd;
+    static int lengthIndFromWithinBlock;
 
     /** Initializes the class. */
     function void init() {
+        let mem = 0;
+        let heapBase = 2048;
+        let maxHeapAddress = 16383;
+        let freeListStart = heapBase;
+        let lengthInd = 0;
+        let nextInd = 1;
+        let blockStartInd = 1;
+        let lengthIndFromWithinBlock = -1;
+
+        let freeListStart[lengthInd] = maxHeapAddress - heapBase;
+        let freeListStart[nextInd] = null;
+
+        // let freeListStart[lengthInd] = 10;
+        // currentBlock[lengthInd]
+        do Memory.alloc(25);
+        do Memory.deAlloc(Memory.alloc(35));
+        do Memory.alloc(25);
+
+        return;
     }
 
     /** Returns the RAM value at the given address. */
     function int peek(int address) {
+        return mem[address];
     }
 
     /** Sets the RAM value at the given address to the given value. */
     function void poke(int address, int value) {
+        let mem[address] = value;
+        return;
     }
 
     /** Finds an available RAM block of the given size and returns
      *  a reference to its base address. */
     function int alloc(int size) {
+        var Array parentBlock;
+        var Array currentBlock;
+        var int returnSegmentStart;
+
+        // Also need 1 extra word for housekeeping
+        let size = size + 1;
+        // do Memory.poke(freeListStart, freeListStart);
+        let parentBlock = null;
+        let currentBlock = freeListStart;
+        while (currentBlock[lengthInd] < size) {
+            let parentBlock = currentBlock;
+            let currentBlock = currentBlock[nextInd];
+            if (currentBlock = null) {
+                // TODO try to defragment
+                // Out of memory...
+                // Hope people check the return value!
+                return 0;
+            }
+        }
+
+        // Check if the remainder would be too small for a block
+        // i.e. if we have a block of size 9 and request 8,
+        // the single word that's left isn't enough to form an entry
+        // Likewise, if the block has size 9 and the request is 7,
+        // that would create a block size of 0, which is useless
+        if ((currentBlock[lengthInd] - size) < 3) {
+            // Congratulations, you've been upgraded
+            let size = currentBlock[lengthInd];
+        }
+
+        // If we got a perfect match, no need to chop off the remainder
+        if (currentBlock[lengthInd] = size) {
+            if (parentBlock = null) {
+                // Hey, the very first block is the right size.
+                // That's our new free list..
+                let freeListStart = currentBlock[nextInd];
+            }
+            
+            return currentBlock + blockStartInd;
+        }
+
+        // Now we need to form a segment out of the remainder
+
+        let returnSegmentStart = currentBlock + currentBlock[lengthInd] - size;
+
+        let returnSegmentStart[lengthInd] = size;
+
+        // Now we need to chop off that allocated segment
+        let currentBlock[lengthInd] = currentBlock[lengthInd] - size;
+
+        // Remember, what the caller gets is the start of the segment
+        return returnSegmentStart + 1;
     }
 
     /** De-allocates the given object (cast as an array) by making
      *  it available for future allocations. */
     function void deAlloc(Array o) {
+        // TODO try zeroing out the segment
+
+
+        // Put this segment at the start of the free list
+
+        // First put this segment at the start of our free list
+        // Remember, the caller is giving us the address that
+        // they received from malloc, so the start of the segment
+        // is at (o - 1). Meaning the `next` pointer is at (o - 1) + 1
+        let o[0] = freeListStart;
+
+        // Now point freeListStart to the beginning of this segment
+        let freeListStart = o - 1;
+
+        return;
     }    
 }
