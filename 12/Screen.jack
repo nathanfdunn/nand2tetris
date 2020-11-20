@@ -18,9 +18,13 @@ class Screen {
     static int maxScreenOffset;
 
     static Array twoToThe;
+    static Array sumOfPowers;
+    static Array descendingSumOfPowers;
 
     /** Initializes the Screen. */
     function void init() {
+        var int index;
+
         let screenStart = 16384;
         let maxScreenOffset = 8192;
         let screenEnd = screenStart + maxScreenOffset;
@@ -45,6 +49,15 @@ class Screen {
         let twoToThe[14] = 16384;
         
         let twoToThe[15] = twoToThe[14] + twoToThe[14];
+
+        let sumOfPowers = Array.new(16);
+        let sumOfPowers[0] = 0;
+
+        let index = 0;
+        while (index < 14) {
+            let sumOfPowers[index+1] = sumOfPowers[index] + twoToThe[index];
+            let index = index + 1;
+        }
 
         return;
     }
@@ -77,10 +90,10 @@ class Screen {
         var int memoryLocation;
         var int bitMask;
         
-        let memoryLocation = screenStart + Math.multiply(32, y) + Math.divide(x, 16);
-        // let memoryLocation = 0;
-        let bitMask = twoToThe[Screen.modulo(x, 16)];
-        // let bitMask = 4095;
+        let memoryLocation = screenStart + Screen.multiplyByThirtyTwo(y) + Screen.divideBySixteen(x);
+        // We want to set the (x % 16)th bit to 1
+        // Neat! Modulo 16 is the same as blanking out the higher order bits
+        let bitMask = twoToThe[x & 15];
 
         if (color) {
             let memoryLocation[0] = memoryLocation[0] | bitMask; 
@@ -88,6 +101,56 @@ class Screen {
         else {
             let memoryLocation[0] = memoryLocation[0] & ~bitMask; 
         }
+        return;
+    }
+
+    // function void removeMe(){
+    //     let screenStart[0] = 1 | 256 | 4096;
+    //     // let screenStart[0] = 256;
+    //     return;
+    // }
+
+    // TODO see about bit shifts
+    function int divideBySixteen(int x) {
+        return Math.divide(x, 16);
+    }
+
+    // TODO see about bit shifts
+    function int multiplyByThirtyTwo(int x) {
+        return Math.multiply(32, x);
+    }
+
+    // Require x1 <= x2
+    function void drawHorizontalLine(int x1, int x2, int y) {
+        var int leftClamp;
+        var int rightClamp;
+        var int leftSegmentBitmask;
+        var int rightSegmentBitmask;
+        // var int xInd;
+        var Array pixelRow;
+
+        // We want to do ceil(x1 / 16.0). Adding 15 does that
+        let leftClamp = Screen.divideBySixteen(x1 + 15);
+        let rightClamp = Screen.divideBySixteen(x2);
+
+        let pixelRow = screenStart + Screen.multiplyByThirtyTwo(y);
+
+        // let xInd = leftClamp;
+        while (leftClamp < rightClamp) {
+            let pixelRow[leftClamp] = color;
+            let leftClamp = leftClamp + 1;
+        }
+
+        // if (leftClamp > rightClamp) {
+        //     // TODO special case where we do the thing
+        // }
+
+
+        // let x2 = x2 + 1;
+        // while (x1 < x2) {
+        //     do Screen.drawPixel(x1, y);
+        //     let x1 = x1 + 1;
+        // }
         return;
     }
 
@@ -121,13 +184,8 @@ class Screen {
             let isInverted = true;
         }
 
-        // TODO optimize this
         if (dy = 0) {
-            let x2 = x2 + 1;
-            while (x1 < x2) {
-                do Screen.drawPixel(x1, y1);
-                let x1 = x1 + 1;
-            }
+            do Screen.drawHorizontalLine(x1, x2, y1);
             return;
         }
 
