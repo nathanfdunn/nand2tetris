@@ -63,12 +63,28 @@ class Screen {
 
     /** Erases the entire screen. */
     function void clearScreen() {
-        // TODO unroll the loop a bit
         var int temp;
         let temp = screenStart;
         while (temp < screenEnd) {
+            // Note the loop has been unrolled a bit
             let temp[0] = color;
-            let temp = temp + 1;
+            let temp[1] = color;
+            let temp[2] = color;
+            let temp[3] = color;
+            let temp[4] = color;
+            let temp[5] = color;
+            let temp[6] = color;
+            let temp[7] = color;
+            let temp[8] = color;
+            let temp[9] = color;
+            let temp[10] = color;
+            let temp[11] = color;
+            let temp[12] = color;
+            let temp[13] = color;
+            let temp[14] = color;
+            let temp[15] = color;
+
+            let temp = temp + 16;
         }
         return;
     }
@@ -110,15 +126,83 @@ class Screen {
     //     return;
     // }
 
-    // TODO see about bit shifts
+    // Require 0 <= x < 512 + 16
     function int divideBySixteen(int x) {
-        return Math.divide(x, 16);
+        var int ret;
+        // Assume ret is initialized to 0
+
+        // Dividing by 16 is shifting bits to the right 4
+        // 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+        // - - - - Y Y Y Y Y ? -  -  -  -  -  -
+
+        if (x & 16) {
+            let ret = ret | 1;
+        }
+
+        if (x & 32) {
+            let ret = ret | 2;
+        }
+
+        if (x & 64) {
+            let ret = ret | 4;
+        }
+
+        if (x & 128) {
+            let ret = ret | 8;
+        }
+
+        if (x & 256) {
+            let ret = ret | 16;
+        }
+
+        if (x & 512) {
+            let ret = ret | 32;
+        }
+
+        return ret;
+        // return Math.divide(x, 16);
     }
 
     // TODO see about bit shifts
     // TODO rename to GetOffset
+    // Require 0 <= y < 256
     function int multiplyByThirtyTwo(int x) {
-        return Math.multiply(32, x);
+        var int ret;
+
+        if (x & 1) {
+            let ret = ret | 32;
+        }
+
+        if (x & 2) {
+            let ret = ret | 64;
+        }
+
+        if (x & 4) {
+            let ret = ret | 128;
+        }
+
+        if (x & 8) {
+            let ret = ret | 256;
+        }
+
+        if (x & 16) {
+            let ret = ret | 512;
+        }
+
+        if (x & 32) {
+            let ret = ret | 1024;
+        }
+
+        if (x & 64) {
+            let ret = ret | 2048;
+        }
+
+        if (x & 128) {
+            let ret = ret | 4096;
+        }
+
+        return ret;
+        // return Math.multiply(32, y);
     }
 
     // Require x1 <= x2
@@ -130,6 +214,9 @@ class Screen {
         var int rightSegmentBitmask;
         // var int xInd;
         var Array pixelRow;
+
+        // Seems necessary, not sure why
+        let x2 = x2 + 1;
 
         // We want to do ceil(x1 / 16.0). Adding 15 does that
         let leftClamp = Screen.divideBySixteen(x1 + 15);
@@ -200,10 +287,6 @@ class Screen {
             do Screen.drawLine(x2, y2, x1, y1);
             return;
         }
-
-        // Just give it a try...?
-        // let x1 = x1 - 1;
-        let x2 = x2 + 1;
 
         // From this point on we can assume x1 <= x2
 
