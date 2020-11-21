@@ -18,8 +18,8 @@ class Screen {
     static int maxScreenOffset;
 
     static Array twoToThe;
+    // sumOfPowers[i] will be an integer with the rightmost i bits 1 and the rest 0
     static Array sumOfPowers;
-    static Array descendingSumOfPowers;
 
     /** Initializes the Screen. */
     function void init() {
@@ -51,11 +51,10 @@ class Screen {
         let twoToThe[15] = twoToThe[14] + twoToThe[14];
 
         let sumOfPowers = Array.new(16);
-        let sumOfPowers[0] = 0;
 
         let index = 0;
-        while (index < 14) {
-            let sumOfPowers[index+1] = sumOfPowers[index] + twoToThe[index];
+        while (index < 16) {
+            let sumOfPowers[index] = twoToThe[index] - 1; //= sumOfPowers[index] + twoToThe[index];
             let index = index + 1;
         }
 
@@ -64,6 +63,7 @@ class Screen {
 
     /** Erases the entire screen. */
     function void clearScreen() {
+        // TODO unroll the loop a bit
         var int temp;
         let temp = screenStart;
         while (temp < screenEnd) {
@@ -80,10 +80,10 @@ class Screen {
         return;
     }
 
-    // TODO put this in Math?
-    function int modulo(int x, int mod) {
-        return x - Math.multiply(mod, Math.divide(x, mod));
-    }
+    // // TODO put this in Math?
+    // function int modulo(int x, int mod) {
+    //     return x - Math.multiply(mod, Math.divide(x, mod));
+    // }
 
     /** Draws the (x,y) pixel, using the current color. */
     function void drawPixel(int x, int y) {
@@ -116,12 +116,14 @@ class Screen {
     }
 
     // TODO see about bit shifts
+    // TODO rename to GetOffset
     function int multiplyByThirtyTwo(int x) {
         return Math.multiply(32, x);
     }
 
     // Require x1 <= x2
     function void drawHorizontalLine(int x1, int x2, int y) {
+        // TODO rename the clamps
         var int leftClamp;
         var int rightClamp;
         var int leftSegmentBitmask;
@@ -135,7 +137,38 @@ class Screen {
 
         let pixelRow = screenStart + Screen.multiplyByThirtyTwo(y);
 
-        // let xInd = leftClamp;
+        // We have a little stub consisting of x2 % 16 pixels on the right side
+        let rightSegmentBitmask = sumOfPowers[x2 & 15];
+        // And we have a stub of 16 - ...
+        let leftSegmentBitmask = ~sumOfPowers[x1 & 15];
+
+        // We actually have the start and end within the same segment
+        if (leftClamp > rightClamp) {
+            // A little hacky, but we're gonna modify the right stub
+            let rightSegmentBitmask = rightSegmentBitmask & leftSegmentBitmask;
+            // there is no need for drawing the left stub in this situation
+        }
+        else {
+            if (x1 & 15) {
+                if (color) {
+                    let pixelRow[leftClamp - 1] = pixelRow[leftClamp - 1] | leftSegmentBitmask;
+                }
+                else {
+                    let pixelRow[leftClamp - 1] = pixelRow[leftClamp - 1] & ~leftSegmentBitmask;
+                }
+            }
+        }
+
+        if (x2 & 15) {
+            if (color) {
+                let pixelRow[rightClamp] = pixelRow[rightClamp] | rightSegmentBitmask;
+            }
+            else {
+                let pixelRow[rightClamp] = pixelRow[rightClamp] & ~rightSegmentBitmask;
+            }
+        }
+
+
         while (leftClamp < rightClamp) {
             let pixelRow[leftClamp] = color;
             let leftClamp = leftClamp + 1;
@@ -167,6 +200,10 @@ class Screen {
             do Screen.drawLine(x2, y2, x1, y1);
             return;
         }
+
+        // Just give it a try...?
+        // let x1 = x1 - 1;
+        let x2 = x2 + 1;
 
         // From this point on we can assume x1 <= x2
 
