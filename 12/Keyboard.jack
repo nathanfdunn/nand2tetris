@@ -8,8 +8,11 @@
  */
 class Keyboard {
 
+    static Array keyboardAddress;
+
     /** Initializes the keyboard. */
     function void init() {
+        let keyboardAddress = 24576;
         return;
     } 
 
@@ -34,7 +37,7 @@ class Keyboard {
      * F1 - F12 = 141 - 152
      */
     function char keyPressed() {
-        return 0;
+        return keyboardAddress[0];
     }
 
     /**								
@@ -43,7 +46,11 @@ class Keyboard {
      * of the pressed key.
      */
     function char readChar() {
-        return 0;
+        var char ret;
+        while (ret = 0) {
+            let ret = Keyboard.keyPressed();
+        }
+        return ret;
     }
 
     /**								
