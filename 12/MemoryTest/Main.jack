@@ -9,6 +9,7 @@ class Main {
     /** Performs various memory manipulations. */
     function void main() {
         var int temp;
+        var String err;
         var Array a, b, c;
         
         do Memory.poke(8000, 333);       // RAM[8000] = 333
@@ -36,6 +37,24 @@ class Main {
         
         do c.dispose();
         do b.dispose();
+
+        // do Memory.poke(8, Memory.alloc(25));
+        // do Memory.poke(9, Memory.alloc(25));
+        // do Memory.poke(10, Memory.alloc(25));
+        do Output.printString("Stress Test BEGIN");
+        let err = "Out of memory Chaps";
+        let temp = 10000;
+        while (temp > 0) {
+            let b = Memory.alloc(10);
+            if (b = 0){
+                do Output.printString(err);
+                let temp = -1;
+                // do Sys.halt();
+            }
+            // do b.dispose();
+            let temp = temp - 1;
+        }
+        do Output.printString("Stress Test END");
         
         return;
     }
