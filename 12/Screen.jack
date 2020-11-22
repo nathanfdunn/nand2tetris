@@ -61,6 +61,16 @@ class Screen {
         return;
     }
 
+    function void debug() {
+        var int index;
+        while (index < 16) {
+            do Output.printInt(sumOfPowers[index]);
+            do Output.println();
+            let index = index + 1;
+        }
+        return;
+    }
+
     /** Erases the entire screen. */
     function void clearScreen() {
         var int temp;
@@ -112,10 +122,10 @@ class Screen {
         let bitMask = twoToThe[x & 15];
 
         if (color) {
-            let memoryLocation[0] = memoryLocation[0] | bitMask; 
+            let memoryLocation[0] = (memoryLocation[0]) | bitMask; 
         }
         else {
-            let memoryLocation[0] = memoryLocation[0] & ~bitMask; 
+            let memoryLocation[0] = (memoryLocation[0]) & (~bitMask); 
         }
         return;
     }
@@ -135,27 +145,27 @@ class Screen {
         // 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
         // - - - - Y Y Y Y Y ? -  -  -  -  -  -
 
-        if (x & 16) {
+        if ((x & 16) > 0) {
             let ret = ret | 1;
         }
 
-        if (x & 32) {
+        if ((x & 32) > 0) {
             let ret = ret | 2;
         }
 
-        if (x & 64) {
+        if ((x & 64) > 0) {
             let ret = ret | 4;
         }
 
-        if (x & 128) {
+        if ((x & 128) > 0) {
             let ret = ret | 8;
         }
 
-        if (x & 256) {
+        if ((x & 256) > 0) {
             let ret = ret | 16;
         }
 
-        if (x & 512) {
+        if ((x & 512) > 0) {
             let ret = ret | 32;
         }
 
@@ -169,35 +179,35 @@ class Screen {
     function int multiplyByThirtyTwo(int x) {
         var int ret;
 
-        if (x & 1) {
+        if ((x & 1) > 0) {
             let ret = ret | 32;
         }
 
-        if (x & 2) {
+        if ((x & 2) > 0) {
             let ret = ret | 64;
         }
 
-        if (x & 4) {
+        if ((x & 4) > 0) {
             let ret = ret | 128;
         }
 
-        if (x & 8) {
+        if ((x & 8) > 0) {
             let ret = ret | 256;
         }
 
-        if (x & 16) {
+        if ((x & 16) > 0) {
             let ret = ret | 512;
         }
 
-        if (x & 32) {
+        if ((x & 32) > 0) {
             let ret = ret | 1024;
         }
 
-        if (x & 64) {
+        if ((x & 64) > 0) {
             let ret = ret | 2048;
         }
 
-        if (x & 128) {
+        if ((x & 128) > 0) {
             let ret = ret | 4096;
         }
 
@@ -236,22 +246,22 @@ class Screen {
             // there is no need for drawing the left stub in this situation
         }
         else {
-            if (x1 & 15) {
+            if ((x1 & 15) > 0) {
                 if (color) {
-                    let pixelRow[leftClamp - 1] = pixelRow[leftClamp - 1] | leftSegmentBitmask;
+                    let pixelRow[leftClamp - 1] = (pixelRow[leftClamp - 1]) | leftSegmentBitmask;
                 }
                 else {
-                    let pixelRow[leftClamp - 1] = pixelRow[leftClamp - 1] & ~leftSegmentBitmask;
+                    let pixelRow[leftClamp - 1] = (pixelRow[leftClamp - 1]) & (~leftSegmentBitmask);
                 }
             }
         }
 
-        if (x2 & 15) {
+        if ((x2 & 15) > 0) {
             if (color) {
-                let pixelRow[rightClamp] = pixelRow[rightClamp] | rightSegmentBitmask;
+                let pixelRow[rightClamp] = (pixelRow[rightClamp]) | rightSegmentBitmask;
             }
             else {
-                let pixelRow[rightClamp] = pixelRow[rightClamp] & ~rightSegmentBitmask;
+                let pixelRow[rightClamp] = (pixelRow[rightClamp]) & (~rightSegmentBitmask);
             }
         }
 

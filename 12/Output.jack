@@ -266,7 +266,7 @@ do Output.create(65,
             let memLoc = screenStart + ((screenY + yInd) * 32) + ((screenX) / 16);
             let bitField = memLoc[0];
 
-            if (cursorX & 1) {
+            if ((cursorX & 1) > 0) {
                 // 0 out high bits
                 let bitField = bitField & 255;
                 let memLoc[0] = bitField | Output.shiftRightEight(map[yInd]);
