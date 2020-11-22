@@ -52,13 +52,21 @@ class Keyboard {
      * of the pressed key.
      */
     function char readChar() {
+        return Keyboard.readCharOptionalBackspace(true);
+    }
+
+    function char readCharOptionalBackspace(boolean allowBackspace) {
         var char ret;
-        while ((ret = 0) | (ret = lastChar)) {
+
+        let ret = Keyboard.keyPressed();
+        do Output.printChar(0);
+        while ((ret = 0) | (ret = lastChar) | ((ret = backspaceChar) & ~allowBackspace)) {
             let lastChar = ret;
             let ret = Keyboard.keyPressed();
         }
 
         let lastChar = ret;
+        do Output.backSpace();
         do Output.printChar(ret);
         return ret;
     }
@@ -78,27 +86,17 @@ class Keyboard {
         let ret = String.new(255);
         
         // let lastChar = 0;
-        let typed = Keyboard.keyPressed();
-        while ((~(typed = newlineChar)) | (typed = lastChar)) {
-            if (~(typed = lastChar)) {
-                if (typed = backspaceChar) {
-                    do ret.eraseLastChar();
-                    do Output.backSpace();
-                }
-                else {
-                    // Just ignore if no keys were pressed
-                    if (typed > 0) {
-                        do ret.appendChar(typed);
-                        do Output.printChar(typed);
-                    }
-                }
+        let typed = Keyboard.readCharOptionalBackspace(false);
+        while (~(typed = newlineChar)) {
+            if (typed = backspaceChar) {
+                do ret.eraseLastChar();
             }
-
-            let lastChar = typed;
-            let typed = Keyboard.keyPressed();
+            else {
+                do ret.appendChar(typed);
+            }
+            let typed = Keyboard.readCharOptionalBackspace(ret.length() > 0);
         }
-        let lastChar = typed;
-        do Output.println();
+        // do Output.println();
         return ret;
     }   
 
