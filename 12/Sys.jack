@@ -7,7 +7,8 @@
  * A library that supports various program execution services.
  */
 class Sys {
-    static int errorMessageString;
+    static String errorMessageString;
+    // static int errorMessageString;
     static int loopsPerMillisecond;
     // Pre-allocate this in case we run out of memory later
 
@@ -18,20 +19,30 @@ class Sys {
 
         do Memory.init();
         do Math.init();
-        do Keyboard.init();
+        do Screen.init();
         do Output.init();
+        do Keyboard.init();
         
-        // let errorMessageString = String.new(6);
-        // do errorMessageString.appendChar(69);
-        // do errorMessageString.appendChar(82);
-        // do errorMessageString.appendChar(82);
-        let mystr = "ERR";
-        let errorMessageString = mystr;
-        do Output.printString(errorMessageString);
-        // do Sys.error(42);
-        do Sys.idk(errorMessageString);
-        do Sys.halt();
-        return;
+        // // let loopsPerMillisecond[0] = 0;
+        // // let errorMessageString = String.new(6);
+        // // do errorMessageString.appendChar(69);
+        // // do errorMessageString.appendChar(82);
+        // // do errorMessageString.appendChar(82);
+        // // let mystr = "ERR";
+        // // let errorMessageString = mystr;
+        // let errorMessageString = "ERR";
+        // do Output.printString(errorMessageString);
+        // do Output.println();
+        // do Output.printString("hello");
+        // do Output.println();
+        // do Output.printInt(843);
+        // do Output.println();
+        // do Output.printInt(errorMessageString);
+        // do Output.println();
+        // do Sys.idk(errorMessageString);
+        // // do Sys.error(42);
+        // do Sys.halt();
+        // return;
 
         do Main.main();
 
@@ -72,22 +83,28 @@ class Sys {
     }
 
     function void idk(String arg) {
-        do Output.printString(arg);
-        do Output.printString(errorMessageString);
+        do Output.printInt(errorMessageString);
+        let loopsPerMillisecond[0] = 0;
+
+        // do Output.printString(arg);
+        // do Output.printString(errorMessageString);
         return;
     }
 
     /** Displays the given error code in the form "ERR<errorCode>",
      *  and halts the program's execution. */
     function void error(int errorCode) {
+        do Output.printString("ERR");
+        do Output.printInt(errorCode);
         // do Output.printString("Waiting");
         // // do Sys.wait(1000);
         // do Keyboard.readChar();
         // do Output.printString("oops");
         // do Output.printString("breaking");
         // do Sys.breakpoint();
-        do Output.printString(errorMessageString);
-        do Sys.halt();
+        // do Output.printString(errorMessageString);
+        // do Sys.halt();
+        // do Output.printInt(loopsPerMillisecond);
         return;
     }
 }
