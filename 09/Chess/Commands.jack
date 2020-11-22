@@ -4,6 +4,33 @@ class Commands {
 	// Returns null if invalid
 	function Move parseUciCommand(String uciCommand) {
 		var Move ret;
+
+		if (~((uciCommand.length() = 9) | (uciCommand.length() = 11))) {
+			return null;
+		}
+
+		if (~(uciCommand.charAt(3) = 32)) {
+			return null;
+		}
+
+		if (~(uciCommand.charAt(6) = 32)) {
+			return null;
+		}
+
+		if (~Util.isValidSquare(
+				uciCommand.charAt(4),
+				uciCommand.charAt(5)
+			)) {
+			return null;
+		}
+
+		if (~Util.isValidSquare(
+			uciCommand.charAt(7),
+			uciCommand.charAt(8)
+			)) {
+			return null;
+		}
+
 		// Assumes of format 
 		// UCI A1 B2
 		let ret = Move.new(

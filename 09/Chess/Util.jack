@@ -122,4 +122,16 @@ class Util {
 		}
 	}
 
+	function boolean isValidFile(char file) {
+		return (64 < file) & (file < 73);
+	}
+
+	function boolean isValidRank(char rank) {
+		return (48 < rank) & (rank < 57);
+	}
+
+	function boolean isValidSquare(char file, char rank) {
+		return Util.isValidFile(file) & Util.isValidRank(rank);
+	}
+
 }

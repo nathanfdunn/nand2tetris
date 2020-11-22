@@ -94,10 +94,14 @@ class Main {
         }
 
         if (Util.startsWith(command, "UCI")) {
-            // do Output.printString("TODO make a UCI move.");
-            // do Output.println();
             let move = Commands.parseUciCommand(command);
-            do Commands.tryMakeMove(board, move);
+            if (move = null) {
+                do Output.printString("Invalid move format");
+                do Output.println();
+            }
+            else {
+                do Commands.tryMakeMove(board, move);
+            }
 
             return;
         }

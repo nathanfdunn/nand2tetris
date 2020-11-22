@@ -29,6 +29,37 @@ class SquareGenerator {
 	// 	if (piece.)
 	// }
 
+	function Array getP0() {
+		var Array p0;
+		let p0 = Array.new(1);
+		let p0[0] = Square.fromBoardIndices(0, 1);
+		return p0;
+	}
+
+	function Array getP1(Array p0) {
+		return SquareGenerator.zipUnion(
+			p0,
+			SquareGenerator.multiplyScalar(p0, 1, -1),
+			1
+		);
+	}
+
+	function Array getWazir(Array p1) {
+		return SquareGenerator.zipUnion(
+			p1,
+			SquareGenerator.transposeElements(p1, 2),
+			2
+		);
+	}
+
+	function Array getFerz(Array wazirSquares) {
+		return SquareGenerator.addElements(
+			wazirSquares,
+			wazirSquares,
+			4,
+			true
+		);
+	}
 
 	function void init() {
 		// proto pawn that can only move forward
@@ -40,27 +71,17 @@ class SquareGenerator {
 		var Array wazirSquares;
 		var Array ferzSquares;
 
-		let p0 = Array.new(1);
-		let p0[0] = Square.fromBoardIndices(0, 1);
+		let p0 = SquareGenerator.getP0();
+		// do SquareGenerator.printSquares(p0, 1);
 
-		let p1 = SquareGenerator.zipUnion(
-			p0,
-			SquareGenerator.multiplyScalar(p0, 1, -1),
-			1
-		);
+		let p1 = SquareGenerator.getP1(p0);
+		// do SquareGenerator.printSquares(p1, 2);
 
-		let wazirSquares = SquareGenerator.zipUnion(
-			p1,
-			SquareGenerator.transposeElements(p1, 2),
-			2
-		);
+		let wazirSquares = SquareGenerator.getWazir(p1);
+		// do SquareGenerator.printSquares(wazirSquares, 4);
 
-		let ferzSquares = SquareGenerator.addElements(
-			wazirSquares,
-			wazirSquares,
-			4,
-			true
-		);
+		let ferzSquares = SquareGenerator.getFerz(wazirSquares);
+		// do SquareGenerator.printSquares(ferzSquares, 4);
 
 		let kingSquares = SquareGenerator.zipUnion(
 			wazirSquares,
@@ -105,6 +126,8 @@ class SquareGenerator {
 				do Output.println();
 			}
 			else {
+				do Output.printInt(temp);
+				do Output.println();
 				do Output.printString(temp.toString());
 				do Output.println();
 			}
