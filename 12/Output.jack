@@ -18,6 +18,8 @@ class Output {
 
     // Character map for displaying characters
     static Array charMaps; 
+    // Move over 8 bits
+    static Array shiftedCharMaps;
     static int cursorX;
     static int cursorY;
     static int screenStart;
@@ -37,7 +39,8 @@ class Output {
         var int i;
     
         let charMaps = Array.new(127);
-        
+        let shiftedCharMaps = Array.new(127);
+
         // Black square, used for displaying non-printable characters.
         do Output.create(0,63,63,63,63,63,63,63,63,63,0,0);
 
@@ -203,6 +206,20 @@ do Output.create(65,
         let map[9] = j;
         let map[10] = k;
 
+        let map = Array.new(11);
+        let shiftedCharMaps[index] = map;
+        let map[0] = a*256;
+        let map[1] = b*256;
+        let map[2] = c*256;
+        let map[3] = d*256;
+        let map[4] = e*256;
+        let map[5] = f*256;
+        let map[6] = g*256;
+        let map[7] = h*256;
+        let map[8] = i*256;
+        let map[9] = j*256;
+        let map[10] = k*256;
+
         return;
     }
     
@@ -238,6 +255,84 @@ do Output.create(65,
         return;
     }
 
+    function int divideBySixteen(int x) {
+        var int ret;
+        // Assume ret is initialized to 0
+
+        // Dividing by 16 is shifting bits to the right 4
+        // 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+        // - - - - Y Y Y Y Y ? -  -  -  -  -  -
+
+        if ((x & 16) > 0) {
+            let ret = ret | 1;
+        }
+
+        if ((x & 32) > 0) {
+            let ret = ret | 2;
+        }
+
+        if ((x & 64) > 0) {
+            let ret = ret | 4;
+        }
+
+        if ((x & 128) > 0) {
+            let ret = ret | 8;
+        }
+
+        if ((x & 256) > 0) {
+            let ret = ret | 16;
+        }
+
+        if ((x & 512) > 0) {
+            let ret = ret | 32;
+        }
+
+        return ret;
+        // return Math.divide(x, 16);
+    }
+
+    // TODO see about bit shifts
+    // TODO rename to GetOffset
+    // Require 0 <= y < 256
+    function int multiplyByThirtyTwo(int x) {
+        var int ret;
+
+        if ((x & 1) > 0) {
+            let ret = ret | 32;
+        }
+
+        if ((x & 2) > 0) {
+            let ret = ret | 64;
+        }
+
+        if ((x & 4) > 0) {
+            let ret = ret | 128;
+        }
+
+        if ((x & 8) > 0) {
+            let ret = ret | 256;
+        }
+
+        if ((x & 16) > 0) {
+            let ret = ret | 512;
+        }
+
+        if ((x & 32) > 0) {
+            let ret = ret | 1024;
+        }
+
+        if ((x & 64) > 0) {
+            let ret = ret | 2048;
+        }
+
+        if ((x & 128) > 0) {
+            let ret = ret | 4096;
+        }
+
+        return ret;
+        // return Math.multiply(32, y);
+    }
+
     function void printCharOptionalAdvance(char c, boolean advance){
         var Array map;
         var int screenX;
@@ -245,6 +340,7 @@ do Output.create(65,
         var int yInd;
         var Array memLoc;
         var int bitField;
+        var int bitMask;
 
         if (c = 128) {      // newline char
             do Output.println();
@@ -259,25 +355,39 @@ do Output.create(65,
 
         let screenX = cursorX * 8;
         let screenY = cursorY * 11;
-        let map = charMaps[c];
+        if ((cursorX & 1) = 0) {
+            let map = charMaps[c];
+            let bitMask = ~255;
+        }
+        else {
+            let map = shiftedCharMaps[c];
+            let bitMask = 255;
+        }
+
         let yInd = 0;
 
-        while (yInd < 11) {
-            let memLoc = screenStart + ((screenY + yInd) * 32) + ((screenX) / 16);
-            let bitField = memLoc[0];
+        let memLoc = screenStart +
+            Output.multiplyByThirtyTwo(screenY + yInd) +
+            Output.divideBySixteen(screenX);
 
-            if ((cursorX & 1) > 0) {
-                // 0 out high bits
-                let bitField = bitField & 255;
-                let memLoc[0] = bitField | Output.shiftRightEight(map[yInd]);
-            }
-            else {
-                // 0 out low bits
-                let bitField = bitField & (~255);
-                let memLoc[0] = bitField | map[yInd];
-            }
+        while (yInd < 11) {
+            let bitField = memLoc[0] & bitMask;
+            let memLoc[0] = bitField | map[yInd];
+            // let memLoc[0] = memLoc[0] | map[yInd];
+
+            // if ((cursorX & 1) > 0) {
+            //     // 0 out high bits
+            //     let bitField = bitField & 255;
+            //     let memLoc[0] = bitField | Output.shiftRightEight(map[yInd]);
+            // }
+            // else {
+            //     // 0 out low bits
+            //     let bitField = bitField & (~255);
+            //     let memLoc[0] = bitField | map[yInd];
+            // }
 
             let yInd = yInd + 1;
+            let memLoc = memLoc + 32;
         }
 
         if (advance) {
