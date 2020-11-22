@@ -362,8 +362,8 @@ do Output.create(65,
 
     /** Moves the cursor one column back. */
     function void backSpace() {
-        // TODO figure out if we're supposed to delete the char? idk...
         do Output.decrementCursor();
+        do Output.printCharOptionalAdvance(32, false);
         return;
     }
 }
