@@ -1,0 +1,898 @@
+function Screen.init 1
+push constant 16384
+pop static 1
+push constant 8192
+pop static 3
+push static 1
+push static 3
+add
+pop static 2
+push constant 0
+not
+pop static 0
+push constant 16
+call Array.new 1
+pop static 4
+push constant 1
+push static 4
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 2
+push static 4
+push constant 1
+add
+pop pointer 1
+pop that 0
+push constant 4
+push static 4
+push constant 2
+add
+pop pointer 1
+pop that 0
+push constant 8
+push static 4
+push constant 3
+add
+pop pointer 1
+pop that 0
+push constant 16
+push static 4
+push constant 4
+add
+pop pointer 1
+pop that 0
+push constant 32
+push static 4
+push constant 5
+add
+pop pointer 1
+pop that 0
+push constant 64
+push static 4
+push constant 6
+add
+pop pointer 1
+pop that 0
+push constant 128
+push static 4
+push constant 7
+add
+pop pointer 1
+pop that 0
+push constant 256
+push static 4
+push constant 8
+add
+pop pointer 1
+pop that 0
+push constant 512
+push static 4
+push constant 9
+add
+pop pointer 1
+pop that 0
+push constant 1024
+push static 4
+push constant 10
+add
+pop pointer 1
+pop that 0
+push constant 2048
+push static 4
+push constant 11
+add
+pop pointer 1
+pop that 0
+push constant 4096
+push static 4
+push constant 12
+add
+pop pointer 1
+pop that 0
+push constant 8192
+push static 4
+push constant 13
+add
+pop pointer 1
+pop that 0
+push constant 16384
+push static 4
+push constant 14
+add
+pop pointer 1
+pop that 0
+push static 4
+push constant 14
+add
+pop pointer 1
+push that 0
+push static 4
+push constant 14
+add
+pop pointer 1
+push that 0
+add
+push static 4
+push constant 15
+add
+pop pointer 1
+pop that 0
+push constant 16
+call Array.new 1
+pop static 5
+push constant 0
+pop local 0
+label LABEL1_Xaeb7e7b414a44ea3b586849e2c4afd23
+push local 0
+push constant 16
+lt
+not
+if-goto LABEL2_X790a7cdcba204ba8ab36f34a9efbc50f
+push static 4
+push local 0
+add
+pop pointer 1
+push that 0
+push constant 1
+sub
+push static 5
+push local 0
+add
+pop pointer 1
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto LABEL1_Xaeb7e7b414a44ea3b586849e2c4afd23
+label LABEL2_X790a7cdcba204ba8ab36f34a9efbc50f
+push constant 0
+return
+function Screen.debug 1
+label LABEL1_Xaa5e37fc5df2439e9c3e89bb31c7a576
+push local 0
+push constant 16
+lt
+not
+if-goto LABEL2_Xacce0fe68d5b42aa8efeab791de1a295
+push static 5
+push local 0
+add
+pop pointer 1
+push that 0
+call Output.printInt 1
+pop temp 7
+call Output.println 0
+pop temp 7
+push local 0
+push constant 1
+add
+pop local 0
+goto LABEL1_Xaa5e37fc5df2439e9c3e89bb31c7a576
+label LABEL2_Xacce0fe68d5b42aa8efeab791de1a295
+push constant 0
+return
+function Screen.clearScreen 1
+push static 1
+pop local 0
+label LABEL1_X623337d22c4b4d97b1395996ec3ae795
+push local 0
+push static 2
+lt
+not
+if-goto LABEL2_X33aeac0c89df43afad9fb27a01d0027e
+push static 0
+push local 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 1
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 2
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 3
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 4
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 5
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 6
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 7
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 8
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 9
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 10
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 11
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 12
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 13
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 14
+add
+pop pointer 1
+pop that 0
+push static 0
+push local 0
+push constant 15
+add
+pop pointer 1
+pop that 0
+push local 0
+push constant 16
+add
+pop local 0
+goto LABEL1_X623337d22c4b4d97b1395996ec3ae795
+label LABEL2_X33aeac0c89df43afad9fb27a01d0027e
+push constant 0
+return
+function Screen.setColor 0
+push argument 0
+pop static 0
+push constant 0
+return
+function Screen.drawPixel 2
+push static 1
+push argument 1
+call Screen.multiplyByThirtyTwo 1
+push argument 0
+call Screen.divideBySixteen 1
+add
+add
+pop local 0
+push static 4
+push argument 0
+push constant 15
+and
+add
+pop pointer 1
+push that 0
+pop local 1
+push static 0
+not
+if-goto X7f2dc719b61b41fdad2b669f403846dd
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push local 1
+or
+push local 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+goto X326a0aab3ec0406693b24aa1f831b5e6
+label X7f2dc719b61b41fdad2b669f403846dd
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push local 1
+not
+and
+push local 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+label X326a0aab3ec0406693b24aa1f831b5e6
+push constant 0
+return
+function Screen.divideBySixteen 1
+push argument 0
+push constant 16
+and
+push constant 0
+gt
+not
+if-goto Xc930a76a1c534b0aa074fa596aff63f2
+push local 0
+push constant 1
+or
+pop local 0
+goto X33ee680919db47759966b888267724d1
+label Xc930a76a1c534b0aa074fa596aff63f2
+label X33ee680919db47759966b888267724d1
+push argument 0
+push constant 32
+and
+push constant 0
+gt
+not
+if-goto Xcd4a0a28f01b4048adedbb1cbd15b4a4
+push local 0
+push constant 2
+or
+pop local 0
+goto Xad3db17319de419495e2e3f27aa1eae0
+label Xcd4a0a28f01b4048adedbb1cbd15b4a4
+label Xad3db17319de419495e2e3f27aa1eae0
+push argument 0
+push constant 64
+and
+push constant 0
+gt
+not
+if-goto X3e17dd6238a848669977ae1b151bc4dc
+push local 0
+push constant 4
+or
+pop local 0
+goto X52631999891144f381947928f96c49ab
+label X3e17dd6238a848669977ae1b151bc4dc
+label X52631999891144f381947928f96c49ab
+push argument 0
+push constant 128
+and
+push constant 0
+gt
+not
+if-goto Xd492be5ceda04fe2afc6630b1d8c4d88
+push local 0
+push constant 8
+or
+pop local 0
+goto X906584d7e1314a67b9a867078fe5f974
+label Xd492be5ceda04fe2afc6630b1d8c4d88
+label X906584d7e1314a67b9a867078fe5f974
+push argument 0
+push constant 256
+and
+push constant 0
+gt
+not
+if-goto Xd9a55bc0b2134072896deb9ecb24a5f0
+push local 0
+push constant 16
+or
+pop local 0
+goto X88782180f6404bf09f0e38dbe726fe77
+label Xd9a55bc0b2134072896deb9ecb24a5f0
+label X88782180f6404bf09f0e38dbe726fe77
+push argument 0
+push constant 512
+and
+push constant 0
+gt
+not
+if-goto X35e21c6efe3f4ff086c0c737cfd01675
+push local 0
+push constant 32
+or
+pop local 0
+goto X905630a9932b477d893aec4f48876788
+label X35e21c6efe3f4ff086c0c737cfd01675
+label X905630a9932b477d893aec4f48876788
+push local 0
+return
+function Screen.multiplyByThirtyTwo 1
+push argument 0
+push constant 1
+and
+push constant 0
+gt
+not
+if-goto X733476428e8349cf8e5b15602fcc585a
+push local 0
+push constant 32
+or
+pop local 0
+goto X2929fe8204ba4500ac60b1dd6a8b425e
+label X733476428e8349cf8e5b15602fcc585a
+label X2929fe8204ba4500ac60b1dd6a8b425e
+push argument 0
+push constant 2
+and
+push constant 0
+gt
+not
+if-goto Xc1808135260248bfa033b27d87a81451
+push local 0
+push constant 64
+or
+pop local 0
+goto X664f23af48444604a217ed72e5a55926
+label Xc1808135260248bfa033b27d87a81451
+label X664f23af48444604a217ed72e5a55926
+push argument 0
+push constant 4
+and
+push constant 0
+gt
+not
+if-goto Xf122511c5efd4eb4980586453b65a64a
+push local 0
+push constant 128
+or
+pop local 0
+goto X5bd7405b50dc42998be8d216873247b9
+label Xf122511c5efd4eb4980586453b65a64a
+label X5bd7405b50dc42998be8d216873247b9
+push argument 0
+push constant 8
+and
+push constant 0
+gt
+not
+if-goto X56e1234a8c6a4f3dbb9f59352433676d
+push local 0
+push constant 256
+or
+pop local 0
+goto X26256ab423b648fa81cce01da8b26348
+label X56e1234a8c6a4f3dbb9f59352433676d
+label X26256ab423b648fa81cce01da8b26348
+push argument 0
+push constant 16
+and
+push constant 0
+gt
+not
+if-goto Xf2113216704e4b508899ccbdc1c717e7
+push local 0
+push constant 512
+or
+pop local 0
+goto Xe2d14eeb3d1f4f4d9f1edffb61d00485
+label Xf2113216704e4b508899ccbdc1c717e7
+label Xe2d14eeb3d1f4f4d9f1edffb61d00485
+push argument 0
+push constant 32
+and
+push constant 0
+gt
+not
+if-goto X8dccccfc96744a7d89112538f3477413
+push local 0
+push constant 1024
+or
+pop local 0
+goto X358ace4d5feb458ab1f4a5e5a67c464d
+label X8dccccfc96744a7d89112538f3477413
+label X358ace4d5feb458ab1f4a5e5a67c464d
+push argument 0
+push constant 64
+and
+push constant 0
+gt
+not
+if-goto Xfad9f3c66b7c455f9d035d6eaa837546
+push local 0
+push constant 2048
+or
+pop local 0
+goto X1aca336891e84f94987144d611524776
+label Xfad9f3c66b7c455f9d035d6eaa837546
+label X1aca336891e84f94987144d611524776
+push argument 0
+push constant 128
+and
+push constant 0
+gt
+not
+if-goto X89f0355763dc4078b0dea8be04498149
+push local 0
+push constant 4096
+or
+pop local 0
+goto X390a859d306d4495bddfc54c043084f5
+label X89f0355763dc4078b0dea8be04498149
+label X390a859d306d4495bddfc54c043084f5
+push local 0
+return
+function Screen.drawHorizontalLine 5
+push argument 1
+push constant 1
+add
+pop argument 1
+push argument 0
+push constant 15
+add
+call Screen.divideBySixteen 1
+pop local 0
+push argument 1
+call Screen.divideBySixteen 1
+pop local 1
+push static 1
+push argument 2
+call Screen.multiplyByThirtyTwo 1
+add
+pop local 4
+push static 5
+push argument 1
+push constant 15
+and
+add
+pop pointer 1
+push that 0
+pop local 3
+push static 5
+push argument 0
+push constant 15
+and
+add
+pop pointer 1
+push that 0
+not
+pop local 2
+push local 0
+push local 1
+gt
+not
+if-goto X73bd3840fb8d4e8faf74109e6291d464
+push local 3
+push local 2
+and
+pop local 3
+goto X2cec915874ca4ffd92f50c2070969d66
+label X73bd3840fb8d4e8faf74109e6291d464
+push argument 0
+push constant 15
+and
+push constant 0
+gt
+not
+if-goto X5259878170e54e60b0bfb55a61569e13
+push static 0
+not
+if-goto Xfc5e6e5838324aae854037e21eb6d6c4
+push local 4
+push local 0
+push constant 1
+sub
+add
+pop pointer 1
+push that 0
+push local 2
+or
+push local 4
+push local 0
+push constant 1
+sub
+add
+pop pointer 1
+pop that 0
+goto Xfcdf57782a7e4e4f8e953d1850e74c28
+label Xfc5e6e5838324aae854037e21eb6d6c4
+push local 4
+push local 0
+push constant 1
+sub
+add
+pop pointer 1
+push that 0
+push local 2
+not
+and
+push local 4
+push local 0
+push constant 1
+sub
+add
+pop pointer 1
+pop that 0
+label Xfcdf57782a7e4e4f8e953d1850e74c28
+goto Xe2181dba99bc467a97c0a155ad0fbe4e
+label X5259878170e54e60b0bfb55a61569e13
+label Xe2181dba99bc467a97c0a155ad0fbe4e
+label X2cec915874ca4ffd92f50c2070969d66
+push argument 1
+push constant 15
+and
+push constant 0
+gt
+not
+if-goto Xe04817d266b241a39d137633ce400283
+push static 0
+not
+if-goto X6f1ebdf6c64f47f58d36c7f603014490
+push local 4
+push local 1
+add
+pop pointer 1
+push that 0
+push local 3
+or
+push local 4
+push local 1
+add
+pop pointer 1
+pop that 0
+goto Xe9ab4be9fb2e40088cf77e507de9244a
+label X6f1ebdf6c64f47f58d36c7f603014490
+push local 4
+push local 1
+add
+pop pointer 1
+push that 0
+push local 3
+not
+and
+push local 4
+push local 1
+add
+pop pointer 1
+pop that 0
+label Xe9ab4be9fb2e40088cf77e507de9244a
+goto Xd3252d0a411a4a43ab57aeeaa02f85b6
+label Xe04817d266b241a39d137633ce400283
+label Xd3252d0a411a4a43ab57aeeaa02f85b6
+label LABEL1_X6891ed9b75c14feebec0738648208392
+push local 0
+push local 1
+lt
+not
+if-goto LABEL2_Xf580df18c0c7492f9ff39dfc4bcb04c4
+push static 0
+push local 4
+push local 0
+add
+pop pointer 1
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto LABEL1_X6891ed9b75c14feebec0738648208392
+label LABEL2_Xf580df18c0c7492f9ff39dfc4bcb04c4
+push constant 0
+return
+function Screen.drawLine 6
+push argument 0
+push argument 2
+gt
+not
+if-goto Xd2b5ce4cc78644dfa4f9a46bc0611470
+push argument 2
+push argument 3
+push argument 0
+push argument 1
+call Screen.drawLine 4
+pop temp 7
+push constant 0
+return
+goto X14873c080f2c47d8a3a9ba171a519085
+label Xd2b5ce4cc78644dfa4f9a46bc0611470
+label X14873c080f2c47d8a3a9ba171a519085
+push argument 2
+push argument 0
+sub
+pop local 0
+push argument 1
+push argument 3
+lt
+not
+if-goto Xcf16da172a7a4e40a2a3553205d95d76
+push argument 3
+push argument 1
+sub
+pop local 1
+push constant 0
+pop local 5
+goto X3e3a111717e348579602a12822d1286c
+label Xcf16da172a7a4e40a2a3553205d95d76
+push argument 1
+push argument 3
+sub
+pop local 1
+push argument 1
+pop local 2
+push argument 3
+pop argument 1
+push local 2
+pop argument 3
+push constant 0
+not
+pop local 5
+label X3e3a111717e348579602a12822d1286c
+push local 1
+push constant 0
+eq
+not
+if-goto Xb14caf2578d647929a35db6711fa0be6
+push argument 0
+push argument 2
+push argument 1
+call Screen.drawHorizontalLine 3
+pop temp 7
+push constant 0
+return
+goto X8df504297f3643ce945c30712ee84b84
+label Xb14caf2578d647929a35db6711fa0be6
+label X8df504297f3643ce945c30712ee84b84
+push constant 0
+pop local 3
+push constant 0
+pop local 4
+label LABEL1_X73001991331442dfad86b9a2054197cf
+push local 3
+push local 0
+push constant 1
+add
+lt
+push local 4
+push local 1
+push constant 1
+add
+lt
+and
+not
+if-goto LABEL2_X60bef07177134172882ec42ab38e5609
+push local 5
+not
+if-goto Xa133daf446e044f29861f809a7ed77fd
+push argument 0
+push local 3
+add
+push argument 3
+push local 4
+sub
+call Screen.drawPixel 2
+pop temp 7
+goto X32a0c910dd3145b38e20b227cabf124c
+label Xa133daf446e044f29861f809a7ed77fd
+push argument 0
+push local 3
+add
+push argument 1
+push local 4
+add
+call Screen.drawPixel 2
+pop temp 7
+label X32a0c910dd3145b38e20b227cabf124c
+push local 3
+push local 1
+call Math.multiply 2
+push local 4
+push local 0
+call Math.multiply 2
+lt
+not
+if-goto Xf35f0b37dc7c4e2eb163104c069e304c
+push local 3
+push constant 1
+add
+pop local 3
+goto X62e095ad82b546e6a72bc1c34a62ddea
+label Xf35f0b37dc7c4e2eb163104c069e304c
+push local 4
+push constant 1
+add
+pop local 4
+label X62e095ad82b546e6a72bc1c34a62ddea
+goto LABEL1_X73001991331442dfad86b9a2054197cf
+label LABEL2_X60bef07177134172882ec42ab38e5609
+push constant 0
+return
+function Screen.drawRectangle 0
+push argument 3
+push constant 1
+add
+pop argument 3
+label LABEL1_X41ef1e3469d547d59daae14750207fba
+push argument 1
+push argument 3
+lt
+not
+if-goto LABEL2_X9a5f56f3317c4dc08b29bb61b3ef9474
+push argument 0
+push argument 1
+push argument 2
+push argument 1
+call Screen.drawLine 4
+pop temp 7
+push argument 1
+push constant 1
+add
+pop argument 1
+goto LABEL1_X41ef1e3469d547d59daae14750207fba
+label LABEL2_X9a5f56f3317c4dc08b29bb61b3ef9474
+push constant 0
+return
+function Screen.drawCircle 2
+push argument 2
+neg
+pop local 0
+label LABEL1_Xe183ed332ab5492f9120b6991e6589e3
+push local 0
+push argument 2
+push constant 1
+add
+lt
+not
+if-goto LABEL2_Xfec0e5c39f164eab80eb0fa9cb6568e9
+push argument 2
+push argument 2
+call Math.multiply 2
+push local 0
+push local 0
+call Math.multiply 2
+sub
+call Math.sqrt 1
+pop local 1
+push argument 0
+push local 1
+sub
+push argument 1
+push local 0
+add
+push argument 0
+push local 1
+add
+push argument 1
+push local 0
+add
+call Screen.drawLine 4
+pop temp 7
+push local 0
+push constant 1
+add
+pop local 0
+goto LABEL1_Xe183ed332ab5492f9120b6991e6589e3
+label LABEL2_Xfec0e5c39f164eab80eb0fa9cb6568e9
+push constant 0
+return

@@ -1,0 +1,364 @@
+function String.numPowers 0
+push constant 5
+return
+function String.init 0
+push constant 0
+not
+pop static 0
+call String.numPowers 0
+call Array.new 1
+pop static 1
+push constant 10000
+push static 1
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 1000
+push static 1
+push constant 1
+add
+pop pointer 1
+pop that 0
+push constant 100
+push static 1
+push constant 2
+add
+pop pointer 1
+pop that 0
+push constant 10
+push static 1
+push constant 3
+add
+pop pointer 1
+pop that 0
+push constant 1
+push static 1
+push constant 4
+add
+pop pointer 1
+pop that 0
+push constant 0
+return
+function String.new 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push static 0
+not
+not
+if-goto X71e0753f7d644a8a8ab3118b20c3cf59
+call String.init 0
+pop temp 7
+goto X8b02c5a4b5df4e64b9076508a384c4f4
+label X71e0753f7d644a8a8ab3118b20c3cf59
+label X8b02c5a4b5df4e64b9076508a384c4f4
+push argument 0
+push constant 0
+gt
+not
+if-goto X5c3d981e73e04c178d7a0c5207353c02
+push argument 0
+call Array.new 1
+pop this 0
+goto Xe8e3c3aeb5f64c37af513e2e5ebb9afc
+label X5c3d981e73e04c178d7a0c5207353c02
+label Xe8e3c3aeb5f64c37af513e2e5ebb9afc
+push argument 0
+pop this 2
+push constant 0
+pop this 1
+push pointer 0
+return
+function String.dispose 0
+push argument 0
+pop pointer 0
+push this 2
+push constant 0
+gt
+not
+if-goto Xe0bb30d051d24e9b8f8ef3c2e9483274
+push this 0
+call Memory.deAlloc 1
+pop temp 7
+goto X8ccf639f617943299b0c923cd5644326
+label Xe0bb30d051d24e9b8f8ef3c2e9483274
+label X8ccf639f617943299b0c923cd5644326
+push constant 0
+return
+function String.length 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function String.charAt 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+add
+pop pointer 1
+push that 0
+return
+function String.setCharAt 0
+push argument 0
+pop pointer 0
+push argument 2
+push this 0
+push argument 1
+add
+pop pointer 1
+pop that 0
+push constant 0
+return
+function String.appendChar 0
+push argument 0
+pop pointer 0
+push argument 1
+push this 0
+push this 1
+add
+pop pointer 1
+pop that 0
+push this 1
+push constant 1
+add
+pop this 1
+push pointer 0
+return
+function String.eraseLastChar 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 1
+sub
+pop this 1
+push constant 0
+return
+function String.intValue 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 0
+eq
+not
+if-goto X6d0d3b77fe674b0d82d2b288f463de12
+push constant 0
+return
+goto X2f5c6640236241f09d2942ac9616e907
+label X6d0d3b77fe674b0d82d2b288f463de12
+label X2f5c6640236241f09d2942ac9616e907
+push this 0
+push constant 0
+add
+pop pointer 1
+push that 0
+call String.hypthenChar 0
+eq
+not
+if-goto X118e798b336b4826833aa493ebb7a3e9
+push pointer 0
+push constant 1
+call String.intValuePositive 2
+neg
+return
+goto Xeb69722a4abe476db746d5f684802bc0
+label X118e798b336b4826833aa493ebb7a3e9
+push pointer 0
+push constant 0
+call String.intValuePositive 2
+return
+label Xeb69722a4abe476db746d5f684802bc0
+function String.intValuePositive 1
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+label LABEL1_X996c2fde6ed74c918238a94384b12b12
+push argument 1
+push this 1
+lt
+not
+if-goto LABEL2_X2297ca5a80bc4082b6972e673bd38597
+push this 0
+push argument 1
+add
+pop pointer 1
+push that 0
+call String.isDigit 1
+not
+not
+if-goto Xbfd2a6de94c848128ab98400e97e8b83
+push local 0
+return
+goto Xce01d6263301428787c400c90e6c4a18
+label Xbfd2a6de94c848128ab98400e97e8b83
+label Xce01d6263301428787c400c90e6c4a18
+push constant 10
+push local 0
+call Math.multiply 2
+push this 0
+push argument 1
+add
+pop pointer 1
+push that 0
+call String.zeroChar 0
+sub
+add
+pop local 0
+push argument 1
+push constant 1
+add
+pop argument 1
+goto LABEL1_X996c2fde6ed74c918238a94384b12b12
+label LABEL2_X2297ca5a80bc4082b6972e673bd38597
+push local 0
+return
+function String.setInt 4
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push constant 0
+pop local 1
+push argument 1
+push constant 0
+eq
+not
+if-goto X9f72296c4a34401a85b6c0cc3c7b299a
+call String.zeroChar 0
+push this 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 1
+pop this 1
+push constant 0
+return
+goto Xb9dfcfcf0d1942af8eb17aa1b17aafed
+label X9f72296c4a34401a85b6c0cc3c7b299a
+label Xb9dfcfcf0d1942af8eb17aa1b17aafed
+push argument 1
+push constant 0
+lt
+not
+if-goto Xd31fd6dcafc240be84b86e0112ffa63f
+call String.hypthenChar 0
+push this 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 1
+pop local 0
+push argument 1
+neg
+pop argument 1
+goto X54cdc5086a0d4237b1b8639659476641
+label Xd31fd6dcafc240be84b86e0112ffa63f
+label X54cdc5086a0d4237b1b8639659476641
+label LABEL1_Xb819e7fffafa410793b03afa5a2ca479
+push local 1
+call String.numPowers 0
+lt
+not
+if-goto LABEL2_Xa8320af0ab8f47c59d01b74783356145
+push argument 1
+push static 1
+push local 1
+add
+pop pointer 1
+push that 0
+call Math.divide 2
+pop local 2
+push argument 1
+push local 2
+push static 1
+push local 1
+add
+pop pointer 1
+push that 0
+call Math.multiply 2
+sub
+pop argument 1
+push local 2
+push constant 0
+gt
+not
+if-goto X530503e3f1f04a67851e20b558227ae8
+push constant 0
+not
+pop local 3
+goto X94544ad1c0884dcbac1cc426b3197093
+label X530503e3f1f04a67851e20b558227ae8
+label X94544ad1c0884dcbac1cc426b3197093
+push local 3
+not
+if-goto X478e4140531c4bfab75ac153624018e3
+call String.zeroChar 0
+push local 2
+add
+push this 0
+push local 0
+add
+pop pointer 1
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto X9f86ba45f9944f55a2d2a2ca14ef351f
+label X478e4140531c4bfab75ac153624018e3
+label X9f86ba45f9944f55a2d2a2ca14ef351f
+push local 1
+push constant 1
+add
+pop local 1
+goto LABEL1_Xb819e7fffafa410793b03afa5a2ca479
+label LABEL2_Xa8320af0ab8f47c59d01b74783356145
+push local 0
+pop this 1
+push constant 0
+return
+function String.newLine 0
+push constant 128
+return
+function String.backSpace 0
+push constant 129
+return
+function String.doubleQuote 0
+push constant 34
+return
+function String.zeroChar 0
+push constant 48
+return
+function String.hypthenChar 0
+push constant 45
+return
+function String.isDigit 0
+push argument 0
+call String.zeroChar 0
+lt
+not
+if-goto X87f6da7612ea4b13ba67963070bd6f43
+push constant 0
+return
+goto Xfb18df0cbd3648fa9390235edbcdf627
+label X87f6da7612ea4b13ba67963070bd6f43
+label Xfb18df0cbd3648fa9390235edbcdf627
+push argument 0
+call String.zeroChar 0
+push constant 9
+add
+gt
+not
+if-goto X29dc0723c71a471e81b77c0b76378c0e
+push constant 0
+return
+goto Xe647a9d8c708448ea74654ccc3482a34
+label X29dc0723c71a471e81b77c0b76378c0e
+label Xe647a9d8c708448ea74654ccc3482a34
+push constant 0
+not
+return

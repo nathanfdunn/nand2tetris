@@ -1,0 +1,95 @@
+
+class Commands {
+	
+	// Returns null if invalid
+	function Move parseUciCommand(String uciCommand) {
+		var Move ret;
+
+		if (~((uciCommand.length() = 9) | (uciCommand.length() = 11))) {
+			return null;
+		}
+
+		if (~(uciCommand.charAt(3) = 32)) {
+			return null;
+		}
+
+		if (~(uciCommand.charAt(6) = 32)) {
+			return null;
+		}
+
+		if (~Util.isValidSquare(
+				uciCommand.charAt(4),
+				uciCommand.charAt(5)
+			)) {
+			return null;
+		}
+
+		if (~Util.isValidSquare(
+			uciCommand.charAt(7),
+			uciCommand.charAt(8)
+			)) {
+			return null;
+		}
+
+		// Assumes of format 
+		// UCI A1 B2
+		let ret = Move.new(
+			Util.parseAlgebraicFile(uciCommand.charAt(4)),
+			Util.parseAlgebraicRank(uciCommand.charAt(5)),
+
+			Util.parseAlgebraicFile(uciCommand.charAt(7)),
+			Util.parseAlgebraicRank(uciCommand.charAt(8))
+		);
+
+		// Check on promotion...
+		if (uciCommand.length() = 11) {
+			do ret.setPromotionPieceType(
+				Piece.pieceTypeFromPieceChar(uciCommand.charAt(10))
+				);
+		}
+
+		return ret;
+	}
+
+	function void tryMakeMove(Board board, Move move) {
+		var int errorCode;
+
+		let errorCode = board.moveErrorCode(move);
+		if (errorCode = 0) {
+            do board.makeMove(move);
+		}
+		else {
+			if (errorCode = 1) {
+				do Util.printLineString("NO PIECE THERE");
+			}
+			else {
+				if (errorCode = 2) {
+					do Util.printLineString("WRONG COLOR PIECE");
+				}
+				else {
+					if (errorCode = 3) {
+						do Util.printLineString("INVALID MOVE");
+					}
+					else {
+						if (errorCode = 4) {
+							// requires promotion
+							do Util.printLineString("MOVE REQUIRES PROMOTION");
+						}
+						else {
+							if (errorCode = 5) {
+								// no promotion
+								do Util.printLineString("MOVE CANNOT BE PROMOTION");
+							}
+							else {
+								do Util.printLineString("UNKNOWN ERROR");
+							}
+						}
+					}
+				}
+			}
+		}
+
+		return;
+	}
+
+}

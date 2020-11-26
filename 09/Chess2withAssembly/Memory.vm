@@ -1,0 +1,194 @@
+function Memory.init 0
+push constant 0
+pop static 0
+push constant 2048
+pop static 1
+push constant 16383
+pop static 2
+push static 1
+pop static 3
+push constant 0
+pop static 4
+push constant 1
+pop static 5
+push constant 1
+pop static 6
+push constant 1
+neg
+pop static 7
+push static 2
+push static 1
+sub
+push static 3
+push static 4
+add
+pop pointer 1
+pop that 0
+push constant 0
+push static 3
+push static 5
+add
+pop pointer 1
+pop that 0
+push constant 25
+call Memory.alloc 1
+pop temp 7
+push constant 35
+call Memory.alloc 1
+call Memory.deAlloc 1
+pop temp 7
+push constant 25
+call Memory.alloc 1
+pop temp 7
+push constant 0
+return
+function Memory.peek 0
+push static 0
+push argument 0
+add
+pop pointer 1
+push that 0
+return
+function Memory.poke 0
+push argument 1
+push static 0
+push argument 0
+add
+pop pointer 1
+pop that 0
+push constant 0
+return
+function Memory.alloc 3
+push argument 0
+push constant 1
+add
+pop argument 0
+push constant 0
+pop local 0
+push static 3
+pop local 1
+label LABEL1_Xd1cbf1e1669042b09fd0e8f6d660d850
+push local 1
+push static 4
+add
+pop pointer 1
+push that 0
+push argument 0
+lt
+not
+if-goto LABEL2_X868b506b634c48f08869ad76d4db1040
+push local 1
+pop local 0
+push local 1
+push static 5
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+push constant 0
+eq
+not
+if-goto X051039a1ed294b078de677c1b70b52c9
+push constant 0
+return
+goto X911b8e646fc447cd9ca25caa1eb9c305
+label X051039a1ed294b078de677c1b70b52c9
+label X911b8e646fc447cd9ca25caa1eb9c305
+goto LABEL1_Xd1cbf1e1669042b09fd0e8f6d660d850
+label LABEL2_X868b506b634c48f08869ad76d4db1040
+push local 1
+push static 4
+add
+pop pointer 1
+push that 0
+push argument 0
+sub
+push constant 3
+lt
+not
+if-goto Xb3b15c79864e492386449220c783ab7b
+push local 1
+push static 4
+add
+pop pointer 1
+push that 0
+pop argument 0
+goto X74efe0e4679f44cda8430a2272d8d5d5
+label Xb3b15c79864e492386449220c783ab7b
+label X74efe0e4679f44cda8430a2272d8d5d5
+push local 1
+push static 4
+add
+pop pointer 1
+push that 0
+push argument 0
+eq
+not
+if-goto X1b3a2da194da4893a64122919420db46
+push local 0
+push constant 0
+eq
+not
+if-goto Xd6d3db20cbe3425b90055fe07dab7ebd
+push local 1
+push static 5
+add
+pop pointer 1
+push that 0
+pop static 3
+goto X999fca51b85f4b8aa398a8566d04fded
+label Xd6d3db20cbe3425b90055fe07dab7ebd
+label X999fca51b85f4b8aa398a8566d04fded
+push local 1
+push static 6
+add
+return
+goto X2f06f261c3bc4047af415bf7d2a85f53
+label X1b3a2da194da4893a64122919420db46
+label X2f06f261c3bc4047af415bf7d2a85f53
+push local 1
+push local 1
+push static 4
+add
+pop pointer 1
+push that 0
+push argument 0
+sub
+add
+pop local 2
+push argument 0
+push local 2
+push static 4
+add
+pop pointer 1
+pop that 0
+push local 1
+push static 4
+add
+pop pointer 1
+push that 0
+push argument 0
+sub
+push local 1
+push static 4
+add
+pop pointer 1
+pop that 0
+push local 2
+push constant 1
+add
+return
+function Memory.deAlloc 0
+push static 3
+push argument 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+push argument 0
+push constant 1
+sub
+pop static 3
+push constant 0
+return
