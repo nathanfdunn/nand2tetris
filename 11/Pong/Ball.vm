@@ -1,0 +1,435 @@
+function Ball.new 0
+push constant 15
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push argument 2
+pop this 10
+push argument 3
+push constant 6
+sub
+pop this 11
+push argument 4
+pop this 12
+push argument 5
+push constant 6
+sub
+pop this 13
+push constant 0
+pop this 14
+push pointer 0
+call Ball.show 1
+pop temp 7
+push pointer 0
+return
+function Ball.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 7
+push constant 0
+return
+function Ball.show 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 7
+push pointer 0
+call Ball.draw 1
+pop temp 7
+push constant 0
+return
+function Ball.hide 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 7
+push pointer 0
+call Ball.draw 1
+pop temp 7
+push constant 0
+return
+function Ball.draw 0
+push argument 0
+pop pointer 0
+push this 0
+push this 1
+push this 0
+push constant 5
+add
+push this 1
+push constant 5
+add
+call Screen.drawRectangle 4
+pop temp 7
+push constant 0
+return
+function Ball.getLeft 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Ball.getRight 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 5
+add
+return
+function Ball.setDestination 3
+push argument 0
+pop pointer 0
+push argument 1
+push this 0
+sub
+pop this 2
+push argument 2
+push this 1
+sub
+pop this 3
+push this 2
+call Math.abs 1
+pop local 0
+push this 3
+call Math.abs 1
+pop local 1
+push local 0
+push local 1
+lt
+pop this 7
+push this 7
+not
+if-goto X6c1183d4f84844cfbb17aeb87fc12829
+push local 0
+pop local 2
+push local 1
+pop local 0
+push local 2
+pop local 1
+push this 1
+push argument 2
+lt
+pop this 8
+push this 0
+push argument 1
+lt
+pop this 9
+goto X6e7c6805ab89444394d21744b90a79f0
+label X6c1183d4f84844cfbb17aeb87fc12829
+push this 0
+push argument 1
+lt
+pop this 8
+push this 1
+push argument 2
+lt
+pop this 9
+label X6e7c6805ab89444394d21744b90a79f0
+push constant 2
+push local 1
+call Math.multiply 2
+push local 0
+sub
+pop this 4
+push constant 2
+push local 1
+call Math.multiply 2
+pop this 5
+push constant 2
+push local 1
+push local 0
+sub
+call Math.multiply 2
+pop this 6
+push constant 0
+return
+function Ball.move 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Ball.hide 1
+pop temp 7
+push this 4
+push constant 0
+lt
+not
+if-goto X830cc3d5b7614b22bbde121890755d15
+push this 4
+push this 5
+add
+pop this 4
+goto X49276fadf60141e7ac725c66bf2fb12b
+label X830cc3d5b7614b22bbde121890755d15
+push this 4
+push this 6
+add
+pop this 4
+push this 9
+not
+if-goto X8ebcd4bad6cf4740a7788a799721c228
+push this 7
+not
+if-goto X24ed9650286e46c5b983b7f3fa5f22db
+push this 0
+push constant 4
+add
+pop this 0
+goto Xdfb7acaf53df4227958f64478968b255
+label X24ed9650286e46c5b983b7f3fa5f22db
+push this 1
+push constant 4
+add
+pop this 1
+label Xdfb7acaf53df4227958f64478968b255
+goto X98a43dbb32ce4f5e9ad9607b207084ec
+label X8ebcd4bad6cf4740a7788a799721c228
+push this 7
+not
+if-goto X90617153ec1e45359bfc363c7d3efabf
+push this 0
+push constant 4
+sub
+pop this 0
+goto X5ee25f0bd984492d844beca708526f98
+label X90617153ec1e45359bfc363c7d3efabf
+push this 1
+push constant 4
+sub
+pop this 1
+label X5ee25f0bd984492d844beca708526f98
+label X98a43dbb32ce4f5e9ad9607b207084ec
+label X49276fadf60141e7ac725c66bf2fb12b
+push this 8
+not
+if-goto X6046ed0d553946818877dc6b3cb1d944
+push this 7
+not
+if-goto Xb05901d9e47f46faa914f89c8848c65a
+push this 1
+push constant 4
+add
+pop this 1
+goto X40b3a38a9bd14b248944efb10554f3d7
+label Xb05901d9e47f46faa914f89c8848c65a
+push this 0
+push constant 4
+add
+pop this 0
+label X40b3a38a9bd14b248944efb10554f3d7
+goto Xb49fa10626aa404e96f4c6024a8bd4bb
+label X6046ed0d553946818877dc6b3cb1d944
+push this 7
+not
+if-goto X496b88996898484a9c863694e65aea31
+push this 1
+push constant 4
+sub
+pop this 1
+goto Xc7c6a1ad4c594c9c98fe2b32e405feec
+label X496b88996898484a9c863694e65aea31
+push this 0
+push constant 4
+sub
+pop this 0
+label Xc7c6a1ad4c594c9c98fe2b32e405feec
+label Xb49fa10626aa404e96f4c6024a8bd4bb
+push this 0
+push this 10
+gt
+not
+not
+if-goto X90a2e09398fa412e998b177b6d97b1e5
+push constant 1
+pop this 14
+push this 10
+pop this 0
+goto X0cdc590158c644c5b8c3a177748e7562
+label X90a2e09398fa412e998b177b6d97b1e5
+label X0cdc590158c644c5b8c3a177748e7562
+push this 0
+push this 11
+lt
+not
+not
+if-goto Xa4c4c6adeb6a4094bde153c9e1eca817
+push constant 2
+pop this 14
+push this 11
+pop this 0
+goto X7c96f93d10c6487c95a36f3f67e8e2bd
+label Xa4c4c6adeb6a4094bde153c9e1eca817
+label X7c96f93d10c6487c95a36f3f67e8e2bd
+push this 1
+push this 12
+gt
+not
+not
+if-goto X63a23c886bf74add825a8483959c2739
+push constant 3
+pop this 14
+push this 12
+pop this 1
+goto X5ed69c7ebda046f0a32295aee14184fd
+label X63a23c886bf74add825a8483959c2739
+label X5ed69c7ebda046f0a32295aee14184fd
+push this 1
+push this 13
+lt
+not
+not
+if-goto X93ad9485987b449d930b83dc401bc849
+push constant 4
+pop this 14
+push this 13
+pop this 1
+goto X3ccf26cb196f46c1b99333786f146207
+label X93ad9485987b449d930b83dc401bc849
+label X3ccf26cb196f46c1b99333786f146207
+push pointer 0
+call Ball.show 1
+pop temp 7
+push this 14
+return
+function Ball.bounce 5
+push argument 0
+pop pointer 0
+push this 2
+push constant 10
+call Math.divide 2
+pop local 2
+push this 3
+push constant 10
+call Math.divide 2
+pop local 3
+push argument 1
+push constant 0
+eq
+not
+if-goto X9f68fb70029941f699ac0bded47a9046
+push constant 10
+pop local 4
+goto X2a4c594c32154b5f83885f50f070cca8
+label X9f68fb70029941f699ac0bded47a9046
+push this 2
+push constant 0
+lt
+not
+push argument 1
+push constant 1
+eq
+and
+push this 2
+push constant 0
+lt
+push argument 1
+push constant 1
+neg
+eq
+and
+or
+not
+if-goto Xee905fb926384a78b3a9093f06f4b918
+push constant 20
+pop local 4
+goto Xe2e3d7a61bdf4d7dbd2da03683a9d48e
+label Xee905fb926384a78b3a9093f06f4b918
+push constant 5
+pop local 4
+label Xe2e3d7a61bdf4d7dbd2da03683a9d48e
+label X2a4c594c32154b5f83885f50f070cca8
+push this 14
+push constant 1
+eq
+not
+if-goto X4307a8dfacd44043be3b95ab53d94506
+push constant 506
+pop local 0
+push local 3
+push constant 50
+neg
+call Math.multiply 2
+push local 2
+call Math.divide 2
+pop local 1
+push this 1
+push local 1
+push local 4
+call Math.multiply 2
+add
+pop local 1
+goto Xf45b508c8fc441d2abef48a8355528b0
+label X4307a8dfacd44043be3b95ab53d94506
+push this 14
+push constant 2
+eq
+not
+if-goto Xdb14392900294a0194a383aa106aa2c9
+push constant 0
+pop local 0
+push local 3
+push constant 50
+call Math.multiply 2
+push local 2
+call Math.divide 2
+pop local 1
+push this 1
+push local 1
+push local 4
+call Math.multiply 2
+add
+pop local 1
+goto X81d646284b344db19d24d1c1b6dd9cd1
+label Xdb14392900294a0194a383aa106aa2c9
+push this 14
+push constant 3
+eq
+not
+if-goto X01492e064df149648ff72dd779649704
+push constant 250
+pop local 1
+push local 2
+push constant 25
+neg
+call Math.multiply 2
+push local 3
+call Math.divide 2
+pop local 0
+push this 0
+push local 0
+push local 4
+call Math.multiply 2
+add
+pop local 0
+goto X3f25e1c356494e82a252096488ba0c11
+label X01492e064df149648ff72dd779649704
+push constant 0
+pop local 1
+push local 2
+push constant 25
+call Math.multiply 2
+push local 3
+call Math.divide 2
+pop local 0
+push this 0
+push local 0
+push local 4
+call Math.multiply 2
+add
+pop local 0
+label X3f25e1c356494e82a252096488ba0c11
+label X81d646284b344db19d24d1c1b6dd9cd1
+label Xf45b508c8fc441d2abef48a8355528b0
+push pointer 0
+push local 0
+push local 1
+call Ball.setDestination 3
+pop temp 7
+push constant 0
+return

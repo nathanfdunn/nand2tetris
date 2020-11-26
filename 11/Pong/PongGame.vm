@@ -1,0 +1,321 @@
+function PongGame.new 0
+push constant 7
+call Memory.alloc 1
+pop pointer 0
+call Screen.clearScreen 0
+pop temp 7
+push constant 50
+pop this 6
+push constant 230
+push constant 229
+push this 6
+push constant 7
+call Bat.new 4
+pop this 0
+push constant 253
+push constant 222
+push constant 0
+push constant 511
+push constant 0
+push constant 229
+call Ball.new 6
+pop this 1
+push this 1
+push constant 400
+push constant 0
+call Ball.setDestination 3
+pop temp 7
+push constant 0
+push constant 238
+push constant 511
+push constant 240
+call Screen.drawRectangle 4
+pop temp 7
+push constant 22
+push constant 0
+call Output.moveCursor 2
+pop temp 7
+push constant 8
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 48
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+push constant 0
+pop this 3
+push constant 0
+pop this 4
+push constant 0
+pop this 2
+push constant 0
+pop this 5
+push pointer 0
+return
+function PongGame.dispose 0
+push argument 0
+pop pointer 0
+push this 0
+call Bat.dispose 1
+pop temp 7
+push this 1
+call Ball.dispose 1
+pop temp 7
+push pointer 0
+call Memory.deAlloc 1
+pop temp 7
+push constant 0
+return
+function PongGame.newInstance 0
+call PongGame.new 0
+pop static 0
+push constant 0
+return
+function PongGame.getInstance 0
+push static 0
+return
+function PongGame.run 1
+push argument 0
+pop pointer 0
+label LABEL1_X2d0c1ea2a41f4c488fea5f373ee89c77
+push this 3
+not
+not
+if-goto LABEL2_X55aac4c8104a41318eb278d6e29d368b
+label LABEL1_Xfd50248de14c40f58623c638850e69d8
+push local 0
+push constant 0
+eq
+push this 3
+not
+and
+not
+if-goto LABEL2_Xd11112e0fc494ca4ad8cf555c230d993
+call Keyboard.keyPressed 0
+pop local 0
+push this 0
+call Bat.move 1
+pop temp 7
+push pointer 0
+call PongGame.moveBall 1
+pop temp 7
+push constant 50
+call Sys.wait 1
+pop temp 7
+goto LABEL1_Xfd50248de14c40f58623c638850e69d8
+label LABEL2_Xd11112e0fc494ca4ad8cf555c230d993
+push local 0
+push constant 130
+eq
+not
+if-goto X330c122a74ee455f90a23e9e623a397d
+push this 0
+push constant 1
+call Bat.setDirection 2
+pop temp 7
+goto Xa1309c83fddf4436a052cf36e0e3967d
+label X330c122a74ee455f90a23e9e623a397d
+push local 0
+push constant 132
+eq
+not
+if-goto X9ef121813ba948adb5994e24a9f13f7b
+push this 0
+push constant 2
+call Bat.setDirection 2
+pop temp 7
+goto X1ef791614b9847c0bde8b5308492cc79
+label X9ef121813ba948adb5994e24a9f13f7b
+push local 0
+push constant 140
+eq
+not
+if-goto X815689740bfc478c87bc05db0597f292
+push constant 0
+not
+pop this 3
+goto Xc4111b39c19d4218b13d921371c145af
+label X815689740bfc478c87bc05db0597f292
+label Xc4111b39c19d4218b13d921371c145af
+label X1ef791614b9847c0bde8b5308492cc79
+label Xa1309c83fddf4436a052cf36e0e3967d
+label LABEL1_X54258a91f8a446dab9b0fb86d339f8b0
+push local 0
+push constant 0
+eq
+not
+push this 3
+not
+and
+not
+if-goto LABEL2_Xf18edc18eee8493f86efd54aff5d50aa
+call Keyboard.keyPressed 0
+pop local 0
+push this 0
+call Bat.move 1
+pop temp 7
+push pointer 0
+call PongGame.moveBall 1
+pop temp 7
+push constant 50
+call Sys.wait 1
+pop temp 7
+goto LABEL1_X54258a91f8a446dab9b0fb86d339f8b0
+label LABEL2_Xf18edc18eee8493f86efd54aff5d50aa
+goto LABEL1_X2d0c1ea2a41f4c488fea5f373ee89c77
+label LABEL2_X55aac4c8104a41318eb278d6e29d368b
+push this 3
+not
+if-goto X7236e06653144d2ab8469baf42d5f7f0
+push constant 10
+push constant 27
+call Output.moveCursor 2
+pop temp 7
+push constant 9
+call String.new 1
+push constant 71
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+goto X94abe9d422784c36b2d70d8d048e2ffa
+label X7236e06653144d2ab8469baf42d5f7f0
+label X94abe9d422784c36b2d70d8d048e2ffa
+push constant 0
+return
+function PongGame.moveBall 5
+push argument 0
+pop pointer 0
+push this 1
+call Ball.move 1
+pop this 2
+push this 2
+push constant 0
+gt
+push this 2
+push this 5
+eq
+not
+and
+not
+if-goto Xaf8c2d82f9074d1384debcdaef6f84f3
+push this 2
+pop this 5
+push constant 0
+pop local 0
+push this 0
+call Bat.getLeft 1
+pop local 1
+push this 0
+call Bat.getRight 1
+pop local 2
+push this 1
+call Ball.getLeft 1
+pop local 3
+push this 1
+call Ball.getRight 1
+pop local 4
+push this 2
+push constant 4
+eq
+not
+if-goto X9ad8f020fddc4c0a87a4bb9a77ba6b99
+push local 1
+push local 4
+gt
+push local 2
+push local 3
+lt
+or
+pop this 3
+push this 3
+not
+not
+if-goto X07511cd56bd7497a86d3a3d7d4f3ed53
+push local 4
+push local 1
+push constant 10
+add
+lt
+not
+if-goto X07bab39c649443f8a0b247b5d81d6478
+push constant 1
+neg
+pop local 0
+goto X1d65901524224ade80dfa31a72e33508
+label X07bab39c649443f8a0b247b5d81d6478
+push local 3
+push local 2
+push constant 10
+sub
+gt
+not
+if-goto X6a0e587ce5de4a0aa906335f93b93dc1
+push constant 1
+pop local 0
+goto X5f6cc5b1eb014a8b9fe46040950e68e1
+label X6a0e587ce5de4a0aa906335f93b93dc1
+label X5f6cc5b1eb014a8b9fe46040950e68e1
+label X1d65901524224ade80dfa31a72e33508
+push this 6
+push constant 2
+sub
+pop this 6
+push this 0
+push this 6
+call Bat.setWidth 2
+pop temp 7
+push this 4
+push constant 1
+add
+pop this 4
+push constant 22
+push constant 7
+call Output.moveCursor 2
+pop temp 7
+push this 4
+call Output.printInt 1
+pop temp 7
+goto X576b0f678fa940e1a4b05b89899828c1
+label X07511cd56bd7497a86d3a3d7d4f3ed53
+label X576b0f678fa940e1a4b05b89899828c1
+goto Xcb3c4b27cca248c39701364f2ee64fe2
+label X9ad8f020fddc4c0a87a4bb9a77ba6b99
+label Xcb3c4b27cca248c39701364f2ee64fe2
+push this 1
+push local 0
+call Ball.bounce 2
+pop temp 7
+goto X047c75ddc59646f982d4ed34dea6e71b
+label Xaf8c2d82f9074d1384debcdaef6f84f3
+label X047c75ddc59646f982d4ed34dea6e71b
+push constant 0
+return

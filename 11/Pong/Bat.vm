@@ -1,0 +1,208 @@
+function Bat.new 0
+push constant 5
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push argument 2
+pop this 2
+push argument 3
+pop this 3
+push constant 2
+pop this 4
+push pointer 0
+call Bat.show 1
+pop temp 7
+push pointer 0
+return
+function Bat.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 7
+push constant 0
+return
+function Bat.show 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 7
+push pointer 0
+call Bat.draw 1
+pop temp 7
+push constant 0
+return
+function Bat.hide 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 7
+push pointer 0
+call Bat.draw 1
+pop temp 7
+push constant 0
+return
+function Bat.draw 0
+push argument 0
+pop pointer 0
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 3
+add
+call Screen.drawRectangle 4
+pop temp 7
+push constant 0
+return
+function Bat.setDirection 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 4
+push constant 0
+return
+function Bat.getLeft 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Bat.getRight 0
+push argument 0
+pop pointer 0
+push this 0
+push this 2
+add
+return
+function Bat.setWidth 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Bat.hide 1
+pop temp 7
+push argument 1
+pop this 2
+push pointer 0
+call Bat.show 1
+pop temp 7
+push constant 0
+return
+function Bat.move 0
+push argument 0
+pop pointer 0
+push this 4
+push constant 1
+eq
+not
+if-goto X894fc3dead5b4466aa025ad58f0b3f35
+push this 0
+push constant 4
+sub
+pop this 0
+push this 0
+push constant 0
+lt
+not
+if-goto X710048fa428746f18b9ac0fd078181ee
+push constant 0
+pop this 0
+goto X0b7a260b787a40cf8a187d4b44345105
+label X710048fa428746f18b9ac0fd078181ee
+label X0b7a260b787a40cf8a187d4b44345105
+push constant 0
+call Screen.setColor 1
+pop temp 7
+push this 0
+push this 2
+add
+push constant 1
+add
+push this 1
+push this 0
+push this 2
+add
+push constant 4
+add
+push this 1
+push this 3
+add
+call Screen.drawRectangle 4
+pop temp 7
+push constant 0
+not
+call Screen.setColor 1
+pop temp 7
+push this 0
+push this 1
+push this 0
+push constant 3
+add
+push this 1
+push this 3
+add
+call Screen.drawRectangle 4
+pop temp 7
+goto X21b3cb068e9f4bb0af76c28cf54197d9
+label X894fc3dead5b4466aa025ad58f0b3f35
+push this 0
+push constant 4
+add
+pop this 0
+push this 0
+push this 2
+add
+push constant 511
+gt
+not
+if-goto Xf9211b0585244e86bd089f8ef377a285
+push constant 511
+push this 2
+sub
+pop this 0
+goto X612a192b00214bb399e964d81974bd4e
+label Xf9211b0585244e86bd089f8ef377a285
+label X612a192b00214bb399e964d81974bd4e
+push constant 0
+call Screen.setColor 1
+pop temp 7
+push this 0
+push constant 4
+sub
+push this 1
+push this 0
+push constant 1
+sub
+push this 1
+push this 3
+add
+call Screen.drawRectangle 4
+pop temp 7
+push constant 0
+not
+call Screen.setColor 1
+pop temp 7
+push this 0
+push this 2
+add
+push constant 3
+sub
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push this 3
+add
+call Screen.drawRectangle 4
+pop temp 7
+label X21b3cb068e9f4bb0af76c28cf54197d9
+push constant 0
+return
