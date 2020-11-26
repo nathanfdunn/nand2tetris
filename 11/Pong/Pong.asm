@@ -21,11 +21,11 @@
 	M=D
 	@R15
 	M=1
-	@Array.new$RET934
+	@Array.new$RET977
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Array.new$RET934)
+(Array.new$RET977)
 (Array.new$IF_FALSE0)
 	@ARG
 	A=M
@@ -39,12 +39,12 @@
 	M=D
 	@R15
 	M=1
-	@Array.new$RET935
+	@Array.new$RET978
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Array.new$RET935)
-	@Pong.global$RET933
+(Array.new$RET978)
+	@Pong.global$RET976
 	0;JMP
 (Array.dispose)
 	@ARG
@@ -61,12 +61,12 @@
 	M=D
 	@R15
 	M=1
-	@Array.dispose$RET936
+	@Array.dispose$RET979
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Array.dispose$RET936)
-	@Pong.global$RET933
+(Array.dispose$RET979)
+	@Pong.global$RET976
 	0;JMP
 (Ball.new)
 	@15
@@ -80,11 +80,11 @@
 	M=D
 	@R15
 	M=1
-	@Ball.new$RET937
+	@Ball.new$RET980
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.new$RET937)
+(Ball.new$RET980)
 	@R13
 	D=M
 	@R3
@@ -180,11 +180,11 @@
 	M=D
 	@R15
 	M=1
-	@Ball.new$RET938
+	@Ball.new$RET981
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.new$RET938)
+(Ball.new$RET981)
 	@R13
 	D=M
 	@R12
@@ -193,7 +193,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Ball.dispose)
 	@ARG
@@ -210,13 +210,13 @@
 	M=D
 	@R15
 	M=1
-	@Ball.dispose$RET939
+	@Ball.dispose$RET982
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.dispose$RET939)
+(Ball.dispose$RET982)
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Ball.show)
 	@ARG
@@ -233,11 +233,11 @@
 	M=D
 	@R15
 	M=1
-	@Ball.show$RET940
+	@Ball.show$RET983
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.show$RET940)
+(Ball.show$RET983)
 	@R13
 	D=M
 	@R12
@@ -253,17 +253,17 @@
 	M=D
 	@R15
 	M=1
-	@Ball.show$RET941
+	@Ball.show$RET984
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.show$RET941)
+(Ball.show$RET984)
 	@R13
 	D=M
 	@R12
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Ball.hide)
 	@ARG
@@ -280,11 +280,11 @@
 	M=D
 	@R15
 	M=1
-	@Ball.hide$RET942
+	@Ball.hide$RET985
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.hide$RET942)
+(Ball.hide$RET985)
 	@R13
 	D=M
 	@R12
@@ -300,17 +300,17 @@
 	M=D
 	@R15
 	M=1
-	@Ball.hide$RET943
+	@Ball.hide$RET986
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.hide$RET943)
+(Ball.hide$RET986)
 	@R13
 	D=M
 	@R12
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Ball.draw)
 	@ARG
@@ -354,17 +354,17 @@
 	D=A
 	@R15
 	M=D
-	@Ball.draw$RET944
+	@Ball.draw$RET987
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.draw$RET944)
+(Ball.draw$RET987)
 	@R13
 	D=M
 	@R12
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Ball.getLeft)
 	@ARG
@@ -377,7 +377,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Ball.getRight)
 	@ARG
@@ -392,7 +392,7 @@
 	D=D+A
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Ball.setDestination)
 	@SP
@@ -444,11 +444,11 @@
 	M=D
 	@R15
 	M=1
-	@Ball.setDestination$RET945
+	@Ball.setDestination$RET988
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.setDestination$RET945)
+(Ball.setDestination$RET988)
 	@R13
 	D=M
 	@LCL
@@ -468,11 +468,11 @@
 	M=D
 	@R15
 	M=1
-	@Ball.setDestination$RET946
+	@Ball.setDestination$RET989
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.setDestination$RET946)
+(Ball.setDestination$RET989)
 	@R13
 	D=M
 	@LCL
@@ -484,13 +484,13 @@
 	@LCL
 	A=M+1
 	D=D-M
-	@Ball$CMP_TRUE947
+	@Ball$CMP_TRUE990
 	D;JLT
-	@Ball$CMP_END947
+	@Ball$CMP_END990
 	D=0;JMP
-(Ball$CMP_TRUE947)
+(Ball$CMP_TRUE990)
 	D=-1
-(Ball$CMP_END947)
+(Ball$CMP_END990)
 	@THIS
 	A=M+1
 	A=A+1
@@ -529,13 +529,13 @@
 	A=M+1
 	A=A+1
 	D=D-M
-	@Ball$CMP_TRUE948
+	@Ball$CMP_TRUE991
 	D;JLT
-	@Ball$CMP_END948
+	@Ball$CMP_END991
 	D=0;JMP
-(Ball$CMP_TRUE948)
+(Ball$CMP_TRUE991)
 	D=-1
-(Ball$CMP_END948)
+(Ball$CMP_END991)
 	@R13
 	M=D
 	@THIS
@@ -552,13 +552,13 @@
 	@ARG
 	A=M+1
 	D=D-M
-	@Ball$CMP_TRUE949
+	@Ball$CMP_TRUE992
 	D;JLT
-	@Ball$CMP_END949
+	@Ball$CMP_END992
 	D=0;JMP
-(Ball$CMP_TRUE949)
+(Ball$CMP_TRUE992)
 	D=-1
-(Ball$CMP_END949)
+(Ball$CMP_END992)
 	@R13
 	M=D
 	@THIS
@@ -578,13 +578,13 @@
 	@ARG
 	A=M+1
 	D=D-M
-	@Ball$CMP_TRUE950
+	@Ball$CMP_TRUE993
 	D;JLT
-	@Ball$CMP_END950
+	@Ball$CMP_END993
 	D=0;JMP
-(Ball$CMP_TRUE950)
+(Ball$CMP_TRUE993)
 	D=-1
-(Ball$CMP_END950)
+(Ball$CMP_END993)
 	@R13
 	M=D
 	@THIS
@@ -602,13 +602,13 @@
 	A=M+1
 	A=A+1
 	D=D-M
-	@Ball$CMP_TRUE951
+	@Ball$CMP_TRUE994
 	D;JLT
-	@Ball$CMP_END951
+	@Ball$CMP_END994
 	D=0;JMP
-(Ball$CMP_TRUE951)
+(Ball$CMP_TRUE994)
 	D=-1
-(Ball$CMP_END951)
+(Ball$CMP_END994)
 	@R13
 	M=D
 	@THIS
@@ -637,11 +637,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.setDestination$RET952
+	@Ball.setDestination$RET995
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.setDestination$RET952)
+(Ball.setDestination$RET995)
 	@R13
 	D=M
 	@LCL
@@ -670,11 +670,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.setDestination$RET953
+	@Ball.setDestination$RET996
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.setDestination$RET953)
+(Ball.setDestination$RET996)
 	@R13
 	D=M
 	@THIS
@@ -704,11 +704,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.setDestination$RET954
+	@Ball.setDestination$RET997
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.setDestination$RET954)
+(Ball.setDestination$RET997)
 	@R13
 	D=M
 	@THIS
@@ -720,7 +720,7 @@
 	A=A+1
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Ball.move)
 	@ARG
@@ -737,11 +737,11 @@
 	M=D
 	@R15
 	M=1
-	@Ball.move$RET955
+	@Ball.move$RET998
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.move$RET955)
+(Ball.move$RET998)
 	@R13
 	D=M
 	@R12
@@ -1018,11 +1018,11 @@
 	M=D
 	@R15
 	M=1
-	@Ball.move$RET956
+	@Ball.move$RET999
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.move$RET956)
+(Ball.move$RET999)
 	@R13
 	D=M
 	@R12
@@ -1034,20 +1034,20 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Ball.bounce)
 	@5
 	D=A
 	@R13
 	M=D
-(Ball.bounce$INIT957)
+(Ball.bounce$INIT1000)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@Ball.bounce$INIT957
+	@Ball.bounce$INIT1000
 	D;JNE
 	@ARG
 	A=M
@@ -1073,11 +1073,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET958
+	@Ball.bounce$RET1001
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET958)
+(Ball.bounce$RET1001)
 	@R13
 	D=M
 	@LCL
@@ -1104,11 +1104,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET959
+	@Ball.bounce$RET1002
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET959)
+(Ball.bounce$RET1002)
 	@R13
 	D=M
 	@LCL
@@ -1136,26 +1136,26 @@
 	A=M+1
 	A=A+1
 	D=M
-	@Ball$CMP_TRUE960
+	@Ball$CMP_TRUE1003
 	D;JGE
-	@Ball$CMP_END960
+	@Ball$CMP_END1003
 	D=0;JMP
-(Ball$CMP_TRUE960)
+(Ball$CMP_TRUE1003)
 	D=-1
-(Ball$CMP_END960)
+(Ball$CMP_END1003)
 	@SP
 	AM=M+1
 	M=D
 	@ARG
 	A=M+1
 	D=M-1
-	@Ball$CMP_TRUE961
+	@Ball$CMP_TRUE1004
 	D;JEQ
-	@Ball$CMP_END961
+	@Ball$CMP_END1004
 	D=0;JMP
-(Ball$CMP_TRUE961)
+(Ball$CMP_TRUE1004)
 	D=-1
-(Ball$CMP_END961)
+(Ball$CMP_END1004)
 	@SP
 	AM=M-1
 	A=A+1
@@ -1167,26 +1167,26 @@
 	A=M+1
 	A=A+1
 	D=M
-	@Ball$CMP_TRUE962
+	@Ball$CMP_TRUE1005
 	D;JLT
-	@Ball$CMP_END962
+	@Ball$CMP_END1005
 	D=0;JMP
-(Ball$CMP_TRUE962)
+(Ball$CMP_TRUE1005)
 	D=-1
-(Ball$CMP_END962)
+(Ball$CMP_END1005)
 	@SP
 	AM=M+1
 	M=D
 	@ARG
 	A=M+1
 	D=M+1
-	@Ball$CMP_TRUE963
+	@Ball$CMP_TRUE1006
 	D;JEQ
-	@Ball$CMP_END963
+	@Ball$CMP_END1006
 	D=0;JMP
-(Ball$CMP_TRUE963)
+(Ball$CMP_TRUE1006)
 	D=-1
-(Ball$CMP_END963)
+(Ball$CMP_END1006)
 	@SP
 	AM=M-1
 	A=A+1
@@ -1250,11 +1250,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET964
+	@Ball.bounce$RET1007
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET964)
+(Ball.bounce$RET1007)
 	@R13
 	D=M
 	@SP
@@ -1274,11 +1274,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET965
+	@Ball.bounce$RET1008
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET965)
+(Ball.bounce$RET1008)
 	@R13
 	D=M
 	@LCL
@@ -1311,11 +1311,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET966
+	@Ball.bounce$RET1009
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET966)
+(Ball.bounce$RET1009)
 	@R13
 	D=M
 	@SP
@@ -1359,11 +1359,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET967
+	@Ball.bounce$RET1010
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET967)
+(Ball.bounce$RET1010)
 	@R13
 	D=M
 	@SP
@@ -1383,11 +1383,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET968
+	@Ball.bounce$RET1011
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET968)
+(Ball.bounce$RET1011)
 	@R13
 	D=M
 	@LCL
@@ -1420,11 +1420,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET969
+	@Ball.bounce$RET1012
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET969)
+(Ball.bounce$RET1012)
 	@R13
 	D=M
 	@SP
@@ -1470,11 +1470,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET970
+	@Ball.bounce$RET1013
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET970)
+(Ball.bounce$RET1013)
 	@R13
 	D=M
 	@SP
@@ -1495,11 +1495,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET971
+	@Ball.bounce$RET1014
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET971)
+(Ball.bounce$RET1014)
 	@R13
 	D=M
 	@LCL
@@ -1532,11 +1532,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET972
+	@Ball.bounce$RET1015
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET972)
+(Ball.bounce$RET1015)
 	@R13
 	D=M
 	@SP
@@ -1571,11 +1571,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET973
+	@Ball.bounce$RET1016
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET973)
+(Ball.bounce$RET1016)
 	@R13
 	D=M
 	@SP
@@ -1596,11 +1596,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET974
+	@Ball.bounce$RET1017
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET974)
+(Ball.bounce$RET1017)
 	@R13
 	D=M
 	@LCL
@@ -1633,11 +1633,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Ball.bounce$RET975
+	@Ball.bounce$RET1018
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET975)
+(Ball.bounce$RET1018)
 	@R13
 	D=M
 	@SP
@@ -1675,17 +1675,17 @@
 	D=A
 	@R15
 	M=D
-	@Ball.bounce$RET976
+	@Ball.bounce$RET1019
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Ball.bounce$RET976)
+(Ball.bounce$RET1019)
 	@R13
 	D=M
 	@R12
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Bat.new)
 	@5
@@ -1699,11 +1699,11 @@
 	M=D
 	@R15
 	M=1
-	@Bat.new$RET977
+	@Bat.new$RET1020
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.new$RET977)
+(Bat.new$RET1020)
 	@R13
 	D=M
 	@R3
@@ -1755,11 +1755,11 @@
 	M=D
 	@R15
 	M=1
-	@Bat.new$RET978
+	@Bat.new$RET1021
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.new$RET978)
+(Bat.new$RET1021)
 	@R13
 	D=M
 	@R12
@@ -1768,7 +1768,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Bat.dispose)
 	@ARG
@@ -1785,13 +1785,13 @@
 	M=D
 	@R15
 	M=1
-	@Bat.dispose$RET979
+	@Bat.dispose$RET1022
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.dispose$RET979)
+(Bat.dispose$RET1022)
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Bat.show)
 	@ARG
@@ -1808,11 +1808,11 @@
 	M=D
 	@R15
 	M=1
-	@Bat.show$RET980
+	@Bat.show$RET1023
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.show$RET980)
+(Bat.show$RET1023)
 	@R13
 	D=M
 	@R12
@@ -1828,17 +1828,17 @@
 	M=D
 	@R15
 	M=1
-	@Bat.show$RET981
+	@Bat.show$RET1024
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.show$RET981)
+(Bat.show$RET1024)
 	@R13
 	D=M
 	@R12
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Bat.hide)
 	@ARG
@@ -1855,11 +1855,11 @@
 	M=D
 	@R15
 	M=1
-	@Bat.hide$RET982
+	@Bat.hide$RET1025
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.hide$RET982)
+(Bat.hide$RET1025)
 	@R13
 	D=M
 	@R12
@@ -1875,17 +1875,17 @@
 	M=D
 	@R15
 	M=1
-	@Bat.hide$RET983
+	@Bat.hide$RET1026
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.hide$RET983)
+(Bat.hide$RET1026)
 	@R13
 	D=M
 	@R12
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Bat.draw)
 	@ARG
@@ -1934,17 +1934,17 @@
 	D=A
 	@R15
 	M=D
-	@Bat.draw$RET984
+	@Bat.draw$RET1027
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.draw$RET984)
+(Bat.draw$RET1027)
 	@R13
 	D=M
 	@R12
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Bat.setDirection)
 	@ARG
@@ -1962,7 +1962,7 @@
 	A=A+1
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Bat.getLeft)
 	@ARG
@@ -1975,7 +1975,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Bat.getRight)
 	@ARG
@@ -1992,7 +1992,7 @@
 	D=D+M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Bat.setWidth)
 	@ARG
@@ -2009,11 +2009,11 @@
 	M=D
 	@R15
 	M=1
-	@Bat.setWidth$RET985
+	@Bat.setWidth$RET1028
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.setWidth$RET985)
+(Bat.setWidth$RET1028)
 	@R13
 	D=M
 	@R12
@@ -2036,17 +2036,17 @@
 	M=D
 	@R15
 	M=1
-	@Bat.setWidth$RET986
+	@Bat.setWidth$RET1029
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.setWidth$RET986)
+(Bat.setWidth$RET1029)
 	@R13
 	D=M
 	@R12
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Bat.move)
 	@ARG
@@ -2088,11 +2088,11 @@
 	M=D
 	@R15
 	M=1
-	@Bat.move$RET987
+	@Bat.move$RET1030
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.move$RET987)
+(Bat.move$RET1030)
 	@R13
 	D=M
 	@R12
@@ -2145,11 +2145,11 @@
 	D=A
 	@R15
 	M=D
-	@Bat.move$RET988
+	@Bat.move$RET1031
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.move$RET988)
+(Bat.move$RET1031)
 	@R13
 	D=M
 	@R12
@@ -2163,11 +2163,11 @@
 	M=D
 	@R15
 	M=1
-	@Bat.move$RET989
+	@Bat.move$RET1032
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.move$RET989)
+(Bat.move$RET1032)
 	@R13
 	D=M
 	@R12
@@ -2211,11 +2211,11 @@
 	D=A
 	@R15
 	M=D
-	@Bat.move$RET990
+	@Bat.move$RET1033
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.move$RET990)
+(Bat.move$RET1033)
 	@R13
 	D=M
 	@R12
@@ -2262,11 +2262,11 @@
 	M=D
 	@R15
 	M=1
-	@Bat.move$RET991
+	@Bat.move$RET1034
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.move$RET991)
+(Bat.move$RET1034)
 	@R13
 	D=M
 	@R12
@@ -2310,11 +2310,11 @@
 	D=A
 	@R15
 	M=D
-	@Bat.move$RET992
+	@Bat.move$RET1035
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.move$RET992)
+(Bat.move$RET1035)
 	@R13
 	D=M
 	@R12
@@ -2328,11 +2328,11 @@
 	M=D
 	@R15
 	M=1
-	@Bat.move$RET993
+	@Bat.move$RET1036
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.move$RET993)
+(Bat.move$RET1036)
 	@R13
 	D=M
 	@R12
@@ -2384,21 +2384,21 @@
 	D=A
 	@R15
 	M=D
-	@Bat.move$RET994
+	@Bat.move$RET1037
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Bat.move$RET994)
+(Bat.move$RET1037)
 	@R13
 	D=M
 	@R12
 	M=D
 (Bat.move$X21b3cb068e9f4bb0af76c28cf54197d9)
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Keyboard.init)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Keyboard.keyPressed)
 	@24576
@@ -2412,12 +2412,12 @@
 	M=D
 	@R15
 	M=1
-	@Keyboard.keyPressed$RET995
+	@Keyboard.keyPressed$RET1038
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.keyPressed$RET995)
-	@Pong.global$RET933
+(Keyboard.keyPressed$RET1038)
+	@Pong.global$RET976
 	0;JMP
 (Keyboard.readChar)
 	@SP
@@ -2435,35 +2435,35 @@
 	M=D
 	@R15
 	M=1
-	@Keyboard.readChar$RET996
+	@Keyboard.readChar$RET1039
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readChar$RET996)
+(Keyboard.readChar$RET1039)
 (Keyboard.readChar$WHILE_EXP0)
 	@LCL
 	A=M+1
 	D=M
-	@Keyboard$CMP_TRUE997
+	@Keyboard$CMP_TRUE1040
 	D;JEQ
-	@Keyboard$CMP_END997
+	@Keyboard$CMP_END1040
 	D=0;JMP
-(Keyboard$CMP_TRUE997)
+(Keyboard$CMP_TRUE1040)
 	D=-1
-(Keyboard$CMP_END997)
+(Keyboard$CMP_END1040)
 	@SP
 	AM=M+1
 	M=D
 	@LCL
 	A=M
 	D=M
-	@Keyboard$CMP_TRUE998
+	@Keyboard$CMP_TRUE1041
 	D;JGT
-	@Keyboard$CMP_END998
+	@Keyboard$CMP_END1041
 	D=0;JMP
-(Keyboard$CMP_TRUE998)
+(Keyboard$CMP_TRUE1041)
 	D=-1
-(Keyboard$CMP_END998)
+(Keyboard$CMP_END1041)
 	@SP
 	AM=M-1
 	A=A+1
@@ -2476,11 +2476,11 @@
 	M=D
 	@R15
 	M=0
-	@Keyboard.readChar$RET999
+	@Keyboard.readChar$RET1042
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readChar$RET999)
+(Keyboard.readChar$RET1042)
 	@R13
 	D=M
 	@LCL
@@ -2504,11 +2504,11 @@
 	M=D
 	@R15
 	M=0
-	@Keyboard.readChar$RET1000
+	@Keyboard.readChar$RET1043
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readChar$RET1000)
+(Keyboard.readChar$RET1043)
 	@R13
 	D=M
 	@SP
@@ -2520,11 +2520,11 @@
 	M=D
 	@R15
 	M=1
-	@Keyboard.readChar$RET1001
+	@Keyboard.readChar$RET1044
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readChar$RET1001)
+(Keyboard.readChar$RET1044)
 	@LCL
 	A=M+1
 	D=M
@@ -2537,30 +2537,30 @@
 	M=D
 	@R15
 	M=1
-	@Keyboard.readChar$RET1002
+	@Keyboard.readChar$RET1045
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readChar$RET1002)
+(Keyboard.readChar$RET1045)
 	@LCL
 	A=M+1
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Keyboard.readLine)
 	@5
 	D=A
 	@R13
 	M=D
-(Keyboard.readLine$INIT1003)
+(Keyboard.readLine$INIT1046)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@Keyboard.readLine$INIT1003
+	@Keyboard.readLine$INIT1046
 	D;JNE
 	@80
 	D=A
@@ -2573,11 +2573,11 @@
 	M=D
 	@R15
 	M=1
-	@Keyboard.readLine$RET1004
+	@Keyboard.readLine$RET1047
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readLine$RET1004)
+(Keyboard.readLine$RET1047)
 	@R13
 	D=M
 	@LCL
@@ -2597,22 +2597,22 @@
 	M=D
 	@R15
 	M=1
-	@Keyboard.readLine$RET1005
+	@Keyboard.readLine$RET1048
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readLine$RET1005)
+(Keyboard.readLine$RET1048)
 	@String.newLine
 	D=A
 	@R14
 	M=D
 	@R15
 	M=0
-	@Keyboard.readLine$RET1006
+	@Keyboard.readLine$RET1049
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readLine$RET1006)
+(Keyboard.readLine$RET1049)
 	@R13
 	D=M
 	@LCL
@@ -2624,11 +2624,11 @@
 	M=D
 	@R15
 	M=0
-	@Keyboard.readLine$RET1007
+	@Keyboard.readLine$RET1050
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readLine$RET1007)
+(Keyboard.readLine$RET1050)
 	@R13
 	D=M
 	@LCL
@@ -2649,11 +2649,11 @@
 	M=D
 	@R15
 	M=0
-	@Keyboard.readLine$RET1008
+	@Keyboard.readLine$RET1051
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readLine$RET1008)
+(Keyboard.readLine$RET1051)
 	@R13
 	D=M
 	@LCL
@@ -2662,13 +2662,13 @@
 	@LCL
 	A=M+1
 	D=D-M
-	@Keyboard$CMP_TRUE1009
+	@Keyboard$CMP_TRUE1052
 	D;JEQ
-	@Keyboard$CMP_END1009
+	@Keyboard$CMP_END1052
 	D=0;JMP
-(Keyboard$CMP_TRUE1009)
+(Keyboard$CMP_TRUE1052)
 	D=-1
-(Keyboard$CMP_END1009)
+(Keyboard$CMP_END1052)
 	@LCL
 	A=M+1
 	A=A+1
@@ -2700,11 +2700,11 @@
 	M=D
 	@R15
 	M=1
-	@Keyboard.readLine$RET1010
+	@Keyboard.readLine$RET1053
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readLine$RET1010)
+(Keyboard.readLine$RET1053)
 	@Keyboard.readLine$IF_END1
 	0;JMP
 (Keyboard.readLine$IF_FALSE1)
@@ -2729,11 +2729,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Keyboard.readLine$RET1011
+	@Keyboard.readLine$RET1054
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readLine$RET1011)
+(Keyboard.readLine$RET1054)
 	@R13
 	D=M
 	@LCL
@@ -2753,7 +2753,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Keyboard.readInt)
 	@SP
@@ -2774,11 +2774,11 @@
 	M=D
 	@R15
 	M=1
-	@Keyboard.readInt$RET1012
+	@Keyboard.readInt$RET1055
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readInt$RET1012)
+(Keyboard.readInt$RET1055)
 	@R13
 	D=M
 	@LCL
@@ -2793,11 +2793,11 @@
 	M=D
 	@R15
 	M=1
-	@Keyboard.readInt$RET1013
+	@Keyboard.readInt$RET1056
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readInt$RET1013)
+(Keyboard.readInt$RET1056)
 	@R13
 	D=M
 	@LCL
@@ -2815,17 +2815,17 @@
 	M=D
 	@R15
 	M=1
-	@Keyboard.readInt$RET1014
+	@Keyboard.readInt$RET1057
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Keyboard.readInt$RET1014)
+(Keyboard.readInt$RET1057)
 	@LCL
 	A=M+1
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Main.main)
 	@SP
@@ -2837,11 +2837,11 @@
 	M=D
 	@R15
 	M=0
-	@Main.main$RET1015
+	@Main.main$RET1058
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Main.main$RET1015)
+(Main.main$RET1058)
 	@R13
 	D=M
 	@R12
@@ -2852,11 +2852,11 @@
 	M=D
 	@R15
 	M=0
-	@Main.main$RET1016
+	@Main.main$RET1059
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Main.main$RET1016)
+(Main.main$RET1059)
 	@R13
 	D=M
 	@LCL
@@ -2871,11 +2871,11 @@
 	M=D
 	@R15
 	M=1
-	@Main.main$RET1017
+	@Main.main$RET1060
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Main.main$RET1017)
+(Main.main$RET1060)
 	@R13
 	D=M
 	@R12
@@ -2892,16 +2892,16 @@
 	M=D
 	@R15
 	M=1
-	@Main.main$RET1018
+	@Main.main$RET1061
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Main.main$RET1018)
+(Main.main$RET1061)
 	@R13
 	D=M
 	@R12
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Math.init)
 	@SP
@@ -2918,11 +2918,11 @@
 	M=D
 	@R15
 	M=1
-	@Math.init$RET1019
+	@Math.init$RET1062
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Math.init$RET1019)
+(Math.init$RET1062)
 	@R13
 	D=M
 	@Math.1
@@ -2938,11 +2938,11 @@
 	M=D
 	@R15
 	M=1
-	@Math.init$RET1020
+	@Math.init$RET1063
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Math.init$RET1020)
+(Math.init$RET1063)
 	@R13
 	D=M
 	@Math.0
@@ -3028,7 +3028,7 @@
 	@Math.init$WHILE_EXP0
 	0;JMP
 (Math.init$WHILE_END0)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Math.abs)
 	@ARG
@@ -3045,44 +3045,44 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Math.multiply)
 	@5
 	D=A
 	@R13
 	M=D
-(Math.multiply$INIT1021)
+(Math.multiply$INIT1064)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@Math.multiply$INIT1021
+	@Math.multiply$INIT1064
 	D;JNE
 	@ARG
 	A=M
 	D=M
-	@Math$CMP_TRUE1022
+	@Math$CMP_TRUE1065
 	D;JLT
-	@Math$CMP_END1022
+	@Math$CMP_END1065
 	D=0;JMP
-(Math$CMP_TRUE1022)
+(Math$CMP_TRUE1065)
 	D=-1
-(Math$CMP_END1022)
+(Math$CMP_END1065)
 	@SP
 	AM=M+1
 	M=D
 	@ARG
 	A=M+1
 	D=M
-	@Math$CMP_TRUE1023
+	@Math$CMP_TRUE1066
 	D;JGT
-	@Math$CMP_END1023
+	@Math$CMP_END1066
 	D=0;JMP
-(Math$CMP_TRUE1023)
+(Math$CMP_TRUE1066)
 	D=-1
-(Math$CMP_END1023)
+(Math$CMP_END1066)
 	@SP
 	AM=M-1
 	A=A+1
@@ -3093,26 +3093,26 @@
 	@ARG
 	A=M
 	D=M
-	@Math$CMP_TRUE1024
+	@Math$CMP_TRUE1067
 	D;JGT
-	@Math$CMP_END1024
+	@Math$CMP_END1067
 	D=0;JMP
-(Math$CMP_TRUE1024)
+(Math$CMP_TRUE1067)
 	D=-1
-(Math$CMP_END1024)
+(Math$CMP_END1067)
 	@SP
 	AM=M+1
 	M=D
 	@ARG
 	A=M+1
 	D=M
-	@Math$CMP_TRUE1025
+	@Math$CMP_TRUE1068
 	D;JLT
-	@Math$CMP_END1025
+	@Math$CMP_END1068
 	D=0;JMP
-(Math$CMP_TRUE1025)
+(Math$CMP_TRUE1068)
 	D=-1
-(Math$CMP_END1025)
+(Math$CMP_END1068)
 	@SP
 	AM=M-1
 	A=A+1
@@ -3139,11 +3139,11 @@
 	M=D
 	@R15
 	M=1
-	@Math.multiply$RET1026
+	@Math.multiply$RET1069
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Math.multiply$RET1026)
+(Math.multiply$RET1069)
 	@R13
 	D=M
 	@ARG
@@ -3161,11 +3161,11 @@
 	M=D
 	@R15
 	M=1
-	@Math.multiply$RET1027
+	@Math.multiply$RET1070
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Math.multiply$RET1027)
+(Math.multiply$RET1070)
 	@R13
 	D=M
 	@ARG
@@ -3290,20 +3290,20 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Math.divide)
 	@4
 	D=A
 	@R13
 	M=D
-(Math.divide$INIT1028)
+(Math.divide$INIT1071)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@Math.divide$INIT1028
+	@Math.divide$INIT1071
 	D;JNE
 	@ARG
 	A=M+1
@@ -3321,35 +3321,35 @@
 	M=D
 	@R15
 	M=1
-	@Math.divide$RET1029
+	@Math.divide$RET1072
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Math.divide$RET1029)
+(Math.divide$RET1072)
 (Math.divide$IF_FALSE0)
 	@ARG
 	A=M
 	D=M
-	@Math$CMP_TRUE1030
+	@Math$CMP_TRUE1073
 	D;JLT
-	@Math$CMP_END1030
+	@Math$CMP_END1073
 	D=0;JMP
-(Math$CMP_TRUE1030)
+(Math$CMP_TRUE1073)
 	D=-1
-(Math$CMP_END1030)
+(Math$CMP_END1073)
 	@SP
 	AM=M+1
 	M=D
 	@ARG
 	A=M+1
 	D=M
-	@Math$CMP_TRUE1031
+	@Math$CMP_TRUE1074
 	D;JGT
-	@Math$CMP_END1031
+	@Math$CMP_END1074
 	D=0;JMP
-(Math$CMP_TRUE1031)
+(Math$CMP_TRUE1074)
 	D=-1
-(Math$CMP_END1031)
+(Math$CMP_END1074)
 	@SP
 	AM=M-1
 	A=A+1
@@ -3360,26 +3360,26 @@
 	@ARG
 	A=M
 	D=M
-	@Math$CMP_TRUE1032
+	@Math$CMP_TRUE1075
 	D;JGT
-	@Math$CMP_END1032
+	@Math$CMP_END1075
 	D=0;JMP
-(Math$CMP_TRUE1032)
+(Math$CMP_TRUE1075)
 	D=-1
-(Math$CMP_END1032)
+(Math$CMP_END1075)
 	@SP
 	AM=M+1
 	M=D
 	@ARG
 	A=M+1
 	D=M
-	@Math$CMP_TRUE1033
+	@Math$CMP_TRUE1076
 	D;JLT
-	@Math$CMP_END1033
+	@Math$CMP_END1076
 	D=0;JMP
-(Math$CMP_TRUE1033)
+(Math$CMP_TRUE1076)
 	D=-1
-(Math$CMP_END1033)
+(Math$CMP_END1076)
 	@SP
 	AM=M-1
 	A=A+1
@@ -3409,11 +3409,11 @@
 	M=D
 	@R15
 	M=1
-	@Math.divide$RET1034
+	@Math.divide$RET1077
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Math.divide$RET1034)
+(Math.divide$RET1077)
 	@R13
 	D=M
 	@R5
@@ -3441,11 +3441,11 @@
 	M=D
 	@R15
 	M=1
-	@Math.divide$RET1035
+	@Math.divide$RET1078
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Math.divide$RET1035)
+(Math.divide$RET1078)
 	@R13
 	D=M
 	@ARG
@@ -3457,13 +3457,13 @@
 	D=M
 	@15
 	D=D-A
-	@Math$CMP_TRUE1036
+	@Math$CMP_TRUE1079
 	D;JGE
-	@Math$CMP_END1036
+	@Math$CMP_END1079
 	D=0;JMP
-(Math$CMP_TRUE1036)
+(Math$CMP_TRUE1079)
 	D=-1
-(Math$CMP_END1036)
+(Math$CMP_END1079)
 	@LCL
 	A=M+1
 	A=A+1
@@ -3509,13 +3509,13 @@
 	@THAT
 	A=M
 	D=D-M
-	@Math$CMP_TRUE1037
+	@Math$CMP_TRUE1080
 	D;JLT
-	@Math$CMP_END1037
+	@Math$CMP_END1080
 	D=0;JMP
-(Math$CMP_TRUE1037)
+(Math$CMP_TRUE1080)
 	D=-1
-(Math$CMP_END1037)
+(Math$CMP_END1080)
 	@LCL
 	A=M+1
 	A=A+1
@@ -3585,13 +3585,13 @@
 	@ARG
 	A=M
 	D=D-M
-	@Math$CMP_TRUE1038
+	@Math$CMP_TRUE1081
 	D;JGT
-	@Math$CMP_END1038
+	@Math$CMP_END1081
 	D=0;JMP
-(Math$CMP_TRUE1038)
+(Math$CMP_TRUE1081)
 	D=-1
-(Math$CMP_END1038)
+(Math$CMP_END1081)
 	@LCL
 	A=M+1
 	A=A+1
@@ -3697,20 +3697,20 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Math.sqrt)
 	@4
 	D=A
 	@R13
 	M=D
-(Math.sqrt$INIT1039)
+(Math.sqrt$INIT1082)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@Math.sqrt$INIT1039
+	@Math.sqrt$INIT1082
 	D;JNE
 	@ARG
 	A=M
@@ -3728,11 +3728,11 @@
 	M=D
 	@R15
 	M=1
-	@Math.sqrt$RET1040
+	@Math.sqrt$RET1083
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Math.sqrt$RET1040)
+(Math.sqrt$RET1083)
 (Math.sqrt$IF_FALSE0)
 	@7
 	D=A
@@ -3783,11 +3783,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Math.sqrt$RET1041
+	@Math.sqrt$RET1084
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Math.sqrt$RET1041)
+(Math.sqrt$RET1084)
 	@R13
 	D=M
 	@LCL
@@ -3797,13 +3797,13 @@
 	@ARG
 	A=M
 	D=D-M
-	@Math$CMP_TRUE1042
+	@Math$CMP_TRUE1085
 	D;JLE
-	@Math$CMP_END1042
+	@Math$CMP_END1085
 	D=0;JMP
-(Math$CMP_TRUE1042)
+(Math$CMP_TRUE1085)
 	D=-1
-(Math$CMP_END1042)
+(Math$CMP_END1085)
 	@SP
 	AM=M+1
 	M=D
@@ -3811,13 +3811,13 @@
 	A=M+1
 	A=A+1
 	D=M
-	@Math$CMP_TRUE1043
+	@Math$CMP_TRUE1086
 	D;JGE
-	@Math$CMP_END1043
+	@Math$CMP_END1086
 	D=0;JMP
-(Math$CMP_TRUE1043)
+(Math$CMP_TRUE1086)
 	D=-1
-(Math$CMP_END1043)
+(Math$CMP_END1086)
 	@SP
 	AM=M-1
 	A=A+1
@@ -3846,7 +3846,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Math.max)
 	@ARG
@@ -3869,7 +3869,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Math.min)
 	@ARG
@@ -3892,7 +3892,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Memory.init)
 	@Memory.0
@@ -3941,7 +3941,7 @@
 	@THAT
 	A=M
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Memory.peek)
 	@ARG
@@ -3956,7 +3956,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Memory.poke)
 	@ARG
@@ -3984,7 +3984,7 @@
 	A=M
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Memory.alloc)
 	@SP
@@ -4006,11 +4006,11 @@
 	M=D
 	@R15
 	M=1
-	@Memory.alloc$RET1044
+	@Memory.alloc$RET1087
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Memory.alloc$RET1044)
+(Memory.alloc$RET1087)
 (Memory.alloc$IF_FALSE0)
 	@2048
 	D=A
@@ -4066,11 +4066,11 @@
 	M=D
 	@R15
 	M=1
-	@Memory.alloc$RET1045
+	@Memory.alloc$RET1088
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Memory.alloc$RET1045)
+(Memory.alloc$RET1088)
 (Memory.alloc$IF_FALSE1)
 	@LCL
 	A=M
@@ -4257,7 +4257,7 @@
 	D=D+1
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Memory.deAlloc)
 	@SP
@@ -4437,7 +4437,7 @@
 	M=D
 (Memory.deAlloc$IF_END1)
 (Memory.deAlloc$IF_END0)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Output.init)
 	@16384
@@ -4463,11 +4463,11 @@
 	M=D
 	@R15
 	M=1
-	@Output.init$RET1046
+	@Output.init$RET1089
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.init$RET1046)
+(Output.init$RET1089)
 	@R13
 	D=M
 	@Output.3
@@ -4478,23 +4478,23 @@
 	M=D
 	@R15
 	M=0
-	@Output.init$RET1047
+	@Output.init$RET1090
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.init$RET1047)
+(Output.init$RET1090)
 	@Output.createShiftedMap
 	D=A
 	@R14
 	M=D
 	@R15
 	M=0
-	@Output.init$RET1048
+	@Output.init$RET1091
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.init$RET1048)
-	@Pong.global$RET933
+(Output.init$RET1091)
+	@Pong.global$RET976
 	0;JMP
 (Output.initMap)
 	@127
@@ -4508,11 +4508,11 @@
 	M=D
 	@R15
 	M=1
-	@Output.initMap$RET1049
+	@Output.initMap$RET1092
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1049)
+(Output.initMap$RET1092)
 	@R13
 	D=M
 	@Output.5
@@ -4563,11 +4563,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1050
+	@Output.initMap$RET1093
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1050)
+(Output.initMap$RET1093)
 	@32
 	D=A
 	@SP
@@ -4614,11 +4614,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1051
+	@Output.initMap$RET1094
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1051)
+(Output.initMap$RET1094)
 	@33
 	D=A
 	@SP
@@ -4673,11 +4673,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1052
+	@Output.initMap$RET1095
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1052)
+(Output.initMap$RET1095)
 	@34
 	D=A
 	@SP
@@ -4728,11 +4728,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1053
+	@Output.initMap$RET1096
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1053)
+(Output.initMap$RET1096)
 	@35
 	D=A
 	@SP
@@ -4789,11 +4789,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1054
+	@Output.initMap$RET1097
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1054)
+(Output.initMap$RET1097)
 	@36
 	D=A
 	@SP
@@ -4858,11 +4858,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1055
+	@Output.initMap$RET1098
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1055)
+(Output.initMap$RET1098)
 	@37
 	D=A
 	@SP
@@ -4923,11 +4923,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1056
+	@Output.initMap$RET1099
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1056)
+(Output.initMap$RET1099)
 	@38
 	D=A
 	@SP
@@ -4986,11 +4986,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1057
+	@Output.initMap$RET1100
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1057)
+(Output.initMap$RET1100)
 	@39
 	D=A
 	@SP
@@ -5041,11 +5041,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1058
+	@Output.initMap$RET1101
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1058)
+(Output.initMap$RET1101)
 	@40
 	D=A
 	@SP
@@ -5102,11 +5102,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1059
+	@Output.initMap$RET1102
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1059)
+(Output.initMap$RET1102)
 	@41
 	D=A
 	@SP
@@ -5163,11 +5163,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1060
+	@Output.initMap$RET1103
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1060)
+(Output.initMap$RET1103)
 	@42
 	D=A
 	@SP
@@ -5224,11 +5224,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1061
+	@Output.initMap$RET1104
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1061)
+(Output.initMap$RET1104)
 	@43
 	D=A
 	@SP
@@ -5281,11 +5281,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1062
+	@Output.initMap$RET1105
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1062)
+(Output.initMap$RET1105)
 	@44
 	D=A
 	@SP
@@ -5336,11 +5336,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1063
+	@Output.initMap$RET1106
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1063)
+(Output.initMap$RET1106)
 	@45
 	D=A
 	@SP
@@ -5389,11 +5389,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1064
+	@Output.initMap$RET1107
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1064)
+(Output.initMap$RET1107)
 	@46
 	D=A
 	@SP
@@ -5442,11 +5442,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1065
+	@Output.initMap$RET1108
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1065)
+(Output.initMap$RET1108)
 	@47
 	D=A
 	@SP
@@ -5505,11 +5505,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1066
+	@Output.initMap$RET1109
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1066)
+(Output.initMap$RET1109)
 	@48
 	D=A
 	@SP
@@ -5566,11 +5566,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1067
+	@Output.initMap$RET1110
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1067)
+(Output.initMap$RET1110)
 	@49
 	D=A
 	@SP
@@ -5627,11 +5627,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1068
+	@Output.initMap$RET1111
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1068)
+(Output.initMap$RET1111)
 	@50
 	D=A
 	@SP
@@ -5696,11 +5696,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1069
+	@Output.initMap$RET1112
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1069)
+(Output.initMap$RET1112)
 	@51
 	D=A
 	@SP
@@ -5761,11 +5761,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1070
+	@Output.initMap$RET1113
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1070)
+(Output.initMap$RET1113)
 	@52
 	D=A
 	@SP
@@ -5828,11 +5828,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1071
+	@Output.initMap$RET1114
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1071)
+(Output.initMap$RET1114)
 	@53
 	D=A
 	@SP
@@ -5891,11 +5891,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1072
+	@Output.initMap$RET1115
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1072)
+(Output.initMap$RET1115)
 	@54
 	D=A
 	@SP
@@ -5954,11 +5954,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1073
+	@Output.initMap$RET1116
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1073)
+(Output.initMap$RET1116)
 	@55
 	D=A
 	@SP
@@ -6015,11 +6015,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1074
+	@Output.initMap$RET1117
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1074)
+(Output.initMap$RET1117)
 	@56
 	D=A
 	@SP
@@ -6076,11 +6076,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1075
+	@Output.initMap$RET1118
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1075)
+(Output.initMap$RET1118)
 	@57
 	D=A
 	@SP
@@ -6139,11 +6139,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1076
+	@Output.initMap$RET1119
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1076)
+(Output.initMap$RET1119)
 	@58
 	D=A
 	@SP
@@ -6194,11 +6194,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1077
+	@Output.initMap$RET1120
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1077)
+(Output.initMap$RET1120)
 	@59
 	D=A
 	@SP
@@ -6251,11 +6251,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1078
+	@Output.initMap$RET1121
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1078)
+(Output.initMap$RET1121)
 	@60
 	D=A
 	@SP
@@ -6316,11 +6316,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1079
+	@Output.initMap$RET1122
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1079)
+(Output.initMap$RET1122)
 	@61
 	D=A
 	@SP
@@ -6371,11 +6371,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1080
+	@Output.initMap$RET1123
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1080)
+(Output.initMap$RET1123)
 	@62
 	D=A
 	@SP
@@ -6436,11 +6436,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1081
+	@Output.initMap$RET1124
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1081)
+(Output.initMap$RET1124)
 	@64
 	D=A
 	@SP
@@ -6499,11 +6499,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1082
+	@Output.initMap$RET1125
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1082)
+(Output.initMap$RET1125)
 	@63
 	D=A
 	@SP
@@ -6560,11 +6560,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1083
+	@Output.initMap$RET1126
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1083)
+(Output.initMap$RET1126)
 	@65
 	D=A
 	@SP
@@ -6621,11 +6621,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1084
+	@Output.initMap$RET1127
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1084)
+(Output.initMap$RET1127)
 	@66
 	D=A
 	@SP
@@ -6682,11 +6682,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1085
+	@Output.initMap$RET1128
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1085)
+(Output.initMap$RET1128)
 	@67
 	D=A
 	@SP
@@ -6747,11 +6747,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1086
+	@Output.initMap$RET1129
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1086)
+(Output.initMap$RET1129)
 	@68
 	D=A
 	@SP
@@ -6808,11 +6808,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1087
+	@Output.initMap$RET1130
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1087)
+(Output.initMap$RET1130)
 	@69
 	D=A
 	@SP
@@ -6877,11 +6877,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1088
+	@Output.initMap$RET1131
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1088)
+(Output.initMap$RET1131)
 	@70
 	D=A
 	@SP
@@ -6942,11 +6942,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1089
+	@Output.initMap$RET1132
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1089)
+(Output.initMap$RET1132)
 	@71
 	D=A
 	@SP
@@ -7009,11 +7009,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1090
+	@Output.initMap$RET1133
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1090)
+(Output.initMap$RET1133)
 	@72
 	D=A
 	@SP
@@ -7066,11 +7066,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1091
+	@Output.initMap$RET1134
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1091)
+(Output.initMap$RET1134)
 	@73
 	D=A
 	@SP
@@ -7123,11 +7123,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1092
+	@Output.initMap$RET1135
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1092)
+(Output.initMap$RET1135)
 	@74
 	D=A
 	@SP
@@ -7182,11 +7182,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1093
+	@Output.initMap$RET1136
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1093)
+(Output.initMap$RET1136)
 	@75
 	D=A
 	@SP
@@ -7243,11 +7243,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1094
+	@Output.initMap$RET1137
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1094)
+(Output.initMap$RET1137)
 	@76
 	D=A
 	@SP
@@ -7302,11 +7302,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1095
+	@Output.initMap$RET1138
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1095)
+(Output.initMap$RET1138)
 	@77
 	D=A
 	@SP
@@ -7361,11 +7361,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1096
+	@Output.initMap$RET1139
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1096)
+(Output.initMap$RET1139)
 	@78
 	D=A
 	@SP
@@ -7422,11 +7422,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1097
+	@Output.initMap$RET1140
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1097)
+(Output.initMap$RET1140)
 	@79
 	D=A
 	@SP
@@ -7479,11 +7479,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1098
+	@Output.initMap$RET1141
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1098)
+(Output.initMap$RET1141)
 	@80
 	D=A
 	@SP
@@ -7538,11 +7538,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1099
+	@Output.initMap$RET1142
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1099)
+(Output.initMap$RET1142)
 	@81
 	D=A
 	@SP
@@ -7601,11 +7601,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1100
+	@Output.initMap$RET1143
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1100)
+(Output.initMap$RET1143)
 	@82
 	D=A
 	@SP
@@ -7662,11 +7662,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1101
+	@Output.initMap$RET1144
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1101)
+(Output.initMap$RET1144)
 	@83
 	D=A
 	@SP
@@ -7727,11 +7727,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1102
+	@Output.initMap$RET1145
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1102)
+(Output.initMap$RET1145)
 	@84
 	D=A
 	@SP
@@ -7786,11 +7786,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1103
+	@Output.initMap$RET1146
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1103)
+(Output.initMap$RET1146)
 	@85
 	D=A
 	@SP
@@ -7841,11 +7841,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1104
+	@Output.initMap$RET1147
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1104)
+(Output.initMap$RET1147)
 	@86
 	D=A
 	@SP
@@ -7898,11 +7898,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1105
+	@Output.initMap$RET1148
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1105)
+(Output.initMap$RET1148)
 	@87
 	D=A
 	@SP
@@ -7955,11 +7955,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1106
+	@Output.initMap$RET1149
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1106)
+(Output.initMap$RET1149)
 	@88
 	D=A
 	@SP
@@ -8016,11 +8016,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1107
+	@Output.initMap$RET1150
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1107)
+(Output.initMap$RET1150)
 	@89
 	D=A
 	@SP
@@ -8075,11 +8075,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1108
+	@Output.initMap$RET1151
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1108)
+(Output.initMap$RET1151)
 	@90
 	D=A
 	@SP
@@ -8144,11 +8144,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1109
+	@Output.initMap$RET1152
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1109)
+(Output.initMap$RET1152)
 	@91
 	D=A
 	@SP
@@ -8201,11 +8201,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1110
+	@Output.initMap$RET1153
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1110)
+(Output.initMap$RET1153)
 	@92
 	D=A
 	@SP
@@ -8264,11 +8264,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1111
+	@Output.initMap$RET1154
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1111)
+(Output.initMap$RET1154)
 	@93
 	D=A
 	@SP
@@ -8321,11 +8321,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1112
+	@Output.initMap$RET1155
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1112)
+(Output.initMap$RET1155)
 	@94
 	D=A
 	@SP
@@ -8378,11 +8378,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1113
+	@Output.initMap$RET1156
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1113)
+(Output.initMap$RET1156)
 	@95
 	D=A
 	@SP
@@ -8431,11 +8431,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1114
+	@Output.initMap$RET1157
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1114)
+(Output.initMap$RET1157)
 	@96
 	D=A
 	@SP
@@ -8488,11 +8488,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1115
+	@Output.initMap$RET1158
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1115)
+(Output.initMap$RET1158)
 	@97
 	D=A
 	@SP
@@ -8549,11 +8549,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1116
+	@Output.initMap$RET1159
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1116)
+(Output.initMap$RET1159)
 	@98
 	D=A
 	@SP
@@ -8610,11 +8610,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1117
+	@Output.initMap$RET1160
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1117)
+(Output.initMap$RET1160)
 	@99
 	D=A
 	@SP
@@ -8671,11 +8671,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1118
+	@Output.initMap$RET1161
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1118)
+(Output.initMap$RET1161)
 	@100
 	D=A
 	@SP
@@ -8732,11 +8732,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1119
+	@Output.initMap$RET1162
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1119)
+(Output.initMap$RET1162)
 	@101
 	D=A
 	@SP
@@ -8795,11 +8795,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1120
+	@Output.initMap$RET1163
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1120)
+(Output.initMap$RET1163)
 	@102
 	D=A
 	@SP
@@ -8860,11 +8860,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1121
+	@Output.initMap$RET1164
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1121)
+(Output.initMap$RET1164)
 	@103
 	D=A
 	@SP
@@ -8923,11 +8923,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1122
+	@Output.initMap$RET1165
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1122)
+(Output.initMap$RET1165)
 	@104
 	D=A
 	@SP
@@ -8982,11 +8982,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1123
+	@Output.initMap$RET1166
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1123)
+(Output.initMap$RET1166)
 	@105
 	D=A
 	@SP
@@ -9041,11 +9041,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1124
+	@Output.initMap$RET1167
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1124)
+(Output.initMap$RET1167)
 	@106
 	D=A
 	@SP
@@ -9102,11 +9102,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1125
+	@Output.initMap$RET1168
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1125)
+(Output.initMap$RET1168)
 	@107
 	D=A
 	@SP
@@ -9165,11 +9165,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1126
+	@Output.initMap$RET1169
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1126)
+(Output.initMap$RET1169)
 	@108
 	D=A
 	@SP
@@ -9222,11 +9222,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1127
+	@Output.initMap$RET1170
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1127)
+(Output.initMap$RET1170)
 	@109
 	D=A
 	@SP
@@ -9279,11 +9279,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1128
+	@Output.initMap$RET1171
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1128)
+(Output.initMap$RET1171)
 	@110
 	D=A
 	@SP
@@ -9334,11 +9334,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1129
+	@Output.initMap$RET1172
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1129)
+(Output.initMap$RET1172)
 	@111
 	D=A
 	@SP
@@ -9391,11 +9391,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1130
+	@Output.initMap$RET1173
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1130)
+(Output.initMap$RET1173)
 	@112
 	D=A
 	@SP
@@ -9450,11 +9450,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1131
+	@Output.initMap$RET1174
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1131)
+(Output.initMap$RET1174)
 	@113
 	D=A
 	@SP
@@ -9509,11 +9509,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1132
+	@Output.initMap$RET1175
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1132)
+(Output.initMap$RET1175)
 	@114
 	D=A
 	@SP
@@ -9570,11 +9570,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1133
+	@Output.initMap$RET1176
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1133)
+(Output.initMap$RET1176)
 	@115
 	D=A
 	@SP
@@ -9633,11 +9633,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1134
+	@Output.initMap$RET1177
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1134)
+(Output.initMap$RET1177)
 	@116
 	D=A
 	@SP
@@ -9696,11 +9696,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1135
+	@Output.initMap$RET1178
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1135)
+(Output.initMap$RET1178)
 	@117
 	D=A
 	@SP
@@ -9751,11 +9751,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1136
+	@Output.initMap$RET1179
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1136)
+(Output.initMap$RET1179)
 	@118
 	D=A
 	@SP
@@ -9808,11 +9808,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1137
+	@Output.initMap$RET1180
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1137)
+(Output.initMap$RET1180)
 	@119
 	D=A
 	@SP
@@ -9865,11 +9865,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1138
+	@Output.initMap$RET1181
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1138)
+(Output.initMap$RET1181)
 	@120
 	D=A
 	@SP
@@ -9926,11 +9926,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1139
+	@Output.initMap$RET1182
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1139)
+(Output.initMap$RET1182)
 	@121
 	D=A
 	@SP
@@ -9987,11 +9987,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1140
+	@Output.initMap$RET1183
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1140)
+(Output.initMap$RET1183)
 	@122
 	D=A
 	@SP
@@ -10050,11 +10050,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1141
+	@Output.initMap$RET1184
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1141)
+(Output.initMap$RET1184)
 	@123
 	D=A
 	@SP
@@ -10111,11 +10111,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1142
+	@Output.initMap$RET1185
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1142)
+(Output.initMap$RET1185)
 	@124
 	D=A
 	@SP
@@ -10164,11 +10164,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1143
+	@Output.initMap$RET1186
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1143)
+(Output.initMap$RET1186)
 	@125
 	D=A
 	@SP
@@ -10225,11 +10225,11 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1144
+	@Output.initMap$RET1187
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1144)
+(Output.initMap$RET1187)
 	@126
 	D=A
 	@SP
@@ -10282,12 +10282,12 @@
 	D=A
 	@R15
 	M=D
-	@Output.initMap$RET1145
+	@Output.initMap$RET1188
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.initMap$RET1145)
-	@Pong.global$RET933
+(Output.initMap$RET1188)
+	@Pong.global$RET976
 	0;JMP
 (Output.create)
 	@SP
@@ -10304,11 +10304,11 @@
 	M=D
 	@R15
 	M=1
-	@Output.create$RET1146
+	@Output.create$RET1189
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.create$RET1146)
+(Output.create$RET1189)
 	@R13
 	D=M
 	@LCL
@@ -10616,20 +10616,20 @@
 	@THAT
 	A=M
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Output.createShiftedMap)
 	@4
 	D=A
 	@R13
 	M=D
-(Output.createShiftedMap$INIT1147)
+(Output.createShiftedMap$INIT1190)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@Output.createShiftedMap$INIT1147
+	@Output.createShiftedMap$INIT1190
 	D;JNE
 	@127
 	D=A
@@ -10642,11 +10642,11 @@
 	M=D
 	@R15
 	M=1
-	@Output.createShiftedMap$RET1148
+	@Output.createShiftedMap$RET1191
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.createShiftedMap$RET1148)
+(Output.createShiftedMap$RET1191)
 	@R13
 	D=M
 	@Output.6
@@ -10689,11 +10689,11 @@
 	M=D
 	@R15
 	M=1
-	@Output.createShiftedMap$RET1149
+	@Output.createShiftedMap$RET1192
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.createShiftedMap$RET1149)
+(Output.createShiftedMap$RET1192)
 	@R13
 	D=M
 	@LCL
@@ -10778,11 +10778,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Output.createShiftedMap$RET1150
+	@Output.createShiftedMap$RET1193
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.createShiftedMap$RET1150)
+(Output.createShiftedMap$RET1193)
 	@R13
 	D=M
 	@R5
@@ -10829,7 +10829,7 @@
 	@Output.createShiftedMap$WHILE_EXP0
 	0;JMP
 (Output.createShiftedMap$WHILE_END0)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Output.getMap)
 	@SP
@@ -10840,13 +10840,13 @@
 	D=M
 	@32
 	D=D-A
-	@Output$CMP_TRUE1151
+	@Output$CMP_TRUE1194
 	D;JLT
-	@Output$CMP_END1151
+	@Output$CMP_END1194
 	D=0;JMP
-(Output$CMP_TRUE1151)
+(Output$CMP_TRUE1194)
 	D=-1
-(Output$CMP_END1151)
+(Output$CMP_END1194)
 	@SP
 	AM=M+1
 	M=D
@@ -10855,13 +10855,13 @@
 	D=M
 	@126
 	D=D-A
-	@Output$CMP_TRUE1152
+	@Output$CMP_TRUE1195
 	D;JGT
-	@Output$CMP_END1152
+	@Output$CMP_END1195
 	D=0;JMP
-(Output$CMP_TRUE1152)
+(Output$CMP_TRUE1195)
 	D=-1
-(Output$CMP_END1152)
+(Output$CMP_END1195)
 	@SP
 	AM=M-1
 	A=A+1
@@ -10911,20 +10911,20 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Output.drawChar)
 	@4
 	D=A
 	@R13
 	M=D
-(Output.drawChar$INIT1153)
+(Output.drawChar$INIT1196)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@Output.drawChar$INIT1153
+	@Output.drawChar$INIT1196
 	D;JNE
 	@ARG
 	A=M
@@ -10938,11 +10938,11 @@
 	M=D
 	@R15
 	M=1
-	@Output.drawChar$RET1154
+	@Output.drawChar$RET1197
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.drawChar$RET1154)
+(Output.drawChar$RET1197)
 	@R13
 	D=M
 	@LCL
@@ -11053,19 +11053,19 @@
 	@Output.drawChar$WHILE_EXP0
 	0;JMP
 (Output.drawChar$WHILE_END0)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Output.moveCursor)
 	@ARG
 	A=M
 	D=M
-	@Output$CMP_TRUE1155
+	@Output$CMP_TRUE1198
 	D;JLT
-	@Output$CMP_END1155
+	@Output$CMP_END1198
 	D=0;JMP
-(Output$CMP_TRUE1155)
+(Output$CMP_TRUE1198)
 	D=-1
-(Output$CMP_END1155)
+(Output$CMP_END1198)
 	@SP
 	AM=M+1
 	M=D
@@ -11074,13 +11074,13 @@
 	D=M
 	@22
 	D=D-A
-	@Output$CMP_TRUE1156
+	@Output$CMP_TRUE1199
 	D;JGT
-	@Output$CMP_END1156
+	@Output$CMP_END1199
 	D=0;JMP
-(Output$CMP_TRUE1156)
+(Output$CMP_TRUE1199)
 	D=-1
-(Output$CMP_END1156)
+(Output$CMP_END1199)
 	@SP
 	AM=M-1
 	A=A+1
@@ -11091,13 +11091,13 @@
 	@ARG
 	A=M+1
 	D=M
-	@Output$CMP_TRUE1157
+	@Output$CMP_TRUE1200
 	D;JLT
-	@Output$CMP_END1157
+	@Output$CMP_END1200
 	D=0;JMP
-(Output$CMP_TRUE1157)
+(Output$CMP_TRUE1200)
 	D=-1
-(Output$CMP_END1157)
+(Output$CMP_END1200)
 	@SP
 	AM=M-1
 	A=A+1
@@ -11110,13 +11110,13 @@
 	D=M
 	@63
 	D=D-A
-	@Output$CMP_TRUE1158
+	@Output$CMP_TRUE1201
 	D;JGT
-	@Output$CMP_END1158
+	@Output$CMP_END1201
 	D=0;JMP
-(Output$CMP_TRUE1158)
+(Output$CMP_TRUE1201)
 	D=-1
-(Output$CMP_END1158)
+(Output$CMP_END1201)
 	@SP
 	AM=M-1
 	A=A+1
@@ -11134,11 +11134,11 @@
 	M=D
 	@R15
 	M=1
-	@Output.moveCursor$RET1159
+	@Output.moveCursor$RET1202
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.moveCursor$RET1159)
+(Output.moveCursor$RET1202)
 (Output.moveCursor$IF_FALSE0)
 	@ARG
 	A=M+1
@@ -11157,11 +11157,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Output.moveCursor$RET1160
+	@Output.moveCursor$RET1203
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.moveCursor$RET1160)
+(Output.moveCursor$RET1203)
 	@R13
 	D=M
 	@Output.0
@@ -11189,11 +11189,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Output.moveCursor$RET1161
+	@Output.moveCursor$RET1204
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.moveCursor$RET1161)
+(Output.moveCursor$RET1204)
 	@R13
 	D=M
 	@SP
@@ -11226,24 +11226,24 @@
 	@R15
 	M=1
 	M=M+1
-	@Output.moveCursor$RET1162
+	@Output.moveCursor$RET1205
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.moveCursor$RET1162)
+(Output.moveCursor$RET1205)
 	@R13
 	D=M
 	@SP
 	AM=M-1
 	A=A+1
 	D=M-D
-	@Output$CMP_TRUE1163
+	@Output$CMP_TRUE1206
 	D;JEQ
-	@Output$CMP_END1163
+	@Output$CMP_END1206
 	D=0;JMP
-(Output$CMP_TRUE1163)
+(Output$CMP_TRUE1206)
 	D=-1
-(Output$CMP_END1163)
+(Output$CMP_END1206)
 	@Output.2
 	M=D
 	@32
@@ -11257,13 +11257,13 @@
 	M=D
 	@R15
 	M=1
-	@Output.moveCursor$RET1164
+	@Output.moveCursor$RET1207
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.moveCursor$RET1164)
+(Output.moveCursor$RET1207)
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Output.printChar)
 	@ARG
@@ -11278,11 +11278,11 @@
 	M=D
 	@R15
 	M=0
-	@Output.printChar$RET1165
+	@Output.printChar$RET1208
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.printChar$RET1165)
+(Output.printChar$RET1208)
 	@R13
 	D=M
 	@SP
@@ -11297,11 +11297,11 @@
 	M=D
 	@R15
 	M=0
-	@Output.printChar$RET1166
+	@Output.printChar$RET1209
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.printChar$RET1166)
+(Output.printChar$RET1209)
 	@Output.printChar$IF_END0
 	0;JMP
 (Output.printChar$IF_FALSE0)
@@ -11317,11 +11317,11 @@
 	M=D
 	@R15
 	M=0
-	@Output.printChar$RET1167
+	@Output.printChar$RET1210
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.printChar$RET1167)
+(Output.printChar$RET1210)
 	@R13
 	D=M
 	@SP
@@ -11336,11 +11336,11 @@
 	M=D
 	@R15
 	M=0
-	@Output.printChar$RET1168
+	@Output.printChar$RET1211
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.printChar$RET1168)
+(Output.printChar$RET1211)
 	@Output.printChar$IF_END1
 	0;JMP
 (Output.printChar$IF_FALSE1)
@@ -11356,11 +11356,11 @@
 	M=D
 	@R15
 	M=1
-	@Output.printChar$RET1169
+	@Output.printChar$RET1212
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.printChar$RET1169)
+(Output.printChar$RET1212)
 	@Output.2
 	D=!M
 	@Output.printChar$IF_FALSE2
@@ -11382,11 +11382,11 @@
 	M=D
 	@R15
 	M=0
-	@Output.printChar$RET1170
+	@Output.printChar$RET1213
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.printChar$RET1170)
+(Output.printChar$RET1213)
 	@Output.printChar$IF_END3
 	0;JMP
 (Output.printChar$IF_FALSE3)
@@ -11395,7 +11395,7 @@
 (Output.printChar$IF_END3)
 (Output.printChar$IF_END1)
 (Output.printChar$IF_END0)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Output.printString)
 	@SP
@@ -11416,11 +11416,11 @@
 	M=D
 	@R15
 	M=1
-	@Output.printString$RET1171
+	@Output.printString$RET1214
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.printString$RET1171)
+(Output.printString$RET1214)
 	@R13
 	D=M
 	@LCL
@@ -11454,11 +11454,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Output.printString$RET1172
+	@Output.printString$RET1215
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.printString$RET1172)
+(Output.printString$RET1215)
 	@R13
 	D=M
 	@SP
@@ -11470,18 +11470,18 @@
 	M=D
 	@R15
 	M=1
-	@Output.printString$RET1173
+	@Output.printString$RET1216
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.printString$RET1173)
+(Output.printString$RET1216)
 	@LCL
 	A=M
 	MD=M+1
 	@Output.printString$WHILE_EXP0
 	0;JMP
 (Output.printString$WHILE_END0)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Output.printInt)
 	@Output.3
@@ -11502,11 +11502,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Output.printInt$RET1174
+	@Output.printInt$RET1217
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.printInt$RET1174)
+(Output.printInt$RET1217)
 	@Output.3
 	D=M
 	@SP
@@ -11518,12 +11518,12 @@
 	M=D
 	@R15
 	M=1
-	@Output.printInt$RET1175
+	@Output.printInt$RET1218
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.printInt$RET1175)
-	@Pong.global$RET933
+(Output.printInt$RET1218)
+	@Pong.global$RET976
 	0;JMP
 (Output.println)
 	@Output.0
@@ -11547,7 +11547,7 @@
 	@Output.1
 	M=D
 (Output.println$IF_FALSE0)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Output.backSpace)
 	@Output.2
@@ -11604,12 +11604,12 @@
 	M=D
 	@R15
 	M=1
-	@Output.backSpace$RET1176
+	@Output.backSpace$RET1219
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Output.backSpace$RET1176)
-	@Pong.global$RET933
+(Output.backSpace$RET1219)
+	@Pong.global$RET976
 	0;JMP
 (PongGame.new)
 	@7
@@ -11623,11 +11623,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.new$RET1177
+	@PongGame.new$RET1220
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1177)
+(PongGame.new$RET1220)
 	@R13
 	D=M
 	@R3
@@ -11638,11 +11638,11 @@
 	M=D
 	@R15
 	M=0
-	@PongGame.new$RET1178
+	@PongGame.new$RET1221
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1178)
+(PongGame.new$RET1221)
 	@R13
 	D=M
 	@R12
@@ -11686,11 +11686,11 @@
 	D=A
 	@R15
 	M=D
-	@PongGame.new$RET1179
+	@PongGame.new$RET1222
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1179)
+(PongGame.new$RET1222)
 	@R13
 	D=M
 	@THIS
@@ -11730,11 +11730,11 @@
 	D=A
 	@R15
 	M=D
-	@PongGame.new$RET1180
+	@PongGame.new$RET1223
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1180)
+(PongGame.new$RET1223)
 	@R13
 	D=M
 	@THIS
@@ -11759,11 +11759,11 @@
 	D=A
 	@R15
 	M=D
-	@PongGame.new$RET1181
+	@PongGame.new$RET1224
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1181)
+(PongGame.new$RET1224)
 	@R13
 	D=M
 	@R12
@@ -11794,11 +11794,11 @@
 	D=A
 	@R15
 	M=D
-	@PongGame.new$RET1182
+	@PongGame.new$RET1225
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1182)
+(PongGame.new$RET1225)
 	@R13
 	D=M
 	@R12
@@ -11818,11 +11818,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.new$RET1183
+	@PongGame.new$RET1226
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1183)
+(PongGame.new$RET1226)
 	@R13
 	D=M
 	@R12
@@ -11838,11 +11838,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.new$RET1184
+	@PongGame.new$RET1227
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1184)
+(PongGame.new$RET1227)
 	@R13
 	D=M
 	@SP
@@ -11860,11 +11860,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.new$RET1185
+	@PongGame.new$RET1228
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1185)
+(PongGame.new$RET1228)
 	@R13
 	D=M
 	@SP
@@ -11882,11 +11882,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.new$RET1186
+	@PongGame.new$RET1229
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1186)
+(PongGame.new$RET1229)
 	@R13
 	D=M
 	@SP
@@ -11904,11 +11904,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.new$RET1187
+	@PongGame.new$RET1230
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1187)
+(PongGame.new$RET1230)
 	@R13
 	D=M
 	@SP
@@ -11926,11 +11926,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.new$RET1188
+	@PongGame.new$RET1231
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1188)
+(PongGame.new$RET1231)
 	@R13
 	D=M
 	@SP
@@ -11948,11 +11948,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.new$RET1189
+	@PongGame.new$RET1232
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1189)
+(PongGame.new$RET1232)
 	@R13
 	D=M
 	@SP
@@ -11970,11 +11970,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.new$RET1190
+	@PongGame.new$RET1233
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1190)
+(PongGame.new$RET1233)
 	@R13
 	D=M
 	@SP
@@ -11992,11 +11992,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.new$RET1191
+	@PongGame.new$RET1234
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1191)
+(PongGame.new$RET1234)
 	@R13
 	D=M
 	@SP
@@ -12014,11 +12014,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.new$RET1192
+	@PongGame.new$RET1235
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1192)
+(PongGame.new$RET1235)
 	@R13
 	D=M
 	@SP
@@ -12030,11 +12030,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.new$RET1193
+	@PongGame.new$RET1236
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.new$RET1193)
+(PongGame.new$RET1236)
 	@THIS
 	D=M
 	@3
@@ -12058,7 +12058,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (PongGame.dispose)
 	@ARG
@@ -12078,11 +12078,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.dispose$RET1194
+	@PongGame.dispose$RET1237
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.dispose$RET1194)
+(PongGame.dispose$RET1237)
 	@R13
 	D=M
 	@R12
@@ -12099,11 +12099,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.dispose$RET1195
+	@PongGame.dispose$RET1238
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.dispose$RET1195)
+(PongGame.dispose$RET1238)
 	@R13
 	D=M
 	@R12
@@ -12119,13 +12119,13 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.dispose$RET1196
+	@PongGame.dispose$RET1239
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.dispose$RET1196)
+(PongGame.dispose$RET1239)
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (PongGame.newInstance)
 	@PongGame.new
@@ -12134,24 +12134,24 @@
 	M=D
 	@R15
 	M=0
-	@PongGame.newInstance$RET1197
+	@PongGame.newInstance$RET1240
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.newInstance$RET1197)
+(PongGame.newInstance$RET1240)
 	@R13
 	D=M
 	@PongGame.0
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (PongGame.getInstance)
 	@PongGame.0
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (PongGame.run)
 	@SP
@@ -12174,13 +12174,13 @@
 	@LCL
 	A=M
 	D=M
-	@PongGame$CMP_TRUE1198
+	@PongGame$CMP_TRUE1241
 	D;JNE
-	@PongGame$CMP_END1198
+	@PongGame$CMP_END1241
 	D=0;JMP
-(PongGame$CMP_TRUE1198)
+(PongGame$CMP_TRUE1241)
 	D=-1
-(PongGame$CMP_END1198)
+(PongGame$CMP_END1241)
 	@THIS
 	A=M+1
 	A=A+1
@@ -12194,11 +12194,11 @@
 	M=D
 	@R15
 	M=0
-	@PongGame.run$RET1199
+	@PongGame.run$RET1242
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1199)
+(PongGame.run$RET1242)
 	@R13
 	D=M
 	@LCL
@@ -12216,11 +12216,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.run$RET1200
+	@PongGame.run$RET1243
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1200)
+(PongGame.run$RET1243)
 	@R13
 	D=M
 	@R12
@@ -12236,11 +12236,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.run$RET1201
+	@PongGame.run$RET1244
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1201)
+(PongGame.run$RET1244)
 	@R13
 	D=M
 	@R12
@@ -12256,11 +12256,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.run$RET1202
+	@PongGame.run$RET1245
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1202)
+(PongGame.run$RET1245)
 	@R13
 	D=M
 	@R12
@@ -12291,11 +12291,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.run$RET1203
+	@PongGame.run$RET1246
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1203)
+(PongGame.run$RET1246)
 	@R13
 	D=M
 	@R12
@@ -12327,11 +12327,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.run$RET1204
+	@PongGame.run$RET1247
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1204)
+(PongGame.run$RET1247)
 	@R13
 	D=M
 	@R12
@@ -12361,13 +12361,13 @@
 	@LCL
 	A=M
 	D=M
-	@PongGame$CMP_TRUE1205
+	@PongGame$CMP_TRUE1248
 	D;JEQ
-	@PongGame$CMP_END1205
+	@PongGame$CMP_END1248
 	D=0;JMP
-(PongGame$CMP_TRUE1205)
+(PongGame$CMP_TRUE1248)
 	D=-1
-(PongGame$CMP_END1205)
+(PongGame$CMP_END1248)
 	@THIS
 	A=M+1
 	A=A+1
@@ -12381,11 +12381,11 @@
 	M=D
 	@R15
 	M=0
-	@PongGame.run$RET1206
+	@PongGame.run$RET1249
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1206)
+(PongGame.run$RET1249)
 	@R13
 	D=M
 	@LCL
@@ -12403,11 +12403,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.run$RET1207
+	@PongGame.run$RET1250
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1207)
+(PongGame.run$RET1250)
 	@R13
 	D=M
 	@R12
@@ -12423,11 +12423,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.run$RET1208
+	@PongGame.run$RET1251
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1208)
+(PongGame.run$RET1251)
 	@R13
 	D=M
 	@R12
@@ -12443,11 +12443,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.run$RET1209
+	@PongGame.run$RET1252
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1209)
+(PongGame.run$RET1252)
 	@R13
 	D=M
 	@R12
@@ -12482,11 +12482,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.run$RET1210
+	@PongGame.run$RET1253
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1210)
+(PongGame.run$RET1253)
 	@R13
 	D=M
 	@R12
@@ -12502,11 +12502,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.run$RET1211
+	@PongGame.run$RET1254
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1211)
+(PongGame.run$RET1254)
 	@R13
 	D=M
 	@SP
@@ -12524,11 +12524,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.run$RET1212
+	@PongGame.run$RET1255
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1212)
+(PongGame.run$RET1255)
 	@R13
 	D=M
 	@SP
@@ -12546,11 +12546,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.run$RET1213
+	@PongGame.run$RET1256
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1213)
+(PongGame.run$RET1256)
 	@R13
 	D=M
 	@SP
@@ -12568,11 +12568,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.run$RET1214
+	@PongGame.run$RET1257
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1214)
+(PongGame.run$RET1257)
 	@R13
 	D=M
 	@SP
@@ -12590,11 +12590,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.run$RET1215
+	@PongGame.run$RET1258
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1215)
+(PongGame.run$RET1258)
 	@R13
 	D=M
 	@SP
@@ -12612,11 +12612,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.run$RET1216
+	@PongGame.run$RET1259
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1216)
+(PongGame.run$RET1259)
 	@R13
 	D=M
 	@SP
@@ -12634,11 +12634,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.run$RET1217
+	@PongGame.run$RET1260
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1217)
+(PongGame.run$RET1260)
 	@R13
 	D=M
 	@SP
@@ -12656,11 +12656,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.run$RET1218
+	@PongGame.run$RET1261
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1218)
+(PongGame.run$RET1261)
 	@R13
 	D=M
 	@SP
@@ -12678,11 +12678,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.run$RET1219
+	@PongGame.run$RET1262
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1219)
+(PongGame.run$RET1262)
 	@R13
 	D=M
 	@SP
@@ -12700,11 +12700,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.run$RET1220
+	@PongGame.run$RET1263
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1220)
+(PongGame.run$RET1263)
 	@R13
 	D=M
 	@SP
@@ -12716,30 +12716,30 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.run$RET1221
+	@PongGame.run$RET1264
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.run$RET1221)
+(PongGame.run$RET1264)
 	@PongGame.run$X94abe9d422784c36b2d70d8d048e2ffa
 	0;JMP
 (PongGame.run$X7236e06653144d2ab8469baf42d5f7f0)
 (PongGame.run$X94abe9d422784c36b2d70d8d048e2ffa)
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (PongGame.moveBall)
 	@5
 	D=A
 	@R13
 	M=D
-(PongGame.moveBall$INIT1222)
+(PongGame.moveBall$INIT1265)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@PongGame.moveBall$INIT1222
+	@PongGame.moveBall$INIT1265
 	D;JNE
 	@ARG
 	A=M
@@ -12758,24 +12758,24 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.moveBall$RET1223
+	@PongGame.moveBall$RET1266
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.moveBall$RET1223)
+(PongGame.moveBall$RET1266)
 	@R13
 	D=M
 	@THIS
 	A=M+1
 	A=A+1
 	M=D
-	@PongGame$CMP_TRUE1224
+	@PongGame$CMP_TRUE1267
 	D;JGT
-	@PongGame$CMP_END1224
+	@PongGame$CMP_END1267
 	D=0;JMP
-(PongGame$CMP_TRUE1224)
+(PongGame$CMP_TRUE1267)
 	D=-1
-(PongGame$CMP_END1224)
+(PongGame$CMP_END1267)
 	@SP
 	AM=M+1
 	M=D
@@ -12790,13 +12790,13 @@
 	A=A+1
 	A=A+1
 	D=D-M
-	@PongGame$CMP_TRUE1225
+	@PongGame$CMP_TRUE1268
 	D;JNE
-	@PongGame$CMP_END1225
+	@PongGame$CMP_END1268
 	D=0;JMP
-(PongGame$CMP_TRUE1225)
+(PongGame$CMP_TRUE1268)
 	D=-1
-(PongGame$CMP_END1225)
+(PongGame$CMP_END1268)
 	@SP
 	AM=M-1
 	A=A+1
@@ -12829,11 +12829,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.moveBall$RET1226
+	@PongGame.moveBall$RET1269
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.moveBall$RET1226)
+(PongGame.moveBall$RET1269)
 	@R13
 	D=M
 	@LCL
@@ -12851,11 +12851,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.moveBall$RET1227
+	@PongGame.moveBall$RET1270
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.moveBall$RET1227)
+(PongGame.moveBall$RET1270)
 	@R13
 	D=M
 	@LCL
@@ -12874,11 +12874,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.moveBall$RET1228
+	@PongGame.moveBall$RET1271
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.moveBall$RET1228)
+(PongGame.moveBall$RET1271)
 	@R13
 	D=M
 	@LCL
@@ -12898,11 +12898,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.moveBall$RET1229
+	@PongGame.moveBall$RET1272
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.moveBall$RET1229)
+(PongGame.moveBall$RET1272)
 	@R13
 	D=M
 	@LCL
@@ -12928,13 +12928,13 @@
 	A=A+1
 	A=A+1
 	D=D-M
-	@PongGame$CMP_TRUE1230
+	@PongGame$CMP_TRUE1273
 	D;JGT
-	@PongGame$CMP_END1230
+	@PongGame$CMP_END1273
 	D=0;JMP
-(PongGame$CMP_TRUE1230)
+(PongGame$CMP_TRUE1273)
 	D=-1
-(PongGame$CMP_END1230)
+(PongGame$CMP_END1273)
 	@SP
 	AM=M+1
 	M=D
@@ -12947,13 +12947,13 @@
 	A=A+1
 	A=A+1
 	D=D-M
-	@PongGame$CMP_TRUE1231
+	@PongGame$CMP_TRUE1274
 	D;JLT
-	@PongGame$CMP_END1231
+	@PongGame$CMP_END1274
 	D=0;JMP
-(PongGame$CMP_TRUE1231)
+(PongGame$CMP_TRUE1274)
 	D=-1
-(PongGame$CMP_END1231)
+(PongGame$CMP_END1274)
 	@SP
 	AM=M-1
 	A=A+1
@@ -13036,11 +13036,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.moveBall$RET1232
+	@PongGame.moveBall$RET1275
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.moveBall$RET1232)
+(PongGame.moveBall$RET1275)
 	@R13
 	D=M
 	@R12
@@ -13067,11 +13067,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.moveBall$RET1233
+	@PongGame.moveBall$RET1276
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.moveBall$RET1233)
+(PongGame.moveBall$RET1276)
 	@R13
 	D=M
 	@R12
@@ -13090,11 +13090,11 @@
 	M=D
 	@R15
 	M=1
-	@PongGame.moveBall$RET1234
+	@PongGame.moveBall$RET1277
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.moveBall$RET1234)
+(PongGame.moveBall$RET1277)
 	@R13
 	D=M
 	@R12
@@ -13126,11 +13126,11 @@
 	@R15
 	M=1
 	M=M+1
-	@PongGame.moveBall$RET1235
+	@PongGame.moveBall$RET1278
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(PongGame.moveBall$RET1235)
+(PongGame.moveBall$RET1278)
 	@R13
 	D=M
 	@R12
@@ -13140,7 +13140,7 @@
 (PongGame.moveBall$Xaf8c2d82f9074d1384debcdaef6f84f3)
 (PongGame.moveBall$X047c75ddc59646f982d4ed34dea6e71b)
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Screen.init)
 	@SP
@@ -13163,11 +13163,11 @@
 	M=D
 	@R15
 	M=1
-	@Screen.init$RET1236
+	@Screen.init$RET1279
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.init$RET1236)
+(Screen.init$RET1279)
 	@R13
 	D=M
 	@Screen.0
@@ -13253,7 +13253,7 @@
 	@Screen.init$WHILE_EXP0
 	0;JMP
 (Screen.init$WHILE_END0)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Screen.clearScreen)
 	@SP
@@ -13295,7 +13295,7 @@
 	0;JMP
 (Screen.clearScreen$WHILE_END0)
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Screen.updateLocation)
 	@Screen.2
@@ -13375,7 +13375,7 @@
 	A=M
 	M=D
 (Screen.updateLocation$IF_END0)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Screen.setColor)
 	@ARG
@@ -13384,7 +13384,7 @@
 	@Screen.2
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Screen.drawPixel)
 	@SP
@@ -13399,13 +13399,13 @@
 	@ARG
 	A=M
 	D=M
-	@Screen$CMP_TRUE1237
+	@Screen$CMP_TRUE1280
 	D;JLT
-	@Screen$CMP_END1237
+	@Screen$CMP_END1280
 	D=0;JMP
-(Screen$CMP_TRUE1237)
+(Screen$CMP_TRUE1280)
 	D=-1
-(Screen$CMP_END1237)
+(Screen$CMP_END1280)
 	@SP
 	AM=M+1
 	M=D
@@ -13414,13 +13414,13 @@
 	D=M
 	@511
 	D=D-A
-	@Screen$CMP_TRUE1238
+	@Screen$CMP_TRUE1281
 	D;JGT
-	@Screen$CMP_END1238
+	@Screen$CMP_END1281
 	D=0;JMP
-(Screen$CMP_TRUE1238)
+(Screen$CMP_TRUE1281)
 	D=-1
-(Screen$CMP_END1238)
+(Screen$CMP_END1281)
 	@SP
 	AM=M-1
 	A=A+1
@@ -13431,13 +13431,13 @@
 	@ARG
 	A=M+1
 	D=M
-	@Screen$CMP_TRUE1239
+	@Screen$CMP_TRUE1282
 	D;JLT
-	@Screen$CMP_END1239
+	@Screen$CMP_END1282
 	D=0;JMP
-(Screen$CMP_TRUE1239)
+(Screen$CMP_TRUE1282)
 	D=-1
-(Screen$CMP_END1239)
+(Screen$CMP_END1282)
 	@SP
 	AM=M-1
 	A=A+1
@@ -13450,13 +13450,13 @@
 	D=M
 	@255
 	D=D-A
-	@Screen$CMP_TRUE1240
+	@Screen$CMP_TRUE1283
 	D;JGT
-	@Screen$CMP_END1240
+	@Screen$CMP_END1283
 	D=0;JMP
-(Screen$CMP_TRUE1240)
+(Screen$CMP_TRUE1283)
 	D=-1
-(Screen$CMP_END1240)
+(Screen$CMP_END1283)
 	@SP
 	AM=M-1
 	A=A+1
@@ -13474,11 +13474,11 @@
 	M=D
 	@R15
 	M=1
-	@Screen.drawPixel$RET1241
+	@Screen.drawPixel$RET1284
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawPixel$RET1241)
+(Screen.drawPixel$RET1284)
 (Screen.drawPixel$IF_FALSE0)
 	@ARG
 	A=M
@@ -13498,11 +13498,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawPixel$RET1242
+	@Screen.drawPixel$RET1285
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawPixel$RET1242)
+(Screen.drawPixel$RET1285)
 	@R13
 	D=M
 	@LCL
@@ -13532,11 +13532,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawPixel$RET1243
+	@Screen.drawPixel$RET1286
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawPixel$RET1243)
+(Screen.drawPixel$RET1286)
 	@R13
 	D=M
 	@SP
@@ -13564,11 +13564,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawPixel$RET1244
+	@Screen.drawPixel$RET1287
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawPixel$RET1244)
+(Screen.drawPixel$RET1287)
 	@R13
 	D=M
 	@LCL
@@ -13601,12 +13601,12 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawPixel$RET1245
+	@Screen.drawPixel$RET1288
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawPixel$RET1245)
-	@Pong.global$RET933
+(Screen.drawPixel$RET1288)
+	@Pong.global$RET976
 	0;JMP
 (Screen.drawConditional)
 	@ARG
@@ -13634,11 +13634,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawConditional$RET1246
+	@Screen.drawConditional$RET1289
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawConditional$RET1246)
+(Screen.drawConditional$RET1289)
 	@Screen.drawConditional$IF_END0
 	0;JMP
 (Screen.drawConditional$IF_FALSE0)
@@ -13661,37 +13661,37 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawConditional$RET1247
+	@Screen.drawConditional$RET1290
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawConditional$RET1247)
+(Screen.drawConditional$RET1290)
 (Screen.drawConditional$IF_END0)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Screen.drawLine)
 	@11
 	D=A
 	@R13
 	M=D
-(Screen.drawLine$INIT1248)
+(Screen.drawLine$INIT1291)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@Screen.drawLine$INIT1248
+	@Screen.drawLine$INIT1291
 	D;JNE
 	@ARG
 	A=M
 	D=M
-	@Screen$CMP_TRUE1249
+	@Screen$CMP_TRUE1292
 	D;JLT
-	@Screen$CMP_END1249
+	@Screen$CMP_END1292
 	D=0;JMP
-(Screen$CMP_TRUE1249)
+(Screen$CMP_TRUE1292)
 	D=-1
-(Screen$CMP_END1249)
+(Screen$CMP_END1292)
 	@SP
 	AM=M+1
 	M=D
@@ -13701,13 +13701,13 @@
 	D=M
 	@511
 	D=D-A
-	@Screen$CMP_TRUE1250
+	@Screen$CMP_TRUE1293
 	D;JGT
-	@Screen$CMP_END1250
+	@Screen$CMP_END1293
 	D=0;JMP
-(Screen$CMP_TRUE1250)
+(Screen$CMP_TRUE1293)
 	D=-1
-(Screen$CMP_END1250)
+(Screen$CMP_END1293)
 	@SP
 	AM=M-1
 	A=A+1
@@ -13718,13 +13718,13 @@
 	@ARG
 	A=M+1
 	D=M
-	@Screen$CMP_TRUE1251
+	@Screen$CMP_TRUE1294
 	D;JLT
-	@Screen$CMP_END1251
+	@Screen$CMP_END1294
 	D=0;JMP
-(Screen$CMP_TRUE1251)
+(Screen$CMP_TRUE1294)
 	D=-1
-(Screen$CMP_END1251)
+(Screen$CMP_END1294)
 	@SP
 	AM=M-1
 	A=A+1
@@ -13739,13 +13739,13 @@
 	D=M
 	@255
 	D=D-A
-	@Screen$CMP_TRUE1252
+	@Screen$CMP_TRUE1295
 	D;JGT
-	@Screen$CMP_END1252
+	@Screen$CMP_END1295
 	D=0;JMP
-(Screen$CMP_TRUE1252)
+(Screen$CMP_TRUE1295)
 	D=-1
-(Screen$CMP_END1252)
+(Screen$CMP_END1295)
 	@SP
 	AM=M-1
 	A=A+1
@@ -13763,11 +13763,11 @@
 	M=D
 	@R15
 	M=1
-	@Screen.drawLine$RET1253
+	@Screen.drawLine$RET1296
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawLine$RET1253)
+(Screen.drawLine$RET1296)
 (Screen.drawLine$IF_FALSE0)
 	@ARG
 	A=M+1
@@ -13785,11 +13785,11 @@
 	M=D
 	@R15
 	M=1
-	@Screen.drawLine$RET1254
+	@Screen.drawLine$RET1297
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawLine$RET1254)
+(Screen.drawLine$RET1297)
 	@R13
 	D=M
 	@LCL
@@ -13814,11 +13814,11 @@
 	M=D
 	@R15
 	M=1
-	@Screen.drawLine$RET1255
+	@Screen.drawLine$RET1298
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawLine$RET1255)
+(Screen.drawLine$RET1298)
 	@R13
 	D=M
 	@LCL
@@ -13834,13 +13834,13 @@
 	A=M+1
 	A=A+1
 	D=D-M
-	@Screen$CMP_TRUE1256
+	@Screen$CMP_TRUE1299
 	D;JLT
-	@Screen$CMP_END1256
+	@Screen$CMP_END1299
 	D=0;JMP
-(Screen$CMP_TRUE1256)
+(Screen$CMP_TRUE1299)
 	D=-1
-(Screen$CMP_END1256)
+(Screen$CMP_END1299)
 	@LCL
 	A=M+1
 	A=A+1
@@ -13860,13 +13860,13 @@
 	@ARG
 	A=M+1
 	D=D-M
-	@Screen$CMP_TRUE1257
+	@Screen$CMP_TRUE1300
 	D;JLT
-	@Screen$CMP_END1257
+	@Screen$CMP_END1300
 	D=0;JMP
-(Screen$CMP_TRUE1257)
+(Screen$CMP_TRUE1300)
 	D=-1
-(Screen$CMP_END1257)
+(Screen$CMP_END1300)
 	@SP
 	AM=M-1
 	A=A+1
@@ -13889,13 +13889,13 @@
 	@ARG
 	A=M
 	D=D-M
-	@Screen$CMP_TRUE1258
+	@Screen$CMP_TRUE1301
 	D;JLT
-	@Screen$CMP_END1258
+	@Screen$CMP_END1301
 	D=0;JMP
-(Screen$CMP_TRUE1258)
+(Screen$CMP_TRUE1301)
 	D=-1
-(Screen$CMP_END1258)
+(Screen$CMP_END1301)
 	@SP
 	AM=M-1
 	A=A+1
@@ -14029,13 +14029,13 @@
 	A=M+1
 	A=A+1
 	D=D-M
-	@Screen$CMP_TRUE1259
+	@Screen$CMP_TRUE1302
 	D;JGT
-	@Screen$CMP_END1259
+	@Screen$CMP_END1302
 	D=0;JMP
-(Screen$CMP_TRUE1259)
+(Screen$CMP_TRUE1302)
 	D=-1
-(Screen$CMP_END1259)
+(Screen$CMP_END1302)
 	@LCL
 	A=M+1
 	A=A+1
@@ -14082,13 +14082,13 @@
 	A=A+1
 	A=A+1
 	D=D-M
-	@Screen$CMP_TRUE1260
+	@Screen$CMP_TRUE1303
 	D;JGT
-	@Screen$CMP_END1260
+	@Screen$CMP_END1303
 	D=0;JMP
-(Screen$CMP_TRUE1260)
+(Screen$CMP_TRUE1303)
 	D=-1
-(Screen$CMP_END1260)
+(Screen$CMP_END1303)
 	@LCL
 	A=M+1
 	A=A+1
@@ -14117,11 +14117,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawLine$RET1261
+	@Screen.drawLine$RET1304
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawLine$RET1261)
+(Screen.drawLine$RET1304)
 	@R13
 	D=M
 	@LCL
@@ -14154,11 +14154,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawLine$RET1262
+	@Screen.drawLine$RET1305
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawLine$RET1262)
+(Screen.drawLine$RET1305)
 	@R13
 	D=M
 	@R13
@@ -14194,11 +14194,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawLine$RET1263
+	@Screen.drawLine$RET1306
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawLine$RET1263)
+(Screen.drawLine$RET1306)
 	@R13
 	D=M
 	@R13
@@ -14239,11 +14239,11 @@
 	D=A
 	@R15
 	M=D
-	@Screen.drawLine$RET1264
+	@Screen.drawLine$RET1307
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawLine$RET1264)
+(Screen.drawLine$RET1307)
 (Screen.drawLine$WHILE_EXP0)
 	@LCL
 	A=M+1
@@ -14334,29 +14334,29 @@
 	D=A
 	@R15
 	M=D
-	@Screen.drawLine$RET1265
+	@Screen.drawLine$RET1308
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawLine$RET1265)
+(Screen.drawLine$RET1308)
 	@Screen.drawLine$WHILE_EXP0
 	0;JMP
 (Screen.drawLine$WHILE_END0)
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Screen.drawRectangle)
 	@9
 	D=A
 	@R13
 	M=D
-(Screen.drawRectangle$INIT1266)
+(Screen.drawRectangle$INIT1309)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@Screen.drawRectangle$INIT1266
+	@Screen.drawRectangle$INIT1309
 	D;JNE
 	@ARG
 	A=M
@@ -14365,13 +14365,13 @@
 	A=M+1
 	A=A+1
 	D=D-M
-	@Screen$CMP_TRUE1267
+	@Screen$CMP_TRUE1310
 	D;JGT
-	@Screen$CMP_END1267
+	@Screen$CMP_END1310
 	D=0;JMP
-(Screen$CMP_TRUE1267)
+(Screen$CMP_TRUE1310)
 	D=-1
-(Screen$CMP_END1267)
+(Screen$CMP_END1310)
 	@SP
 	AM=M+1
 	M=D
@@ -14383,13 +14383,13 @@
 	A=A+1
 	A=A+1
 	D=D-M
-	@Screen$CMP_TRUE1268
+	@Screen$CMP_TRUE1311
 	D;JGT
-	@Screen$CMP_END1268
+	@Screen$CMP_END1311
 	D=0;JMP
-(Screen$CMP_TRUE1268)
+(Screen$CMP_TRUE1311)
 	D=-1
-(Screen$CMP_END1268)
+(Screen$CMP_END1311)
 	@SP
 	AM=M-1
 	A=A+1
@@ -14400,13 +14400,13 @@
 	@ARG
 	A=M
 	D=M
-	@Screen$CMP_TRUE1269
+	@Screen$CMP_TRUE1312
 	D;JLT
-	@Screen$CMP_END1269
+	@Screen$CMP_END1312
 	D=0;JMP
-(Screen$CMP_TRUE1269)
+(Screen$CMP_TRUE1312)
 	D=-1
-(Screen$CMP_END1269)
+(Screen$CMP_END1312)
 	@SP
 	AM=M-1
 	A=A+1
@@ -14420,13 +14420,13 @@
 	D=M
 	@511
 	D=D-A
-	@Screen$CMP_TRUE1270
+	@Screen$CMP_TRUE1313
 	D;JGT
-	@Screen$CMP_END1270
+	@Screen$CMP_END1313
 	D=0;JMP
-(Screen$CMP_TRUE1270)
+(Screen$CMP_TRUE1313)
 	D=-1
-(Screen$CMP_END1270)
+(Screen$CMP_END1313)
 	@SP
 	AM=M-1
 	A=A+1
@@ -14437,13 +14437,13 @@
 	@ARG
 	A=M+1
 	D=M
-	@Screen$CMP_TRUE1271
+	@Screen$CMP_TRUE1314
 	D;JLT
-	@Screen$CMP_END1271
+	@Screen$CMP_END1314
 	D=0;JMP
-(Screen$CMP_TRUE1271)
+(Screen$CMP_TRUE1314)
 	D=-1
-(Screen$CMP_END1271)
+(Screen$CMP_END1314)
 	@SP
 	AM=M-1
 	A=A+1
@@ -14458,13 +14458,13 @@
 	D=M
 	@255
 	D=D-A
-	@Screen$CMP_TRUE1272
+	@Screen$CMP_TRUE1315
 	D;JGT
-	@Screen$CMP_END1272
+	@Screen$CMP_END1315
 	D=0;JMP
-(Screen$CMP_TRUE1272)
+(Screen$CMP_TRUE1315)
 	D=-1
-(Screen$CMP_END1272)
+(Screen$CMP_END1315)
 	@SP
 	AM=M-1
 	A=A+1
@@ -14482,11 +14482,11 @@
 	M=D
 	@R15
 	M=1
-	@Screen.drawRectangle$RET1273
+	@Screen.drawRectangle$RET1316
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawRectangle$RET1273)
+(Screen.drawRectangle$RET1316)
 (Screen.drawRectangle$IF_FALSE0)
 	@ARG
 	A=M
@@ -14506,11 +14506,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawRectangle$RET1274
+	@Screen.drawRectangle$RET1317
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawRectangle$RET1274)
+(Screen.drawRectangle$RET1317)
 	@R13
 	D=M
 	@LCL
@@ -14544,11 +14544,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawRectangle$RET1275
+	@Screen.drawRectangle$RET1318
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawRectangle$RET1275)
+(Screen.drawRectangle$RET1318)
 	@R13
 	D=M
 	@SP
@@ -14583,11 +14583,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawRectangle$RET1276
+	@Screen.drawRectangle$RET1319
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawRectangle$RET1276)
+(Screen.drawRectangle$RET1319)
 	@R13
 	D=M
 	@LCL
@@ -14623,11 +14623,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawRectangle$RET1277
+	@Screen.drawRectangle$RET1320
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawRectangle$RET1277)
+(Screen.drawRectangle$RET1320)
 	@R13
 	D=M
 	@SP
@@ -14701,11 +14701,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawRectangle$RET1278
+	@Screen.drawRectangle$RET1321
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawRectangle$RET1278)
+(Screen.drawRectangle$RET1321)
 	@R13
 	D=M
 	@LCL
@@ -14786,11 +14786,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawRectangle$RET1279
+	@Screen.drawRectangle$RET1322
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawRectangle$RET1279)
+(Screen.drawRectangle$RET1322)
 	@Screen.drawRectangle$IF_END1
 	0;JMP
 (Screen.drawRectangle$IF_FALSE1)
@@ -14815,11 +14815,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawRectangle$RET1280
+	@Screen.drawRectangle$RET1323
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawRectangle$RET1280)
+(Screen.drawRectangle$RET1323)
 	@LCL
 	A=M
 	MD=M+1
@@ -14848,11 +14848,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawRectangle$RET1281
+	@Screen.drawRectangle$RET1324
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawRectangle$RET1281)
+(Screen.drawRectangle$RET1324)
 	@LCL
 	A=M
 	MD=M+1
@@ -14880,11 +14880,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawRectangle$RET1282
+	@Screen.drawRectangle$RET1325
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawRectangle$RET1282)
+(Screen.drawRectangle$RET1325)
 (Screen.drawRectangle$IF_END1)
 	@ARG
 	A=M+1
@@ -14905,20 +14905,20 @@
 	0;JMP
 (Screen.drawRectangle$WHILE_END0)
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Screen.drawHorizontal)
 	@11
 	D=A
 	@R13
 	M=D
-(Screen.drawHorizontal$INIT1283)
+(Screen.drawHorizontal$INIT1326)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@Screen.drawHorizontal$INIT1283
+	@Screen.drawHorizontal$INIT1326
 	D;JNE
 	@ARG
 	A=M+1
@@ -14940,11 +14940,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1284
+	@Screen.drawHorizontal$RET1327
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1284)
+(Screen.drawHorizontal$RET1327)
 	@R13
 	D=M
 	@LCL
@@ -14976,11 +14976,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1285
+	@Screen.drawHorizontal$RET1328
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1285)
+(Screen.drawHorizontal$RET1328)
 	@R13
 	D=M
 	@R13
@@ -14996,13 +14996,13 @@
 	@ARG
 	A=M
 	D=M+1
-	@Screen$CMP_TRUE1286
+	@Screen$CMP_TRUE1329
 	D;JGT
-	@Screen$CMP_END1286
+	@Screen$CMP_END1329
 	D=0;JMP
-(Screen$CMP_TRUE1286)
+(Screen$CMP_TRUE1329)
 	D=-1
-(Screen$CMP_END1286)
+(Screen$CMP_END1329)
 	@SP
 	AM=M+1
 	M=D
@@ -15011,13 +15011,13 @@
 	D=M
 	@256
 	D=D-A
-	@Screen$CMP_TRUE1287
+	@Screen$CMP_TRUE1330
 	D;JLT
-	@Screen$CMP_END1287
+	@Screen$CMP_END1330
 	D=0;JMP
-(Screen$CMP_TRUE1287)
+(Screen$CMP_TRUE1330)
 	D=-1
-(Screen$CMP_END1287)
+(Screen$CMP_END1330)
 	@SP
 	AM=M-1
 	A=A+1
@@ -15032,13 +15032,13 @@
 	D=M
 	@512
 	D=D-A
-	@Screen$CMP_TRUE1288
+	@Screen$CMP_TRUE1331
 	D;JLT
-	@Screen$CMP_END1288
+	@Screen$CMP_END1331
 	D=0;JMP
-(Screen$CMP_TRUE1288)
+(Screen$CMP_TRUE1331)
 	D=-1
-(Screen$CMP_END1288)
+(Screen$CMP_END1331)
 	@SP
 	AM=M-1
 	A=A+1
@@ -15051,13 +15051,13 @@
 	@8
 	A=D+A
 	D=M+1
-	@Screen$CMP_TRUE1289
+	@Screen$CMP_TRUE1332
 	D;JGT
-	@Screen$CMP_END1289
+	@Screen$CMP_END1332
 	D=0;JMP
-(Screen$CMP_TRUE1289)
+(Screen$CMP_TRUE1332)
 	D=-1
-(Screen$CMP_END1289)
+(Screen$CMP_END1332)
 	@SP
 	AM=M-1
 	A=A+1
@@ -15082,11 +15082,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1290
+	@Screen.drawHorizontal$RET1333
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1290)
+(Screen.drawHorizontal$RET1333)
 	@R13
 	D=M
 	@LCL
@@ -15118,11 +15118,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1291
+	@Screen.drawHorizontal$RET1334
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1291)
+(Screen.drawHorizontal$RET1334)
 	@R13
 	D=M
 	@R13
@@ -15155,11 +15155,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1292
+	@Screen.drawHorizontal$RET1335
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1292)
+(Screen.drawHorizontal$RET1335)
 	@R13
 	D=M
 	@LCL
@@ -15191,11 +15191,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1293
+	@Screen.drawHorizontal$RET1336
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1293)
+(Screen.drawHorizontal$RET1336)
 	@R13
 	D=M
 	@SP
@@ -15232,11 +15232,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1294
+	@Screen.drawHorizontal$RET1337
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1294)
+(Screen.drawHorizontal$RET1337)
 	@R13
 	D=M
 	@LCL
@@ -15270,11 +15270,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1295
+	@Screen.drawHorizontal$RET1338
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1295)
+(Screen.drawHorizontal$RET1338)
 	@R13
 	D=M
 	@SP
@@ -15346,11 +15346,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1296
+	@Screen.drawHorizontal$RET1339
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1296)
+(Screen.drawHorizontal$RET1339)
 	@R13
 	D=M
 	@LCL
@@ -15425,11 +15425,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1297
+	@Screen.drawHorizontal$RET1340
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1297)
+(Screen.drawHorizontal$RET1340)
 	@Screen.drawHorizontal$IF_END1
 	0;JMP
 (Screen.drawHorizontal$IF_FALSE1)
@@ -15454,11 +15454,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1298
+	@Screen.drawHorizontal$RET1341
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1298)
+(Screen.drawHorizontal$RET1341)
 	@LCL
 	A=M
 	MD=M+1
@@ -15489,11 +15489,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1299
+	@Screen.drawHorizontal$RET1342
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1299)
+(Screen.drawHorizontal$RET1342)
 	@LCL
 	A=M
 	MD=M+1
@@ -15523,14 +15523,14 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawHorizontal$RET1300
+	@Screen.drawHorizontal$RET1343
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawHorizontal$RET1300)
+(Screen.drawHorizontal$RET1343)
 (Screen.drawHorizontal$IF_END1)
 (Screen.drawHorizontal$IF_FALSE0)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Screen.drawSymetric)
 	@ARG
@@ -15572,11 +15572,11 @@
 	D=A
 	@R15
 	M=D
-	@Screen.drawSymetric$RET1301
+	@Screen.drawSymetric$RET1344
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawSymetric$RET1301)
+(Screen.drawSymetric$RET1344)
 	@ARG
 	A=M+1
 	D=M
@@ -15616,11 +15616,11 @@
 	D=A
 	@R15
 	M=D
-	@Screen.drawSymetric$RET1302
+	@Screen.drawSymetric$RET1345
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawSymetric$RET1302)
+(Screen.drawSymetric$RET1345)
 	@ARG
 	A=M+1
 	D=M
@@ -15661,11 +15661,11 @@
 	D=A
 	@R15
 	M=D
-	@Screen.drawSymetric$RET1303
+	@Screen.drawSymetric$RET1346
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawSymetric$RET1303)
+(Screen.drawSymetric$RET1346)
 	@ARG
 	A=M+1
 	D=M
@@ -15706,12 +15706,12 @@
 	D=A
 	@R15
 	M=D
-	@Screen.drawSymetric$RET1304
+	@Screen.drawSymetric$RET1347
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawSymetric$RET1304)
-	@Pong.global$RET933
+(Screen.drawSymetric$RET1347)
+	@Pong.global$RET976
 	0;JMP
 (Screen.drawCircle)
 	@SP
@@ -15726,13 +15726,13 @@
 	@ARG
 	A=M
 	D=M
-	@Screen$CMP_TRUE1305
+	@Screen$CMP_TRUE1348
 	D;JLT
-	@Screen$CMP_END1305
+	@Screen$CMP_END1348
 	D=0;JMP
-(Screen$CMP_TRUE1305)
+(Screen$CMP_TRUE1348)
 	D=-1
-(Screen$CMP_END1305)
+(Screen$CMP_END1348)
 	@SP
 	AM=M+1
 	M=D
@@ -15741,13 +15741,13 @@
 	D=M
 	@511
 	D=D-A
-	@Screen$CMP_TRUE1306
+	@Screen$CMP_TRUE1349
 	D;JGT
-	@Screen$CMP_END1306
+	@Screen$CMP_END1349
 	D=0;JMP
-(Screen$CMP_TRUE1306)
+(Screen$CMP_TRUE1349)
 	D=-1
-(Screen$CMP_END1306)
+(Screen$CMP_END1349)
 	@SP
 	AM=M-1
 	A=A+1
@@ -15758,13 +15758,13 @@
 	@ARG
 	A=M+1
 	D=M
-	@Screen$CMP_TRUE1307
+	@Screen$CMP_TRUE1350
 	D;JLT
-	@Screen$CMP_END1307
+	@Screen$CMP_END1350
 	D=0;JMP
-(Screen$CMP_TRUE1307)
+(Screen$CMP_TRUE1350)
 	D=-1
-(Screen$CMP_END1307)
+(Screen$CMP_END1350)
 	@SP
 	AM=M-1
 	A=A+1
@@ -15777,13 +15777,13 @@
 	D=M
 	@255
 	D=D-A
-	@Screen$CMP_TRUE1308
+	@Screen$CMP_TRUE1351
 	D;JGT
-	@Screen$CMP_END1308
+	@Screen$CMP_END1351
 	D=0;JMP
-(Screen$CMP_TRUE1308)
+(Screen$CMP_TRUE1351)
 	D=-1
-(Screen$CMP_END1308)
+(Screen$CMP_END1351)
 	@SP
 	AM=M-1
 	A=A+1
@@ -15801,11 +15801,11 @@
 	M=D
 	@R15
 	M=1
-	@Screen.drawCircle$RET1309
+	@Screen.drawCircle$RET1352
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawCircle$RET1309)
+(Screen.drawCircle$RET1352)
 (Screen.drawCircle$IF_FALSE0)
 	@ARG
 	A=M
@@ -15814,13 +15814,13 @@
 	A=M+1
 	A=A+1
 	D=D-M
-	@Screen$CMP_TRUE1310
+	@Screen$CMP_TRUE1353
 	D;JLT
-	@Screen$CMP_END1310
+	@Screen$CMP_END1353
 	D=0;JMP
-(Screen$CMP_TRUE1310)
+(Screen$CMP_TRUE1353)
 	D=-1
-(Screen$CMP_END1310)
+(Screen$CMP_END1353)
 	@SP
 	AM=M+1
 	M=D
@@ -15833,13 +15833,13 @@
 	A=M+1
 	A=A+1
 	D=D+M
-	@Screen$CMP_TRUE1311
+	@Screen$CMP_TRUE1354
 	D;JGT
-	@Screen$CMP_END1311
+	@Screen$CMP_END1354
 	D=0;JMP
-(Screen$CMP_TRUE1311)
+(Screen$CMP_TRUE1354)
 	D=-1
-(Screen$CMP_END1311)
+(Screen$CMP_END1354)
 	@SP
 	AM=M-1
 	A=A+1
@@ -15854,13 +15854,13 @@
 	A=M+1
 	A=A+1
 	D=D-M
-	@Screen$CMP_TRUE1312
+	@Screen$CMP_TRUE1355
 	D;JLT
-	@Screen$CMP_END1312
+	@Screen$CMP_END1355
 	D=0;JMP
-(Screen$CMP_TRUE1312)
+(Screen$CMP_TRUE1355)
 	D=-1
-(Screen$CMP_END1312)
+(Screen$CMP_END1355)
 	@SP
 	AM=M-1
 	A=A+1
@@ -15877,13 +15877,13 @@
 	A=M+1
 	A=A+1
 	D=D+M
-	@Screen$CMP_TRUE1313
+	@Screen$CMP_TRUE1356
 	D;JGT
-	@Screen$CMP_END1313
+	@Screen$CMP_END1356
 	D=0;JMP
-(Screen$CMP_TRUE1313)
+(Screen$CMP_TRUE1356)
 	D=-1
-(Screen$CMP_END1313)
+(Screen$CMP_END1356)
 	@SP
 	AM=M-1
 	A=A+1
@@ -15901,11 +15901,11 @@
 	M=D
 	@R15
 	M=1
-	@Screen.drawCircle$RET1314
+	@Screen.drawCircle$RET1357
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawCircle$RET1314)
+(Screen.drawCircle$RET1357)
 (Screen.drawCircle$IF_FALSE1)
 	@ARG
 	A=M+1
@@ -15954,11 +15954,11 @@
 	D=A
 	@R15
 	M=D
-	@Screen.drawCircle$RET1315
+	@Screen.drawCircle$RET1358
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawCircle$RET1315)
+(Screen.drawCircle$RET1358)
 (Screen.drawCircle$WHILE_EXP0)
 	@LCL
 	A=M+1
@@ -15998,11 +15998,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawCircle$RET1316
+	@Screen.drawCircle$RET1359
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawCircle$RET1316)
+(Screen.drawCircle$RET1359)
 	@R13
 	D=M
 	@SP
@@ -16043,11 +16043,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Screen.drawCircle$RET1317
+	@Screen.drawCircle$RET1360
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawCircle$RET1317)
+(Screen.drawCircle$RET1360)
 	@R13
 	D=M
 	@SP
@@ -16097,16 +16097,16 @@
 	D=A
 	@R15
 	M=D
-	@Screen.drawCircle$RET1318
+	@Screen.drawCircle$RET1361
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Screen.drawCircle$RET1318)
+(Screen.drawCircle$RET1361)
 	@Screen.drawCircle$WHILE_EXP0
 	0;JMP
 (Screen.drawCircle$WHILE_END0)
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (String.new)
 	@3
@@ -16120,11 +16120,11 @@
 	M=D
 	@R15
 	M=1
-	@String.new$RET1319
+	@String.new$RET1362
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.new$RET1319)
+(String.new$RET1362)
 	@R13
 	D=M
 	@R3
@@ -16145,11 +16145,11 @@
 	M=D
 	@R15
 	M=1
-	@String.new$RET1320
+	@String.new$RET1363
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.new$RET1320)
+(String.new$RET1363)
 (String.new$IF_FALSE0)
 	@ARG
 	A=M
@@ -16168,11 +16168,11 @@
 	M=D
 	@R15
 	M=1
-	@String.new$RET1321
+	@String.new$RET1364
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.new$RET1321)
+(String.new$RET1364)
 	@R13
 	D=M
 	@THIS
@@ -16193,7 +16193,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (String.dispose)
 	@ARG
@@ -16218,11 +16218,11 @@
 	M=D
 	@R15
 	M=1
-	@String.dispose$RET1322
+	@String.dispose$RET1365
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.dispose$RET1322)
+(String.dispose$RET1365)
 (String.dispose$IF_FALSE0)
 	@R3
 	D=M
@@ -16235,12 +16235,12 @@
 	M=D
 	@R15
 	M=1
-	@String.dispose$RET1323
+	@String.dispose$RET1366
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.dispose$RET1323)
-	@Pong.global$RET933
+(String.dispose$RET1366)
+	@Pong.global$RET976
 	0;JMP
 (String.length)
 	@ARG
@@ -16254,7 +16254,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (String.charAt)
 	@ARG
@@ -16265,13 +16265,13 @@
 	@ARG
 	A=M+1
 	D=M
-	@String$CMP_TRUE1324
+	@String$CMP_TRUE1367
 	D;JLT
-	@String$CMP_END1324
+	@String$CMP_END1367
 	D=0;JMP
-(String$CMP_TRUE1324)
+(String$CMP_TRUE1367)
 	D=-1
-(String$CMP_END1324)
+(String$CMP_END1367)
 	@SP
 	AM=M+1
 	M=D
@@ -16282,13 +16282,13 @@
 	A=M+1
 	A=A+1
 	D=D-M
-	@String$CMP_TRUE1325
+	@String$CMP_TRUE1368
 	D;JGT
-	@String$CMP_END1325
+	@String$CMP_END1368
 	D=0;JMP
-(String$CMP_TRUE1325)
+(String$CMP_TRUE1368)
 	D=-1
-(String$CMP_END1325)
+(String$CMP_END1368)
 	@SP
 	AM=M-1
 	A=A+1
@@ -16303,13 +16303,13 @@
 	A=M+1
 	A=A+1
 	D=D-M
-	@String$CMP_TRUE1326
+	@String$CMP_TRUE1369
 	D;JEQ
-	@String$CMP_END1326
+	@String$CMP_END1369
 	D=0;JMP
-(String$CMP_TRUE1326)
+(String$CMP_TRUE1369)
 	D=-1
-(String$CMP_END1326)
+(String$CMP_END1369)
 	@SP
 	AM=M-1
 	A=A+1
@@ -16327,11 +16327,11 @@
 	M=D
 	@R15
 	M=1
-	@String.charAt$RET1327
+	@String.charAt$RET1370
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.charAt$RET1327)
+(String.charAt$RET1370)
 (String.charAt$IF_FALSE0)
 	@ARG
 	A=M+1
@@ -16346,7 +16346,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (String.setCharAt)
 	@ARG
@@ -16357,13 +16357,13 @@
 	@ARG
 	A=M+1
 	D=M
-	@String$CMP_TRUE1328
+	@String$CMP_TRUE1371
 	D;JLT
-	@String$CMP_END1328
+	@String$CMP_END1371
 	D=0;JMP
-(String$CMP_TRUE1328)
+(String$CMP_TRUE1371)
 	D=-1
-(String$CMP_END1328)
+(String$CMP_END1371)
 	@SP
 	AM=M+1
 	M=D
@@ -16374,13 +16374,13 @@
 	A=M+1
 	A=A+1
 	D=D-M
-	@String$CMP_TRUE1329
+	@String$CMP_TRUE1372
 	D;JGT
-	@String$CMP_END1329
+	@String$CMP_END1372
 	D=0;JMP
-(String$CMP_TRUE1329)
+(String$CMP_TRUE1372)
 	D=-1
-(String$CMP_END1329)
+(String$CMP_END1372)
 	@SP
 	AM=M-1
 	A=A+1
@@ -16395,13 +16395,13 @@
 	A=M+1
 	A=A+1
 	D=D-M
-	@String$CMP_TRUE1330
+	@String$CMP_TRUE1373
 	D;JEQ
-	@String$CMP_END1330
+	@String$CMP_END1373
 	D=0;JMP
-(String$CMP_TRUE1330)
+(String$CMP_TRUE1373)
 	D=-1
-(String$CMP_END1330)
+(String$CMP_END1373)
 	@SP
 	AM=M-1
 	A=A+1
@@ -16419,11 +16419,11 @@
 	M=D
 	@R15
 	M=1
-	@String.setCharAt$RET1331
+	@String.setCharAt$RET1374
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.setCharAt$RET1331)
+(String.setCharAt$RET1374)
 (String.setCharAt$IF_FALSE0)
 	@ARG
 	A=M+1
@@ -16452,7 +16452,7 @@
 	A=M
 	M=D
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (String.appendChar)
 	@ARG
@@ -16480,11 +16480,11 @@
 	M=D
 	@R15
 	M=1
-	@String.appendChar$RET1332
+	@String.appendChar$RET1375
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.appendChar$RET1332)
+(String.appendChar$RET1375)
 (String.appendChar$IF_FALSE0)
 	@THIS
 	A=M+1
@@ -16520,7 +16520,7 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (String.eraseLastChar)
 	@ARG
@@ -16545,30 +16545,30 @@
 	M=D
 	@R15
 	M=1
-	@String.eraseLastChar$RET1333
+	@String.eraseLastChar$RET1376
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.eraseLastChar$RET1333)
+(String.eraseLastChar$RET1376)
 (String.eraseLastChar$IF_FALSE0)
 	@THIS
 	A=M+1
 	A=A+1
 	MD=M-1
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (String.intValue)
 	@5
 	D=A
 	@R13
 	M=D
-(String.intValue$INIT1334)
+(String.intValue$INIT1377)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@String.intValue$INIT1334
+	@String.intValue$INIT1377
 	D;JNE
 	@ARG
 	A=M
@@ -16582,7 +16582,7 @@
 	@String.intValue$IF_FALSE0
 	D;JNE
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (String.intValue$IF_FALSE0)
 	@LCL
@@ -16619,13 +16619,13 @@
 	A=M+1
 	A=A+1
 	D=D-M
-	@String$CMP_TRUE1335
+	@String$CMP_TRUE1378
 	D;JLT
-	@String$CMP_END1335
+	@String$CMP_END1378
 	D=0;JMP
-(String$CMP_TRUE1335)
+(String$CMP_TRUE1378)
 	D=-1
-(String$CMP_END1335)
+(String$CMP_END1378)
 	@LCL
 	A=M+1
 	A=A+1
@@ -16650,13 +16650,13 @@
 	A=M+1
 	A=A+1
 	M=D
-	@String$CMP_TRUE1336
+	@String$CMP_TRUE1379
 	D;JLT
-	@String$CMP_END1336
+	@String$CMP_END1379
 	D=0;JMP
-(String$CMP_TRUE1336)
+(String$CMP_TRUE1379)
 	D=-1
-(String$CMP_END1336)
+(String$CMP_END1379)
 	@SP
 	AM=M+1
 	M=D
@@ -16666,13 +16666,13 @@
 	D=M
 	@9
 	D=D-A
-	@String$CMP_TRUE1337
+	@String$CMP_TRUE1380
 	D;JGT
-	@String$CMP_END1337
+	@String$CMP_END1380
 	D=0;JMP
-(String$CMP_TRUE1337)
+(String$CMP_TRUE1380)
 	D=-1
-(String$CMP_END1337)
+(String$CMP_END1380)
 	@SP
 	AM=M-1
 	A=A+1
@@ -16703,11 +16703,11 @@
 	@R15
 	M=1
 	M=M+1
-	@String.intValue$RET1338
+	@String.intValue$RET1381
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.intValue$RET1338)
+(String.intValue$RET1381)
 	@R13
 	D=M
 	@LCL
@@ -16740,20 +16740,20 @@
 	D=M
 	@R13
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (String.setInt)
 	@4
 	D=A
 	@R13
 	M=D
-(String.setInt$INIT1339)
+(String.setInt$INIT1382)
 	@SP
 	AM=M+1
 	MD=0
 	@R13
 	MD=M-1
-	@String.setInt$INIT1339
+	@String.setInt$INIT1382
 	D;JNE
 	@ARG
 	A=M
@@ -16776,11 +16776,11 @@
 	M=D
 	@R15
 	M=1
-	@String.setInt$RET1340
+	@String.setInt$RET1383
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.setInt$RET1340)
+(String.setInt$RET1383)
 (String.setInt$IF_FALSE0)
 	@6
 	D=A
@@ -16793,11 +16793,11 @@
 	M=D
 	@R15
 	M=1
-	@String.setInt$RET1341
+	@String.setInt$RET1384
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.setInt$RET1341)
+(String.setInt$RET1384)
 	@R13
 	D=M
 	@LCL
@@ -16848,11 +16848,11 @@
 	@R15
 	M=1
 	M=M+1
-	@String.setInt$RET1342
+	@String.setInt$RET1385
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.setInt$RET1342)
+(String.setInt$RET1385)
 	@R13
 	D=M
 	@LCL
@@ -16897,11 +16897,11 @@
 	@R15
 	M=1
 	M=M+1
-	@String.setInt$RET1343
+	@String.setInt$RET1386
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.setInt$RET1343)
+(String.setInt$RET1386)
 	@R13
 	D=M
 	@SP
@@ -16992,11 +16992,11 @@
 	M=D
 	@R15
 	M=1
-	@String.setInt$RET1344
+	@String.setInt$RET1387
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.setInt$RET1344)
+(String.setInt$RET1387)
 (String.setInt$IF_FALSE3)
 	@LCL
 	A=M
@@ -17106,30 +17106,30 @@
 	M=D
 	@R15
 	M=1
-	@String.setInt$RET1345
+	@String.setInt$RET1388
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(String.setInt$RET1345)
-	@Pong.global$RET933
+(String.setInt$RET1388)
+	@Pong.global$RET976
 	0;JMP
 (String.newLine)
 	@128
 	D=A
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (String.backSpace)
 	@129
 	D=A
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (String.doubleQuote)
 	@34
 	D=A
 	M=D
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Sys.init)
 	@Memory.init
@@ -17138,85 +17138,85 @@
 	M=D
 	@R15
 	M=0
-	@Sys.init$RET1346
+	@Sys.init$RET1389
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.init$RET1346)
+(Sys.init$RET1389)
 	@Math.init
 	D=A
 	@R14
 	M=D
 	@R15
 	M=0
-	@Sys.init$RET1347
+	@Sys.init$RET1390
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.init$RET1347)
+(Sys.init$RET1390)
 	@Screen.init
 	D=A
 	@R14
 	M=D
 	@R15
 	M=0
-	@Sys.init$RET1348
+	@Sys.init$RET1391
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.init$RET1348)
+(Sys.init$RET1391)
 	@Output.init
 	D=A
 	@R14
 	M=D
 	@R15
 	M=0
-	@Sys.init$RET1349
+	@Sys.init$RET1392
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.init$RET1349)
+(Sys.init$RET1392)
 	@Keyboard.init
 	D=A
 	@R14
 	M=D
 	@R15
 	M=0
-	@Sys.init$RET1350
+	@Sys.init$RET1393
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.init$RET1350)
+(Sys.init$RET1393)
 	@Main.main
 	D=A
 	@R14
 	M=D
 	@R15
 	M=0
-	@Sys.init$RET1351
+	@Sys.init$RET1394
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.init$RET1351)
+(Sys.init$RET1394)
 	@Sys.halt
 	D=A
 	@R14
 	M=D
 	@R15
 	M=0
-	@Sys.init$RET1352
+	@Sys.init$RET1395
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.init$RET1352)
-	@Pong.global$RET933
+(Sys.init$RET1395)
+	@Pong.global$RET976
 	0;JMP
 (Sys.halt)
 (Sys.halt$WHILE_EXP0)
 	@Sys.halt$WHILE_EXP0
 	0;JMP
 (Sys.halt$WHILE_END0)
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Sys.wait)
 	@SP
@@ -17236,11 +17236,11 @@
 	M=D
 	@R15
 	M=1
-	@Sys.wait$RET1353
+	@Sys.wait$RET1396
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.wait$RET1353)
+(Sys.wait$RET1396)
 (Sys.wait$IF_FALSE0)
 (Sys.wait$WHILE_EXP0)
 	@ARG
@@ -17272,7 +17272,7 @@
 	0;JMP
 (Sys.wait$WHILE_END0)
 	MD=0
-	@Pong.global$RET933
+	@Pong.global$RET976
 	0;JMP
 (Sys.error)
 	@3
@@ -17286,11 +17286,11 @@
 	M=D
 	@R15
 	M=1
-	@Sys.error$RET1354
+	@Sys.error$RET1397
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.error$RET1354)
+(Sys.error$RET1397)
 	@R13
 	D=M
 	@SP
@@ -17308,11 +17308,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Sys.error$RET1355
+	@Sys.error$RET1398
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.error$RET1355)
+(Sys.error$RET1398)
 	@R13
 	D=M
 	@SP
@@ -17330,11 +17330,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Sys.error$RET1356
+	@Sys.error$RET1399
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.error$RET1356)
+(Sys.error$RET1399)
 	@R13
 	D=M
 	@SP
@@ -17352,11 +17352,11 @@
 	@R15
 	M=1
 	M=M+1
-	@Sys.error$RET1357
+	@Sys.error$RET1400
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.error$RET1357)
+(Sys.error$RET1400)
 	@R13
 	D=M
 	@SP
@@ -17368,11 +17368,11 @@
 	M=D
 	@R15
 	M=1
-	@Sys.error$RET1358
+	@Sys.error$RET1401
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.error$RET1358)
+(Sys.error$RET1401)
 	@ARG
 	A=M
 	D=M
@@ -17385,25 +17385,25 @@
 	M=D
 	@R15
 	M=1
-	@Sys.error$RET1359
+	@Sys.error$RET1402
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.error$RET1359)
+(Sys.error$RET1402)
 	@Sys.halt
 	D=A
 	@R14
 	M=D
 	@R15
 	M=0
-	@Sys.error$RET1360
+	@Sys.error$RET1403
 	D=A
-	@Pong.global$CALL932
+	@Pong.global$CALL975
 	0;JMP
-(Sys.error$RET1360)
-	@Pong.global$RET933
+(Sys.error$RET1403)
+	@Pong.global$RET976
 	0;JMP
-(Pong.global$CALL932)
+(Pong.global$CALL975)
 	@SP
 	AM=M+1
 	M=D
@@ -17439,7 +17439,7 @@
 	@R14
 	A=M
 	0;JMP
-(Pong.global$RET933)
+(Pong.global$RET976)
 	@ARG
 	D=M-1
 	@SP
