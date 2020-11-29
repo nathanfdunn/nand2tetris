@@ -393,49 +393,56 @@ def compile(piece, methodName):
 
 def parseLine(line, y):
 	ret = []
+	ret.extend(parseLineWithInfo(line, y, True))
+	ret.extend(parseLineWithInfo(line, y, False))
+	return ret
+
+def parseLineWithInfo(line, y, sameColor):
+	ret = []
 	# runs = {}
 	currentLetter = None
 	start = -1
 	end = -1
-	for c in list(line) + [None]:
-		if c == currentLetter:
-			end += 1
+
+	if not line:
+		return ret
+
+	leftBits = []
+	rightBits = []
+	for c in line:
+		wordToAppend = leftBits if len(leftBits) < 16 else rightBits
+		if c == 'X':
+			wordToAppend.append('1')
+		elif c == '-':
+			if sameColor:
+				wordToAppend.append('0')
+			else:
+				wordToAppend.append('1')
 		else:
-			# runs[start, end] = currentLetter
-			if currentLetter not in (None, ' '):
-				if currentLetter == 'X':
-					col = '~squareColor'
-				elif currentLetter == '-':
-					col = 'pieceColor'
-				elif currentLetter == '?':
-					col = '~pieceColor'
-				# else:
-				# 	print(currentLetter)
-				# 	exit()
-				# col = '~squareColor' if currentLetter == 'X' else 'pieceColor'
-				ret.append(f'do Screen.setColor({col});')
-				yscale = 1 if dedupe else 2
-				ret.append(f'do Screen.drawLine(x + {start}, y + {yscale * y}, x + {end}, y + {y * yscale});')
-				if not dedupe:
-					ret.append(f'do Screen.drawLine(x + {start}, y + {yscale * y} + 1, x + {end}, y + {yscale * y} + 1);')
+			wordToAppend.append('0')
 
-				# ret.append(f'''do Screen.drawLine(
-				# 	x + (2 * {start}), 
-				# 	y + (2 * {y}), 
-				# 	x + (2 * {end}), 
-				# 	y + (2 * {y})
-				# );''')
-				# ret.append(f'''do Screen.drawLine(
-				# 	x + (2 * {start}), 
-				# 	y + (2 * {y}) + 1, 
-				# 	x + (2 * {end}), 
-				# 	y + (2 * {y}) + 1
-				# );''')
-				# ret.append(f'do Screen.drawLine(x + {start}, y + {y}, x + {end}, y + {y});')
-				# ret.append(f'do Screen.drawLine(x + {start}, y + {y} + 1, x + {end}, y + {y} + 1);')
+	# intVal = eval(binRep)
+	# try:
+	# 	intVal = eval(binRep)
+	# except:
+	# 	# print(line)
+	# 	raise Exception(charCount)
+	# 	return ret
+	# TODO convert
+	# TODO this could cause an issue with producing an unrepresentable integer
+	index = 2*y
+	arrayName = 'whitePieceWhiteSquare' if sameColor else 'blackPieceWhiteSquare'
+	template = 'let {ARR}[{IND1}] = {LBITS}; let {ARR}[{IND2}] = {RBITS};'
+	template = template.format(
+		ARR = arrayName,
+		IND1 = str(index).rjust(3),
+		LBITS = ''.join(leftBits),
+		IND2 = str(index+1).rjust(3),
+		RBITS = ''.join(rightBits)
+		)
+	ret.append(template)
+	# ret.append(f'let somarray[{str(2*y + 1).rjust(2)}] = {binRep};')
 
-			currentLetter = c
-			start = end = end+1
 	return ret
 	# for dur, char in runs:
 	# 	if char in (None, ' '):
