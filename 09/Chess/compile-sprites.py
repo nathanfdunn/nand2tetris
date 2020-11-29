@@ -381,11 +381,14 @@ def compile(piece, methodName):
 		out.append('')
 	body = '\n'.join(out)
 	with open(path, 'a') as file:
+		pieceIndex = pieceMap[methodName]
 		file.write(f'''\
-	function void {methodName} (int x, int y, boolean squareColor, boolean pieceColor) {{
-		{body}
-		return;
-	}}
+			// {methodName}
+			let whitePieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[{pieceIndex}] = whitePieceWhiteSquare;
+			let blackPieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[{pieceIndex} + 6] = blackPieceWhiteSquare;
+			{body}
 ''')
 	# for x in out:
 		# print(x)	
@@ -496,6 +499,7 @@ def compileFromPico8(string, methodName):
 		}[c] for c in line)
 
 	list = [line[0:32] for line in string.split('\n')]
+	list += ['0'*32] * (32 - len(list))
 	list = [translateLine(line) for line in list]
 	compile('\n'.join(list), methodName)
 	# print('\n'.join(list))
@@ -511,25 +515,91 @@ exportPico8(rook)
 with open(path, 'w') as file:
 	file.write('''
 class Sprites {
+	static Array pieceDefinitions;
+	function drawSprite(int pieceType, boolean pieceColor, int rankInd, int fileInd) {
+		var int screenAddress;
+		var int index;
+		var Array pieceArray;
+		var boolean invert;
+		
+		let screenAddress = 16384 + 	// Screen start
+			(1024 * rankInd) + 					// 1024 = 32 * 32. Each square you go down by is 32 rows, each of which is 32 segments
+			(2*fileInd) + 							// Each square is 2 segments wide
+			16;													// Always draw on the right half of the screen i.e. 16 segments over
+
+		if (((rankInd + fileInd) & 1) > 0) {
+			// Square is black
+			let invert = true;
+
+			if (pieceColor) {
+				let pieceArray = pieceDefinitions[pieceType];
+			}
+			else {
+				let pieceArray = pieceDefinitions[pieceType + 6];
+			}
+		}
+		else {
+			if (pieceColor) {
+				let pieceArray = pieceDefinitions[pieceType + 6];
+			}
+			else {
+				let pieceArray = pieceDefinitions[pieceType];
+			}
+		}
+
+		while (index < 64) {
+			if (invert) {
+				let screenAddress[0] = ~pieceArray[index];
+				let screenAddress[1] = ~pieceArray[index + 1];
+			}
+			else {
+				let screenAddress[0] = pieceArray[index];
+				let screenAddress[1] = pieceArray[index + 1];			
+			}
+
+			let index = index + 2;
+			# 32 words is an entire row of pixels
+			let screenAddress = screenAddress + 32;
+		}
+	}
+
+	function init() {
+		var Array whitePieceWhiteSquare;
+		var Array blackPieceWhiteSquare;
+
+		let pieceDefinitions = Array.new(13);
+
+
 		''')
 
-compileFromPico8(pawn2, 'drawPawn')
+    # // 1 = pawn, 2 = knight, 3 = bishop, 4 = rook, 5 = queen, 6 = king
+pieceMap = {
+	'pawn': 1,
+	'knight': 2,
+	'bishop': 3,
+	'rook': 4,
+	'queen': 5,
+	'king': 6
+}
+
+compileFromPico8(pawn2, 'pawn')
 # compile(knight, 'drawKnight')
-compileFromPico8(knight2, 'drawKnight')
+compileFromPico8(knight2, 'knight')
 # compile(bishop, 'drawBishop')
-compileFromPico8(bishop2, 'drawBishop')
+compileFromPico8(bishop2, 'bishop')
 # compile(rook, 'drawRook')
-compileFromPico8(rook2, 'drawRook')
+compileFromPico8(rook2, 'rook')
 # compile(queen, 'drawQueen')
-compileFromPico8(queen2, 'drawQueen')
+compileFromPico8(queen2, 'queen')
 
 # compile(king, 'drawKing')
-compileFromPico8(king2, 'drawKing')
+compileFromPico8(king2, 'king')
 
 
 with open(path, 'a') as file:
 	file.write('''
-}
+		}		// end init
+} // end class
 		''')
 
 exportPico8(bishop3)
