@@ -1,0 +1,169 @@
+
+
+
+class Main {
+    static Board board;
+
+    static int myX;
+    static int myY;
+
+    function int getX() {
+        return myX;
+    }
+
+    function int getY() {
+        return myY;
+    }
+
+    function void main() {
+        do Main.init();
+
+        while (true) {
+            do Main.update();
+            do Main.draw();
+        }
+
+        return;
+    }
+
+    function void init() {
+        let myX = 0;
+        let myY = 1;
+
+        do Board.init();
+
+        let board = Board.new();
+        do Piece.init();
+
+        do List.init();
+
+        do SquareGenerator.init();
+
+        // do Main.processCommand("TEST");
+        // do Main.processCommand("UCI E2 E4");
+        // do Main.processCommand("UCI G8 F6");
+        // do Main.processCommand("UCI E4 E5");
+        // do Main.processCommand("UCI D7 D5");
+
+
+        do Main.draw();
+
+        return;
+    }
+
+    function void update() {
+        var String command;
+        var int index;
+
+        let command = Keyboard.readLine(">");
+
+        do Main.processCommand(command);
+        // Clear out the line for the next command
+        return;
+    }
+
+
+    function void draw() {
+        // let condition = board.getHasChanges(); //asfd.asdf;
+        // if (board.getHasChanges()){
+            do Screen.setColor(true);
+
+            do Main.drawBoard();
+        // }
+
+        do board.acknowledgeChanges();
+
+        return;
+    }
+
+    function void drawBoard() {
+        do board.print();
+
+        return;
+    }
+
+    function void processCommand(String command) {
+        var Move move;
+
+        var int index1;
+        var int index2;
+        var Piece piece;
+
+        if (Util.strCmp(command, "")){
+            return;
+        }
+
+        if (Util.startsWith(command, "UCI")) {
+            let move = Commands.parseUciCommand(command);
+            if (move = null) {
+                do Output.printString("Invalid move format");
+                do Output.println();
+            }
+            else {
+                do Commands.tryMakeMove(board, move);
+            }
+
+            return;
+        }
+
+        if (Util.strCmp(command, "CLS")) {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(0, 0, 255, 255);
+            do Output.moveCursor(0, 0);
+            return;
+        }
+
+        if (Util.strCmp(command, "REFRESH")) {
+            do board.refresh();
+            // do Main.draw();
+            return;
+        }
+
+        if (Util.strCmp(command, "QUIT")){
+            do Output.printString("Good bye. TODO stop processing.");
+            do Output.println();
+            return;
+        }
+        
+        if (Util.strCmp(command, "RESTART")){
+            let board = Board.new();
+            do Output.printString("Restarting Game");
+            do Output.println();
+            return;
+        }
+
+
+
+        if (Util.strCmp(command, "TEST")){
+            // let index1 = 0;
+            // while (index1 < 8) {
+            //     let index2 = 0;
+            //     while (index2 < 8) {
+            //         let piece = board.getPieceAt(index1, index2);
+            //         if (~ (piece = 0)) {
+            //             do Output.printInt(index1);
+            //             do Output.printString(",");
+            //             do Output.printInt(index2);
+            //             do Output.printString(" ");
+            //             do Output.printInt(piece);
+            //             do Output.println();
+            //         }
+
+            //         let index2 = index2 + 1;
+            //     }
+
+            //     let index1 = index1 + 1;
+            // }
+            let piece = board.getPieceAt(Main.getX(), Main.getY());
+            do Output.printString(piece.toString());
+            do Output.println();
+            do board.printLegalMovesAt();
+            return;
+        }
+
+        do Output.printString("Invalid command");
+        do Output.println();            
+
+        return;
+    }
+}

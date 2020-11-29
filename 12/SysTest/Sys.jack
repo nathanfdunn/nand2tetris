@@ -1,0 +1,110 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Sys.jack
+
+/**
+ * A library that supports various program execution services.
+ */
+class Sys {
+    static String errorMessageString;
+    // static int errorMessageString;
+    static int loopsPerMillisecond;
+    // Pre-allocate this in case we run out of memory later
+
+    /** Performs all the initializations required by the OS. */
+    function void init() {
+        var String mystr;
+        let loopsPerMillisecond = 300;
+
+        do Memory.init();
+        do Math.init();
+        do Screen.init();
+        do Output.init();
+        do Keyboard.init();
+        
+        // // let loopsPerMillisecond[0] = 0;
+        // // let errorMessageString = String.new(6);
+        // // do errorMessageString.appendChar(69);
+        // // do errorMessageString.appendChar(82);
+        // // do errorMessageString.appendChar(82);
+        // // let mystr = "ERR";
+        // // let errorMessageString = mystr;
+        // let errorMessageString = "ERR";
+        // do Output.printString(errorMessageString);
+        // do Output.println();
+        // do Output.printString("hello");
+        // do Output.println();
+        // do Output.printInt(843);
+        // do Output.println();
+        // do Output.printInt(errorMessageString);
+        // do Output.println();
+        // do Sys.idk(errorMessageString);
+        // // do Sys.error(42);
+        // do Sys.halt();
+        // return;
+
+        do Main.main();
+
+        do Sys.halt();
+
+        return;
+    }
+
+    /** Halts the program execution. */
+    function void halt() {
+        while (true) {
+
+        }
+        return;
+    }
+
+    /** Waits approximately duration milliseconds and returns.  */
+    function void wait(int duration) {
+        var int numLoops;
+
+        while (duration > 0) {
+            let numLoops = loopsPerMillisecond;
+            while (numLoops > 0) {
+                let numLoops = numLoops - 1;
+            }
+            let duration = duration - 1;
+        }
+
+        return;
+    }
+
+    function void breakpoint() {
+        var Array keyboard;
+        let keyboard = 24576;
+        while (keyboard[0] = 0) {
+        }
+        return;
+    }
+
+    function void idk(String arg) {
+        do Output.printInt(errorMessageString);
+        let loopsPerMillisecond[0] = 0;
+
+        // do Output.printString(arg);
+        // do Output.printString(errorMessageString);
+        return;
+    }
+
+    /** Displays the given error code in the form "ERR<errorCode>",
+     *  and halts the program's execution. */
+    function void error(int errorCode) {
+        do Output.printString("ERR");
+        do Output.printInt(errorCode);
+        // do Output.printString("Waiting");
+        // // do Sys.wait(1000);
+        // do Keyboard.readChar();
+        // do Output.printString("oops");
+        // do Output.printString("breaking");
+        // do Sys.breakpoint();
+        // do Output.printString(errorMessageString);
+        // do Sys.halt();
+        // do Output.printInt(loopsPerMillisecond);
+        return;
+    }
+}

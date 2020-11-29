@@ -1,0 +1,125 @@
+class Util {
+	// Returns true if equal 	
+	function boolean strCmp(String str1, String str2) {
+		var int index;
+
+		// Same instance
+		if (str1 = str2) {
+			return true;
+		}
+
+		if ((str1 = 0) | (str2 = 0)) {
+			return false;
+		}
+
+		if (~(str1.length() = str2.length())) {
+			return false;
+		}
+
+		let index = str1.length() - 1;
+		while ((index = 0) | (index > 0)) {
+			if (~(str1.charAt(index) = str2.charAt(index))) {
+				return false;
+			}
+
+			let index = index - 1;
+		}
+
+		return true;
+	}
+
+	// Tests if str1 starts with str2
+	function boolean startsWith(String str1, String str2) {
+		var int index;
+
+		if ((str1 = 0) | (str2 = 0)) {
+			return false;
+		}
+
+		if (str2.length() = 0) {
+			return true;
+		}
+
+		if (str1.length() < str2.length()) {
+			return false;
+		}
+
+		let index = str2.length() - 1;
+		while ((index = 0) | (index > 0)) {
+			if (~(str1.charAt(index) = str2.charAt(index))) {
+				return false;
+			}
+
+			let index = index - 1;
+		}
+
+		return true;
+	}
+
+	function int parseAlgebraicFile(char file) {
+		return file - 64; // ord('A') - 1
+	}
+
+	function int parseAlgebraicRank(char rank) {
+		return rank - 48; /// ord('1') - 1
+	}
+
+	// Starts at 1
+	function char numericFileToChar(int file) {
+		return file + 64;
+	}
+
+	function char numericRankToChar(int rank) {
+		return rank + 48;	// ord('0')
+	}
+
+	function char digitToChar(int digit) {
+		if ((-1 < digit) & (digit < 10)) {
+			return digit + 48;
+		}
+		else {
+			return 88;		// ord('X')
+		}
+	}
+
+	// Requires 0 <= value < 2*modulus - 1
+	function int modularIncrement(int value, int modulus) {
+		let value = value + 1;
+		if (value > (modulus - 1)) {
+			let value = value - modulus;
+		}
+
+		return value;
+	}
+
+	function void alertIfNull(int object) {
+		if (object = 0) {
+			do Output.printString("Object is null");
+			do Output.println();
+		}
+
+		return;
+	}
+
+	function void printLineString(String str) {
+		do Output.printString(str);
+		do Output.println();
+		return;
+	}
+
+	function void printLineInt(int val) {
+		do Output.printInt(val);
+		do Output.println();
+		return;
+	}
+
+	function int abs(int val) {
+		if (val < 0) {
+			return -val;
+		}
+		else {
+			return val;
+		}
+	}
+
+}

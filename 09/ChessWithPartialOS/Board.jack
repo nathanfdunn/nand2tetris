@@ -1,0 +1,770 @@
+class Board {
+    field int enPassant;
+    // 0, 1 = long white, short white
+    // 2, 3 = long black, short black
+    field Array castling;
+
+    field Array ranks;
+
+    // TODO remove field
+    field boolean hasChanges;
+
+    static boolean debug;
+
+    field List dirtySquares;
+
+    // i.e. who's turn is it?
+    // true -> black
+    field boolean activePlayer;
+
+    // static int boardDim;
+
+    function void init() {
+        let debug = false;
+        return;
+    }
+
+    // function boolean getDebug() {
+    //     return debug;
+    // }
+
+    method boolean getHasChanges() {
+        return hasChanges;
+    }
+
+    method void refresh() {
+        let dirtySquares = 0;
+        // do Screen.clearScreen();
+        return;
+    }
+
+    method void acknowledgeChanges() {
+        let hasChanges = false;
+        return;
+    }
+
+    method void touch() {
+        let hasChanges = true;
+        return;
+    }
+
+    constructor Board new(){
+        var int i;
+        var Array temp;
+        let activePlayer = false;       // white to play
+        let i = 0;
+        let ranks = Array.new(8);
+
+        let hasChanges = true;
+
+        let castling = Array.new(4);
+        let castling[0] = true;
+        let castling[1] = true;
+        let castling[2] = true;
+        let castling[3] = true;
+
+        let enPassant = -1;
+
+        while (i < 8){
+            let ranks[i] = Array.new(8);
+            let i = i + 1;
+        }
+
+        if (debug) {
+            let temp = ranks[Main.getY()];
+            let temp[Main.getX()] = Piece.queen(true);
+
+            let temp[Main.getX() + 2] = Piece.knight(false);
+        }
+        else {
+            let temp = ranks[0];
+            let temp[0] = Piece.rook(false);
+            let temp[1] = Piece.knight(false);
+            let temp[2] = Piece.bishop(false);
+            let temp[3] = Piece.queen(false);
+            let temp[4] = Piece.king(false);
+            let temp[5] = Piece.bishop(false);
+            let temp[6] = Piece.knight(false);
+            let temp[7] = Piece.rook(false);
+
+            let temp = ranks[1];
+            let temp[0] = Piece.pawn(false);
+            let temp[1] = Piece.pawn(false);
+            let temp[2] = Piece.pawn(false);
+            let temp[3] = Piece.pawn(false);
+            let temp[4] = Piece.pawn(false);
+            let temp[5] = Piece.pawn(false);
+            let temp[6] = Piece.pawn(false);
+            let temp[7] = Piece.pawn(false);
+
+            let temp = ranks[6];
+            let temp[0] = Piece.pawn(true);
+            let temp[1] = Piece.pawn(true);
+            let temp[2] = Piece.pawn(true);
+            let temp[3] = Piece.pawn(true);
+            let temp[4] = Piece.pawn(true);
+            let temp[5] = Piece.pawn(true);
+            let temp[6] = Piece.pawn(true);
+            let temp[7] = Piece.pawn(true);
+
+            let temp = ranks[7];
+            let temp[0] = Piece.rook(true);
+            let temp[1] = Piece.knight(true);
+            let temp[2] = Piece.bishop(true);
+            let temp[3] = Piece.queen(true);
+            let temp[4] = Piece.king(true);
+            let temp[5] = Piece.bishop(true);
+            let temp[6] = Piece.knight(true);
+            let temp[7] = Piece.rook(true);
+        }
+
+        return this;
+    }
+
+    method boolean isEven(int blah){
+
+        return (blah - (2 * (blah / 2))) > 0;
+    }
+
+    method int getEnPassantIndicator() {
+        return enPassant;
+    }
+
+    // Returns
+    method int enPassantFromMove(Move move) {
+        var Piece startPiece;
+        let startPiece = getPieceAtSquare(move.getStartSquare());
+        // assume it's a valid move...therefore piece cannot be null
+        
+        // No pawn, no deal
+        if (~startPiece.isPawn()) {
+            return -1;
+        }
+
+        if (startPiece.getColor()) { // if black
+            if ((move.getStartY() = 6) & (move.getEndY() = 4)) {
+                return move.getStartX();
+            }
+        }
+        else {              // if white
+            if ((move.getStartY() = 1) & (move.getEndY() = 3)) {
+                return move.getStartX();
+            }
+        }
+
+        return -1;
+    }
+
+    method void removePiece(int x, int y) {
+        var Array rank;
+        let rank = ranks[y];
+        let rank[x] = 0;
+        return;
+    }
+
+    // 
+    method boolean moveRequiresPromotion(Move move) {
+        var Piece piece;
+        let piece = getPieceAtSquare(move.getStartSquare());
+
+        if ((piece = 0) | (~piece.isPawn())) {
+            return false;
+        }
+
+        if (piece.getColor()) {     // black
+            return move.getEndY() = 0;
+        }
+        else {          // white
+            return move.getEndY() = 7;
+        }
+    }
+
+    // We are assuming that by now the move has been validated
+    method void makeMove(Move move) {
+        var Array rank;
+        var Piece piece;
+        var Piece capturedPiece;
+        var Piece supplementalPiece;
+        var int xDiff;
+
+        if (debug) {
+            do Output.printString("Executing move: ");
+            do Util.printLineString(move.toString());
+            do Output.printInt(move.getStartX());
+            do Output.printString(" ");
+            do Output.printInt(move.getStartY());
+            do Output.printString(",");
+            do Output.printInt(move.getEndX());
+           do Output.printString(" ");
+            do Output.printInt(move.getEndY());
+        }
+
+        let enPassant = enPassantFromMove(move);
+
+        let rank = ranks[move.getStartRank() - 1];
+        let piece = rank[move.getStartFile() - 1];
+        let rank[move.getStartFile() - 1] = 0;
+
+        let dirtySquares = List.empty();
+
+        let rank = ranks[move.getEndRank() - 1];
+        let capturedPiece = rank[move.getEndFile() - 1];
+        if (capturedPiece = 0) {
+            // Time to infer if this is en passant
+            // Definitely a capture but there was no piece there
+            if (piece.isPawn() & (~(move.getStartX() = move.getEndX()))) {
+                if (piece.getColor()) {     // black
+                    // black en passant must be capturing 
+                    let capturedPiece = getPieceAt(move.getEndX(), move.getEndY() + 1);
+                    do removePiece(move.getEndX(), move.getEndY() + 1);
+                    do capturedPiece.dispose();
+                    do dirtySquares.append(Square.fromBoardIndices(
+                        move.getEndX(), move.getEndY() + 1
+                        ));
+                }
+                else {      // white
+                    // white en passant must be capturing 
+                    let capturedPiece = getPieceAt(move.getEndX(), move.getEndY() - 1);
+                    do removePiece(move.getEndX(), move.getEndY() - 1);
+                    do capturedPiece.dispose();
+                    do dirtySquares.append(Square.fromBoardIndices(
+                        move.getEndX(), move.getEndY() - 1
+                        ));
+                }
+            }
+        }
+        else {
+                // 0, 1 = long white, short white
+                // 2, 3 = long black, short black
+            if (capturedPiece.isRook()) {
+                if ((move.getEndX() = 0) & (move.getEndY() = 0)) {
+                    let castling[0] = false;
+                }
+                if ((move.getEndX() = 7) & (move.getEndY() = 0)) {
+                    let castling[1] = false;
+                }
+               if ((move.getEndX() = 0) & (move.getEndY() = 7)) {
+                    let castling[2] = false;
+                }
+                if ((move.getEndX() = 7) & (move.getEndY() = 7)) {
+                    let castling[3] = false;
+                }             
+            }
+            do capturedPiece.dispose();
+        }
+        let rank[move.getEndFile() - 1] = piece;
+
+        // TODO clear flags
+
+        // Test for castling
+        let xDiff = move.getStartX() - move.getEndX();
+        if (piece.isKing() & (Util.abs(xDiff) > 1)) {
+            if (xDiff > 0) {    // castling long
+                let rank = ranks[move.getStartY()];
+                let supplementalPiece = rank[0];
+                let rank[0] = 0;
+                let rank[move.getEndX() + 1] = supplementalPiece;
+                do dirtySquares.append(Square.fromBoardIndices(0, move.getStartY()));
+                do dirtySquares.append(Square.fromBoardIndices( move.getEndX() + 1, move.getStartY() ));
+            }
+            else {
+                let rank = ranks[move.getStartY()];
+                let supplementalPiece = rank[7];
+                let rank[7] = 0;
+                let rank[move.getEndX() - 1] = supplementalPiece;
+                do dirtySquares.append(Square.fromBoardIndices(7, move.getStartY()));
+                do dirtySquares.append(Square.fromBoardIndices( move.getEndX() - 1, move.getStartY() ));
+            }
+        }
+
+        do dirtySquares.append(Square.fromBoardIndices(move.getStartX(), move.getStartY()));
+        do dirtySquares.append(Square.fromBoardIndices(move.getEndX(), move.getEndY()));
+
+        if (piece.isRook()) {
+            if (piece.getColor() & (move.getStartY() = 7)) {     // if black
+                if (move.getStartX() = 0) {
+                    let castling[2] = false;        // black long castling
+                }
+                if (move.getStartX() = 7) {
+                    let castling[3] = false;        // black short castling
+                }
+            }
+
+            if ((~piece.getColor()) & (move.getStartY() = 0)) {
+                if (move.getStartX() = 0) {
+                    let castling[0] = false;        // white long castling
+                }
+                if (move.getStartX() = 7) {
+                    let castling[1] = false;        // white short castling
+                }
+            }
+        }
+
+        if (piece.isKing()) {
+            if (piece.getColor()) {     // if black
+                let castling[2] = false;
+                let castling[3] = false;
+            }
+            else {
+                let castling[0] = false;
+                let castling[1] = false;
+            }
+        }
+
+        if (piece.isPawn()) {
+            if (
+                (piece.getColor() & (move.getEndY() = 0)) |
+                ((~piece.getColor()) & (move.getEndY() = 7)) 
+            ) 
+            {
+                do piece.promote(move.getPromotionPieceType());
+            }
+        }
+
+        let activePlayer = ~activePlayer;
+        return;
+    }
+
+    // TODO remove and just
+    method boolean squareIsDirty(int x, int y) {
+        var int index;
+        var Square square;
+        if (dirtySquares = 0) {
+            return true;
+        }
+        let index = dirtySquares.getLength() - 1;
+        while (index > -1) {
+            let square = dirtySquares.getElement(index);
+            if ((square.getX() = x) &
+                (square.getY() = y)) {
+                return true;
+            }
+
+            let index = index - 1;
+        }
+
+        return false;
+    }
+
+    method void print(){
+        var int i;
+        var int j;
+        var Array rank;
+        var Piece piece;
+        var boolean color;
+        var boolean squareColor;
+        var int dim;
+        var int x1;
+        var int x2;
+        var int y1;
+        var int y2;
+
+        let i = 0;
+        let color = true;
+        let dim = 32;
+
+        while (i < 8){
+            let j = 0;
+            while (j < 8){
+                if (squareIsDirty(j, i)) {
+                    let squareColor = ~isEven(i + j);
+                    let color =squareColor;
+                    do Screen.setColor(color);
+                    // Add 8 to draw the board on the right side
+                    let x1 = (j + 8) * dim;
+                    // 7 - i so that we draw from white's perspective
+                    let y1 = (7 - i) * dim;
+                    let x2 = x1 + dim;
+                    let y2 = y1 + dim;
+
+                    do Screen.drawRectangle(x1, y1, x2-1, y2-1);
+
+                    let rank = ranks[i];
+                    let piece = rank[j];
+                    //do Screen.drawRectangle(x1, y1)
+                    if (~(piece = 0)){
+                        do piece.draw(x1, y1, squareColor);
+                    }
+                }
+
+                let j = j + 1;
+            }
+
+            let i = i + 1;
+        }
+
+        let dirtySquares = List.empty();
+
+        if (debug){
+            do Output.printString("En Passant: ");
+            do Util.printLineInt(getEnPassantIndicator());
+            do Util.printLineString("Castling:");
+            do Output.printString(" White = ");
+            if (castling[0]) {
+                do Output.printString("O-O-O;");
+            }
+            if (castling[1]) {
+                do Output.printString("O-O;");
+            }
+            do Output.println();
+            do Output.printString(" Black = ");
+            if (castling[2]) {
+                do Output.printString("O-O-O;");
+            }
+            if (castling[3]) {
+                do Output.printString("O-O;");
+            }
+            do Output.println();
+        }
+
+        return;
+    }
+
+    method Piece getPieceAt(int x, int y) {
+        var Array rank;
+        let rank = ranks[y];
+        return rank[x];
+    }
+
+    method Piece getPieceAtSquare(Square square) {
+        return getPieceAt(square.getX(), square.getY());
+    }
+
+
+    // TODO remove?    
+    method void printLegalMovesAt() {    
+        var List moves;
+        var int index;
+        var Square square;
+        var int x;
+        var int y;
+
+        let y = Main.getX();
+        let x = Main.getY();
+
+        do Output.printInt(x);
+        do Output.printString(",");
+        do Output.printInt(y);
+        do Output.println();
+
+        let moves = getLegalSquaresAt(x, y);
+
+        if (moves = 0) {
+            do Output.printString("NULL");
+        }
+        else {
+            let index = moves.getLength() - 1;
+            while (index > -1) {
+                let square = moves.getElement(index);
+                do Output.printString(square.toString());
+                do Output.println();
+                
+                let index = index - 1;
+            }
+        }
+
+        return;
+    }
+
+
+    // 0 -> all good
+    // 1 -> no piece there
+    // 2 -> wrong color piece
+    // 3 -> unspecified invalid move
+    method boolean moveErrorCode(Move move) {
+        var List legalSquares;
+        var Square square;
+        var int index;
+        var Piece piece;
+
+        let piece = getPieceAt(move.getStartX(), move.getStartY());
+        if (piece = 0) {
+            return 1;
+        }
+
+        if (~(piece.getColor() = activePlayer)) {
+            return 2;
+        }
+
+        let legalSquares = getLegalSquaresAt(move.getStartX(), move.getStartY());
+        if (legalSquares = 0) {
+            // Only happens when there's no piece
+            // SHOULDN'T HAPPEN
+            return 1;
+        }
+
+
+
+        let index = legalSquares.getLength() - 1;
+        while (index > -1) {
+            let square = legalSquares.getElement(index);
+            if ((square.getX() = move.getEndX()) &
+                (square.getY() = move.getEndY())) {
+                if (moveRequiresPromotion(move) & (~move.isPromotion())) {
+                    return 4;   // piece requires promotion
+                }
+                if ((~moveRequiresPromotion(move)) & move.isPromotion()) {
+                    return 5;   // piece cannot be a promotion
+                }
+
+                return 0;
+            }
+
+            let index = index - 1;
+        }
+
+        return 3;
+    }
+
+    // method String getPromotionErrorMessage(Move move) {
+    //     if (moveRequiresPromotion(move)) {
+    //         if (~move.isPromotion()) {
+    //             return "MOVE REQUIRES PRMOTION";
+    //         }
+    //     }
+    //     else {
+    //         if (move.isPromotion()) {
+    //             return "MOVE CANNOT BE PROMOTION";
+    //         }
+    //     }
+
+    //     return 0;
+    // }
+
+    method List getLegalPawnSquaresAt(Piece pawn, int x, int y) {
+        var int yDir;
+        var int xDir;
+        var boolean firstMove;
+        var List ret;
+        var Square potentialSquare;
+        var Piece otherPiece;
+
+        if (debug) {
+            do Util.printLineString("Calculating legal pawn moves");
+        }
+
+        let firstMove = false;
+
+        // If black
+        if (pawn.getColor()) {
+            let yDir = -1;
+            if (y = 6) {
+                let firstMove = true;
+            }
+            // let firstMove = (y = 6);
+        }
+        // If white
+        else {
+            let yDir = 1;
+            // let firstMove = (y = 1);
+            if (y = 1) {
+                let firstMove = true;
+            }
+        }
+
+        let ret = List.empty();
+
+        // Interesting, we never have to check if the potential square is on the board
+        let potentialSquare = Square.fromBoardIndices(x, y + yDir);
+
+        if (debug) {
+            do Util.printLineString(potentialSquare.toString());
+        }
+
+        if (getPieceAtSquare(potentialSquare) = 0) {
+            do ret.append(potentialSquare);
+            let potentialSquare = Square.fromBoardIndices(x, y + yDir + yDir);
+
+            if ((getPieceAtSquare(potentialSquare) = 0) & firstMove) {
+                do ret.append(potentialSquare);
+            }
+        }
+
+        // Now check captures
+        let xDir = -1;
+        while (xDir < 2) {
+            let potentialSquare = Square.fromBoardIndices(x + xDir, y + yDir);
+            let otherPiece = getPieceAtSquare(potentialSquare);
+            if (otherPiece = 0) {
+                // Might still be ok so long as we can take en passant
+                if ((x + xDir) = enPassant) {
+                    if (pawn.getColor()) {      // black
+                        if (y = 3) {        // black must be on 4th rank
+                            do ret.append(potentialSquare);
+                        }
+                    }
+                    else {
+                        if (y = 4) {        // white must be on 5th rank
+                            do ret.append(potentialSquare);
+                        }
+                    } 
+                }
+
+            }
+            else {
+                if (~(otherPiece.getColor() = pawn.getColor())) {
+                    do ret.append(potentialSquare);
+                }
+            }
+
+            let xDir = xDir + 2;
+        }
+
+        return ret;
+    }
+
+    // x, y is in 0-based coordinates
+    // TODO return Moves instead of Squares
+    // TODO put this in SquareGenerator or maybe even a different class
+    method List getLegalSquaresAt(int x, int y) {
+        var List offsets;
+        var Piece piece;
+        var Square pos;
+        var List ret;
+        var Square potentialSquare;
+        var Piece otherPiece;
+        var int dirIndex;
+        var int dirCount;
+        var int dirDist;
+        var int riderDist;
+
+        let piece = getPieceAt(x, y);
+
+        if (piece = 0) {
+            return 0;
+        }
+
+        // Don't even bother for pawns
+        if (piece.isPawn()) {
+            return getLegalPawnSquaresAt(piece, x, y);
+        }
+
+        let ret = List.empty();
+
+        let pos = Square.fromBoardIndices(x, y);
+        
+        if (debug) {
+            do Util.printLineString(pos.toString());
+            do Util.printLineString(piece.toString());            
+        }
+
+        let offsets = SquareGenerator.getOffsetsByPiece(piece);
+        // do Util.alertIfNull(piece);
+
+        let riderDist = SquareGenerator.getRiderDistForPiece(piece);
+        let dirCount = Math.divide(offsets.getLength(), riderDist);
+        let dirIndex = 0;
+
+        // do Util.printLineInt(dirCount);
+
+        // do Util.printLineInt(offsets.getLength());
+
+        while (dirIndex < dirCount) {
+            let dirDist = 0;
+            while (dirDist < riderDist) {
+                // do Util.printLineInt(Math.multiply(dirDist, dirCount) + dirIndex);
+                let potentialSquare = offsets.getElement(Math.multiply(dirDist, dirCount) + dirIndex);
+                let potentialSquare = pos.addSquare(potentialSquare);
+
+                // do Util.printLineString("potential:");
+                // do Util.printLineString(potentialSquare.toString());
+                // if (potentialSquare = 0) {
+                // do Util.printLineInt(dirDist);
+                // do Util.printLineInt(dirCount);
+                // do Util.printLineInt(dirIndex);
+                // do Util.alertIfNull(potentialSquare);
+                // }
+
+
+                if (~potentialSquare.isOnBoard()) {
+                    // break;
+                    let dirDist = riderDist;
+                }
+                else {
+                    let otherPiece = getPieceAtSquare(potentialSquare);
+
+                    if (otherPiece = 0) {
+                        // All good, and can keep going
+                        do ret.append(potentialSquare);
+                        let dirDist = dirDist + 1;
+                    }
+                    else {
+                        if (piece.isEnemy(otherPiece)) {
+                            // Hey a capture! Can't go past this though
+                            do ret.append(potentialSquare);
+                            let dirDist = riderDist;        // break;
+                        }
+                        else {
+                            // Can't capture friendly piece, we're blocked
+                            let dirDist = riderDist;        // break;
+                        }
+                    }
+                }
+            }
+
+            let dirIndex = dirIndex + 1;
+        }
+
+        if (piece.isKing() & (x = 4)) {
+            do ret.extend(getCastlingMoves(piece, x, y));
+        }
+        
+        return ret;
+    }
+
+    method List getCastlingMoves(Piece piece, int x, int y) {
+        var List ret;
+
+        let ret = List.empty();
+
+        if (piece.getColor()) {     // black
+            if (castling[3]) {
+                if ((getPieceAt(x + 1, y) = 0) &
+                    (getPieceAt(x + 2, y) = 0)) {
+                    do ret.append(Square.fromBoardIndices(x + 2, y));
+                }
+            }
+
+            if (castling[2]) {
+                if ((getPieceAt(x - 1, y) = 0) &
+                    (getPieceAt(x - 2, y) = 0) &
+                    (getPieceAt(x - 3, y) = 0)) {
+                    do ret.append(Square.fromBoardIndices(x - 2, y));
+                }
+            }
+        }
+        else {
+            if (castling[1]) {
+                if ((getPieceAt(x + 1, y) = 0) &
+                    (getPieceAt(x + 2, y) = 0)) {
+                    do ret.append(Square.fromBoardIndices(x + 2, y));
+                }
+            }
+
+            if (castling[0]) {
+                if ((getPieceAt(x - 1, y) = 0) &
+                    (getPieceAt(x - 2, y) = 0) &
+                    (getPieceAt(x - 3, y) = 0)) {
+                    do ret.append(Square.fromBoardIndices(x - 2, y));
+                }
+            }
+        }
+
+        return ret;
+        // if (castling[0])
+    }
+
+    method Array getPotentialSquares(Square pos, Array offsets, int offsetsLength) {
+        var Array ret;
+        let ret = Array.new(offsetsLength);
+
+        let offsetsLength = offsetsLength - 1;
+        while (offsetsLength > -1) {
+            let ret[offsetsLength] = pos.addSquare(offsets[offsetsLength]);
+            let offsetsLength = offsetsLength - 1;
+        }
+
+        return ret;
+    }
+
+}

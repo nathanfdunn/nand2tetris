@@ -1,0 +1,2400 @@
+function Board.init 0
+push constant 0
+pop static 0
+push constant 0
+return
+function Board.getHasChanges 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Board.refresh 0
+push argument 0
+pop pointer 0
+push constant 0
+pop this 4
+push constant 0
+return
+function Board.acknowledgeChanges 0
+push argument 0
+pop pointer 0
+push constant 0
+pop this 3
+push constant 0
+return
+function Board.touch 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+pop this 3
+push constant 0
+return
+function Board.new 2
+push constant 6
+call Memory.alloc 1
+pop pointer 0
+push constant 0
+pop this 5
+push constant 0
+pop local 0
+push constant 8
+call Array.new 1
+pop this 2
+push constant 0
+not
+pop this 3
+push constant 4
+call Array.new 1
+pop this 1
+push constant 0
+not
+push this 1
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+push this 1
+push constant 1
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+push this 1
+push constant 2
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+push this 1
+push constant 3
+add
+pop pointer 1
+pop that 0
+push constant 1
+neg
+pop this 0
+label LABEL1_Xef86994e3c034e1a9028dba0b9efd6ac
+push local 0
+push constant 8
+lt
+not
+if-goto LABEL2_X75d88909666c4f9297cb7db1cfe1aa9f
+push constant 8
+call Array.new 1
+push this 2
+push local 0
+add
+pop pointer 1
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto LABEL1_Xef86994e3c034e1a9028dba0b9efd6ac
+label LABEL2_X75d88909666c4f9297cb7db1cfe1aa9f
+push static 0
+not
+if-goto Xc4d9ec6460314c0bb53570651790f54d
+push this 2
+call Main.getY 0
+add
+pop pointer 1
+push that 0
+pop local 1
+push constant 0
+not
+call Piece.queen 1
+push local 1
+call Main.getX 0
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.knight 1
+push local 1
+call Main.getX 0
+push constant 2
+add
+add
+pop pointer 1
+pop that 0
+goto X7cecb20cf26a4e4caa5ea521f615b0c3
+label Xc4d9ec6460314c0bb53570651790f54d
+push this 2
+push constant 0
+add
+pop pointer 1
+push that 0
+pop local 1
+push constant 0
+call Piece.rook 1
+push local 1
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.knight 1
+push local 1
+push constant 1
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.bishop 1
+push local 1
+push constant 2
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.queen 1
+push local 1
+push constant 3
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.king 1
+push local 1
+push constant 4
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.bishop 1
+push local 1
+push constant 5
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.knight 1
+push local 1
+push constant 6
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.rook 1
+push local 1
+push constant 7
+add
+pop pointer 1
+pop that 0
+push this 2
+push constant 1
+add
+pop pointer 1
+push that 0
+pop local 1
+push constant 0
+call Piece.pawn 1
+push local 1
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.pawn 1
+push local 1
+push constant 1
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.pawn 1
+push local 1
+push constant 2
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.pawn 1
+push local 1
+push constant 3
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.pawn 1
+push local 1
+push constant 4
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.pawn 1
+push local 1
+push constant 5
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.pawn 1
+push local 1
+push constant 6
+add
+pop pointer 1
+pop that 0
+push constant 0
+call Piece.pawn 1
+push local 1
+push constant 7
+add
+pop pointer 1
+pop that 0
+push this 2
+push constant 6
+add
+pop pointer 1
+push that 0
+pop local 1
+push constant 0
+not
+call Piece.pawn 1
+push local 1
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.pawn 1
+push local 1
+push constant 1
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.pawn 1
+push local 1
+push constant 2
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.pawn 1
+push local 1
+push constant 3
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.pawn 1
+push local 1
+push constant 4
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.pawn 1
+push local 1
+push constant 5
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.pawn 1
+push local 1
+push constant 6
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.pawn 1
+push local 1
+push constant 7
+add
+pop pointer 1
+pop that 0
+push this 2
+push constant 7
+add
+pop pointer 1
+push that 0
+pop local 1
+push constant 0
+not
+call Piece.rook 1
+push local 1
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.knight 1
+push local 1
+push constant 1
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.bishop 1
+push local 1
+push constant 2
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.queen 1
+push local 1
+push constant 3
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.king 1
+push local 1
+push constant 4
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.bishop 1
+push local 1
+push constant 5
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.knight 1
+push local 1
+push constant 6
+add
+pop pointer 1
+pop that 0
+push constant 0
+not
+call Piece.rook 1
+push local 1
+push constant 7
+add
+pop pointer 1
+pop that 0
+label X7cecb20cf26a4e4caa5ea521f615b0c3
+push pointer 0
+return
+function Board.isEven 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 2
+push argument 1
+push constant 2
+call Math.divide 2
+call Math.multiply 2
+sub
+push constant 0
+gt
+return
+function Board.getEnPassantIndicator 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Board.enPassantFromMove 1
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 1
+call Move.getStartSquare 1
+call Board.getPieceAtSquare 2
+pop local 0
+push local 0
+call Piece.isPawn 1
+not
+not
+if-goto X3290418c8607403392ae118e0da81b7d
+push constant 1
+neg
+return
+goto Xfbc000f169584cd4b0c75a04f43a9722
+label X3290418c8607403392ae118e0da81b7d
+label Xfbc000f169584cd4b0c75a04f43a9722
+push local 0
+call Piece.getColor 1
+not
+if-goto Xe42ac7c2b18546b4aa51d843d4ea3cfd
+push argument 1
+call Move.getStartY 1
+push constant 6
+eq
+push argument 1
+call Move.getEndY 1
+push constant 4
+eq
+and
+not
+if-goto X3582336928c24b799c0d3ae34d0fa0b5
+push argument 1
+call Move.getStartX 1
+return
+goto X87e98a1ec92344eca9f29334f19ee79f
+label X3582336928c24b799c0d3ae34d0fa0b5
+label X87e98a1ec92344eca9f29334f19ee79f
+goto X31d81c5469ca4b75892019e03b964e48
+label Xe42ac7c2b18546b4aa51d843d4ea3cfd
+push argument 1
+call Move.getStartY 1
+push constant 1
+eq
+push argument 1
+call Move.getEndY 1
+push constant 3
+eq
+and
+not
+if-goto X01c1b3e10bba4b7a80b47bcf03be4642
+push argument 1
+call Move.getStartX 1
+return
+goto X61fa339478c642bc9b0b29584fea1852
+label X01c1b3e10bba4b7a80b47bcf03be4642
+label X61fa339478c642bc9b0b29584fea1852
+label X31d81c5469ca4b75892019e03b964e48
+push constant 1
+neg
+return
+function Board.removePiece 1
+push argument 0
+pop pointer 0
+push this 2
+push argument 2
+add
+pop pointer 1
+push that 0
+pop local 0
+push constant 0
+push local 0
+push argument 1
+add
+pop pointer 1
+pop that 0
+push constant 0
+return
+function Board.moveRequiresPromotion 1
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 1
+call Move.getStartSquare 1
+call Board.getPieceAtSquare 2
+pop local 0
+push local 0
+push constant 0
+eq
+push local 0
+call Piece.isPawn 1
+not
+or
+not
+if-goto X0421d72a5a1a42b7ac5ece398441bf53
+push constant 0
+return
+goto Xa46d5085f1b740b99b26fab60c95fdba
+label X0421d72a5a1a42b7ac5ece398441bf53
+label Xa46d5085f1b740b99b26fab60c95fdba
+push local 0
+call Piece.getColor 1
+not
+if-goto X2ac21722e5604e30af1e2ae4152d3864
+push argument 1
+call Move.getEndY 1
+push constant 0
+eq
+return
+goto X55189ac234cd4247b078418518a60768
+label X2ac21722e5604e30af1e2ae4152d3864
+push argument 1
+call Move.getEndY 1
+push constant 7
+eq
+return
+label X55189ac234cd4247b078418518a60768
+function Board.makeMove 5
+push argument 0
+pop pointer 0
+push static 0
+not
+if-goto X5e8525fe5af64e56a61ad8c00dcbbe0a
+push constant 16
+call String.new 1
+push constant 69
+call String.appendChar 2
+push constant 120
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+push argument 1
+call Move.toString 1
+call Util.printLineString 1
+pop temp 7
+push argument 1
+call Move.getStartX 1
+call Output.printInt 1
+pop temp 7
+push constant 1
+call String.new 1
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+push argument 1
+call Move.getStartY 1
+call Output.printInt 1
+pop temp 7
+push constant 1
+call String.new 1
+push constant 44
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+push argument 1
+call Move.getEndX 1
+call Output.printInt 1
+pop temp 7
+push constant 1
+call String.new 1
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+push argument 1
+call Move.getEndY 1
+call Output.printInt 1
+pop temp 7
+goto Xd879d88a87fe420c9f676e087df5cb78
+label X5e8525fe5af64e56a61ad8c00dcbbe0a
+label Xd879d88a87fe420c9f676e087df5cb78
+push pointer 0
+push argument 1
+call Board.enPassantFromMove 2
+pop this 0
+push this 2
+push argument 1
+call Move.getStartRank 1
+push constant 1
+sub
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+push argument 1
+call Move.getStartFile 1
+push constant 1
+sub
+add
+pop pointer 1
+push that 0
+pop local 1
+push constant 0
+push local 0
+push argument 1
+call Move.getStartFile 1
+push constant 1
+sub
+add
+pop pointer 1
+pop that 0
+call List.empty 0
+pop this 4
+push this 2
+push argument 1
+call Move.getEndRank 1
+push constant 1
+sub
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+push argument 1
+call Move.getEndFile 1
+push constant 1
+sub
+add
+pop pointer 1
+push that 0
+pop local 2
+push local 2
+push constant 0
+eq
+not
+if-goto X53c2411193154c88af70df8aa01f22a7
+push local 1
+call Piece.isPawn 1
+push argument 1
+call Move.getStartX 1
+push argument 1
+call Move.getEndX 1
+eq
+not
+and
+not
+if-goto X0e861ea8b8b14c04a59da2307f07b1b4
+push local 1
+call Piece.getColor 1
+not
+if-goto Xa9e01c7037dd49f8be1144f8071cff70
+push pointer 0
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+push constant 1
+add
+call Board.getPieceAt 3
+pop local 2
+push pointer 0
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+push constant 1
+add
+call Board.removePiece 3
+pop temp 7
+push local 2
+call Piece.dispose 1
+pop temp 7
+push this 4
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+push constant 1
+add
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 7
+goto Xd8054034f73b48af87be4811a11d47ca
+label Xa9e01c7037dd49f8be1144f8071cff70
+push pointer 0
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+push constant 1
+sub
+call Board.getPieceAt 3
+pop local 2
+push pointer 0
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+push constant 1
+sub
+call Board.removePiece 3
+pop temp 7
+push local 2
+call Piece.dispose 1
+pop temp 7
+push this 4
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+push constant 1
+sub
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 7
+label Xd8054034f73b48af87be4811a11d47ca
+goto Xd7f8f8061e9e4d538268f8d029bafcf9
+label X0e861ea8b8b14c04a59da2307f07b1b4
+label Xd7f8f8061e9e4d538268f8d029bafcf9
+goto X6f87a1c47d36442bac15f8e5782b1087
+label X53c2411193154c88af70df8aa01f22a7
+push local 2
+call Piece.isRook 1
+not
+if-goto X794181ee8cfa4a1a81115a5ffb5312f2
+push argument 1
+call Move.getEndX 1
+push constant 0
+eq
+push argument 1
+call Move.getEndY 1
+push constant 0
+eq
+and
+not
+if-goto X410308f339534294bd8ae436db8559ef
+push constant 0
+push this 1
+push constant 0
+add
+pop pointer 1
+pop that 0
+goto Xf23313c0626343f5b5c0b5cf6168dfca
+label X410308f339534294bd8ae436db8559ef
+label Xf23313c0626343f5b5c0b5cf6168dfca
+push argument 1
+call Move.getEndX 1
+push constant 7
+eq
+push argument 1
+call Move.getEndY 1
+push constant 0
+eq
+and
+not
+if-goto X9ba7ffd96fd84e299bbfcf871cb4a6a3
+push constant 0
+push this 1
+push constant 1
+add
+pop pointer 1
+pop that 0
+goto X53aacede64f947819680ff609587efa5
+label X9ba7ffd96fd84e299bbfcf871cb4a6a3
+label X53aacede64f947819680ff609587efa5
+push argument 1
+call Move.getEndX 1
+push constant 0
+eq
+push argument 1
+call Move.getEndY 1
+push constant 7
+eq
+and
+not
+if-goto X1e0533d272a048ca8946db4bce8c5437
+push constant 0
+push this 1
+push constant 2
+add
+pop pointer 1
+pop that 0
+goto X7f9452070bf0450cbe7327bcf29167d6
+label X1e0533d272a048ca8946db4bce8c5437
+label X7f9452070bf0450cbe7327bcf29167d6
+push argument 1
+call Move.getEndX 1
+push constant 7
+eq
+push argument 1
+call Move.getEndY 1
+push constant 7
+eq
+and
+not
+if-goto Xd89deae9a4444e19a6f2af723e55b58d
+push constant 0
+push this 1
+push constant 3
+add
+pop pointer 1
+pop that 0
+goto Xa30910ec049146d499b52f35d3a53864
+label Xd89deae9a4444e19a6f2af723e55b58d
+label Xa30910ec049146d499b52f35d3a53864
+goto Xf42e589b439f4a81870af0e6c9add905
+label X794181ee8cfa4a1a81115a5ffb5312f2
+label Xf42e589b439f4a81870af0e6c9add905
+push local 2
+call Piece.dispose 1
+pop temp 7
+label X6f87a1c47d36442bac15f8e5782b1087
+push local 1
+push local 0
+push argument 1
+call Move.getEndFile 1
+push constant 1
+sub
+add
+pop pointer 1
+pop that 0
+push argument 1
+call Move.getStartX 1
+push argument 1
+call Move.getEndX 1
+sub
+pop local 4
+push local 1
+call Piece.isKing 1
+push local 4
+call Util.abs 1
+push constant 1
+gt
+and
+not
+if-goto Xeb9f62e6bd72421881f29ad02d0bc4c6
+push local 4
+push constant 0
+gt
+not
+if-goto X3139b7fb375d4ce2b08e39e271a60153
+push this 2
+push argument 1
+call Move.getStartY 1
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+pop local 3
+push constant 0
+push local 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+push local 3
+push local 0
+push argument 1
+call Move.getEndX 1
+push constant 1
+add
+add
+pop pointer 1
+pop that 0
+push this 4
+push constant 0
+push argument 1
+call Move.getStartY 1
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 7
+push this 4
+push argument 1
+call Move.getEndX 1
+push constant 1
+add
+push argument 1
+call Move.getStartY 1
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 7
+goto Xb45e2d5ba393468b9ad634bcc9268032
+label X3139b7fb375d4ce2b08e39e271a60153
+push this 2
+push argument 1
+call Move.getStartY 1
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+push constant 7
+add
+pop pointer 1
+push that 0
+pop local 3
+push constant 0
+push local 0
+push constant 7
+add
+pop pointer 1
+pop that 0
+push local 3
+push local 0
+push argument 1
+call Move.getEndX 1
+push constant 1
+sub
+add
+pop pointer 1
+pop that 0
+push this 4
+push constant 7
+push argument 1
+call Move.getStartY 1
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 7
+push this 4
+push argument 1
+call Move.getEndX 1
+push constant 1
+sub
+push argument 1
+call Move.getStartY 1
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 7
+label Xb45e2d5ba393468b9ad634bcc9268032
+goto X07dabb218d82478dbde531699762426d
+label Xeb9f62e6bd72421881f29ad02d0bc4c6
+label X07dabb218d82478dbde531699762426d
+push this 4
+push argument 1
+call Move.getStartX 1
+push argument 1
+call Move.getStartY 1
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 7
+push this 4
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 7
+push local 1
+call Piece.isRook 1
+not
+if-goto Xd92ac679d9ce4509a12b4202f6aee8fe
+push local 1
+call Piece.getColor 1
+push argument 1
+call Move.getStartY 1
+push constant 7
+eq
+and
+not
+if-goto X14b91c0f8ef54593a5336223b2727ee6
+push argument 1
+call Move.getStartX 1
+push constant 0
+eq
+not
+if-goto Xa791a68b85dc4422bf12b2402f9d25e9
+push constant 0
+push this 1
+push constant 2
+add
+pop pointer 1
+pop that 0
+goto X3ff7360d4ac24205a24219f69d6da42e
+label Xa791a68b85dc4422bf12b2402f9d25e9
+label X3ff7360d4ac24205a24219f69d6da42e
+push argument 1
+call Move.getStartX 1
+push constant 7
+eq
+not
+if-goto X16f2a73db34f47f18c43a11dbfa9e634
+push constant 0
+push this 1
+push constant 3
+add
+pop pointer 1
+pop that 0
+goto X04affdb5258742378de257e85bfacac9
+label X16f2a73db34f47f18c43a11dbfa9e634
+label X04affdb5258742378de257e85bfacac9
+goto X44cefe3cf2594f189a2b4fa45e848094
+label X14b91c0f8ef54593a5336223b2727ee6
+label X44cefe3cf2594f189a2b4fa45e848094
+push local 1
+call Piece.getColor 1
+not
+push argument 1
+call Move.getStartY 1
+push constant 0
+eq
+and
+not
+if-goto X163afca591bb44bf984655bbb4442e34
+push argument 1
+call Move.getStartX 1
+push constant 0
+eq
+not
+if-goto Xc939a0b891b747679c2c423c25531f83
+push constant 0
+push this 1
+push constant 0
+add
+pop pointer 1
+pop that 0
+goto X5ead9fdb63b644978d1045e3ecd438e2
+label Xc939a0b891b747679c2c423c25531f83
+label X5ead9fdb63b644978d1045e3ecd438e2
+push argument 1
+call Move.getStartX 1
+push constant 7
+eq
+not
+if-goto Xba8a48e96f654cc2994bf95eceb10855
+push constant 0
+push this 1
+push constant 1
+add
+pop pointer 1
+pop that 0
+goto Xb0c2db0bdaa24161abb34acaffb99ece
+label Xba8a48e96f654cc2994bf95eceb10855
+label Xb0c2db0bdaa24161abb34acaffb99ece
+goto Xa93a5363951747baa820fc3244fbbb91
+label X163afca591bb44bf984655bbb4442e34
+label Xa93a5363951747baa820fc3244fbbb91
+goto X4ad85f9d1b844a07a1135cd492d36d39
+label Xd92ac679d9ce4509a12b4202f6aee8fe
+label X4ad85f9d1b844a07a1135cd492d36d39
+push local 1
+call Piece.isKing 1
+not
+if-goto X1ac054d09a5b4968af35a90c2302b280
+push local 1
+call Piece.getColor 1
+not
+if-goto Xef463b8da8024801b898c6e935b6c71d
+push constant 0
+push this 1
+push constant 2
+add
+pop pointer 1
+pop that 0
+push constant 0
+push this 1
+push constant 3
+add
+pop pointer 1
+pop that 0
+goto X422f1fcf08b4476991f2e92515f79e32
+label Xef463b8da8024801b898c6e935b6c71d
+push constant 0
+push this 1
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 0
+push this 1
+push constant 1
+add
+pop pointer 1
+pop that 0
+label X422f1fcf08b4476991f2e92515f79e32
+goto Xb4fd0cbe35b84617a1cf8efb57033d10
+label X1ac054d09a5b4968af35a90c2302b280
+label Xb4fd0cbe35b84617a1cf8efb57033d10
+push local 1
+call Piece.isPawn 1
+not
+if-goto Xf573f2369a134238a8d34c894eea4d8f
+push local 1
+call Piece.getColor 1
+push argument 1
+call Move.getEndY 1
+push constant 0
+eq
+and
+push local 1
+call Piece.getColor 1
+not
+push argument 1
+call Move.getEndY 1
+push constant 7
+eq
+and
+or
+not
+if-goto Xa6038603e1f5469184cba0286e3339b3
+push local 1
+push argument 1
+call Move.getPromotionPieceType 1
+call Piece.promote 2
+pop temp 7
+goto X21e243446ad748719112a34bb1fcecc0
+label Xa6038603e1f5469184cba0286e3339b3
+label X21e243446ad748719112a34bb1fcecc0
+goto X96ba51c15c5d4d1fa3dbb1c7d76e7794
+label Xf573f2369a134238a8d34c894eea4d8f
+label X96ba51c15c5d4d1fa3dbb1c7d76e7794
+push this 5
+not
+pop this 5
+push constant 0
+return
+function Board.squareIsDirty 2
+push argument 0
+pop pointer 0
+push this 4
+push constant 0
+eq
+not
+if-goto Xf8c43996323b46abb6364fc0508115d2
+push constant 0
+not
+return
+goto X8cdceae351c746db88e7f4213a7e9b9d
+label Xf8c43996323b46abb6364fc0508115d2
+label X8cdceae351c746db88e7f4213a7e9b9d
+push this 4
+call List.getLength 1
+push constant 1
+sub
+pop local 0
+label LABEL1_Xa2754b8439b04ca0b93da80fcedda84b
+push local 0
+push constant 1
+neg
+gt
+not
+if-goto LABEL2_X032129da5be44911ae7e127b53be348e
+push this 4
+push local 0
+call List.getElement 2
+pop local 1
+push local 1
+call Square.getX 1
+push argument 1
+eq
+push local 1
+call Square.getY 1
+push argument 2
+eq
+and
+not
+if-goto X1d3c875da41c4104af308f69dfd2ff19
+push constant 0
+not
+return
+goto Xdaa1b85f113c4314b668380b92b0d4e3
+label X1d3c875da41c4104af308f69dfd2ff19
+label Xdaa1b85f113c4314b668380b92b0d4e3
+push local 0
+push constant 1
+sub
+pop local 0
+goto LABEL1_Xa2754b8439b04ca0b93da80fcedda84b
+label LABEL2_X032129da5be44911ae7e127b53be348e
+push constant 0
+return
+function Board.print 11
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push constant 0
+not
+pop local 4
+push constant 32
+pop local 6
+label LABEL1_Xd3634916825747edb7cd4ba930cd9737
+push local 0
+push constant 8
+lt
+not
+if-goto LABEL2_Xf49aad93b78d472f91d4c0df7b51cbe0
+push constant 0
+pop local 1
+label LABEL1_X51d4c505f85b495f816bb63e4b362f48
+push local 1
+push constant 8
+lt
+not
+if-goto LABEL2_Xd538ea4ba9614be991727d3c2a9ec97f
+push pointer 0
+push local 1
+push local 0
+call Board.squareIsDirty 3
+not
+if-goto Xef90212f13ef430c9ae2c041db6bc953
+push pointer 0
+push local 0
+push local 1
+add
+call Board.isEven 2
+not
+pop local 5
+push local 5
+pop local 4
+push local 4
+call Screen.setColor 1
+pop temp 7
+push local 1
+push constant 8
+add
+push local 6
+call Math.multiply 2
+pop local 7
+push constant 7
+push local 0
+sub
+push local 6
+call Math.multiply 2
+pop local 9
+push local 7
+push local 6
+add
+pop local 8
+push local 9
+push local 6
+add
+pop local 10
+push local 7
+push local 9
+push local 8
+push constant 1
+sub
+push local 10
+push constant 1
+sub
+call Screen.drawRectangle 4
+pop temp 7
+push this 2
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 2
+push local 2
+push local 1
+add
+pop pointer 1
+push that 0
+pop local 3
+push local 3
+push constant 0
+eq
+not
+not
+if-goto Xd75b5616a450412691e7f003a61d53f8
+push local 3
+push local 7
+push local 9
+push local 5
+call Piece.draw 4
+pop temp 7
+goto X1d1316aa8600410c841b2c2aa5139da2
+label Xd75b5616a450412691e7f003a61d53f8
+label X1d1316aa8600410c841b2c2aa5139da2
+goto X326d520352df4b5baf5ac38a13549a9c
+label Xef90212f13ef430c9ae2c041db6bc953
+label X326d520352df4b5baf5ac38a13549a9c
+push local 1
+push constant 1
+add
+pop local 1
+goto LABEL1_X51d4c505f85b495f816bb63e4b362f48
+label LABEL2_Xd538ea4ba9614be991727d3c2a9ec97f
+push local 0
+push constant 1
+add
+pop local 0
+goto LABEL1_Xd3634916825747edb7cd4ba930cd9737
+label LABEL2_Xf49aad93b78d472f91d4c0df7b51cbe0
+call List.empty 0
+pop this 4
+push static 0
+not
+if-goto Xa5b2ff515eea4df28f286e67f57fc0eb
+push constant 12
+call String.new 1
+push constant 69
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+push pointer 0
+call Board.getEnPassantIndicator 1
+call Util.printLineInt 1
+pop temp 7
+push constant 9
+call String.new 1
+push constant 67
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+call Util.printLineString 1
+pop temp 7
+push constant 9
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 87
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 61
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+push this 1
+push constant 0
+add
+pop pointer 1
+push that 0
+not
+if-goto Xd91d5175bb2948db8e52fbb5e3d3f9bb
+push constant 6
+call String.new 1
+push constant 79
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 59
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+goto Xae27d911efe044d0ba196f57315b8e2f
+label Xd91d5175bb2948db8e52fbb5e3d3f9bb
+label Xae27d911efe044d0ba196f57315b8e2f
+push this 1
+push constant 1
+add
+pop pointer 1
+push that 0
+not
+if-goto X1a8dc966450042d6b58fb2596c10166f
+push constant 4
+call String.new 1
+push constant 79
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 59
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+goto X8c1627463f75481590f20f3437c36cba
+label X1a8dc966450042d6b58fb2596c10166f
+label X8c1627463f75481590f20f3437c36cba
+call Output.println 0
+pop temp 7
+push constant 9
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 66
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 107
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 61
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+push this 1
+push constant 2
+add
+pop pointer 1
+push that 0
+not
+if-goto Xa4ffa6d2a20d4b269d255b5a9ea0444a
+push constant 6
+call String.new 1
+push constant 79
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 59
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+goto Xe940f1c0c82c48f596865e2510d4d6db
+label Xa4ffa6d2a20d4b269d255b5a9ea0444a
+label Xe940f1c0c82c48f596865e2510d4d6db
+push this 1
+push constant 3
+add
+pop pointer 1
+push that 0
+not
+if-goto X4f2fe5d87b9e41759ab8287022f7e7f6
+push constant 4
+call String.new 1
+push constant 79
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 59
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+goto Xa0ceb5462eaf47b798ffe30576eaa8d0
+label X4f2fe5d87b9e41759ab8287022f7e7f6
+label Xa0ceb5462eaf47b798ffe30576eaa8d0
+call Output.println 0
+pop temp 7
+goto X87b11d2aeb4e4a119edd4804f20b2998
+label Xa5b2ff515eea4df28f286e67f57fc0eb
+label X87b11d2aeb4e4a119edd4804f20b2998
+push constant 0
+return
+function Board.getPieceAt 1
+push argument 0
+pop pointer 0
+push this 2
+push argument 2
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+push argument 1
+add
+pop pointer 1
+push that 0
+return
+function Board.getPieceAtSquare 0
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 1
+call Square.getX 1
+push argument 1
+call Square.getY 1
+call Board.getPieceAt 3
+return
+function Board.printLegalMovesAt 5
+push argument 0
+pop pointer 0
+call Main.getX 0
+pop local 4
+call Main.getY 0
+pop local 3
+push local 3
+call Output.printInt 1
+pop temp 7
+push constant 1
+call String.new 1
+push constant 44
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+push local 4
+call Output.printInt 1
+pop temp 7
+call Output.println 0
+pop temp 7
+push pointer 0
+push local 3
+push local 4
+call Board.getLegalSquaresAt 3
+pop local 0
+push local 0
+push constant 0
+eq
+not
+if-goto Xddde25b2a783492ca0144a4df991374c
+push constant 4
+call String.new 1
+push constant 78
+call String.appendChar 2
+push constant 85
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+goto X2d875c0f057d436aa996c4d9ae694530
+label Xddde25b2a783492ca0144a4df991374c
+push local 0
+call List.getLength 1
+push constant 1
+sub
+pop local 1
+label LABEL1_X07e9985fe1b941c08112b894e2e2bba5
+push local 1
+push constant 1
+neg
+gt
+not
+if-goto LABEL2_Xf2dadf1016174908ba85afe75cc67726
+push local 0
+push local 1
+call List.getElement 2
+pop local 2
+push local 2
+call Square.toString 1
+call Output.printString 1
+pop temp 7
+call Output.println 0
+pop temp 7
+push local 1
+push constant 1
+sub
+pop local 1
+goto LABEL1_X07e9985fe1b941c08112b894e2e2bba5
+label LABEL2_Xf2dadf1016174908ba85afe75cc67726
+label X2d875c0f057d436aa996c4d9ae694530
+push constant 0
+return
+function Board.moveErrorCode 4
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 1
+call Move.getStartX 1
+push argument 1
+call Move.getStartY 1
+call Board.getPieceAt 3
+pop local 3
+push local 3
+push constant 0
+eq
+not
+if-goto X65c9942c321b40ed86d812f4d5733283
+push constant 1
+return
+goto Xb8c41aea8ac54fc187fdf37e68a0179f
+label X65c9942c321b40ed86d812f4d5733283
+label Xb8c41aea8ac54fc187fdf37e68a0179f
+push local 3
+call Piece.getColor 1
+push this 5
+eq
+not
+not
+if-goto X2aa52ea69735413e805ed28f0df7cc64
+push constant 2
+return
+goto X084c8002310b4b448c27889aa45e58f5
+label X2aa52ea69735413e805ed28f0df7cc64
+label X084c8002310b4b448c27889aa45e58f5
+push pointer 0
+push argument 1
+call Move.getStartX 1
+push argument 1
+call Move.getStartY 1
+call Board.getLegalSquaresAt 3
+pop local 0
+push local 0
+push constant 0
+eq
+not
+if-goto X4a20c127e2d44397a0c0df111b0667c1
+push constant 1
+return
+goto X30445933a23047f6915bed4338b9c918
+label X4a20c127e2d44397a0c0df111b0667c1
+label X30445933a23047f6915bed4338b9c918
+push local 0
+call List.getLength 1
+push constant 1
+sub
+pop local 2
+label LABEL1_X35082f6feb7f43aeac7308e546dae759
+push local 2
+push constant 1
+neg
+gt
+not
+if-goto LABEL2_X9cb4b55d47064608801dad4b7764c6f0
+push local 0
+push local 2
+call List.getElement 2
+pop local 1
+push local 1
+call Square.getX 1
+push argument 1
+call Move.getEndX 1
+eq
+push local 1
+call Square.getY 1
+push argument 1
+call Move.getEndY 1
+eq
+and
+not
+if-goto Xed37b87edd234e4cb91e33463da4c0bf
+push pointer 0
+push argument 1
+call Board.moveRequiresPromotion 2
+push argument 1
+call Move.isPromotion 1
+not
+and
+not
+if-goto Xfe4c672099a0457da4d588894d945457
+push constant 4
+return
+goto X2014df9ac43f4718818a6d3bd45e26e9
+label Xfe4c672099a0457da4d588894d945457
+label X2014df9ac43f4718818a6d3bd45e26e9
+push pointer 0
+push argument 1
+call Board.moveRequiresPromotion 2
+not
+push argument 1
+call Move.isPromotion 1
+and
+not
+if-goto X6915af9d2ce54ab1b53ab69d5ce6078f
+push constant 5
+return
+goto Xaf83e0f160c84918ba7e41756c4e6f08
+label X6915af9d2ce54ab1b53ab69d5ce6078f
+label Xaf83e0f160c84918ba7e41756c4e6f08
+push constant 0
+return
+goto X9775a95c70694705bb3b1ebbafcb4ee8
+label Xed37b87edd234e4cb91e33463da4c0bf
+label X9775a95c70694705bb3b1ebbafcb4ee8
+push local 2
+push constant 1
+sub
+pop local 2
+goto LABEL1_X35082f6feb7f43aeac7308e546dae759
+label LABEL2_X9cb4b55d47064608801dad4b7764c6f0
+push constant 3
+return
+function Board.getLegalPawnSquaresAt 6
+push argument 0
+pop pointer 0
+push static 0
+not
+if-goto X5ee5a9259371418e833b492adb655896
+push constant 28
+call String.new 1
+push constant 67
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 119
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+call Util.printLineString 1
+pop temp 7
+goto X3ec4485d237a415f9ce21ce092f94e8e
+label X5ee5a9259371418e833b492adb655896
+label X3ec4485d237a415f9ce21ce092f94e8e
+push constant 0
+pop local 2
+push argument 1
+call Piece.getColor 1
+not
+if-goto Xa9fb1c5eba5a4ad8a3ad8b4a4fd66289
+push constant 1
+neg
+pop local 0
+push argument 3
+push constant 6
+eq
+not
+if-goto Xa751cc6e7aba49a98b1b0e24cf037cbf
+push constant 0
+not
+pop local 2
+goto X786968b2d0594a088752d0357e0b587b
+label Xa751cc6e7aba49a98b1b0e24cf037cbf
+label X786968b2d0594a088752d0357e0b587b
+goto X112339ebfc7547109d3d9df0fb739cc3
+label Xa9fb1c5eba5a4ad8a3ad8b4a4fd66289
+push constant 1
+pop local 0
+push argument 3
+push constant 1
+eq
+not
+if-goto X35f27ead65924ac2b1370ff37065c63d
+push constant 0
+not
+pop local 2
+goto X109738731f2e4f64b2507e9dfff2e502
+label X35f27ead65924ac2b1370ff37065c63d
+label X109738731f2e4f64b2507e9dfff2e502
+label X112339ebfc7547109d3d9df0fb739cc3
+call List.empty 0
+pop local 3
+push argument 2
+push argument 3
+push local 0
+add
+call Square.fromBoardIndices 2
+pop local 4
+push static 0
+not
+if-goto X3d683dd3a9f143b79bc2d6e69ac3207c
+push local 4
+call Square.toString 1
+call Util.printLineString 1
+pop temp 7
+goto X1caf3ab9f99d40da9a8cb2975b3d46f8
+label X3d683dd3a9f143b79bc2d6e69ac3207c
+label X1caf3ab9f99d40da9a8cb2975b3d46f8
+push pointer 0
+push local 4
+call Board.getPieceAtSquare 2
+push constant 0
+eq
+not
+if-goto X27a88ca686714b98997bbcbb1b67d8ba
+push local 3
+push local 4
+call List.append 2
+pop temp 7
+push argument 2
+push argument 3
+push local 0
+push local 0
+add
+add
+call Square.fromBoardIndices 2
+pop local 4
+push pointer 0
+push local 4
+call Board.getPieceAtSquare 2
+push constant 0
+eq
+push local 2
+and
+not
+if-goto X0745ae5d27c4498ba64ee16f8f90a23c
+push local 3
+push local 4
+call List.append 2
+pop temp 7
+goto X3a95bd420ee74e8f83581ac12ddb45dd
+label X0745ae5d27c4498ba64ee16f8f90a23c
+label X3a95bd420ee74e8f83581ac12ddb45dd
+goto X871db7dfe1cc46b38bb5933d59f845c3
+label X27a88ca686714b98997bbcbb1b67d8ba
+label X871db7dfe1cc46b38bb5933d59f845c3
+push constant 1
+neg
+pop local 1
+label LABEL1_X706d5aec51414f0486f162ef4bc0670d
+push local 1
+push constant 2
+lt
+not
+if-goto LABEL2_Xecb63e757fc44630862c7c5b8680bf82
+push argument 2
+push local 1
+add
+push argument 3
+push local 0
+add
+call Square.fromBoardIndices 2
+pop local 4
+push pointer 0
+push local 4
+call Board.getPieceAtSquare 2
+pop local 5
+push local 5
+push constant 0
+eq
+not
+if-goto Xd6eeffaeaeec492da18fedda4681fe55
+push argument 2
+push local 1
+add
+push this 0
+eq
+not
+if-goto X40bcf9820f234a408b7a656ef5340513
+push argument 1
+call Piece.getColor 1
+not
+if-goto X2e2b822d5c6c4a63bc52562b0d37bc25
+push argument 3
+push constant 3
+eq
+not
+if-goto X5bdb823d401d4965b0e9a0a9912b4da7
+push local 3
+push local 4
+call List.append 2
+pop temp 7
+goto X211d8172cf9b4f6687eaaadee5f729ff
+label X5bdb823d401d4965b0e9a0a9912b4da7
+label X211d8172cf9b4f6687eaaadee5f729ff
+goto Xc4895b118e6f46618fc7ac2c5bd74c71
+label X2e2b822d5c6c4a63bc52562b0d37bc25
+push argument 3
+push constant 4
+eq
+not
+if-goto X3cc42decadcb4dd1aea0ec60f52a1f1c
+push local 3
+push local 4
+call List.append 2
+pop temp 7
+goto Xaa8b83a8f0ad45f7aff945a84fa1dc42
+label X3cc42decadcb4dd1aea0ec60f52a1f1c
+label Xaa8b83a8f0ad45f7aff945a84fa1dc42
+label Xc4895b118e6f46618fc7ac2c5bd74c71
+goto Xde61871333cc4cf38cd631aff04bdf63
+label X40bcf9820f234a408b7a656ef5340513
+label Xde61871333cc4cf38cd631aff04bdf63
+goto X62e09ec87c1b4d78aeb97077f02b3ff5
+label Xd6eeffaeaeec492da18fedda4681fe55
+push local 5
+call Piece.getColor 1
+push argument 1
+call Piece.getColor 1
+eq
+not
+not
+if-goto Xc1413960a7a148ef9e27c283bc44420a
+push local 3
+push local 4
+call List.append 2
+pop temp 7
+goto Xaeb03c5b49ad4683b0d0f7abf2fd8854
+label Xc1413960a7a148ef9e27c283bc44420a
+label Xaeb03c5b49ad4683b0d0f7abf2fd8854
+label X62e09ec87c1b4d78aeb97077f02b3ff5
+push local 1
+push constant 2
+add
+pop local 1
+goto LABEL1_X706d5aec51414f0486f162ef4bc0670d
+label LABEL2_Xecb63e757fc44630862c7c5b8680bf82
+push local 3
+return
+function Board.getLegalSquaresAt 10
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 1
+push argument 2
+call Board.getPieceAt 3
+pop local 1
+push local 1
+push constant 0
+eq
+not
+if-goto X64cea042bc02470eb416fe7ff66a8579
+push constant 0
+return
+goto Xe8443f0e178f414f858e7591baaf4883
+label X64cea042bc02470eb416fe7ff66a8579
+label Xe8443f0e178f414f858e7591baaf4883
+push local 1
+call Piece.isPawn 1
+not
+if-goto X6660dd5a82214d8783d78d107fef6a84
+push pointer 0
+push local 1
+push argument 1
+push argument 2
+call Board.getLegalPawnSquaresAt 4
+return
+goto Xf56abbe2b7224ab78b7a8bc51d3ab121
+label X6660dd5a82214d8783d78d107fef6a84
+label Xf56abbe2b7224ab78b7a8bc51d3ab121
+call List.empty 0
+pop local 3
+push argument 1
+push argument 2
+call Square.fromBoardIndices 2
+pop local 2
+push static 0
+not
+if-goto X75c1a5df4def4cc2890e443ee070d459
+push local 2
+call Square.toString 1
+call Util.printLineString 1
+pop temp 7
+push local 1
+call Piece.toString 1
+call Util.printLineString 1
+pop temp 7
+goto Xf25268d307104ac8bd104106c570e646
+label X75c1a5df4def4cc2890e443ee070d459
+label Xf25268d307104ac8bd104106c570e646
+push local 1
+call SquareGenerator.getOffsetsByPiece 1
+pop local 0
+push local 1
+call SquareGenerator.getRiderDistForPiece 1
+pop local 9
+push local 0
+call List.getLength 1
+push local 9
+call Math.divide 2
+pop local 7
+push constant 0
+pop local 6
+label LABEL1_Xc80b351255e846faa7ec3b2d77d782e2
+push local 6
+push local 7
+lt
+not
+if-goto LABEL2_X1d8442369e1e4188916351caeb7c4b21
+push constant 0
+pop local 8
+label LABEL1_Xa59af7247a2048f99edbd4da87f6f211
+push local 8
+push local 9
+lt
+not
+if-goto LABEL2_X4f34fc8e6d2a435380356326a66039e8
+push local 0
+push local 8
+push local 7
+call Math.multiply 2
+push local 6
+add
+call List.getElement 2
+pop local 4
+push local 2
+push local 4
+call Square.addSquare 2
+pop local 4
+push local 4
+call Square.isOnBoard 1
+not
+not
+if-goto X029ae06e579848ea9308b94cf061f1af
+push local 9
+pop local 8
+goto X95c15438d86c45338babb6682f6a3d01
+label X029ae06e579848ea9308b94cf061f1af
+push pointer 0
+push local 4
+call Board.getPieceAtSquare 2
+pop local 5
+push local 5
+push constant 0
+eq
+not
+if-goto X021b052b43b44f389d26e116bd27e039
+push local 3
+push local 4
+call List.append 2
+pop temp 7
+push local 8
+push constant 1
+add
+pop local 8
+goto Xdc75f08f9c5948d7ba89e137cdbd7d49
+label X021b052b43b44f389d26e116bd27e039
+push local 1
+push local 5
+call Piece.isEnemy 2
+not
+if-goto Xa2d7226529134cd697beaefcfe135074
+push local 3
+push local 4
+call List.append 2
+pop temp 7
+push local 9
+pop local 8
+goto X6cc56017536c412485255a18574da9dc
+label Xa2d7226529134cd697beaefcfe135074
+push local 9
+pop local 8
+label X6cc56017536c412485255a18574da9dc
+label Xdc75f08f9c5948d7ba89e137cdbd7d49
+label X95c15438d86c45338babb6682f6a3d01
+goto LABEL1_Xa59af7247a2048f99edbd4da87f6f211
+label LABEL2_X4f34fc8e6d2a435380356326a66039e8
+push local 6
+push constant 1
+add
+pop local 6
+goto LABEL1_Xc80b351255e846faa7ec3b2d77d782e2
+label LABEL2_X1d8442369e1e4188916351caeb7c4b21
+push local 1
+call Piece.isKing 1
+push argument 1
+push constant 4
+eq
+and
+not
+if-goto Xf6c79453bba94729b1e542ce92fd51a6
+push local 3
+push pointer 0
+push local 1
+push argument 1
+push argument 2
+call Board.getCastlingMoves 4
+call List.extend 2
+pop temp 7
+goto X1f35e16e32174ce4b9bcb16515e36c3d
+label Xf6c79453bba94729b1e542ce92fd51a6
+label X1f35e16e32174ce4b9bcb16515e36c3d
+push local 3
+return
+function Board.getCastlingMoves 1
+push argument 0
+pop pointer 0
+call List.empty 0
+pop local 0
+push argument 1
+call Piece.getColor 1
+not
+if-goto X61ba165cd1074f30979691375aeb30d3
+push this 1
+push constant 3
+add
+pop pointer 1
+push that 0
+not
+if-goto Xdce4a0001c2d4908968b506d9c90c117
+push pointer 0
+push argument 2
+push constant 1
+add
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+push pointer 0
+push argument 2
+push constant 2
+add
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+and
+not
+if-goto Xb757bd1d59ae407b9e1773602bb90085
+push local 0
+push argument 2
+push constant 2
+add
+push argument 3
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 7
+goto Xc29e8e983e154f87b26a6a9fb8e337bd
+label Xb757bd1d59ae407b9e1773602bb90085
+label Xc29e8e983e154f87b26a6a9fb8e337bd
+goto X77bfcbc0537d4cd3adf1991cea84388c
+label Xdce4a0001c2d4908968b506d9c90c117
+label X77bfcbc0537d4cd3adf1991cea84388c
+push this 1
+push constant 2
+add
+pop pointer 1
+push that 0
+not
+if-goto X051127db76744e1dbc95f79e270150d2
+push pointer 0
+push argument 2
+push constant 1
+sub
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+push pointer 0
+push argument 2
+push constant 2
+sub
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+push pointer 0
+push argument 2
+push constant 3
+sub
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+and
+and
+not
+if-goto X75785e36e87e4148a25b3f4b067c915e
+push local 0
+push argument 2
+push constant 2
+sub
+push argument 3
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 7
+goto X563c577d6d604df08e7f9efbebb8afd8
+label X75785e36e87e4148a25b3f4b067c915e
+label X563c577d6d604df08e7f9efbebb8afd8
+goto X8d5edf4e4277424cb65ed1d042cef762
+label X051127db76744e1dbc95f79e270150d2
+label X8d5edf4e4277424cb65ed1d042cef762
+goto X905014818f714f3db148176afe8ee515
+label X61ba165cd1074f30979691375aeb30d3
+push this 1
+push constant 1
+add
+pop pointer 1
+push that 0
+not
+if-goto X8b71a59d02b24520b7a78c710149521b
+push pointer 0
+push argument 2
+push constant 1
+add
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+push pointer 0
+push argument 2
+push constant 2
+add
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+and
+not
+if-goto X30211856e2f6438fb92239a54c5de433
+push local 0
+push argument 2
+push constant 2
+add
+push argument 3
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 7
+goto X494eb359e1a0495788e7ca752d071a23
+label X30211856e2f6438fb92239a54c5de433
+label X494eb359e1a0495788e7ca752d071a23
+goto X43b46e0fe7e34ca68b91212749447d09
+label X8b71a59d02b24520b7a78c710149521b
+label X43b46e0fe7e34ca68b91212749447d09
+push this 1
+push constant 0
+add
+pop pointer 1
+push that 0
+not
+if-goto X2007e546f5d24a658bd40a23f467f54a
+push pointer 0
+push argument 2
+push constant 1
+sub
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+push pointer 0
+push argument 2
+push constant 2
+sub
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+push pointer 0
+push argument 2
+push constant 3
+sub
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+and
+and
+not
+if-goto X70f87f27c42846349be3e999fea3f06e
+push local 0
+push argument 2
+push constant 2
+sub
+push argument 3
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 7
+goto X221ca9a88c7046a68c839a39164625b9
+label X70f87f27c42846349be3e999fea3f06e
+label X221ca9a88c7046a68c839a39164625b9
+goto X4a7aa419c34a4249a203cba8d14bab3d
+label X2007e546f5d24a658bd40a23f467f54a
+label X4a7aa419c34a4249a203cba8d14bab3d
+label X905014818f714f3db148176afe8ee515
+push local 0
+return
+function Board.getPotentialSquares 1
+push argument 0
+pop pointer 0
+push argument 3
+call Array.new 1
+pop local 0
+push argument 3
+push constant 1
+sub
+pop argument 3
+label LABEL1_Xc1e71cea53454a9a86b79535298dd39b
+push argument 3
+push constant 1
+neg
+gt
+not
+if-goto LABEL2_Xccfb98aee1ee4743aa25f469700a4ed7
+push argument 1
+push argument 2
+push argument 3
+add
+pop pointer 1
+push that 0
+call Square.addSquare 2
+push local 0
+push argument 3
+add
+pop pointer 1
+pop that 0
+push argument 3
+push constant 1
+sub
+pop argument 3
+goto LABEL1_Xc1e71cea53454a9a86b79535298dd39b
+label LABEL2_Xccfb98aee1ee4743aa25f469700a4ed7
+push local 0
+return

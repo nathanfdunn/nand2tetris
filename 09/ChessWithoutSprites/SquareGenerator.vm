@@ -1,0 +1,478 @@
+function SquareGenerator.getP0 1
+push constant 1
+call Array.new 1
+pop local 0
+push constant 0
+push constant 1
+call Square.fromBoardIndices 2
+push local 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+push local 0
+return
+function SquareGenerator.getP1 0
+push argument 0
+push argument 0
+push constant 1
+push constant 1
+neg
+call SquareGenerator.multiplyScalar 3
+push constant 1
+call SquareGenerator.zipUnion 3
+return
+function SquareGenerator.getWazir 0
+push argument 0
+push argument 0
+push constant 2
+call SquareGenerator.transposeElements 2
+push constant 2
+call SquareGenerator.zipUnion 3
+return
+function SquareGenerator.getFerz 0
+push argument 0
+push argument 0
+push constant 4
+push constant 0
+not
+call SquareGenerator.addElements 4
+return
+function SquareGenerator.init 4
+call SquareGenerator.getP0 0
+pop local 0
+push local 0
+call SquareGenerator.getP1 1
+pop local 1
+push local 1
+call SquareGenerator.getWazir 1
+pop local 2
+push local 2
+call SquareGenerator.getFerz 1
+pop local 3
+push local 2
+push local 3
+push constant 4
+call SquareGenerator.zipUnion 3
+pop static 0
+push static 0
+push static 0
+push constant 8
+push constant 0
+not
+call SquareGenerator.addElements 4
+pop static 4
+push local 3
+push constant 4
+call SquareGenerator.riderClosure 2
+pop static 2
+push local 2
+push constant 4
+call SquareGenerator.riderClosure 2
+pop static 3
+push static 0
+push constant 8
+call SquareGenerator.riderClosure 2
+pop static 1
+push constant 0
+return
+function SquareGenerator.printSquares 2
+push constant 0
+pop local 1
+label LABEL1_Xc67571b076de4e2684722327330724ca
+push local 1
+push argument 1
+lt
+not
+if-goto LABEL2_X834145639480431fa3bb40498508d965
+push argument 0
+push local 1
+add
+pop pointer 1
+push that 0
+pop local 0
+push local 0
+push constant 0
+eq
+not
+if-goto X3665028e7edc40eab34fe8c744c48e31
+push constant 4
+call String.new 1
+push constant 78
+call String.appendChar 2
+push constant 85
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+call Output.println 0
+pop temp 7
+goto Xa2ffe284145a40d8931c868d0327f8a2
+label X3665028e7edc40eab34fe8c744c48e31
+push local 0
+call Output.printInt 1
+pop temp 7
+call Output.println 0
+pop temp 7
+push local 0
+call Square.toString 1
+call Output.printString 1
+pop temp 7
+call Output.println 0
+pop temp 7
+label Xa2ffe284145a40d8931c868d0327f8a2
+push local 1
+push constant 1
+add
+pop local 1
+goto LABEL1_Xc67571b076de4e2684722327330724ca
+label LABEL2_X834145639480431fa3bb40498508d965
+push constant 0
+return
+function SquareGenerator.getRiderDist 0
+push constant 8
+return
+function SquareGenerator.getRiderDistForPiece 0
+push argument 0
+call Piece.isKnight 1
+push argument 0
+call Piece.isKing 1
+or
+not
+if-goto X4240e61a08f947959693f6303e479405
+push constant 1
+return
+goto Xb3706e96f7d74dc1a36661b4db3f4635
+label X4240e61a08f947959693f6303e479405
+label Xb3706e96f7d74dc1a36661b4db3f4635
+call SquareGenerator.getRiderDist 0
+return
+function SquareGenerator.riderClosure 6
+call SquareGenerator.getRiderDist 0
+pop local 2
+push local 2
+push argument 1
+call Math.multiply 2
+call Array.new 1
+pop local 0
+push constant 0
+pop local 4
+push argument 1
+call Array.new 1
+pop local 1
+push constant 0
+pop local 5
+label LABEL1_Xe795db6d0e7f4aa2afc3a1028c5bdaad
+push local 5
+push argument 1
+lt
+not
+if-goto LABEL2_Xd85bf396321042919a878d0e1860db44
+push constant 0
+push constant 0
+call Square.fromBoardIndices 2
+push local 1
+push local 5
+add
+pop pointer 1
+pop that 0
+push local 5
+push constant 1
+add
+pop local 5
+goto LABEL1_Xe795db6d0e7f4aa2afc3a1028c5bdaad
+label LABEL2_Xd85bf396321042919a878d0e1860db44
+push constant 0
+pop local 3
+label LABEL1_Xdc66890645184e24912c9426b9bdb923
+push local 3
+push local 2
+lt
+not
+if-goto LABEL2_X7b0f99fb4f4148ab9fd42030d08ca2fe
+push argument 0
+push local 1
+push argument 1
+push constant 0
+call SquareGenerator.addElements 4
+pop local 1
+push constant 0
+pop local 5
+label LABEL1_Xe6f5c2053f5f479d894c3a84a5e9c490
+push local 5
+push argument 1
+lt
+not
+if-goto LABEL2_X98e9210ed2e34665be6abd3c7226cd40
+push local 1
+push local 5
+add
+pop pointer 1
+push that 0
+push local 0
+push local 4
+add
+pop pointer 1
+pop that 0
+push local 5
+push constant 1
+add
+pop local 5
+push local 4
+push constant 1
+add
+pop local 4
+goto LABEL1_Xe6f5c2053f5f479d894c3a84a5e9c490
+label LABEL2_X98e9210ed2e34665be6abd3c7226cd40
+push local 3
+push constant 1
+add
+pop local 3
+goto LABEL1_Xdc66890645184e24912c9426b9bdb923
+label LABEL2_X7b0f99fb4f4148ab9fd42030d08ca2fe
+push local 0
+return
+function SquareGenerator.zipUnion 1
+push constant 2
+push argument 2
+call Math.multiply 2
+call Array.new 1
+pop local 0
+push argument 2
+push constant 1
+sub
+pop argument 2
+label LABEL1_Xd3af043f20fe44aca4f528250cb1e372
+push argument 2
+push constant 1
+neg
+gt
+not
+if-goto LABEL2_X4c466387ec3147e9b752f551c7cc394a
+push argument 0
+push argument 2
+add
+pop pointer 1
+push that 0
+push local 0
+push constant 2
+push argument 2
+call Math.multiply 2
+add
+pop pointer 1
+pop that 0
+push argument 1
+push argument 2
+add
+pop pointer 1
+push that 0
+push local 0
+push constant 2
+push argument 2
+call Math.multiply 2
+push constant 1
+add
+add
+pop pointer 1
+pop that 0
+push argument 2
+push constant 1
+sub
+pop argument 2
+goto LABEL1_Xd3af043f20fe44aca4f528250cb1e372
+label LABEL2_X4c466387ec3147e9b752f551c7cc394a
+push local 0
+return
+function SquareGenerator.addElements 4
+push argument 2
+call Array.new 1
+pop local 0
+push constant 0
+pop local 2
+label LABEL1_Xfd9522a994834af6b0de9cdc61760413
+push local 2
+push argument 2
+lt
+not
+if-goto LABEL2_Xfad5e83fdf804e42be4a825c101aa091
+push argument 3
+not
+if-goto X05a21642f52b4ef2869eefb69fd2afd7
+push local 2
+push argument 2
+call Util.modularIncrement 2
+pop local 3
+goto X18a2b5fecaf94c1cac1d7bc903dcca0e
+label X05a21642f52b4ef2869eefb69fd2afd7
+push local 2
+pop local 3
+label X18a2b5fecaf94c1cac1d7bc903dcca0e
+push argument 0
+push local 2
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+push argument 1
+push local 3
+add
+pop pointer 1
+push that 0
+call Square.addSquare 2
+push local 0
+push local 2
+add
+pop pointer 1
+pop that 0
+push local 2
+push constant 1
+add
+pop local 2
+goto LABEL1_Xfd9522a994834af6b0de9cdc61760413
+label LABEL2_Xfad5e83fdf804e42be4a825c101aa091
+push local 0
+return
+function SquareGenerator.transposeElements 2
+push argument 1
+call Array.new 1
+pop local 0
+push argument 1
+push constant 1
+sub
+pop argument 1
+label LABEL1_X9cc7421fc08246d096b38d1cf8c4388d
+push argument 1
+push constant 1
+neg
+gt
+not
+if-goto LABEL2_Xf352790c3af24a898339ee56d1a99f6b
+push argument 0
+push argument 1
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+call Square.getY 1
+push local 1
+call Square.getX 1
+call Square.fromBoardIndices 2
+push local 0
+push argument 1
+add
+pop pointer 1
+pop that 0
+push argument 1
+push constant 1
+sub
+pop argument 1
+goto LABEL1_X9cc7421fc08246d096b38d1cf8c4388d
+label LABEL2_Xf352790c3af24a898339ee56d1a99f6b
+push local 0
+return
+function SquareGenerator.multiplyScalar 2
+push argument 1
+call Array.new 1
+pop local 0
+push argument 1
+push constant 1
+sub
+pop argument 1
+label LABEL1_X70c251a52e1640b78dbb62f7fcb00791
+push argument 1
+push constant 1
+neg
+gt
+not
+if-goto LABEL2_Xd552163acd3a4664802e6f73b4b34788
+push argument 0
+push argument 1
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+push argument 2
+call Square.multiplyScalar 2
+push local 0
+push argument 1
+add
+pop pointer 1
+pop that 0
+push argument 1
+push constant 1
+sub
+pop argument 1
+goto LABEL1_X70c251a52e1640b78dbb62f7fcb00791
+label LABEL2_Xd552163acd3a4664802e6f73b4b34788
+push local 0
+return
+function SquareGenerator.getOffsetsByPiece 0
+push argument 0
+call Piece.isKing 1
+not
+if-goto X9824038d1f2f49f78be8c06e0801d0c4
+push static 0
+push constant 8
+call List.newFromArray 2
+return
+goto Xc82ccd744c6749a4a0535d84c6b8e59c
+label X9824038d1f2f49f78be8c06e0801d0c4
+label Xc82ccd744c6749a4a0535d84c6b8e59c
+push argument 0
+call Piece.isKnight 1
+not
+if-goto Xfc861a4f7b9c4e53b8c11a06a0410d2d
+push static 4
+push constant 8
+call List.newFromArray 2
+return
+goto X0c3c6360bafd42e9a4c65fd46c0a310e
+label Xfc861a4f7b9c4e53b8c11a06a0410d2d
+label X0c3c6360bafd42e9a4c65fd46c0a310e
+push argument 0
+call Piece.isBishop 1
+not
+if-goto X6394dba84fb64099bcb0a83ddebd7f05
+push static 2
+call SquareGenerator.getRiderDist 0
+push constant 4
+call Math.multiply 2
+call List.newFromArray 2
+return
+goto Xf335ca4bdb26479ab5ae90246f3ae0e9
+label X6394dba84fb64099bcb0a83ddebd7f05
+label Xf335ca4bdb26479ab5ae90246f3ae0e9
+push argument 0
+call Piece.isRook 1
+not
+if-goto X8a5794a728fb48a8b0090380f4e2251a
+push static 3
+call SquareGenerator.getRiderDist 0
+push constant 4
+call Math.multiply 2
+call List.newFromArray 2
+return
+goto X08d191de158548aaa9149888f9a268ef
+label X8a5794a728fb48a8b0090380f4e2251a
+label X08d191de158548aaa9149888f9a268ef
+push argument 0
+call Piece.isQueen 1
+not
+if-goto Xa7846252d7ca47a1b9264919e62d2456
+push static 1
+call SquareGenerator.getRiderDist 0
+push constant 8
+call Math.multiply 2
+call List.newFromArray 2
+return
+goto Xfe1bd08a5a7f45b788a689959a69d85b
+label Xa7846252d7ca47a1b9264919e62d2456
+label Xfe1bd08a5a7f45b788a689959a69d85b
+push constant 0
+return

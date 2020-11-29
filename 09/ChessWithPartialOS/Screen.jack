@@ -1,0 +1,377 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Screen.jack
+
+/**
+ * A library of functions for displaying graphics on the screen.
+ * The Hack physical screen consists of 512 rows (indexed 0..511, top to bottom)
+ * of 256 pixels each (indexed 0..255, left to right). The top left pixel on 
+ * the screen is indexed (0,0).
+ */
+class Screen {
+
+    static boolean color;
+    static int screenStart;
+    // Note: this will be illegal
+    static int screenEnd;
+    static int maxScreenOffset;
+
+    static Array twoToThe;
+    // sumOfPowers[i] will be an integer with the rightmost i bits 1 and the rest 0
+    static Array sumOfPowers;
+
+    /** Initializes the Screen. */
+    function void init() {
+        var int index;
+
+        let screenStart = 16384;
+        let maxScreenOffset = 8192;
+        let screenEnd = screenStart + maxScreenOffset;
+        let color = true;
+        
+        let twoToThe = Array.new(16);
+     
+        let twoToThe[0] = 1;
+        let twoToThe[1] = 2;
+        let twoToThe[2] = 4;
+        let twoToThe[3] = 8;
+        let twoToThe[4] = 16;
+        let twoToThe[5] = 32;
+        let twoToThe[6] = 64;
+        let twoToThe[7] = 128;
+        let twoToThe[8] = 256;
+        let twoToThe[9] = 512;
+        let twoToThe[10] = 1024;
+        let twoToThe[11] = 2048;
+        let twoToThe[12] = 4096;
+        let twoToThe[13] = 8192;
+        let twoToThe[14] = 16384;
+        
+        let twoToThe[15] = twoToThe[14] + twoToThe[14];
+
+        let sumOfPowers = Array.new(16);
+
+        let index = 0;
+        while (index < 16) {
+            let sumOfPowers[index] = twoToThe[index] - 1; //= sumOfPowers[index] + twoToThe[index];
+            let index = index + 1;
+        }
+
+        return;
+    }
+
+    /** Erases the entire screen. */
+    function void clearScreen() {
+        var int temp;
+        let temp = screenStart;
+        while (temp < screenEnd) {
+            // Note the loop has been unrolled a bit
+            let temp[0] = color;
+            let temp[1] = color;
+            let temp[2] = color;
+            let temp[3] = color;
+            let temp[4] = color;
+            let temp[5] = color;
+            let temp[6] = color;
+            let temp[7] = color;
+            let temp[8] = color;
+            let temp[9] = color;
+            let temp[10] = color;
+            let temp[11] = color;
+            let temp[12] = color;
+            let temp[13] = color;
+            let temp[14] = color;
+            let temp[15] = color;
+
+            let temp = temp + 16;
+        }
+        return;
+    }
+
+    /** Sets the current color, to be used for all subsequent drawXXX commands.
+     *  Black is represented by true, white by false. */
+    function void setColor(boolean b) {
+        let color = b;
+        return;
+    }
+
+    // // TODO put this in Math?
+    // function int modulo(int x, int mod) {
+    //     return x - Math.multiply(mod, Math.divide(x, mod));
+    // }
+
+    /** Draws the (x,y) pixel, using the current color. */
+    function void drawPixel(int x, int y) {
+        var int memoryLocation;
+        var int bitMask;
+        
+        let memoryLocation = screenStart + Screen.multiplyByThirtyTwo(y) + Screen.divideBySixteen(x);
+        // We want to set the (x % 16)th bit to 1
+        // Neat! Modulo 16 is the same as blanking out the higher order bits
+        let bitMask = twoToThe[x & 15];
+
+        if (color) {
+            let memoryLocation[0] = (memoryLocation[0]) | bitMask; 
+        }
+        else {
+            let memoryLocation[0] = (memoryLocation[0]) & (~bitMask); 
+        }
+        return;
+    }
+
+    // function void removeMe(){
+    //     let screenStart[0] = 1 | 256 | 4096;
+    //     // let screenStart[0] = 256;
+    //     return;
+    // }
+
+    // Require 0 <= x < 512 + 16
+    function int divideBySixteen(int x) {
+        var int ret;
+        // Assume ret is initialized to 0
+
+        // Dividing by 16 is shifting bits to the right 4
+        // 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+        // - - - - Y Y Y Y Y ? -  -  -  -  -  -
+
+        if (x & 16) {
+            let ret = ret | 1;
+        }
+
+        if (x & 32) {
+            let ret = ret | 2;
+        }
+
+        if (x & 64) {
+            let ret = ret | 4;
+        }
+
+        if (x & 128) {
+            let ret = ret | 8;
+        }
+
+        if (x & 256) {
+            let ret = ret | 16;
+        }
+
+        if (x & 512) {
+            let ret = ret | 32;
+        }
+
+        return ret;
+        // return Math.divide(x, 16);
+    }
+
+    // TODO see about bit shifts
+    // TODO rename to GetOffset
+    // Require 0 <= y < 256
+    function int multiplyByThirtyTwo(int x) {
+        var int ret;
+
+        if (x & 1) {
+            let ret = ret | 32;
+        }
+
+        if (x & 2) {
+            let ret = ret | 64;
+        }
+
+        if (x & 4) {
+            let ret = ret | 128;
+        }
+
+        if (x & 8) {
+            let ret = ret | 256;
+        }
+
+        if (x & 16) {
+            let ret = ret | 512;
+        }
+
+        if (x & 32) {
+            let ret = ret | 1024;
+        }
+
+        if (x & 64) {
+            let ret = ret | 2048;
+        }
+
+        if (x & 128) {
+            let ret = ret | 4096;
+        }
+
+        return ret;
+        // return Math.multiply(32, y);
+    }
+
+    // Require x1 <= x2
+    function void drawHorizontalLine(int x1, int x2, int y) {
+        // TODO rename the clamps
+        var int leftClamp;
+        var int rightClamp;
+        var int leftSegmentBitmask;
+        var int rightSegmentBitmask;
+        // var int xInd;
+        var Array pixelRow;
+
+        // Seems necessary, not sure why
+        let x2 = x2 + 1;
+
+        // We want to do ceil(x1 / 16.0). Adding 15 does that
+        let leftClamp = Screen.divideBySixteen(x1 + 15);
+        let rightClamp = Screen.divideBySixteen(x2);
+
+        let pixelRow = screenStart + Screen.multiplyByThirtyTwo(y);
+
+        // We have a little stub consisting of x2 % 16 pixels on the right side
+        let rightSegmentBitmask = sumOfPowers[x2 & 15];
+        // And we have a stub of 16 - ...
+        let leftSegmentBitmask = ~sumOfPowers[x1 & 15];
+
+        // We actually have the start and end within the same segment
+        if (leftClamp > rightClamp) {
+            // A little hacky, but we're gonna modify the right stub
+            let rightSegmentBitmask = rightSegmentBitmask & leftSegmentBitmask;
+            // there is no need for drawing the left stub in this situation
+        }
+        else {
+            if (x1 & 15) {
+                if (color) {
+                    let pixelRow[leftClamp - 1] = (pixelRow[leftClamp - 1]) | leftSegmentBitmask;
+                }
+                else {
+                    let pixelRow[leftClamp - 1] = (pixelRow[leftClamp - 1]) & (~leftSegmentBitmask);
+                }
+            }
+        }
+
+        if (x2 & 15) {
+            if (color) {
+                let pixelRow[rightClamp] = (pixelRow[rightClamp]) | rightSegmentBitmask;
+            }
+            else {
+                let pixelRow[rightClamp] = (pixelRow[rightClamp]) & (~rightSegmentBitmask);
+            }
+        }
+
+
+        while (leftClamp < rightClamp) {
+            let pixelRow[leftClamp] = color;
+            let leftClamp = leftClamp + 1;
+        }
+
+        // if (leftClamp > rightClamp) {
+        //     // TODO special case where we do the thing
+        // }
+
+
+        // let x2 = x2 + 1;
+        // while (x1 < x2) {
+        //     do Screen.drawPixel(x1, y);
+        //     let x1 = x1 + 1;
+        // }
+        return;
+    }
+
+    /** Draws a line from pixel (x1,y1) to pixel (x2,y2), using the current color. */
+    function void drawLine(int x1, int y1, int x2, int y2) {
+        var int dx;
+        var int dy;
+        var int temp;
+        var int a;
+        var int b;
+        var boolean isInverted;
+
+        if (x1 > x2) {
+            do Screen.drawLine(x2, y2, x1, y1);
+            return;
+        }
+
+        // From this point on we can assume x1 <= x2
+
+        let dx = x2 - x1;
+
+        if (y1 < y2) {
+            let dy = y2 - y1;
+            let isInverted = false;
+        }
+        else {
+            let dy = y1 - y2;
+            let temp = y1;
+            let y1 = y2;
+            let y2 = temp;
+            let isInverted = true;
+        }
+
+        if (dy = 0) {
+            do Screen.drawHorizontalLine(x1, x2, y1);
+            return;
+        }
+
+        let a = 0;
+        let b = 0;
+
+        while ((a < (dx +1)) &
+                (b < (dy + 1)))
+        {
+            if (isInverted) {
+                do Screen.drawPixel(x1 + a, y2 - b);
+            }
+            else {
+                do Screen.drawPixel(x1 + a, y1 + b);
+            }
+
+            if (Math.multiply(a, dy) < Math.multiply(b, dx)) {
+                let a = a + 1;
+            }
+            else {
+                let b = b + 1;
+            }
+        }
+
+        return;
+    }
+
+    /** Draws a filled rectangle whose top left corner is (x1, y1)
+     * and bottom right corner is (x2,y2), using the current color. */
+    function void drawRectangle(int x1, int y1, int x2, int y2) {
+        // Think we can assume x1 < x2 and y1 < y2
+
+        let y2 = y2 + 1;
+        while (y1 < y2) {
+            do Screen.drawLine(x1, y1, x2, y1);
+            let y1 = y1 + 1;
+        }
+
+
+        // var int tempY;
+        // // TODO optimize
+        // let x2 = x2 + 1;
+        // let y2 = y2 - 1;
+        // while (x1 < x2) {
+        //     let tempY = y1;
+        //     while (tempY < y2) {
+        //         do Screen.drawPixel(x1, tempY);
+        //         let tempY = tempY + 1;
+        //     }
+        //     let x1 = x1 + 1;
+        // }
+        return;
+    }
+
+    /** Draws a filled circle of radius r<=181 around (x,y), using the current color. */
+    function void drawCircle(int x, int y, int r) {
+        var int dy;
+        var int dx;
+        let dy = -r;
+
+        while (dy < (r + 1)) {
+            let dx = Math.sqrt(Math.multiply(r, r) - Math.multiply(dy, dy));
+            do Screen.drawLine(x - dx, y + dy, x + dx, y + dy);
+            let dy = dy + 1;
+        }
+
+        return;
+    }
+}

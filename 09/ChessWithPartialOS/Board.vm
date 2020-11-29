@@ -1,0 +1,2474 @@
+function Board.init 0
+push constant 0
+pop static 0
+push constant 0
+return
+function Board.getHasChanges 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function Board.refresh 0
+push argument 0
+pop pointer 0
+push constant 0
+pop this 4
+push constant 0
+return
+function Board.acknowledgeChanges 0
+push argument 0
+pop pointer 0
+push constant 0
+pop this 3
+push constant 0
+return
+function Board.touch 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+pop this 3
+push constant 0
+return
+function Board.new 2
+push constant 6
+call Memory.alloc 1
+pop pointer 0
+push constant 0
+pop this 5
+push constant 0
+pop local 0
+push constant 8
+call Array.new 1
+pop this 2
+push constant 0
+not
+pop this 3
+push constant 4
+call Array.new 1
+pop this 1
+push constant 0
+push this 1
+add
+push constant 0
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 1
+add
+push constant 0
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push this 1
+add
+push constant 0
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push this 1
+add
+push constant 0
+not
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+neg
+pop this 0
+label WHILE_EXP0
+push local 0
+push constant 8
+lt
+not
+if-goto WHILE_END0
+push local 0
+push this 2
+add
+push constant 8
+call Array.new 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push static 0
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+call Main.getY 0
+push this 2
+add
+pop pointer 1
+push that 0
+pop local 1
+call Main.getX 0
+push local 1
+add
+push constant 0
+not
+call Piece.queen 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+call Main.getX 0
+push constant 2
+add
+push local 1
+add
+push constant 0
+call Piece.knight 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto IF_END0
+label IF_FALSE0
+push constant 0
+push this 2
+add
+pop pointer 1
+push that 0
+pop local 1
+push constant 0
+push local 1
+add
+push constant 0
+call Piece.rook 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 1
+add
+push constant 0
+call Piece.knight 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push local 1
+add
+push constant 0
+call Piece.bishop 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 1
+add
+push constant 0
+call Piece.queen 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 1
+add
+push constant 0
+call Piece.king 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 1
+add
+push constant 0
+call Piece.bishop 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 1
+add
+push constant 0
+call Piece.knight 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 1
+add
+push constant 0
+call Piece.rook 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 2
+add
+pop pointer 1
+push that 0
+pop local 1
+push constant 0
+push local 1
+add
+push constant 0
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 1
+add
+push constant 0
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push local 1
+add
+push constant 0
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 1
+add
+push constant 0
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 1
+add
+push constant 0
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 1
+add
+push constant 0
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 1
+add
+push constant 0
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 1
+add
+push constant 0
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push this 2
+add
+pop pointer 1
+push that 0
+pop local 1
+push constant 0
+push local 1
+add
+push constant 0
+not
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 1
+add
+push constant 0
+not
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push local 1
+add
+push constant 0
+not
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 1
+add
+push constant 0
+not
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 1
+add
+push constant 0
+not
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 1
+add
+push constant 0
+not
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 1
+add
+push constant 0
+not
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 1
+add
+push constant 0
+not
+call Piece.pawn 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push this 2
+add
+pop pointer 1
+push that 0
+pop local 1
+push constant 0
+push local 1
+add
+push constant 0
+not
+call Piece.rook 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 1
+add
+push constant 0
+not
+call Piece.knight 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push local 1
+add
+push constant 0
+not
+call Piece.bishop 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 1
+add
+push constant 0
+not
+call Piece.queen 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 1
+add
+push constant 0
+not
+call Piece.king 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push local 1
+add
+push constant 0
+not
+call Piece.bishop 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push local 1
+add
+push constant 0
+not
+call Piece.knight 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push local 1
+add
+push constant 0
+not
+call Piece.rook 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_END0
+push pointer 0
+return
+function Board.isEven 0
+push argument 0
+pop pointer 0
+push argument 1
+push constant 2
+push argument 1
+push constant 2
+call Math.divide 2
+call Math.multiply 2
+sub
+push constant 0
+gt
+return
+function Board.getEnPassantIndicator 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Board.enPassantFromMove 1
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 1
+call Move.getStartSquare 1
+call Board.getPieceAtSquare 2
+pop local 0
+push local 0
+call Piece.isPawn 1
+not
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 1
+neg
+return
+label IF_FALSE0
+push local 0
+call Piece.getColor 1
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 1
+call Move.getStartY 1
+push constant 6
+eq
+push argument 1
+call Move.getEndY 1
+push constant 4
+eq
+and
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push argument 1
+call Move.getStartX 1
+return
+label IF_FALSE2
+goto IF_END1
+label IF_FALSE1
+push argument 1
+call Move.getStartY 1
+push constant 1
+eq
+push argument 1
+call Move.getEndY 1
+push constant 3
+eq
+and
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push argument 1
+call Move.getStartX 1
+return
+label IF_FALSE3
+label IF_END1
+push constant 1
+neg
+return
+function Board.removePiece 1
+push argument 0
+pop pointer 0
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+pop local 0
+push argument 1
+push local 0
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function Board.moveRequiresPromotion 1
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 1
+call Move.getStartSquare 1
+call Board.getPieceAtSquare 2
+pop local 0
+push local 0
+push constant 0
+eq
+push local 0
+call Piece.isPawn 1
+not
+or
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push local 0
+call Piece.getColor 1
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push argument 1
+call Move.getEndY 1
+push constant 0
+eq
+return
+goto IF_END1
+label IF_FALSE1
+push argument 1
+call Move.getEndY 1
+push constant 7
+eq
+return
+label IF_END1
+function Board.makeMove 5
+push argument 0
+pop pointer 0
+push static 0
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 16
+call String.new 1
+push constant 69
+call String.appendChar 2
+push constant 120
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push argument 1
+call Move.toString 1
+call Util.printLineString 1
+pop temp 0
+push argument 1
+call Move.getStartX 1
+call Output.printInt 1
+pop temp 0
+push constant 1
+call String.new 1
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push argument 1
+call Move.getStartY 1
+call Output.printInt 1
+pop temp 0
+push constant 1
+call String.new 1
+push constant 44
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push argument 1
+call Move.getEndX 1
+call Output.printInt 1
+pop temp 0
+push constant 1
+call String.new 1
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push argument 1
+call Move.getEndY 1
+call Output.printInt 1
+pop temp 0
+label IF_FALSE0
+push pointer 0
+push argument 1
+call Board.enPassantFromMove 2
+pop this 0
+push argument 1
+call Move.getStartRank 1
+push constant 1
+sub
+push this 2
+add
+pop pointer 1
+push that 0
+pop local 0
+push argument 1
+call Move.getStartFile 1
+push constant 1
+sub
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 1
+push argument 1
+call Move.getStartFile 1
+push constant 1
+sub
+push local 0
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+call List.empty 0
+pop this 4
+push argument 1
+call Move.getEndRank 1
+push constant 1
+sub
+push this 2
+add
+pop pointer 1
+push that 0
+pop local 0
+push argument 1
+call Move.getEndFile 1
+push constant 1
+sub
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 2
+push local 2
+push constant 0
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 1
+call Piece.isPawn 1
+push argument 1
+call Move.getStartX 1
+push argument 1
+call Move.getEndX 1
+eq
+not
+and
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push local 1
+call Piece.getColor 1
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push pointer 0
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+push constant 1
+add
+call Board.getPieceAt 3
+pop local 2
+push pointer 0
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+push constant 1
+add
+call Board.removePiece 3
+pop temp 0
+push local 2
+call Piece.dispose 1
+pop temp 0
+push this 4
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+push constant 1
+add
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 0
+goto IF_END3
+label IF_FALSE3
+push pointer 0
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+push constant 1
+sub
+call Board.getPieceAt 3
+pop local 2
+push pointer 0
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+push constant 1
+sub
+call Board.removePiece 3
+pop temp 0
+push local 2
+call Piece.dispose 1
+pop temp 0
+push this 4
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+push constant 1
+sub
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 0
+label IF_END3
+label IF_FALSE2
+goto IF_END1
+label IF_FALSE1
+push local 2
+call Piece.isRook 1
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push argument 1
+call Move.getEndX 1
+push constant 0
+eq
+push argument 1
+call Move.getEndY 1
+push constant 0
+eq
+and
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push constant 0
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE5
+push argument 1
+call Move.getEndX 1
+push constant 7
+eq
+push argument 1
+call Move.getEndY 1
+push constant 0
+eq
+and
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push constant 1
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE6
+push argument 1
+call Move.getEndX 1
+push constant 0
+eq
+push argument 1
+call Move.getEndY 1
+push constant 7
+eq
+and
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push constant 2
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE7
+push argument 1
+call Move.getEndX 1
+push constant 7
+eq
+push argument 1
+call Move.getEndY 1
+push constant 7
+eq
+and
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push constant 3
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE8
+label IF_FALSE4
+push local 2
+call Piece.dispose 1
+pop temp 0
+label IF_END1
+push argument 1
+call Move.getEndFile 1
+push constant 1
+sub
+push local 0
+add
+push local 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push argument 1
+call Move.getStartX 1
+push argument 1
+call Move.getEndX 1
+sub
+pop local 4
+push local 1
+call Piece.isKing 1
+push local 4
+call Util.abs 1
+push constant 1
+gt
+and
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push local 4
+push constant 0
+gt
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+push argument 1
+call Move.getStartY 1
+push this 2
+add
+pop pointer 1
+push that 0
+pop local 0
+push constant 0
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 3
+push constant 0
+push local 0
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push argument 1
+call Move.getEndX 1
+push constant 1
+add
+push local 0
+add
+push local 3
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 4
+push constant 0
+push argument 1
+call Move.getStartY 1
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 0
+push this 4
+push argument 1
+call Move.getEndX 1
+push constant 1
+add
+push argument 1
+call Move.getStartY 1
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 0
+goto IF_END10
+label IF_FALSE10
+push argument 1
+call Move.getStartY 1
+push this 2
+add
+pop pointer 1
+push that 0
+pop local 0
+push constant 7
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 3
+push constant 7
+push local 0
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push argument 1
+call Move.getEndX 1
+push constant 1
+sub
+push local 0
+add
+push local 3
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push this 4
+push constant 7
+push argument 1
+call Move.getStartY 1
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 0
+push this 4
+push argument 1
+call Move.getEndX 1
+push constant 1
+sub
+push argument 1
+call Move.getStartY 1
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 0
+label IF_END10
+label IF_FALSE9
+push this 4
+push argument 1
+call Move.getStartX 1
+push argument 1
+call Move.getStartY 1
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 0
+push this 4
+push argument 1
+call Move.getEndX 1
+push argument 1
+call Move.getEndY 1
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 0
+push local 1
+call Piece.isRook 1
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+push local 1
+call Piece.getColor 1
+push argument 1
+call Move.getStartY 1
+push constant 7
+eq
+and
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
+push argument 1
+call Move.getStartX 1
+push constant 0
+eq
+if-goto IF_TRUE13
+goto IF_FALSE13
+label IF_TRUE13
+push constant 2
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE13
+push argument 1
+call Move.getStartX 1
+push constant 7
+eq
+if-goto IF_TRUE14
+goto IF_FALSE14
+label IF_TRUE14
+push constant 3
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE14
+label IF_FALSE12
+push local 1
+call Piece.getColor 1
+not
+push argument 1
+call Move.getStartY 1
+push constant 0
+eq
+and
+if-goto IF_TRUE15
+goto IF_FALSE15
+label IF_TRUE15
+push argument 1
+call Move.getStartX 1
+push constant 0
+eq
+if-goto IF_TRUE16
+goto IF_FALSE16
+label IF_TRUE16
+push constant 0
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE16
+push argument 1
+call Move.getStartX 1
+push constant 7
+eq
+if-goto IF_TRUE17
+goto IF_FALSE17
+label IF_TRUE17
+push constant 1
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_FALSE17
+label IF_FALSE15
+label IF_FALSE11
+push local 1
+call Piece.isKing 1
+if-goto IF_TRUE18
+goto IF_FALSE18
+label IF_TRUE18
+push local 1
+call Piece.getColor 1
+if-goto IF_TRUE19
+goto IF_FALSE19
+label IF_TRUE19
+push constant 2
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+goto IF_END19
+label IF_FALSE19
+push constant 0
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+label IF_END19
+label IF_FALSE18
+push local 1
+call Piece.isPawn 1
+if-goto IF_TRUE20
+goto IF_FALSE20
+label IF_TRUE20
+push local 1
+call Piece.getColor 1
+push argument 1
+call Move.getEndY 1
+push constant 0
+eq
+and
+push local 1
+call Piece.getColor 1
+not
+push argument 1
+call Move.getEndY 1
+push constant 7
+eq
+and
+or
+if-goto IF_TRUE21
+goto IF_FALSE21
+label IF_TRUE21
+push local 1
+push argument 1
+call Move.getPromotionPieceType 1
+call Piece.promote 2
+pop temp 0
+label IF_FALSE21
+label IF_FALSE20
+push this 5
+not
+pop this 5
+push constant 0
+return
+function Board.squareIsDirty 2
+push argument 0
+pop pointer 0
+push this 4
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+not
+return
+label IF_FALSE0
+push this 4
+call List.getLength 1
+push constant 1
+sub
+pop local 0
+label WHILE_EXP0
+push local 0
+push constant 1
+neg
+gt
+not
+if-goto WHILE_END0
+push this 4
+push local 0
+call List.getElement 2
+pop local 1
+push local 1
+call Square.getX 1
+push argument 1
+eq
+push local 1
+call Square.getY 1
+push argument 2
+eq
+and
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+not
+return
+label IF_FALSE1
+push local 0
+push constant 1
+sub
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Board.print 11
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+push constant 0
+not
+pop local 4
+push constant 32
+pop local 6
+label WHILE_EXP0
+push local 0
+push constant 8
+lt
+not
+if-goto WHILE_END0
+push constant 0
+pop local 1
+label WHILE_EXP1
+push local 1
+push constant 8
+lt
+not
+if-goto WHILE_END1
+push pointer 0
+push local 1
+push local 0
+call Board.squareIsDirty 3
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push local 0
+push local 1
+add
+call Board.isEven 2
+not
+pop local 5
+push local 5
+pop local 4
+push local 4
+call Screen.setColor 1
+pop temp 0
+push local 1
+push constant 8
+add
+push local 6
+call Math.multiply 2
+pop local 7
+push constant 7
+push local 0
+sub
+push local 6
+call Math.multiply 2
+pop local 9
+push local 7
+push local 6
+add
+pop local 8
+push local 9
+push local 6
+add
+pop local 10
+push local 7
+push local 9
+push local 8
+push constant 1
+sub
+push local 10
+push constant 1
+sub
+call Screen.drawRectangle 4
+pop temp 0
+push local 0
+push this 2
+add
+pop pointer 1
+push that 0
+pop local 2
+push local 1
+push local 2
+add
+pop pointer 1
+push that 0
+pop local 3
+push local 3
+push constant 0
+eq
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push local 3
+push local 7
+push local 9
+push local 5
+call Piece.draw 4
+pop temp 0
+label IF_FALSE1
+label IF_FALSE0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_EXP1
+label WHILE_END1
+push local 0
+push constant 1
+add
+pop local 0
+goto WHILE_EXP0
+label WHILE_END0
+call List.empty 0
+pop this 4
+push static 0
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 12
+call String.new 1
+push constant 69
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push pointer 0
+call Board.getEnPassantIndicator 1
+call Util.printLineInt 1
+pop temp 0
+push constant 9
+call String.new 1
+push constant 67
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 58
+call String.appendChar 2
+call Util.printLineString 1
+pop temp 0
+push constant 9
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 87
+call String.appendChar 2
+push constant 104
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 61
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+push this 1
+add
+pop pointer 1
+push that 0
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 6
+call String.new 1
+push constant 79
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 59
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+label IF_FALSE3
+push constant 1
+push this 1
+add
+pop pointer 1
+push that 0
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push constant 4
+call String.new 1
+push constant 79
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 59
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+label IF_FALSE4
+call Output.println 0
+pop temp 0
+push constant 9
+call String.new 1
+push constant 32
+call String.appendChar 2
+push constant 66
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 107
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 61
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 2
+push this 1
+add
+pop pointer 1
+push that 0
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push constant 6
+call String.new 1
+push constant 79
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 59
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+label IF_FALSE5
+push constant 3
+push this 1
+add
+pop pointer 1
+push that 0
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push constant 4
+call String.new 1
+push constant 79
+call String.appendChar 2
+push constant 45
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 59
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+label IF_FALSE6
+call Output.println 0
+pop temp 0
+label IF_FALSE2
+push constant 0
+return
+function Board.getPieceAt 1
+push argument 0
+pop pointer 0
+push argument 2
+push this 2
+add
+pop pointer 1
+push that 0
+pop local 0
+push argument 1
+push local 0
+add
+pop pointer 1
+push that 0
+return
+function Board.getPieceAtSquare 0
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 1
+call Square.getX 1
+push argument 1
+call Square.getY 1
+call Board.getPieceAt 3
+return
+function Board.printLegalMovesAt 5
+push argument 0
+pop pointer 0
+call Main.getX 0
+pop local 4
+call Main.getY 0
+pop local 3
+push local 3
+call Output.printInt 1
+pop temp 0
+push constant 1
+call String.new 1
+push constant 44
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push local 4
+call Output.printInt 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push pointer 0
+push local 3
+push local 4
+call Board.getLegalSquaresAt 3
+pop local 0
+push local 0
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 4
+call String.new 1
+push constant 78
+call String.appendChar 2
+push constant 85
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+goto IF_END0
+label IF_FALSE0
+push local 0
+call List.getLength 1
+push constant 1
+sub
+pop local 1
+label WHILE_EXP0
+push local 1
+push constant 1
+neg
+gt
+not
+if-goto WHILE_END0
+push local 0
+push local 1
+call List.getElement 2
+pop local 2
+push local 2
+call Square.toString 1
+call Output.printString 1
+pop temp 0
+call Output.println 0
+pop temp 0
+push local 1
+push constant 1
+sub
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+label IF_END0
+push constant 0
+return
+function Board.moveErrorCode 4
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 1
+call Move.getStartX 1
+push argument 1
+call Move.getStartY 1
+call Board.getPieceAt 3
+pop local 3
+push local 3
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 1
+return
+label IF_FALSE0
+push local 3
+call Piece.getColor 1
+push this 5
+eq
+not
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 2
+return
+label IF_FALSE1
+push pointer 0
+push argument 1
+call Move.getStartX 1
+push argument 1
+call Move.getStartY 1
+call Board.getLegalSquaresAt 3
+pop local 0
+push local 0
+push constant 0
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 1
+return
+label IF_FALSE2
+push local 0
+call List.getLength 1
+push constant 1
+sub
+pop local 2
+label WHILE_EXP0
+push local 2
+push constant 1
+neg
+gt
+not
+if-goto WHILE_END0
+push local 0
+push local 2
+call List.getElement 2
+pop local 1
+push local 1
+call Square.getX 1
+push argument 1
+call Move.getEndX 1
+eq
+push local 1
+call Square.getY 1
+push argument 1
+call Move.getEndY 1
+eq
+and
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push pointer 0
+push argument 1
+call Board.moveRequiresPromotion 2
+push argument 1
+call Move.isPromotion 1
+not
+and
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push constant 4
+return
+label IF_FALSE4
+push pointer 0
+push argument 1
+call Board.moveRequiresPromotion 2
+not
+push argument 1
+call Move.isPromotion 1
+and
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push constant 5
+return
+label IF_FALSE5
+push constant 0
+return
+label IF_FALSE3
+push local 2
+push constant 1
+sub
+pop local 2
+goto WHILE_EXP0
+label WHILE_END0
+push constant 3
+return
+function Board.getLegalPawnSquaresAt 6
+push argument 0
+pop pointer 0
+push static 0
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 28
+call String.new 1
+push constant 67
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 119
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+call Util.printLineString 1
+pop temp 0
+label IF_FALSE0
+push constant 0
+pop local 2
+push argument 1
+call Piece.getColor 1
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 1
+neg
+pop local 0
+push argument 3
+push constant 6
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+not
+pop local 2
+label IF_FALSE2
+goto IF_END1
+label IF_FALSE1
+push constant 1
+pop local 0
+push argument 3
+push constant 1
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 0
+not
+pop local 2
+label IF_FALSE3
+label IF_END1
+call List.empty 0
+pop local 3
+push argument 2
+push argument 3
+push local 0
+add
+call Square.fromBoardIndices 2
+pop local 4
+push static 0
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push local 4
+call Square.toString 1
+call Util.printLineString 1
+pop temp 0
+label IF_FALSE4
+push pointer 0
+push local 4
+call Board.getPieceAtSquare 2
+push constant 0
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push local 3
+push local 4
+call List.append 2
+pop temp 0
+push argument 2
+push argument 3
+push local 0
+add
+push local 0
+add
+call Square.fromBoardIndices 2
+pop local 4
+push pointer 0
+push local 4
+call Board.getPieceAtSquare 2
+push constant 0
+eq
+push local 2
+and
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push local 3
+push local 4
+call List.append 2
+pop temp 0
+label IF_FALSE6
+label IF_FALSE5
+push constant 1
+neg
+pop local 1
+label WHILE_EXP0
+push local 1
+push constant 2
+lt
+not
+if-goto WHILE_END0
+push argument 2
+push local 1
+add
+push argument 3
+push local 0
+add
+call Square.fromBoardIndices 2
+pop local 4
+push pointer 0
+push local 4
+call Board.getPieceAtSquare 2
+pop local 5
+push local 5
+push constant 0
+eq
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push argument 2
+push local 1
+add
+push this 0
+eq
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push argument 1
+call Piece.getColor 1
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push argument 3
+push constant 3
+eq
+if-goto IF_TRUE10
+goto IF_FALSE10
+label IF_TRUE10
+push local 3
+push local 4
+call List.append 2
+pop temp 0
+label IF_FALSE10
+goto IF_END9
+label IF_FALSE9
+push argument 3
+push constant 4
+eq
+if-goto IF_TRUE11
+goto IF_FALSE11
+label IF_TRUE11
+push local 3
+push local 4
+call List.append 2
+pop temp 0
+label IF_FALSE11
+label IF_END9
+label IF_FALSE8
+goto IF_END7
+label IF_FALSE7
+push local 5
+call Piece.getColor 1
+push argument 1
+call Piece.getColor 1
+eq
+not
+if-goto IF_TRUE12
+goto IF_FALSE12
+label IF_TRUE12
+push local 3
+push local 4
+call List.append 2
+pop temp 0
+label IF_FALSE12
+label IF_END7
+push local 1
+push constant 2
+add
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push local 3
+return
+function Board.getLegalSquaresAt 10
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 1
+push argument 2
+call Board.getPieceAt 3
+pop local 1
+push local 1
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 0
+return
+label IF_FALSE0
+push local 1
+call Piece.isPawn 1
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push pointer 0
+push local 1
+push argument 1
+push argument 2
+call Board.getLegalPawnSquaresAt 4
+return
+label IF_FALSE1
+call List.empty 0
+pop local 3
+push argument 1
+push argument 2
+call Square.fromBoardIndices 2
+pop local 2
+push static 0
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push local 2
+call Square.toString 1
+call Util.printLineString 1
+pop temp 0
+push local 1
+call Piece.toString 1
+call Util.printLineString 1
+pop temp 0
+label IF_FALSE2
+push local 1
+call SquareGenerator.getOffsetsByPiece 1
+pop local 0
+push local 1
+call SquareGenerator.getRiderDistForPiece 1
+pop local 9
+push local 0
+call List.getLength 1
+push local 9
+call Math.divide 2
+pop local 7
+push constant 0
+pop local 6
+label WHILE_EXP0
+push local 6
+push local 7
+lt
+not
+if-goto WHILE_END0
+push constant 0
+pop local 8
+label WHILE_EXP1
+push local 8
+push local 9
+lt
+not
+if-goto WHILE_END1
+push local 0
+push local 8
+push local 7
+call Math.multiply 2
+push local 6
+add
+call List.getElement 2
+pop local 4
+push local 2
+push local 4
+call Square.addSquare 2
+pop local 4
+push local 4
+call Square.isOnBoard 1
+not
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push local 9
+pop local 8
+goto IF_END3
+label IF_FALSE3
+push pointer 0
+push local 4
+call Board.getPieceAtSquare 2
+pop local 5
+push local 5
+push constant 0
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push local 3
+push local 4
+call List.append 2
+pop temp 0
+push local 8
+push constant 1
+add
+pop local 8
+goto IF_END4
+label IF_FALSE4
+push local 1
+push local 5
+call Piece.isEnemy 2
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push local 3
+push local 4
+call List.append 2
+pop temp 0
+push local 9
+pop local 8
+goto IF_END5
+label IF_FALSE5
+push local 9
+pop local 8
+label IF_END5
+label IF_END4
+label IF_END3
+goto WHILE_EXP1
+label WHILE_END1
+push local 6
+push constant 1
+add
+pop local 6
+goto WHILE_EXP0
+label WHILE_END0
+push local 1
+call Piece.isKing 1
+push argument 1
+push constant 4
+eq
+and
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push local 3
+push pointer 0
+push local 1
+push argument 1
+push argument 2
+call Board.getCastlingMoves 4
+call List.extend 2
+pop temp 0
+label IF_FALSE6
+push local 3
+return
+function Board.getCastlingMoves 1
+push argument 0
+pop pointer 0
+call List.empty 0
+pop local 0
+push argument 1
+call Piece.getColor 1
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 3
+push this 1
+add
+pop pointer 1
+push that 0
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push pointer 0
+push argument 2
+push constant 1
+add
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+push pointer 0
+push argument 2
+push constant 2
+add
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+and
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push local 0
+push argument 2
+push constant 2
+add
+push argument 3
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 0
+label IF_FALSE2
+label IF_FALSE1
+push constant 2
+push this 1
+add
+pop pointer 1
+push that 0
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push pointer 0
+push argument 2
+push constant 1
+sub
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+push pointer 0
+push argument 2
+push constant 2
+sub
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+and
+push pointer 0
+push argument 2
+push constant 3
+sub
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+and
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push local 0
+push argument 2
+push constant 2
+sub
+push argument 3
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 0
+label IF_FALSE4
+label IF_FALSE3
+goto IF_END0
+label IF_FALSE0
+push constant 1
+push this 1
+add
+pop pointer 1
+push that 0
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push pointer 0
+push argument 2
+push constant 1
+add
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+push pointer 0
+push argument 2
+push constant 2
+add
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+and
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push local 0
+push argument 2
+push constant 2
+add
+push argument 3
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 0
+label IF_FALSE6
+label IF_FALSE5
+push constant 0
+push this 1
+add
+pop pointer 1
+push that 0
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push pointer 0
+push argument 2
+push constant 1
+sub
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+push pointer 0
+push argument 2
+push constant 2
+sub
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+and
+push pointer 0
+push argument 2
+push constant 3
+sub
+push argument 3
+call Board.getPieceAt 3
+push constant 0
+eq
+and
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push local 0
+push argument 2
+push constant 2
+sub
+push argument 3
+call Square.fromBoardIndices 2
+call List.append 2
+pop temp 0
+label IF_FALSE8
+label IF_FALSE7
+label IF_END0
+push local 0
+return
+function Board.getPotentialSquares 1
+push argument 0
+pop pointer 0
+push argument 3
+call Array.new 1
+pop local 0
+push argument 3
+push constant 1
+sub
+pop argument 3
+label WHILE_EXP0
+push argument 3
+push constant 1
+neg
+gt
+not
+if-goto WHILE_END0
+push argument 3
+push local 0
+add
+push argument 1
+push argument 3
+push argument 2
+add
+pop pointer 1
+push that 0
+call Square.addSquare 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push argument 3
+push constant 1
+sub
+pop argument 3
+goto WHILE_EXP0
+label WHILE_END0
+push local 0
+return

@@ -1,0 +1,385 @@
+function Math.init 0
+push constant 16
+call Array.new 1
+pop static 0
+push constant 1
+push static 0
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 2
+push static 0
+push constant 1
+add
+pop pointer 1
+pop that 0
+push constant 4
+push static 0
+push constant 2
+add
+pop pointer 1
+pop that 0
+push constant 8
+push static 0
+push constant 3
+add
+pop pointer 1
+pop that 0
+push constant 16
+push static 0
+push constant 4
+add
+pop pointer 1
+pop that 0
+push constant 32
+push static 0
+push constant 5
+add
+pop pointer 1
+pop that 0
+push constant 64
+push static 0
+push constant 6
+add
+pop pointer 1
+pop that 0
+push constant 128
+push static 0
+push constant 7
+add
+pop pointer 1
+pop that 0
+push constant 256
+push static 0
+push constant 8
+add
+pop pointer 1
+pop that 0
+push constant 512
+push static 0
+push constant 9
+add
+pop pointer 1
+pop that 0
+push constant 1024
+push static 0
+push constant 10
+add
+pop pointer 1
+pop that 0
+push constant 2048
+push static 0
+push constant 11
+add
+pop pointer 1
+pop that 0
+push constant 4096
+push static 0
+push constant 12
+add
+pop pointer 1
+pop that 0
+push constant 8192
+push static 0
+push constant 13
+add
+pop pointer 1
+pop that 0
+push constant 16384
+push static 0
+push constant 14
+add
+pop pointer 1
+pop that 0
+push static 0
+push constant 14
+add
+pop pointer 1
+push that 0
+push static 0
+push constant 14
+add
+pop pointer 1
+push that 0
+add
+push static 0
+push constant 15
+add
+pop pointer 1
+pop that 0
+push constant 0
+return
+function Math.bit 0
+push argument 0
+push static 0
+push argument 1
+add
+pop pointer 1
+push that 0
+and
+push constant 0
+gt
+return
+function Math.abs 0
+push argument 0
+push constant 0
+lt
+not
+if-goto X04b0193dd78c4fdaac9082734a6761e5
+push argument 0
+neg
+return
+goto Xfb2657f5726242a4bcb9475df0b56a47
+label X04b0193dd78c4fdaac9082734a6761e5
+label Xfb2657f5726242a4bcb9475df0b56a47
+push argument 0
+return
+function Math.multiply 4
+push argument 0
+push constant 0
+lt
+push argument 1
+push constant 0
+lt
+and
+push argument 0
+push constant 0
+gt
+push argument 1
+push constant 0
+gt
+and
+or
+not
+if-goto X9e5c9fa3b6a8458a957ed9c5529ee41f
+push constant 0
+pop local 3
+goto Xee1b942b0de347009bd13a5a842cc63d
+label X9e5c9fa3b6a8458a957ed9c5529ee41f
+push constant 0
+not
+pop local 3
+label Xee1b942b0de347009bd13a5a842cc63d
+push argument 0
+call Math.abs 1
+pop argument 0
+push argument 1
+call Math.abs 1
+pop argument 1
+push constant 0
+pop local 0
+push argument 0
+pop local 1
+push constant 0
+pop local 2
+label LABEL1_Xcd475c88525e45d6b7f5a8e65a23a5e1
+push local 2
+push constant 16
+lt
+not
+if-goto LABEL2_X24b8ea50d9054ff188192669f821986e
+push argument 1
+push local 2
+call Math.bit 2
+not
+if-goto Xb1a617b29a0e49f59ddc3570748c3709
+push local 0
+push local 1
+add
+pop local 0
+goto X8306af790d3b4246aa967fa7215a4217
+label Xb1a617b29a0e49f59ddc3570748c3709
+label X8306af790d3b4246aa967fa7215a4217
+push local 1
+push local 1
+add
+pop local 1
+push local 2
+push constant 1
+add
+pop local 2
+goto LABEL1_Xcd475c88525e45d6b7f5a8e65a23a5e1
+label LABEL2_X24b8ea50d9054ff188192669f821986e
+push local 3
+not
+if-goto Xe3e967da5193446aa65d5dfafaf90dbd
+push local 0
+neg
+return
+goto Xf7d426632a664cca92f41df1c126c433
+label Xe3e967da5193446aa65d5dfafaf90dbd
+push local 0
+return
+label Xf7d426632a664cca92f41df1c126c433
+function Math.divide 1
+push argument 1
+push constant 0
+eq
+not
+if-goto X0b0fd8030c054ed39c8150c91ffa6ecc
+push constant 9
+call Sys.error 1
+pop temp 7
+push constant 0
+return
+goto X84fa0b74effa4cc7babac38b7c43ed84
+label X0b0fd8030c054ed39c8150c91ffa6ecc
+label X84fa0b74effa4cc7babac38b7c43ed84
+push argument 0
+push constant 0
+lt
+push argument 1
+push constant 0
+lt
+and
+push argument 0
+push constant 0
+gt
+push argument 1
+push constant 0
+gt
+and
+or
+not
+if-goto X615ad33a359749dd8f816f93276da992
+push constant 0
+pop local 0
+goto Xca700a9b3d1641d2994c6340693cfafa
+label X615ad33a359749dd8f816f93276da992
+push constant 0
+not
+pop local 0
+label Xca700a9b3d1641d2994c6340693cfafa
+push argument 0
+call Math.abs 1
+pop argument 0
+push argument 1
+call Math.abs 1
+pop argument 1
+push local 0
+not
+if-goto Xb428ecdca9704f258284218daa7545ea
+push argument 0
+push argument 1
+call Math.divideInner 2
+neg
+return
+goto X51afcae70244490d868cc5857277437f
+label Xb428ecdca9704f258284218daa7545ea
+push argument 0
+push argument 1
+call Math.divideInner 2
+return
+label X51afcae70244490d868cc5857277437f
+function Math.divideInner 2
+push argument 1
+push argument 0
+gt
+not
+if-goto X0c02748682b24163a11d72fcf5bcfda8
+push constant 0
+return
+goto Xa028c77fe8e447afb95857887ceab026
+label X0c02748682b24163a11d72fcf5bcfda8
+label Xa028c77fe8e447afb95857887ceab026
+push argument 0
+push argument 1
+push argument 1
+add
+call Math.divideInner 2
+pop local 0
+push local 0
+push argument 1
+call Math.multiply 2
+pop local 1
+push argument 0
+push local 1
+push local 1
+add
+sub
+push argument 1
+lt
+not
+if-goto Xcc4d43040f80431d9f323cb21bdae5e9
+push local 0
+push local 0
+add
+return
+goto Xf5b22c5fc4d2441ea3e0ea6ce18fc384
+label Xcc4d43040f80431d9f323cb21bdae5e9
+push local 0
+push local 0
+push constant 1
+add
+add
+return
+label Xf5b22c5fc4d2441ea3e0ea6ce18fc384
+function Math.sqrt 3
+push constant 7
+pop local 0
+push constant 0
+pop local 1
+label LABEL1_X31e91e5e4a784c448bd4f750438714a7
+push local 0
+push constant 1
+neg
+gt
+not
+if-goto LABEL2_X8d4f1d4b999244129fc0a9f5afdd8820
+push local 1
+push static 0
+push local 0
+add
+pop pointer 1
+push that 0
+add
+pop local 2
+push local 2
+push local 2
+call Math.multiply 2
+push argument 0
+push constant 1
+add
+lt
+not
+if-goto X13b49c86fb0b4666b3e95205da055793
+push local 2
+pop local 1
+goto X1e4608a1d1734af4a43c2c20373f2ad0
+label X13b49c86fb0b4666b3e95205da055793
+label X1e4608a1d1734af4a43c2c20373f2ad0
+push local 0
+push constant 1
+sub
+pop local 0
+goto LABEL1_X31e91e5e4a784c448bd4f750438714a7
+label LABEL2_X8d4f1d4b999244129fc0a9f5afdd8820
+push local 1
+return
+function Math.max 0
+push argument 0
+push argument 1
+gt
+not
+if-goto X3436f51cedb944b0bf36550c2c8e0ed5
+push argument 0
+return
+goto Xfaf05b18e3d74c8591d1e725d9c7d605
+label X3436f51cedb944b0bf36550c2c8e0ed5
+label Xfaf05b18e3d74c8591d1e725d9c7d605
+push argument 1
+return
+function Math.min 0
+push argument 0
+push argument 1
+lt
+not
+if-goto X6f60a620d5674e459fb17542cddc099b
+push argument 0
+return
+goto X3251fe66bfd04c18a5513f49c450bf66
+label X6f60a620d5674e459fb17542cddc099b
+label X3251fe66bfd04c18a5513f49c450bf66
+push argument 1
+return

@@ -11,7 +11,7 @@ class Main {
     function void main() {
         var String s;
         // do Screen.setColor(true);
-        // do Screen.drawRectangle(0, 0, 50, 50);
+        // do Screen.drawRectangle(0, 0, 511, 255);
         // // do Output.printChar(66);
         // // do Output.printChar(66);
         // do Output.printString("bkcie");

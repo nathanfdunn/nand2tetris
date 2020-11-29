@@ -1,0 +1,386 @@
+function Main.getX 0
+push static 1
+return
+function Main.getY 0
+push static 2
+return
+function Main.main 0
+call Main.init 0
+pop temp 7
+label LABEL1_X1772f8f69ae7499ca9d69dcc9efe642f
+push constant 0
+not
+not
+if-goto LABEL2_Xcd8af9d60e64413c86a885b076958b7b
+call Main.update 0
+pop temp 7
+call Main.draw 0
+pop temp 7
+goto LABEL1_X1772f8f69ae7499ca9d69dcc9efe642f
+label LABEL2_Xcd8af9d60e64413c86a885b076958b7b
+push constant 0
+return
+function Main.init 0
+push constant 0
+pop static 1
+push constant 1
+pop static 2
+call Board.init 0
+pop temp 7
+call Board.new 0
+pop static 0
+call Piece.init 0
+pop temp 7
+call List.init 0
+pop temp 7
+call SquareGenerator.init 0
+pop temp 7
+call Main.draw 0
+pop temp 7
+push constant 0
+return
+function Main.update 2
+push constant 1
+call String.new 1
+push constant 62
+call String.appendChar 2
+call Keyboard.readLine 1
+pop local 0
+push local 0
+call Main.processCommand 1
+pop temp 7
+push constant 0
+return
+function Main.draw 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 7
+call Main.drawBoard 0
+pop temp 7
+push static 0
+call Board.acknowledgeChanges 1
+pop temp 7
+push constant 0
+return
+function Main.drawBoard 0
+push static 0
+call Board.print 1
+pop temp 7
+push constant 0
+return
+function Main.processCommand 4
+push argument 0
+push constant 0
+call String.new 1
+call Util.strCmp 2
+not
+if-goto X4692ea9ceb0442deb2c2f9f0e0dfcca1
+push constant 0
+return
+goto X878440f4740c4dd2ace6c1abdda2f0b6
+label X4692ea9ceb0442deb2c2f9f0e0dfcca1
+label X878440f4740c4dd2ace6c1abdda2f0b6
+push argument 0
+push constant 3
+call String.new 1
+push constant 85
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+call Util.startsWith 2
+not
+if-goto X487ce4cf08364520a777d76071e1e2c2
+push argument 0
+call Commands.parseUciCommand 1
+pop local 0
+push static 0
+push local 0
+call Commands.tryMakeMove 2
+pop temp 7
+push constant 0
+return
+goto X2061427864ad47af9d0c4fe5927cbbeb
+label X487ce4cf08364520a777d76071e1e2c2
+label X2061427864ad47af9d0c4fe5927cbbeb
+push argument 0
+push constant 3
+call String.new 1
+push constant 67
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+call Util.strCmp 2
+not
+if-goto X980cd4e57cd14a63bd9a1bcf790d72ec
+push constant 0
+call Screen.setColor 1
+pop temp 7
+push constant 0
+push constant 0
+push constant 255
+push constant 255
+call Screen.drawRectangle 4
+pop temp 7
+push constant 0
+push constant 0
+call Output.moveCursor 2
+pop temp 7
+push constant 0
+return
+goto X1a984193724340d486c42b2cd0845494
+label X980cd4e57cd14a63bd9a1bcf790d72ec
+label X1a984193724340d486c42b2cd0845494
+push argument 0
+push constant 7
+call String.new 1
+push constant 82
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 70
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 72
+call String.appendChar 2
+call Util.strCmp 2
+not
+if-goto X7136fb587c4e47cd82bfd412f1751e3d
+push static 0
+call Board.refresh 1
+pop temp 7
+push constant 0
+return
+goto X8668a3c14c7940299ff4535d20eede1e
+label X7136fb587c4e47cd82bfd412f1751e3d
+label X8668a3c14c7940299ff4535d20eede1e
+push argument 0
+push constant 4
+call String.new 1
+push constant 81
+call String.appendChar 2
+push constant 85
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+call Util.strCmp 2
+not
+if-goto X8426196f76bd4665a13d624a7679a6eb
+push constant 31
+call String.new 1
+push constant 71
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 100
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 98
+call String.appendChar 2
+push constant 121
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 46
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 112
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 46
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+call Output.println 0
+pop temp 7
+push constant 0
+return
+goto X82f0fe910d4d4d6f94d0f5033bb0258b
+label X8426196f76bd4665a13d624a7679a6eb
+label X82f0fe910d4d4d6f94d0f5033bb0258b
+push argument 0
+push constant 7
+call String.new 1
+push constant 82
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+call Util.strCmp 2
+not
+if-goto X857f4447448c420a8e2b013949ae720f
+call Board.new 0
+pop static 0
+push constant 15
+call String.new 1
+push constant 82
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 114
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 103
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 71
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+call Output.println 0
+pop temp 7
+push constant 0
+return
+goto X68294fc3972640d4a70da1b6297fbcbd
+label X857f4447448c420a8e2b013949ae720f
+label X68294fc3972640d4a70da1b6297fbcbd
+push argument 0
+push constant 4
+call String.new 1
+push constant 84
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+call Util.strCmp 2
+not
+if-goto Xeb07c651637c479dbebd48f7f6e8f94b
+push static 0
+call Main.getX 0
+call Main.getY 0
+call Board.getPieceAt 3
+pop local 3
+push local 3
+call Piece.toString 1
+call Output.printString 1
+pop temp 7
+call Output.println 0
+pop temp 7
+push static 0
+call Board.printLegalMovesAt 1
+pop temp 7
+push constant 0
+return
+goto Xbe13e7546ad84bc0bf296ce6a36683ea
+label Xeb07c651637c479dbebd48f7f6e8f94b
+label Xbe13e7546ad84bc0bf296ce6a36683ea
+push constant 15
+call String.new 1
+push constant 73
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 100
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 111
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 100
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+call Output.println 0
+pop temp 7
+push constant 0
+return

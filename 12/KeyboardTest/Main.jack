@@ -13,12 +13,12 @@ class Main {
     	var int i;
     	var boolean ok;
 
-        do Output.moveCursor(21, 25);
-        let c = Keyboard.readLine("here is a prompt that is very long hopefully it will be enough to break the line >");
-        do Output.printString(c);
-        // let key = Keyboard.readChar();
-        // do Output.printChar(key);
-        return;
+        // do Output.moveCursor(21, 25);
+        // let c = Keyboard.readLine("here is a prompt that is very long hopefully it will be enough to break the line >");
+        // do Output.printString(c);
+        // // let key = Keyboard.readChar();
+        // // do Output.printChar(key);
+        // return;
     
         let ok = false;
         do Output.printString("keyPressed test:");

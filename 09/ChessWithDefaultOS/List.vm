@@ -1,0 +1,308 @@
+function List.defaultLength 0
+push constant 16
+return
+function List.init 0
+push constant 0
+return
+function List.newFromArray 1
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push argument 1
+push constant 0
+eq
+not
+if-goto Xdbc10bbf91e6468883e57cd90791bd6a
+push pointer 0
+call List.initEmpty 1
+pop temp 7
+push pointer 0
+return
+goto Xceea7092bf374183a1b4551c82762c09
+label Xdbc10bbf91e6468883e57cd90791bd6a
+label Xceea7092bf374183a1b4551c82762c09
+push argument 1
+call List.defaultLength 0
+lt
+not
+if-goto X786b9c66610f491d81f989d606df34a5
+call List.defaultLength 0
+pop this 2
+goto X4af706cc42f34e92a90a6cab3ad50838
+label X786b9c66610f491d81f989d606df34a5
+push argument 1
+pop this 2
+label X4af706cc42f34e92a90a6cab3ad50838
+push this 2
+call Array.new 1
+pop this 0
+push argument 1
+push constant 1
+sub
+pop local 0
+label LABEL1_X916766bf5ee743e390b3709745894832
+push local 0
+push constant 1
+neg
+gt
+not
+if-goto LABEL2_X0f14a719508840da99fc0ceb5ffc4310
+push argument 0
+push local 0
+add
+pop pointer 1
+push that 0
+push this 0
+push local 0
+add
+pop pointer 1
+pop that 0
+push local 0
+push constant 1
+sub
+pop local 0
+goto LABEL1_X916766bf5ee743e390b3709745894832
+label LABEL2_X0f14a719508840da99fc0ceb5ffc4310
+push argument 1
+pop this 1
+push pointer 0
+return
+function List.initEmpty 0
+push argument 0
+pop pointer 0
+call List.defaultLength 0
+pop this 2
+push this 2
+call Array.new 1
+pop this 0
+push constant 0
+pop this 1
+push constant 0
+return
+function List.empty 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push pointer 0
+call List.initEmpty 1
+pop temp 7
+push pointer 0
+return
+function List.newFromLength 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+push constant 0
+eq
+not
+if-goto Xb1af76b7219b49f1b966831314e849e7
+push pointer 0
+call List.initEmpty 1
+pop temp 7
+push pointer 0
+return
+goto X13c5ffbe78ae4cde8696b3691c6fe144
+label Xb1af76b7219b49f1b966831314e849e7
+label X13c5ffbe78ae4cde8696b3691c6fe144
+push argument 0
+call List.defaultLength 0
+lt
+not
+if-goto X563b715e81814ac7b450c475dde020d2
+call List.defaultLength 0
+pop this 2
+goto Xe8ba88ff3de4428795bd70c0ce074e30
+label X563b715e81814ac7b450c475dde020d2
+push argument 0
+pop this 2
+label Xe8ba88ff3de4428795bd70c0ce074e30
+push this 2
+call Array.new 1
+pop this 0
+push argument 0
+pop this 1
+push pointer 0
+return
+function List.setElement 0
+push argument 0
+pop pointer 0
+push argument 2
+push this 0
+push argument 1
+add
+pop pointer 1
+pop that 0
+push constant 0
+return
+function List.getElement 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+add
+pop pointer 1
+push that 0
+return
+function List.getLength 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function List.getMaxLength 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function List.append 2
+push argument 0
+pop pointer 0
+push this 1
+push constant 1
+add
+push this 2
+gt
+not
+if-goto Xfa5f727320214ae38b35966e3dbd5472
+push constant 2
+push this 2
+call Math.multiply 2
+pop this 2
+push this 2
+call Array.new 1
+pop local 0
+push this 1
+push constant 1
+sub
+pop local 1
+label LABEL1_X82e0537f78394fa5b18e0083eafb64c6
+push local 1
+push constant 1
+neg
+gt
+not
+if-goto LABEL2_Xa3b8f21c14bb4acfb9dbf704322309df
+push this 0
+push local 1
+add
+pop pointer 1
+push that 0
+push local 0
+push local 1
+add
+pop pointer 1
+pop that 0
+push local 1
+push constant 1
+sub
+pop local 1
+goto LABEL1_X82e0537f78394fa5b18e0083eafb64c6
+label LABEL2_Xa3b8f21c14bb4acfb9dbf704322309df
+push this 0
+call Array.dispose 1
+pop temp 7
+push local 0
+pop this 0
+goto X529ca5f496fd4f79aa5521ea12876296
+label Xfa5f727320214ae38b35966e3dbd5472
+label X529ca5f496fd4f79aa5521ea12876296
+push argument 1
+push this 0
+push this 1
+add
+pop pointer 1
+pop that 0
+push this 1
+push constant 1
+add
+pop this 1
+push constant 0
+return
+function List.pop 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 1
+sub
+pop this 1
+push this 0
+push this 1
+add
+pop pointer 1
+push that 0
+return
+function List.dispose 0
+push argument 0
+pop pointer 0
+push this 0
+call Array.dispose 1
+pop temp 7
+push constant 0
+return
+function List.extend 1
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+label LABEL1_Xe1de67d3dbf24e13a6d699c1cdd3ab97
+push local 0
+push argument 1
+call List.getLength 1
+lt
+not
+if-goto LABEL2_X74e4c52afde0474c8272fa8a49ed1814
+push pointer 0
+push argument 1
+push local 0
+call List.getElement 2
+call List.append 2
+pop temp 7
+push local 0
+push constant 1
+add
+pop local 0
+goto LABEL1_Xe1de67d3dbf24e13a6d699c1cdd3ab97
+label LABEL2_X74e4c52afde0474c8272fa8a49ed1814
+push constant 0
+return
+function List.printStringList 2
+push argument 0
+pop pointer 0
+push constant 0
+pop local 0
+label LABEL1_Xf3d218c60031494e94240b7e7d079cca
+push local 0
+push this 1
+lt
+not
+if-goto LABEL2_Xf5fcb145d35344a690b624c58ff2da41
+push this 0
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 0
+call Output.printInt 1
+pop temp 7
+push constant 2
+call String.new 1
+push constant 58
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+push local 1
+call Output.printString 1
+pop temp 7
+call Output.println 0
+pop temp 7
+push local 0
+push constant 1
+add
+pop local 0
+goto LABEL1_Xf3d218c60031494e94240b7e7d079cca
+label LABEL2_Xf5fcb145d35344a690b624c58ff2da41
+push constant 0
+return

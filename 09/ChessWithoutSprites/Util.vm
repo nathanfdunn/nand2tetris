@@ -1,0 +1,317 @@
+function Util.strCmp 1
+push argument 0
+push argument 1
+eq
+not
+if-goto Xc6942a462df943a9bd0f26c73138f358
+push constant 0
+not
+return
+goto Xb710c751cc924304bf161d897fe87648
+label Xc6942a462df943a9bd0f26c73138f358
+label Xb710c751cc924304bf161d897fe87648
+push argument 0
+push constant 0
+eq
+push argument 1
+push constant 0
+eq
+or
+not
+if-goto Xba538c86ed254880932220acf661985f
+push constant 0
+return
+goto X5ab9a7bd9d744ef5aee6ff50fbba9643
+label Xba538c86ed254880932220acf661985f
+label X5ab9a7bd9d744ef5aee6ff50fbba9643
+push argument 0
+call String.length 1
+push argument 1
+call String.length 1
+eq
+not
+not
+if-goto X1b07a339a205420faff3f3a48138005d
+push constant 0
+return
+goto Xc6c33ec14173469aba18b86cfe1a1609
+label X1b07a339a205420faff3f3a48138005d
+label Xc6c33ec14173469aba18b86cfe1a1609
+push argument 0
+call String.length 1
+push constant 1
+sub
+pop local 0
+label LABEL1_Xff709d62c607442894697afdba78800d
+push local 0
+push constant 0
+eq
+push local 0
+push constant 0
+gt
+or
+not
+if-goto LABEL2_X986f97736d09416e91d640f783128741
+push argument 0
+push local 0
+call String.charAt 2
+push argument 1
+push local 0
+call String.charAt 2
+eq
+not
+not
+if-goto Xcad66673a76d428ba94b15d39c757eb6
+push constant 0
+return
+goto X671cffbbe993404a842290a6f7bb0429
+label Xcad66673a76d428ba94b15d39c757eb6
+label X671cffbbe993404a842290a6f7bb0429
+push local 0
+push constant 1
+sub
+pop local 0
+goto LABEL1_Xff709d62c607442894697afdba78800d
+label LABEL2_X986f97736d09416e91d640f783128741
+push constant 0
+not
+return
+function Util.startsWith 1
+push argument 0
+push constant 0
+eq
+push argument 1
+push constant 0
+eq
+or
+not
+if-goto X9b227a58f1f546ff987712bad5907d83
+push constant 0
+return
+goto Xea84b9744b2445ffb8ae2490832ae4b2
+label X9b227a58f1f546ff987712bad5907d83
+label Xea84b9744b2445ffb8ae2490832ae4b2
+push argument 1
+call String.length 1
+push constant 0
+eq
+not
+if-goto Xaf9489c42f8d47e4b70b8efc834e768c
+push constant 0
+not
+return
+goto Xaffdbdb5d8aa4e2e89610d5e1d97134b
+label Xaf9489c42f8d47e4b70b8efc834e768c
+label Xaffdbdb5d8aa4e2e89610d5e1d97134b
+push argument 0
+call String.length 1
+push argument 1
+call String.length 1
+lt
+not
+if-goto Xd4a6c37ae03a4cab82a20f078509c26a
+push constant 0
+return
+goto X89a85ec08735443e8a64bd9a93a8f9f7
+label Xd4a6c37ae03a4cab82a20f078509c26a
+label X89a85ec08735443e8a64bd9a93a8f9f7
+push argument 1
+call String.length 1
+push constant 1
+sub
+pop local 0
+label LABEL1_X7042441f3af444aba79e89317167b262
+push local 0
+push constant 0
+eq
+push local 0
+push constant 0
+gt
+or
+not
+if-goto LABEL2_X5c7924379b3a43968efbe62ebc45f6cf
+push argument 0
+push local 0
+call String.charAt 2
+push argument 1
+push local 0
+call String.charAt 2
+eq
+not
+not
+if-goto Xf3e1af8b490f4c2d9fd80f73b454317a
+push constant 0
+return
+goto Xb701af40bd4541b2bc05b26e250d864a
+label Xf3e1af8b490f4c2d9fd80f73b454317a
+label Xb701af40bd4541b2bc05b26e250d864a
+push local 0
+push constant 1
+sub
+pop local 0
+goto LABEL1_X7042441f3af444aba79e89317167b262
+label LABEL2_X5c7924379b3a43968efbe62ebc45f6cf
+push constant 0
+not
+return
+function Util.parseAlgebraicFile 0
+push argument 0
+push constant 64
+sub
+return
+function Util.parseAlgebraicRank 0
+push argument 0
+push constant 48
+sub
+return
+function Util.numericFileToChar 0
+push argument 0
+push constant 64
+add
+return
+function Util.numericRankToChar 0
+push argument 0
+push constant 48
+add
+return
+function Util.digitToChar 0
+push constant 1
+neg
+push argument 0
+lt
+push argument 0
+push constant 10
+lt
+and
+not
+if-goto Xef189482a5ac4c56a092965dc6d3f055
+push argument 0
+push constant 48
+add
+return
+goto X3dd541621b334ad0ac54f82ba8c0e4eb
+label Xef189482a5ac4c56a092965dc6d3f055
+push constant 88
+return
+label X3dd541621b334ad0ac54f82ba8c0e4eb
+function Util.modularIncrement 0
+push argument 0
+push constant 1
+add
+pop argument 0
+push argument 0
+push argument 1
+push constant 1
+sub
+gt
+not
+if-goto X13ae3c8a52c4454b82d9b7464c272da3
+push argument 0
+push argument 1
+sub
+pop argument 0
+goto X5e57ac11488a4bc78ee523ea6f98a599
+label X13ae3c8a52c4454b82d9b7464c272da3
+label X5e57ac11488a4bc78ee523ea6f98a599
+push argument 0
+return
+function Util.alertIfNull 0
+push argument 0
+push constant 0
+eq
+not
+if-goto X7972f84847534448a07b0a4745718229
+push constant 14
+call String.new 1
+push constant 79
+call String.appendChar 2
+push constant 98
+call String.appendChar 2
+push constant 106
+call String.appendChar 2
+push constant 101
+call String.appendChar 2
+push constant 99
+call String.appendChar 2
+push constant 116
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 115
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push constant 117
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+push constant 108
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+call Output.println 0
+pop temp 7
+goto X0a231a754aeb428bbdc0ee6c9f540503
+label X7972f84847534448a07b0a4745718229
+label X0a231a754aeb428bbdc0ee6c9f540503
+push constant 0
+return
+function Util.printLineString 0
+push argument 0
+call Output.printString 1
+pop temp 7
+call Output.println 0
+pop temp 7
+push constant 0
+return
+function Util.printLineInt 0
+push argument 0
+call Output.printInt 1
+pop temp 7
+call Output.println 0
+pop temp 7
+push constant 0
+return
+function Util.abs 0
+push argument 0
+push constant 0
+lt
+not
+if-goto X1ff3696ab4a54fad90520dd627e733f0
+push argument 0
+neg
+return
+goto X5496b68dda344b82aa45949dc7ea3073
+label X1ff3696ab4a54fad90520dd627e733f0
+push argument 0
+return
+label X5496b68dda344b82aa45949dc7ea3073
+function Util.isValidFile 0
+push constant 64
+push argument 0
+lt
+push argument 0
+push constant 73
+lt
+and
+return
+function Util.isValidRank 0
+push constant 48
+push argument 0
+lt
+push argument 0
+push constant 57
+lt
+and
+return
+function Util.isValidSquare 0
+push argument 0
+call Util.isValidFile 1
+push argument 1
+call Util.isValidRank 1
+and
+return

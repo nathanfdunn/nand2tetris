@@ -1,0 +1,307 @@
+
+
+// Uses our algebra to generate all squares
+// Reminisicent of Betza Notation https://en.wikipedia.org/wiki/Betza%27s_funny_notation
+class SquareGenerator {
+	static Array kingSquares;
+	static Array queenSquares;
+	static Array bishopSquares;
+	static Array rookSquares;
+	static Array knightSquares;
+
+	// function int getRiderDirections(Piece piece) {
+	// 	if (piece.isKnight()) {
+	// 		return 1;
+	// 	}
+
+	// 	if (piece.isBishop()) {
+	// 		return 4;
+	// 	}
+
+	// 	if (piece.isRook()) {
+	// 		return 4;
+	// 	}
+
+	// 	if (piece.isQueen()) {
+	// 		return 8;
+	// 	}
+
+	// 	if (piece.)
+	// }
+
+	function Array getP0() {
+		var Array p0;
+		let p0 = Array.new(1);
+		let p0[0] = Square.fromBoardIndices(0, 1);
+		return p0;
+	}
+
+	function Array getP1(Array p0) {
+		return SquareGenerator.zipUnion(
+			p0,
+			SquareGenerator.multiplyScalar(p0, 1, -1),
+			1
+		);
+	}
+
+	function Array getWazir(Array p1) {
+		return SquareGenerator.zipUnion(
+			p1,
+			SquareGenerator.transposeElements(p1, 2),
+			2
+		);
+	}
+
+	function Array getFerz(Array wazirSquares) {
+		return SquareGenerator.addElements(
+			wazirSquares,
+			wazirSquares,
+			4,
+			true
+		);
+	}
+
+	function void init() {
+		// proto pawn that can only move forward
+		var Array p0;
+		// proto pawn that can move forward or backward
+		var Array p1;
+
+		// Fairy chess pieces are useful intermediary steps
+		var Array wazirSquares;
+		var Array ferzSquares;
+
+		let p0 = SquareGenerator.getP0();
+		do SquareGenerator.printSquares(p0, 1);
+
+		let p1 = SquareGenerator.getP1(p0);
+		do SquareGenerator.printSquares(p1, 2);
+
+		let wazirSquares = SquareGenerator.getWazir(p1);
+		do SquareGenerator.printSquares(wazirSquares, 4);
+
+		let ferzSquares = SquareGenerator.getFerz(wazirSquares);
+		do SquareGenerator.printSquares(ferzSquares, 4);
+
+		let kingSquares = SquareGenerator.zipUnion(
+			wazirSquares,
+			ferzSquares,
+			4
+		);
+
+		let knightSquares = SquareGenerator.addElements(
+			kingSquares,
+			kingSquares,
+			8,
+			true
+		);
+
+		let bishopSquares = SquareGenerator.riderClosure(
+			ferzSquares,
+			4
+		);
+
+		let rookSquares = SquareGenerator.riderClosure(
+			wazirSquares,
+			4
+		);
+
+		let queenSquares = SquareGenerator.riderClosure(
+			kingSquares,
+			8
+		);
+
+		return;
+	}
+
+	function void printSquares(Array squares, int length) {
+		var Square temp;
+		var int index;
+
+		let index = 0;
+		while (index < length) {
+			let temp = squares[index];
+			if (temp = 0) {
+				do Output.printString("NULL");
+				do Output.println();
+			}
+			else {
+				do Output.printInt(temp);
+				do Output.println();
+				do Output.printString(temp.toString());
+				do Output.println();
+			}
+
+			let index = index + 1;
+		}
+
+		return;
+	}
+
+	// Ok, this now has to be 8 because of a hack we're doing with Kings and Knights
+	function int getRiderDist() {
+		return 8;
+	}
+
+	function int getRiderDistForPiece(Piece piece) {
+		// todo pawn
+		if (piece.isKnight() | piece.isKing()) {
+			return 1;
+		}
+
+		return SquareGenerator.getRiderDist();
+	}
+
+	function Array riderClosure(Array arr, int length) {
+		var Array ret;
+		var Array step;
+		var int maxDist;
+		var int distance;
+		var int retIndex;
+		var int index;
+		let maxDist = SquareGenerator.getRiderDist();
+		let ret = Array.new(Math.multiply(maxDist, length));
+		let retIndex = 0;
+
+		// Initialize step to 0 vectors
+		let step = Array.new(length);
+		let index = 0;
+		while (index < length) {
+			let step[index] = Square.fromBoardIndices(0, 0);
+			let index = index + 1;
+		}
+
+		// This will effectively be distance + 1...
+		let distance = 0;
+		while (distance < maxDist) {
+			let step = SquareGenerator.addElements(arr, step, length, false);
+		// do SquareGenerator.printSquares(ret, Math.multiply(maxDist, length));
+
+			// Copy step to the output array
+			let index = 0;
+			while (index < length) {
+				let ret[retIndex] = step[index];
+				let index = index + 1;
+				let retIndex = retIndex + 1;
+			}
+
+			let distance = distance + 1;
+		}
+
+		return ret;
+	}
+
+	// function Array union(Array arr1, int length1, Array arr2, int length2) {
+
+	// }
+
+	// Like union, but interleaves elements
+	// Arrays must be of same length
+	function Array zipUnion(Array arr1, Array arr2, int length) {
+		var Array ret;
+
+		let ret = Array.new(2 * length);
+
+		let length = length - 1;
+		while (length > -1) {
+			let ret[2 * length] = arr1[length];
+			let ret[(2 * length) + 1] = arr2[length];
+			let length = length - 1;
+		}
+
+		return ret;
+	}
+
+	// Arrays must be of same length
+	// permute option allows elminiating separate permute function.
+	// This is called a cyclic self sum
+	function Array addElements(Array arr1, Array arr2, int length, boolean permute) {
+		var Array ret;
+		var Square temp;
+		var int index;
+		var int index2;
+		
+		let ret = Array.new(length);
+
+		let index = 0;
+		while (index < length) {
+			if (permute) {
+				let index2 = Util.modularIncrement(index, length);
+			}
+			else {
+				let index2 = index;
+			}
+			let temp = arr1[index];
+
+			let ret[index] = temp.addSquare(arr2[index2]);
+
+			let index = index + 1;
+		}
+
+		return ret;
+	}
+
+	function Array transposeElements(Array arr, int length) {
+		var Array ret;
+		var Square temp;
+
+		let ret = Array.new(length);
+
+		let length = length - 1;
+		while (length > -1) {
+			let temp = arr[length];
+			let ret[length] = Square.fromBoardIndices(temp.getY(), temp.getX());
+			let length = length - 1;
+		}
+
+		return ret;
+	}
+
+	function Array multiplyScalar(Array arr, int length, int scalar) {
+		var Array ret;
+		var Square temp;
+
+		let ret = Array.new(length);
+
+		let length = length - 1;
+		while (length > -1) {
+			let temp = arr[length];
+			let ret[length] = temp.multiplyScalar(scalar);
+			let length = length - 1;
+		}
+
+		return ret;
+	}
+
+	// Returns a 2-valued array, [offsets, offsetsLength]
+	function List getOffsetsByPiece(Piece piece) {
+
+		if (piece.isKing()) {
+			return List.newFromArray(kingSquares, 8);
+		}
+
+		if (piece.isKnight()) {
+			return List.newFromArray(knightSquares, 8);
+		}
+
+		if (piece.isBishop()) {
+			return List.newFromArray(bishopSquares, Math.multiply(
+				SquareGenerator.getRiderDist(), 4
+			));
+		}
+
+		if (piece.isRook()) {
+			return List.newFromArray(rookSquares, Math.multiply(
+				SquareGenerator.getRiderDist(), 4
+			));
+		}
+
+		if (piece.isQueen()) {
+			return List.newFromArray(queenSquares, Math.multiply(
+				SquareGenerator.getRiderDist(), 8
+			));
+		}
+
+		return 0;
+	}
+}

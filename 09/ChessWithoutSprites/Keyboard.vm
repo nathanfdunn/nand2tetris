@@ -1,0 +1,110 @@
+function Keyboard.init 0
+push constant 24576
+pop static 0
+call String.newLine 0
+pop static 1
+call String.backSpace 0
+pop static 2
+push constant 0
+pop static 3
+push constant 0
+return
+function Keyboard.keyPressed 0
+push static 0
+push constant 0
+add
+pop pointer 1
+push that 0
+return
+function Keyboard.readChar 0
+push constant 0
+not
+call Keyboard.readCharOptionalBackspace 1
+return
+function Keyboard.readCharOptionalBackspace 1
+call Keyboard.keyPressed 0
+pop local 0
+push constant 0
+call Output.printChar 1
+pop temp 7
+label LABEL1_X8e62e0fda9c4487d945db4f23b16ef15
+push local 0
+push constant 0
+eq
+push local 0
+push static 3
+eq
+push local 0
+push static 2
+eq
+push argument 0
+not
+and
+or
+or
+not
+if-goto LABEL2_Xa502359ed0d64bf0a112e21d66c8521a
+push local 0
+pop static 3
+call Keyboard.keyPressed 0
+pop local 0
+goto LABEL1_X8e62e0fda9c4487d945db4f23b16ef15
+label LABEL2_Xa502359ed0d64bf0a112e21d66c8521a
+push local 0
+pop static 3
+call Output.backSpace 0
+pop temp 7
+push local 0
+call Output.printChar 1
+pop temp 7
+push local 0
+return
+function Keyboard.readLine 2
+push argument 0
+call Output.printString 1
+pop temp 7
+push constant 255
+call String.new 1
+pop local 0
+push constant 0
+call Keyboard.readCharOptionalBackspace 1
+pop local 1
+label LABEL1_X5d643fefff50405fbc2d0417d7acfbbd
+push local 1
+push static 1
+eq
+not
+not
+if-goto LABEL2_Xe8ee3e144e764c048a98cd477e9d396f
+push local 1
+push static 2
+eq
+not
+if-goto Xc27d47be0de14bb0bb7995122cf128e6
+push local 0
+call String.eraseLastChar 1
+pop temp 7
+goto X7564d1665e204276b43a57e53848ca87
+label Xc27d47be0de14bb0bb7995122cf128e6
+push local 0
+push local 1
+call String.appendChar 2
+pop temp 7
+label X7564d1665e204276b43a57e53848ca87
+push local 0
+call String.length 1
+push constant 0
+gt
+call Keyboard.readCharOptionalBackspace 1
+pop local 1
+goto LABEL1_X5d643fefff50405fbc2d0417d7acfbbd
+label LABEL2_Xe8ee3e144e764c048a98cd477e9d396f
+push local 0
+return
+function Keyboard.readInt 1
+push argument 0
+call Keyboard.readLine 1
+pop local 0
+push local 0
+call String.intValue 1
+return

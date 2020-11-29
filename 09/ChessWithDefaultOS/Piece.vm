@@ -1,0 +1,398 @@
+function Piece.isEnemy 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+call Piece.getColor 1
+eq
+not
+return
+function Piece.promote 0
+push argument 0
+pop pointer 0
+push argument 1
+pop this 1
+push constant 0
+return
+function Piece.pieceTypeFromPieceChar 0
+push argument 0
+push constant 78
+eq
+not
+if-goto X4e3a5d995af64f1cac41e6b05d3f3bf6
+push constant 2
+return
+goto X4310176a4e394aa3b54b9809147f14b5
+label X4e3a5d995af64f1cac41e6b05d3f3bf6
+label X4310176a4e394aa3b54b9809147f14b5
+push argument 0
+push constant 66
+eq
+not
+if-goto X2977c4a923244b32821dc37e71cb0584
+push constant 3
+return
+goto Xa1e953ad00274bf9bfe7a8a5b18b619f
+label X2977c4a923244b32821dc37e71cb0584
+label Xa1e953ad00274bf9bfe7a8a5b18b619f
+push argument 0
+push constant 82
+eq
+not
+if-goto Xa3cfe6f94f574bd3a28d70d9c930fe86
+push constant 4
+return
+goto Xc6dc9df3cb5d4a5c8cde5e6598fb8744
+label Xa3cfe6f94f574bd3a28d70d9c930fe86
+label Xc6dc9df3cb5d4a5c8cde5e6598fb8744
+push argument 0
+push constant 81
+eq
+not
+if-goto X277cf41ef4d84129a216f4b97173a776
+push constant 5
+return
+goto Xf3f0665a39fe4da98b703e49fdaffa59
+label X277cf41ef4d84129a216f4b97173a776
+label Xf3f0665a39fe4da98b703e49fdaffa59
+push constant 0
+return
+function Piece.init 0
+push constant 7
+call Array.new 1
+pop static 0
+push constant 1
+call String.new 1
+push constant 80
+call String.appendChar 2
+push static 0
+push constant 1
+add
+pop pointer 1
+pop that 0
+push constant 1
+call String.new 1
+push constant 78
+call String.appendChar 2
+push static 0
+push constant 2
+add
+pop pointer 1
+pop that 0
+push constant 1
+call String.new 1
+push constant 66
+call String.appendChar 2
+push static 0
+push constant 3
+add
+pop pointer 1
+pop that 0
+push constant 1
+call String.new 1
+push constant 82
+call String.appendChar 2
+push static 0
+push constant 4
+add
+pop pointer 1
+pop that 0
+push constant 1
+call String.new 1
+push constant 81
+call String.appendChar 2
+push static 0
+push constant 5
+add
+pop pointer 1
+pop that 0
+push constant 1
+call String.new 1
+push constant 75
+call String.appendChar 2
+push static 0
+push constant 6
+add
+pop pointer 1
+pop that 0
+push constant 7
+call Array.new 1
+pop static 1
+push constant 1
+call String.new 1
+push constant 112
+call String.appendChar 2
+push static 1
+push constant 1
+add
+pop pointer 1
+pop that 0
+push constant 1
+call String.new 1
+push constant 110
+call String.appendChar 2
+push static 1
+push constant 2
+add
+pop pointer 1
+pop that 0
+push constant 1
+call String.new 1
+push constant 98
+call String.appendChar 2
+push static 1
+push constant 3
+add
+pop pointer 1
+pop that 0
+push constant 1
+call String.new 1
+push constant 114
+call String.appendChar 2
+push static 1
+push constant 4
+add
+pop pointer 1
+pop that 0
+push constant 1
+call String.new 1
+push constant 113
+call String.appendChar 2
+push static 1
+push constant 5
+add
+pop pointer 1
+pop that 0
+push constant 1
+call String.new 1
+push constant 107
+call String.appendChar 2
+push static 1
+push constant 6
+add
+pop pointer 1
+pop that 0
+push constant 0
+return
+function Piece.dispose 0
+push argument 0
+pop pointer 0
+push constant 0
+return
+function Piece.getColor 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Piece.toString 1
+push argument 0
+pop pointer 0
+push this 0
+not
+if-goto X7690cac51cd94a0f92989a775abc12db
+push static 1
+push this 1
+add
+pop pointer 1
+push that 0
+return
+goto Xc4ba0dfaef29422b8dade724abe0ce9b
+label X7690cac51cd94a0f92989a775abc12db
+push static 0
+push this 1
+add
+pop pointer 1
+push that 0
+return
+label Xc4ba0dfaef29422b8dade724abe0ce9b
+function Piece.draw 4
+push argument 0
+pop pointer 0
+push this 1
+push constant 1
+eq
+not
+if-goto X28da74f74331474fb296a7a3bea86ca0
+push argument 1
+push argument 2
+push argument 3
+push this 0
+call Sprites.drawPawn 4
+pop temp 7
+goto X8b463c8d0b27437d911ef10b7be8848a
+label X28da74f74331474fb296a7a3bea86ca0
+label X8b463c8d0b27437d911ef10b7be8848a
+push this 1
+push constant 2
+eq
+not
+if-goto X0ae05782b97f4dcb801519b7717d1167
+push argument 1
+push argument 2
+push argument 3
+push this 0
+call Sprites.drawKnight 4
+pop temp 7
+goto X633a9ecc11174257a7b7894ec431b606
+label X0ae05782b97f4dcb801519b7717d1167
+label X633a9ecc11174257a7b7894ec431b606
+push this 1
+push constant 3
+eq
+not
+if-goto Xed6e47bfb2fc4a2cb74334e2c82f2c32
+push argument 1
+push argument 2
+push argument 3
+push this 0
+call Sprites.drawBishop 4
+pop temp 7
+goto X6c553c69847f4f32905b4ca7626c51e4
+label Xed6e47bfb2fc4a2cb74334e2c82f2c32
+label X6c553c69847f4f32905b4ca7626c51e4
+push this 1
+push constant 4
+eq
+not
+if-goto X66603e650a96457391f0fc9b2c6c8734
+push argument 1
+push argument 2
+push argument 3
+push this 0
+call Sprites.drawRook 4
+pop temp 7
+goto X7378d5452d804450889782b17c33272b
+label X66603e650a96457391f0fc9b2c6c8734
+label X7378d5452d804450889782b17c33272b
+push this 1
+push constant 5
+eq
+not
+if-goto Xa13ea60620b14d8c8f5d6543a571bfc5
+push argument 1
+push argument 2
+push argument 3
+push this 0
+call Sprites.drawQueen 4
+pop temp 7
+goto X3ce18c8fb4e149f0b0ff87a844ca7581
+label Xa13ea60620b14d8c8f5d6543a571bfc5
+label X3ce18c8fb4e149f0b0ff87a844ca7581
+push this 1
+push constant 6
+eq
+not
+if-goto Xc32fd16e5a7344988307473c036cacb1
+push argument 1
+push argument 2
+push argument 3
+push this 0
+call Sprites.drawKing 4
+pop temp 7
+goto X92de8da7369c4f8cb0ca3c560b8d2120
+label Xc32fd16e5a7344988307473c036cacb1
+label X92de8da7369c4f8cb0ca3c560b8d2120
+push constant 0
+return
+function Piece.isPawn 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 1
+eq
+return
+function Piece.isKnight 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 2
+eq
+return
+function Piece.isBishop 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 3
+eq
+return
+function Piece.isRook 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 4
+eq
+return
+function Piece.isQueen 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 5
+eq
+return
+function Piece.isKing 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 6
+eq
+return
+function Piece.pawn 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 1
+pop this 1
+push pointer 0
+return
+function Piece.knight 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 2
+pop this 1
+push pointer 0
+return
+function Piece.bishop 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 3
+pop this 1
+push pointer 0
+return
+function Piece.rook 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 4
+pop this 1
+push pointer 0
+return
+function Piece.queen 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 5
+pop this 1
+push pointer 0
+return
+function Piece.king 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 6
+pop this 1
+push pointer 0
+return

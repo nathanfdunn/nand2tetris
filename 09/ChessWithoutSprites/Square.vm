@@ -1,0 +1,142 @@
+function Square.fromBoardIndices 0
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push argument 1
+pop this 1
+push pointer 0
+return
+function Square.add 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+add
+push this 1
+push argument 2
+add
+call Square.fromBoardIndices 2
+return
+function Square.addSquare 0
+push argument 0
+pop pointer 0
+push this 0
+push argument 1
+call Square.getX 1
+add
+push this 1
+push argument 1
+call Square.getY 1
+add
+call Square.fromBoardIndices 2
+return
+function Square.getX 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function Square.getY 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function Square.multiplyScalar 0
+push argument 0
+pop pointer 0
+push argument 1
+push this 0
+call Math.multiply 2
+push argument 1
+push this 1
+call Math.multiply 2
+call Square.fromBoardIndices 2
+return
+function Square.isOnBoard 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 1
+neg
+gt
+push this 0
+push constant 8
+lt
+push this 1
+push constant 1
+neg
+gt
+push this 1
+push constant 8
+lt
+and
+and
+and
+return
+function Square.toString 1
+push argument 0
+pop pointer 0
+push constant 5
+call String.new 1
+pop local 0
+push this 0
+push constant 0
+lt
+not
+if-goto X4bfc2d2b5b39463fa752b9bfa8a39d28
+push local 0
+push constant 45
+call String.appendChar 2
+pop temp 7
+push local 0
+push this 0
+neg
+call Util.digitToChar 1
+call String.appendChar 2
+pop temp 7
+goto X36681cc3063947dc8daee79b7d20301e
+label X4bfc2d2b5b39463fa752b9bfa8a39d28
+push local 0
+push constant 32
+call String.appendChar 2
+pop temp 7
+push local 0
+push this 0
+call Util.digitToChar 1
+call String.appendChar 2
+pop temp 7
+label X36681cc3063947dc8daee79b7d20301e
+push local 0
+push constant 44
+call String.appendChar 2
+pop temp 7
+push this 1
+push constant 0
+lt
+not
+if-goto X1df761f2b20b481da8f4c138bbdb1f86
+push local 0
+push constant 45
+call String.appendChar 2
+pop temp 7
+push local 0
+push this 1
+neg
+call Util.digitToChar 1
+call String.appendChar 2
+pop temp 7
+goto Xe8b7d5e63bfc40bb9cbde92656d50eea
+label X1df761f2b20b481da8f4c138bbdb1f86
+push local 0
+push constant 32
+call String.appendChar 2
+pop temp 7
+push local 0
+push this 1
+call Util.digitToChar 1
+call String.appendChar 2
+pop temp 7
+label Xe8b7d5e63bfc40bb9cbde92656d50eea
+push local 0
+return

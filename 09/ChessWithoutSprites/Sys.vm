@@ -1,0 +1,103 @@
+function Sys.init 1
+push constant 300
+pop static 1
+call Memory.init 0
+pop temp 7
+call Math.init 0
+pop temp 7
+call Screen.init 0
+pop temp 7
+call Output.init 0
+pop temp 7
+call Keyboard.init 0
+pop temp 7
+call Main.main 0
+pop temp 7
+call Sys.halt 0
+pop temp 7
+push constant 0
+return
+function Sys.halt 0
+label LABEL1_X02d514ce1174483bb911f42dd1270247
+push constant 0
+not
+not
+if-goto LABEL2_X06c4728844ab4971baa90ea608373a0e
+goto LABEL1_X02d514ce1174483bb911f42dd1270247
+label LABEL2_X06c4728844ab4971baa90ea608373a0e
+push constant 0
+return
+function Sys.wait 1
+label LABEL1_X21f947a137e646209be8763e439f594e
+push argument 0
+push constant 0
+gt
+not
+if-goto LABEL2_X8b83490273e24e78af38b17ab78cb447
+push static 1
+pop local 0
+label LABEL1_Xc4bfc11593cd4094a7e16b7f76985f2e
+push local 0
+push constant 0
+gt
+not
+if-goto LABEL2_Xc23a4122da13433194648375a7fdfeb9
+push local 0
+push constant 1
+sub
+pop local 0
+goto LABEL1_Xc4bfc11593cd4094a7e16b7f76985f2e
+label LABEL2_Xc23a4122da13433194648375a7fdfeb9
+push argument 0
+push constant 1
+sub
+pop argument 0
+goto LABEL1_X21f947a137e646209be8763e439f594e
+label LABEL2_X8b83490273e24e78af38b17ab78cb447
+push constant 0
+return
+function Sys.breakpoint 1
+push constant 24576
+pop local 0
+label LABEL1_X5a85f1b99405478b82a6258be9e0904c
+push local 0
+push constant 0
+add
+pop pointer 1
+push that 0
+push constant 0
+eq
+not
+if-goto LABEL2_X92e37ed28a66499087bb33713c11040c
+goto LABEL1_X5a85f1b99405478b82a6258be9e0904c
+label LABEL2_X92e37ed28a66499087bb33713c11040c
+push constant 0
+return
+function Sys.idk 0
+push static 0
+call Output.printInt 1
+pop temp 7
+push constant 0
+push static 1
+push constant 0
+add
+pop pointer 1
+pop that 0
+push constant 0
+return
+function Sys.error 0
+push constant 3
+call String.new 1
+push constant 69
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+call Output.printString 1
+pop temp 7
+push argument 0
+call Output.printInt 1
+pop temp 7
+push constant 0
+return

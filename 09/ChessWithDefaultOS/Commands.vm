@@ -1,0 +1,326 @@
+function Commands.parseUciCommand 1
+push argument 0
+push constant 4
+call String.charAt 2
+call Util.parseAlgebraicFile 1
+push argument 0
+push constant 5
+call String.charAt 2
+call Util.parseAlgebraicRank 1
+push argument 0
+push constant 7
+call String.charAt 2
+call Util.parseAlgebraicFile 1
+push argument 0
+push constant 8
+call String.charAt 2
+call Util.parseAlgebraicRank 1
+call Move.new 4
+pop local 0
+push argument 0
+call String.length 1
+push constant 11
+eq
+not
+if-goto Xe793e9ddd54d42a4b15722b9a10e8c65
+push local 0
+push argument 0
+push constant 10
+call String.charAt 2
+call Piece.pieceTypeFromPieceChar 1
+call Move.setPromotionPieceType 2
+pop temp 7
+goto X21264bfdbba0456e8ea75526dd1fdaf2
+label Xe793e9ddd54d42a4b15722b9a10e8c65
+label X21264bfdbba0456e8ea75526dd1fdaf2
+push local 0
+return
+function Commands.tryMakeMove 1
+push argument 0
+push argument 1
+call Board.moveErrorCode 2
+pop local 0
+push local 0
+push constant 0
+eq
+not
+if-goto X3ce976bf920a4b3181327a0375d29b03
+push argument 0
+push argument 1
+call Board.makeMove 2
+pop temp 7
+goto X46ebdb006eca4fdbb0c03c9dbf27f5b4
+label X3ce976bf920a4b3181327a0375d29b03
+push local 0
+push constant 1
+eq
+not
+if-goto X5a3461e5f3c143d3bea70766312fd400
+push constant 14
+call String.new 1
+push constant 78
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 72
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+call Util.printLineString 1
+pop temp 7
+goto Xdd229c8ce6694794a96bab9daa626f93
+label X5a3461e5f3c143d3bea70766312fd400
+push local 0
+push constant 2
+eq
+not
+if-goto X75cbb61df6794e82bfc58d21621dd71c
+push constant 17
+call String.new 1
+push constant 87
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 71
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+call Util.printLineString 1
+pop temp 7
+goto Xdcb993fb816640ac80c27df2bba8757b
+label X75cbb61df6794e82bfc58d21621dd71c
+push local 0
+push constant 3
+eq
+not
+if-goto Xb0b2ed5bccdf421aabe130429374ddb0
+push constant 12
+call String.new 1
+push constant 73
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 86
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 76
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 68
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 86
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+call Util.printLineString 1
+pop temp 7
+goto Xb906768bfa2a4a1cba3f081fb3c7b947
+label Xb0b2ed5bccdf421aabe130429374ddb0
+push local 0
+push constant 4
+eq
+not
+if-goto X47271632175c487b99be8c921fa53c76
+push constant 23
+call String.new 1
+push constant 77
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 86
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 81
+call String.appendChar 2
+push constant 85
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+call Util.printLineString 1
+pop temp 7
+goto Xb93cb36a73f04762b6b43894cf1452bb
+label X47271632175c487b99be8c921fa53c76
+push local 0
+push constant 5
+eq
+not
+if-goto Xfeb462f453c14c98b889ce74bc3f167c
+push constant 24
+call String.new 1
+push constant 77
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 86
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+push constant 65
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 66
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 80
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 77
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 84
+call String.appendChar 2
+push constant 73
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+call Util.printLineString 1
+pop temp 7
+goto X9d1e70fe32c74266b9a16cb5129b3242
+label Xfeb462f453c14c98b889ce74bc3f167c
+push constant 13
+call String.new 1
+push constant 85
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 75
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 87
+call String.appendChar 2
+push constant 78
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push constant 69
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+push constant 79
+call String.appendChar 2
+push constant 82
+call String.appendChar 2
+call Util.printLineString 1
+pop temp 7
+label X9d1e70fe32c74266b9a16cb5129b3242
+label Xb93cb36a73f04762b6b43894cf1452bb
+label Xb906768bfa2a4a1cba3f081fb3c7b947
+label Xdcb993fb816640ac80c27df2bba8757b
+label Xdd229c8ce6694794a96bab9daa626f93
+label X46ebdb006eca4fdbb0c03c9dbf27f5b4
+push constant 0
+return

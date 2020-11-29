@@ -1,0 +1,174 @@
+class Piece {
+    // true -> black
+    field boolean color;
+    // 1 = pawn, 2 = knight, 3 = bishop, 4 = rook, 5 = queen, 6 = king
+    field int pieceType;
+
+    static Array pieceMapWhite;
+    static Array pieceMapBlack;
+
+    method boolean isEnemy(Piece other) {
+        return ~(color = other.getColor());
+    }
+
+    method void promote(int promotedPieceType) {
+        let pieceType = promotedPieceType;
+        return;
+    }
+
+    function int pieceTypeFromPieceChar(char symbol) {
+        if (symbol = 78) {      // 'N'
+            return 2;           // Knight
+        }
+
+        if (symbol = 66) {      // 'B'
+            return 3;           // Bishop
+        }
+
+        if (symbol = 82) {      // 'R'
+            return 4;           // Rook
+        }
+
+        if (symbol = 81) {      // 'Q'
+            return 5;           // Queen
+        }
+
+        // Don't need king since this is just for promotion
+
+        return 0;
+    }
+
+    function void init() {
+        let pieceMapWhite = Array.new(7);
+        let pieceMapWhite[1] = "P";
+        let pieceMapWhite[2] = "N";
+        let pieceMapWhite[3] = "B";
+        let pieceMapWhite[4] = "R";
+        let pieceMapWhite[5] = "Q";
+        let pieceMapWhite[6] = "K";
+
+        let pieceMapBlack = Array.new(7);
+        let pieceMapBlack[1] = "p";
+        let pieceMapBlack[2] = "n";
+        let pieceMapBlack[3] = "b";
+        let pieceMapBlack[4] = "r";
+        let pieceMapBlack[5] = "q";
+        let pieceMapBlack[6] = "k";
+
+        return;
+    }
+
+    method void dispose() {
+        // TODO I guess
+        return;
+    }
+
+    method boolean getColor(){
+        return color;
+    }
+
+    method String toString(){
+        var String map;
+        if (color){
+            return pieceMapBlack[pieceType];
+        }
+        else{
+            return pieceMapWhite[pieceType];
+        }
+    }
+
+    method void draw(int x, int y, boolean squareColor){
+        var int i;
+        var int j;
+        var char current;
+        var String curString;
+
+    // 1 = pawn, 2 = knight, 3 = bishop, 4 = rook, 5 = queen, 6 = king
+
+        if (pieceType = 1){
+            do Sprites.drawPawn(x, y, squareColor, color);
+        }
+        if (pieceType = 2){
+            do Sprites.drawKnight(x, y, squareColor, color);
+        }
+        if (pieceType = 3){
+            do Sprites.drawBishop(x, y, squareColor, color);
+        }
+        if (pieceType = 4){
+            do Sprites.drawRook(x, y, squareColor, color);
+        }
+        if (pieceType = 5){
+            do Sprites.drawQueen(x, y, squareColor, color);
+        }
+        if (pieceType = 6){
+            do Sprites.drawKing(x, y, squareColor, color);
+        }
+
+        return;
+    }
+
+    method boolean isPawn() {
+        return pieceType = 1;
+    }
+
+    method boolean isKnight() {
+        return pieceType = 2;
+    }
+
+    method boolean isBishop() {
+        return pieceType = 3;
+    }
+
+    method boolean isRook() {
+        return pieceType = 4;
+    }
+        
+    method boolean isQueen() {
+        return pieceType = 5;
+    }
+        
+    method boolean isKing() {
+        return pieceType = 6;
+    }
+
+    constructor Piece pawn(boolean _color){
+        let color = _color;
+        let pieceType = 1;
+
+        return this;
+    }
+
+    constructor Piece knight(boolean _color){
+        let color = _color;
+        let pieceType = 2;
+
+        return this;
+    }
+
+    constructor Piece bishop(boolean _color){
+        let color = _color;
+        let pieceType = 3;
+
+        return this;
+    }
+
+    constructor Piece rook(boolean _color){
+        let color = _color;
+        let pieceType = 4;
+
+        return this;
+    }
+
+    constructor Piece queen(boolean _color){
+        let color = _color;
+        let pieceType = 5;
+        return this;
+    }
+
+    constructor Piece king(boolean _color){
+        let color = _color;
+        let pieceType = 6;
+        return this;
+    }
+
+}

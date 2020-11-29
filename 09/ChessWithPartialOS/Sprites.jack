@@ -1,0 +1,1671 @@
+
+class Sprites {
+			function void drawPawn (int x, int y, boolean squareColor, boolean pieceColor) {
+		// start of line 0
+
+// start of line 1
+
+// start of line 2
+
+// start of line 3
+
+// start of line 4
+
+// start of line 5
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 5, x + 16, y + 5);
+
+// start of line 6
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 6, x + 13, y + 6);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 14, y + 6, x + 16, y + 6);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 6, x + 18, y + 6);
+
+// start of line 7
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 7, x + 11, y + 7);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 7, x + 18, y + 7);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 7, x + 19, y + 7);
+
+// start of line 8
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 8, x + 11, y + 8);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 8, x + 18, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 8, x + 19, y + 8);
+
+// start of line 9
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 9, x + 10, y + 9);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 9, x + 19, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 9, x + 20, y + 9);
+
+// start of line 10
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 10, x + 10, y + 10);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 10, x + 19, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 10, x + 20, y + 10);
+
+// start of line 11
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 11, x + 10, y + 11);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 11, x + 19, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 11, x + 20, y + 11);
+
+// start of line 12
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 12, x + 11, y + 12);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 12, x + 18, y + 12);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 12, x + 19, y + 12);
+
+// start of line 13
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 13, x + 11, y + 13);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 13, x + 18, y + 13);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 13, x + 19, y + 13);
+
+// start of line 14
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 14, x + 12, y + 14);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 14, x + 17, y + 14);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 14, x + 18, y + 14);
+
+// start of line 15
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 15, x + 12, y + 15);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 15, x + 17, y + 15);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 15, x + 19, y + 15);
+
+// start of line 16
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 16, x + 11, y + 16);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 16, x + 18, y + 16);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 16, x + 20, y + 16);
+
+// start of line 17
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 17, x + 12, y + 17);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 17, x + 17, y + 17);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 17, x + 19, y + 17);
+
+// start of line 18
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 18, x + 12, y + 18);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 18, x + 17, y + 18);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 18, x + 18, y + 18);
+
+// start of line 19
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 19, x + 12, y + 19);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 19, x + 17, y + 19);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 19, x + 18, y + 19);
+
+// start of line 20
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 20, x + 12, y + 20);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 20, x + 17, y + 20);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 20, x + 18, y + 20);
+
+// start of line 21
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 21, x + 12, y + 21);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 21, x + 17, y + 21);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 21, x + 18, y + 21);
+
+// start of line 22
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 22, x + 12, y + 22);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 22, x + 17, y + 22);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 22, x + 18, y + 22);
+
+// start of line 23
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 23, x + 11, y + 23);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 23, x + 18, y + 23);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 23, x + 19, y + 23);
+
+// start of line 24
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 24, x + 11, y + 24);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 24, x + 18, y + 24);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 24, x + 19, y + 24);
+
+// start of line 25
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 25, x + 10, y + 25);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 25, x + 19, y + 25);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 25, x + 20, y + 25);
+
+// start of line 26
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 26, x + 9, y + 26);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 26, x + 20, y + 26);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 26, x + 21, y + 26);
+
+// start of line 27
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 27, x + 8, y + 27);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 27, x + 21, y + 27);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 27, x + 23, y + 27);
+
+// start of line 28
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 28, x + 23, y + 28);
+
+		return;
+	}
+	function void drawKnight (int x, int y, boolean squareColor, boolean pieceColor) {
+		// start of line 0
+
+// start of line 1
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 1, x + 20, y + 1);
+
+// start of line 2
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 2, x + 21, y + 2);
+
+// start of line 3
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 3, x + 20, y + 3);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 21, y + 3, x + 21, y + 3);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 3, x + 22, y + 3);
+
+// start of line 4
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 4, x + 20, y + 4);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 21, y + 4, x + 22, y + 4);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 4, x + 23, y + 4);
+
+// start of line 5
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 5, x + 19, y + 5);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 20, y + 5, x + 22, y + 5);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 5, x + 23, y + 5);
+
+// start of line 6
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 6, x + 14, y + 6);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 6, x + 23, y + 6);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 6, x + 24, y + 6);
+
+// start of line 7
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 7, x + 13, y + 7);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 14, y + 7, x + 24, y + 7);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 25, y + 7, x + 25, y + 7);
+
+// start of line 8
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 8, x + 9, y + 8);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 8, x + 25, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 26, y + 8, x + 26, y + 8);
+
+// start of line 9
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 6, y + 9, x + 6, y + 9);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 7, y + 9, x + 25, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 26, y + 9, x + 26, y + 9);
+
+// start of line 10
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 6, y + 10, x + 6, y + 10);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 7, y + 10, x + 25, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 26, y + 10, x + 26, y + 10);
+
+// start of line 11
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 6, y + 11, x + 6, y + 11);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 7, y + 11, x + 25, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 26, y + 11, x + 26, y + 11);
+
+// start of line 12
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 6, y + 12, x + 6, y + 12);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 7, y + 12, x + 24, y + 12);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 25, y + 12, x + 25, y + 12);
+
+// start of line 13
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 13, x + 8, y + 13);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 13, x + 24, y + 13);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 25, y + 13, x + 25, y + 13);
+
+// start of line 14
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 14, x + 13, y + 14);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 14, y + 14, x + 23, y + 14);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 14, x + 24, y + 14);
+
+// start of line 15
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 15, x + 14, y + 15);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 15, x + 22, y + 15);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 15, x + 23, y + 15);
+
+// start of line 16
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 16, x + 14, y + 16);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 16, x + 22, y + 16);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 16, x + 23, y + 16);
+
+// start of line 17
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 13, y + 17, x + 13, y + 17);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 14, y + 17, x + 22, y + 17);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 17, x + 23, y + 17);
+
+// start of line 18
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 18, x + 12, y + 18);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 18, x + 22, y + 18);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 18, x + 23, y + 18);
+
+// start of line 19
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 19, x + 12, y + 19);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 19, x + 22, y + 19);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 19, x + 23, y + 19);
+
+// start of line 20
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 20, x + 12, y + 20);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 20, x + 22, y + 20);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 20, x + 23, y + 20);
+
+// start of line 21
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 21, x + 11, y + 21);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 21, x + 22, y + 21);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 21, x + 23, y + 21);
+
+// start of line 22
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 22, x + 11, y + 22);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 22, x + 23, y + 22);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 22, x + 24, y + 22);
+
+// start of line 23
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 23, x + 10, y + 23);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 23, x + 23, y + 23);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 23, x + 24, y + 23);
+
+// start of line 24
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 24, x + 10, y + 24);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 24, x + 24, y + 24);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 25, y + 24, x + 25, y + 24);
+
+// start of line 25
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 25, x + 10, y + 25);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 25, x + 24, y + 25);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 25, y + 25, x + 25, y + 25);
+
+// start of line 26
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 26, x + 9, y + 26);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 26, x + 25, y + 26);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 26, y + 26, x + 26, y + 26);
+
+// start of line 27
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 27, x + 8, y + 27);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 27, x + 26, y + 27);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 27, y + 27, x + 27, y + 27);
+
+// start of line 28
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 28, x + 8, y + 28);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 28, x + 26, y + 28);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 27, y + 28, x + 27, y + 28);
+
+// start of line 29
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 29, x + 9, y + 29);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 29, x + 25, y + 29);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 26, y + 29, x + 26, y + 29);
+
+// start of line 30
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 30, x + 25, y + 30);
+
+// start of line 31
+
+		return;
+	}
+	function void drawBishop (int x, int y, boolean squareColor, boolean pieceColor) {
+		// start of line 0
+
+// start of line 1
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 1, x + 16, y + 1);
+
+// start of line 2
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 2, x + 14, y + 2);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 2, x + 16, y + 2);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 2, x + 17, y + 2);
+
+// start of line 3
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 3, x + 14, y + 3);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 3, x + 16, y + 3);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 3, x + 17, y + 3);
+
+// start of line 4
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 4, x + 16, y + 4);
+
+// start of line 5
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 5, x + 14, y + 5);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 5, x + 16, y + 5);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 5, x + 17, y + 5);
+
+// start of line 6
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 6, x + 14, y + 6);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 6, x + 16, y + 6);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 6, x + 17, y + 6);
+
+// start of line 7
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 13, y + 7, x + 13, y + 7);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 14, y + 7, x + 17, y + 7);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 7, x + 18, y + 7);
+
+// start of line 8
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 8, x + 12, y + 8);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 8, x + 17, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 8, x + 18, y + 8);
+
+// start of line 9
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 9, x + 11, y + 9);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 9, x + 16, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 9, x + 17, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 9, x + 20, y + 9);
+
+// start of line 10
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 10, x + 10, y + 10);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 10, x + 16, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 10, x + 17, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 10, x + 19, y + 10);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 20, y + 10, x + 20, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 10, x + 21, y + 10);
+
+// start of line 11
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 11, x + 9, y + 11);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 11, x + 16, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 11, x + 17, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 11, x + 19, y + 11);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 20, y + 11, x + 21, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 11, x + 22, y + 11);
+
+// start of line 12
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 12, x + 9, y + 12);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 12, x + 16, y + 12);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 12, x + 17, y + 12);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 12, x + 19, y + 12);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 20, y + 12, x + 21, y + 12);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 12, x + 22, y + 12);
+
+// start of line 13
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 13, x + 8, y + 13);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 13, x + 15, y + 13);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 16, y + 13, x + 16, y + 13);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 13, x + 18, y + 13);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 19, y + 13, x + 22, y + 13);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 13, x + 23, y + 13);
+
+// start of line 14
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 14, x + 8, y + 14);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 14, x + 16, y + 14);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 14, x + 17, y + 14);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 18, y + 14, x + 22, y + 14);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 14, x + 23, y + 14);
+
+// start of line 15
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 15, x + 8, y + 15);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 15, x + 22, y + 15);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 15, x + 23, y + 15);
+
+// start of line 16
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 16, x + 8, y + 16);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 16, x + 22, y + 16);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 16, x + 23, y + 16);
+
+// start of line 17
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 17, x + 8, y + 17);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 17, x + 22, y + 17);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 17, x + 23, y + 17);
+
+// start of line 18
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 18, x + 8, y + 18);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 18, x + 22, y + 18);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 18, x + 23, y + 18);
+
+// start of line 19
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 19, x + 9, y + 19);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 19, x + 21, y + 19);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 19, x + 22, y + 19);
+
+// start of line 20
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 20, x + 9, y + 20);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 20, x + 21, y + 20);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 20, x + 22, y + 20);
+
+// start of line 21
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 21, x + 10, y + 21);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 21, x + 20, y + 21);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 21, x + 21, y + 21);
+
+// start of line 22
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 22, x + 10, y + 22);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 22, x + 20, y + 22);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 22, x + 21, y + 22);
+
+// start of line 23
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 23, x + 11, y + 23);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 23, x + 14, y + 23);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 23, x + 16, y + 23);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 17, y + 23, x + 19, y + 23);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 23, x + 20, y + 23);
+
+// start of line 24
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 24, x + 11, y + 24);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 24, x + 12, y + 24);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 13, y + 24, x + 14, y + 24);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 24, x + 16, y + 24);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 24, x + 18, y + 24);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 19, y + 24, x + 19, y + 24);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 24, x + 20, y + 24);
+
+// start of line 25
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 25, x + 12, y + 25);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 13, y + 25, x + 18, y + 25);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 25, x + 19, y + 25);
+
+// start of line 26
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 26, x + 11, y + 26);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 12, y + 26, x + 19, y + 26);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 26, x + 20, y + 26);
+
+// start of line 27
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 2, y + 27, x + 2, y + 27);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 27, x + 10, y + 27);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 27, x + 14, y + 27);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 27, x + 16, y + 27);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 17, y + 27, x + 20, y + 27);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 27, x + 21, y + 27);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 29, y + 27, x + 29, y + 27);
+
+// start of line 28
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 2, y + 28, x + 4, y + 28);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 28, x + 9, y + 28);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 28, x + 12, y + 28);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 13, y + 28, x + 14, y + 28);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 28, x + 18, y + 28);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 19, y + 28, x + 21, y + 28);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 28, x + 23, y + 28);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 27, y + 28, x + 29, y + 28);
+
+// start of line 29
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 3, y + 29, x + 7, y + 29);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 29, x + 11, y + 29);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 29, x + 12, y + 29);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 29, x + 19, y + 29);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 20, y + 29, x + 23, y + 29);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 29, x + 28, y + 29);
+
+// start of line 30
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 5, y + 30, x + 11, y + 30);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 30, x + 26, y + 30);
+
+// start of line 31
+
+		return;
+	}
+	function void drawRook (int x, int y, boolean squareColor, boolean pieceColor) {
+		// start of line 0
+
+// start of line 1
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 1, x + 10, y + 1);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 1, x + 17, y + 1);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 1, x + 24, y + 1);
+
+// start of line 2
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 2, x + 7, y + 2);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 2, x + 9, y + 2);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 2, x + 10, y + 2);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 2, x + 14, y + 2);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 2, x + 16, y + 2);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 2, x + 17, y + 2);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 2, x + 21, y + 2);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 22, y + 2, x + 23, y + 2);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 2, x + 24, y + 2);
+
+// start of line 3
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 3, x + 7, y + 3);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 3, x + 9, y + 3);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 3, x + 14, y + 3);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 3, x + 16, y + 3);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 3, x + 21, y + 3);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 22, y + 3, x + 23, y + 3);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 3, x + 24, y + 3);
+
+// start of line 4
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 4, x + 7, y + 4);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 4, x + 23, y + 4);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 4, x + 24, y + 4);
+
+// start of line 5
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 5, x + 7, y + 5);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 5, x + 23, y + 5);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 5, x + 24, y + 5);
+
+// start of line 6
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 6, x + 7, y + 6);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 6, x + 23, y + 6);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 6, x + 24, y + 6);
+
+// start of line 7
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 7, x + 7, y + 7);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 7, x + 23, y + 7);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 7, x + 24, y + 7);
+
+// start of line 8
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 8, x + 8, y + 8);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 8, x + 22, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 8, x + 23, y + 8);
+
+// start of line 9
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 9, x + 10, y + 9);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 9, x + 20, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 9, x + 22, y + 9);
+
+// start of line 10
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 10, x + 10, y + 10);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 10, x + 20, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 10, x + 21, y + 10);
+
+// start of line 11
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 11, x + 10, y + 11);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 11, x + 20, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 11, x + 21, y + 11);
+
+// start of line 12
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 12, x + 10, y + 12);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 12, x + 20, y + 12);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 12, x + 21, y + 12);
+
+// start of line 13
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 13, x + 10, y + 13);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 13, x + 20, y + 13);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 13, x + 21, y + 13);
+
+// start of line 14
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 14, x + 10, y + 14);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 14, x + 20, y + 14);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 14, x + 21, y + 14);
+
+// start of line 15
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 15, x + 10, y + 15);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 15, x + 20, y + 15);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 15, x + 21, y + 15);
+
+// start of line 16
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 16, x + 9, y + 16);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 16, x + 21, y + 16);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 16, x + 22, y + 16);
+
+// start of line 17
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 17, x + 9, y + 17);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 17, x + 21, y + 17);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 17, x + 22, y + 17);
+
+// start of line 18
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 18, x + 9, y + 18);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 18, x + 21, y + 18);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 18, x + 22, y + 18);
+
+// start of line 19
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 19, x + 9, y + 19);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 19, x + 21, y + 19);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 19, x + 22, y + 19);
+
+// start of line 20
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 20, x + 9, y + 20);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 20, x + 21, y + 20);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 20, x + 22, y + 20);
+
+// start of line 21
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 21, x + 9, y + 21);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 21, x + 21, y + 21);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 21, x + 22, y + 21);
+
+// start of line 22
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 22, x + 8, y + 22);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 22, x + 22, y + 22);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 22, x + 23, y + 22);
+
+// start of line 23
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 23, x + 8, y + 23);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 23, x + 22, y + 23);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 23, x + 23, y + 23);
+
+// start of line 24
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 24, x + 8, y + 24);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 24, x + 22, y + 24);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 24, x + 23, y + 24);
+
+// start of line 25
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 25, x + 7, y + 25);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 25, x + 23, y + 25);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 25, x + 24, y + 25);
+
+// start of line 26
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 26, x + 7, y + 26);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 26, x + 23, y + 26);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 26, x + 24, y + 26);
+
+// start of line 27
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 6, y + 27, x + 6, y + 27);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 7, y + 27, x + 24, y + 27);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 25, y + 27, x + 25, y + 27);
+
+// start of line 28
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 6, y + 28, x + 6, y + 28);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 7, y + 28, x + 24, y + 28);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 25, y + 28, x + 25, y + 28);
+
+// start of line 29
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 29, x + 7, y + 29);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 29, x + 23, y + 29);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 29, x + 24, y + 29);
+
+// start of line 30
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 30, x + 23, y + 30);
+
+		return;
+	}
+	function void drawQueen (int x, int y, boolean squareColor, boolean pieceColor) {
+		// start of line 0
+
+// start of line 1
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 1, x + 16, y + 1);
+
+// start of line 2
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 2, x + 10, y + 2);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 2, x + 14, y + 2);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 2, x + 16, y + 2);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 2, x + 17, y + 2);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 2, x + 22, y + 2);
+
+// start of line 3
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 3, x + 8, y + 3);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 3, x + 10, y + 3);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 3, x + 11, y + 3);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 3, x + 14, y + 3);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 3, x + 16, y + 3);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 3, x + 17, y + 3);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 3, x + 20, y + 3);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 21, y + 3, x + 22, y + 3);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 3, x + 23, y + 3);
+
+// start of line 4
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 3, y + 4, x + 4, y + 4);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 4, x + 8, y + 4);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 4, x + 10, y + 4);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 4, x + 11, y + 4);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 4, x + 16, y + 4);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 4, x + 20, y + 4);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 21, y + 4, x + 22, y + 4);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 4, x + 23, y + 4);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 27, y + 4, x + 28, y + 4);
+
+// start of line 5
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 2, y + 5, x + 2, y + 5);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 3, y + 5, x + 4, y + 5);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 5, y + 5, x + 5, y + 5);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 5, x + 10, y + 5);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 5, x + 16, y + 5);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 5, x + 22, y + 5);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 26, y + 5, x + 26, y + 5);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 27, y + 5, x + 28, y + 5);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 29, y + 5, x + 29, y + 5);
+
+// start of line 6
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 2, y + 6, x + 2, y + 6);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 3, y + 6, x + 4, y + 6);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 5, y + 6, x + 5, y + 6);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 6, x + 11, y + 6);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 6, x + 14, y + 6);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 6, x + 16, y + 6);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 6, x + 17, y + 6);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 6, x + 21, y + 6);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 26, y + 6, x + 26, y + 6);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 27, y + 6, x + 28, y + 6);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 29, y + 6, x + 29, y + 6);
+
+// start of line 7
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 3, y + 7, x + 4, y + 7);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 5, y + 7, x + 5, y + 7);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 6, y + 7, x + 6, y + 7);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 7, x + 11, y + 7);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 7, x + 14, y + 7);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 7, x + 16, y + 7);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 7, x + 17, y + 7);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 20, y + 7, x + 21, y + 7);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 25, y + 7, x + 25, y + 7);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 26, y + 7, x + 26, y + 7);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 27, y + 7, x + 28, y + 7);
+
+// start of line 8
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 5, y + 8, x + 5, y + 8);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 6, y + 8, x + 6, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 8, x + 7, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 8, x + 10, y + 8);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 8, x + 11, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 8, x + 12, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 8, x + 14, y + 8);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 8, x + 16, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 8, x + 17, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 8, x + 19, y + 8);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 20, y + 8, x + 20, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 8, x + 21, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 8, x + 24, y + 8);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 25, y + 8, x + 25, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 26, y + 8, x + 26, y + 8);
+
+// start of line 9
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 5, y + 9, x + 5, y + 9);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 6, y + 9, x + 6, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 9, x + 7, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 9, x + 10, y + 9);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 9, x + 11, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 9, x + 12, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 9, x + 14, y + 9);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 15, y + 9, x + 16, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 17, y + 9, x + 17, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 9, x + 19, y + 9);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 20, y + 9, x + 20, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 9, x + 21, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 9, x + 24, y + 9);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 25, y + 9, x + 25, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 26, y + 9, x + 26, y + 9);
+
+// start of line 10
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 6, y + 10, x + 6, y + 10);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 7, y + 10, x + 7, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 10, x + 8, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 10, x + 10, y + 10);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 11, y + 10, x + 12, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 13, y + 10, x + 13, y + 10);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 14, y + 10, x + 17, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 10, x + 18, y + 10);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 19, y + 10, x + 20, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 10, x + 21, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 10, x + 23, y + 10);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 24, y + 10, x + 24, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 25, y + 10, x + 25, y + 10);
+
+// start of line 11
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 6, y + 11, x + 6, y + 11);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 7, y + 11, x + 8, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 11, x + 9, y + 11);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 11, x + 21, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 11, x + 22, y + 11);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 23, y + 11, x + 24, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 25, y + 11, x + 25, y + 11);
+
+// start of line 12
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 12, x + 7, y + 12);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 12, x + 23, y + 12);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 12, x + 24, y + 12);
+
+// start of line 13
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 13, x + 7, y + 13);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 13, x + 23, y + 13);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 13, x + 24, y + 13);
+
+// start of line 14
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 14, x + 7, y + 14);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 14, x + 23, y + 14);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 14, x + 24, y + 14);
+
+// start of line 15
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 15, x + 7, y + 15);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 15, x + 23, y + 15);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 15, x + 24, y + 15);
+
+// start of line 16
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 16, x + 8, y + 16);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 16, x + 22, y + 16);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 16, x + 23, y + 16);
+
+// start of line 17
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 17, x + 8, y + 17);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 17, x + 22, y + 17);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 17, x + 23, y + 17);
+
+// start of line 18
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 18, x + 8, y + 18);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 18, x + 22, y + 18);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 18, x + 23, y + 18);
+
+// start of line 19
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 19, x + 8, y + 19);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 19, x + 22, y + 19);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 19, x + 23, y + 19);
+
+// start of line 20
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 20, x + 8, y + 20);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 20, x + 22, y + 20);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 20, x + 23, y + 20);
+
+// start of line 21
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 21, x + 8, y + 21);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 9, y + 21, x + 22, y + 21);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 23, y + 21, x + 23, y + 21);
+
+// start of line 22
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 9, y + 22, x + 9, y + 22);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 10, y + 22, x + 21, y + 22);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 22, x + 22, y + 22);
+
+// start of line 23
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 23, x + 23, y + 23);
+
+// start of line 24
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 24, x + 7, y + 24);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 24, x + 23, y + 24);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 24, x + 24, y + 24);
+
+// start of line 25
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 25, x + 7, y + 25);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 25, x + 23, y + 25);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 25, x + 24, y + 25);
+
+// start of line 26
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 26, x + 7, y + 26);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 26, x + 23, y + 26);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 26, x + 24, y + 26);
+
+// start of line 27
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 27, x + 7, y + 27);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 27, x + 23, y + 27);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 27, x + 24, y + 27);
+
+// start of line 28
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 7, y + 28, x + 7, y + 28);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 28, x + 23, y + 28);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 28, x + 24, y + 28);
+
+// start of line 29
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 29, x + 23, y + 29);
+
+// start of line 30
+
+		return;
+	}
+	function void drawKing (int x, int y, boolean squareColor, boolean pieceColor) {
+		// start of line 0
+
+// start of line 1
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 1, x + 16, y + 1);
+
+// start of line 2
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 2, x + 16, y + 2);
+
+// start of line 3
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 13, y + 3, x + 18, y + 3);
+
+// start of line 4
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 13, y + 4, x + 18, y + 4);
+
+// start of line 5
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 5, x + 16, y + 5);
+
+// start of line 6
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 6, x + 16, y + 6);
+
+// start of line 7
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 7, x + 17, y + 7);
+
+// start of line 8
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 13, y + 8, x + 13, y + 8);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 8, x + 18, y + 8);
+
+// start of line 9
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 4, y + 9, x + 7, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 9, x + 12, y + 9);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 14, y + 9, x + 17, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 9, x + 19, y + 9);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 9, x + 27, y + 9);
+
+// start of line 10
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 3, y + 10, x + 3, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 10, x + 9, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 10, x + 12, y + 10);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 14, y + 10, x + 17, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 10, x + 19, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 22, y + 10, x + 23, y + 10);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 28, y + 10, x + 28, y + 10);
+
+// start of line 11
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 2, y + 11, x + 2, y + 11);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 4, y + 11, x + 7, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 10, y + 11, x + 10, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 12, y + 11, x + 12, y + 11);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 14, y + 11, x + 17, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 11, x + 19, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 21, y + 11, x + 21, y + 11);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 24, y + 11, x + 27, y + 11);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 29, y + 11, x + 29, y + 11);
+
+// start of line 12
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 1, y + 12, x + 1, y + 12);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 3, y + 12, x + 9, y + 12);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 11, y + 12, x + 12, y + 12);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 14, y + 12, x + 17, y + 12);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 19, y + 12, x + 20, y + 12);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 22, y + 12, x + 28, y + 12);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 30, y + 12, x + 30, y + 12);
+
+// start of line 13
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 1, y + 13, x + 1, y + 13);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 3, y + 13, x + 10, y + 13);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 13, y + 13, x + 13, y + 13);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 18, y + 13, x + 18, y + 13);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 21, y + 13, x + 28, y + 13);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 30, y + 13, x + 30, y + 13);
+
+// start of line 14
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 1, y + 14, x + 1, y + 14);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 3, y + 14, x + 12, y + 14);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 14, y + 14, x + 17, y + 14);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 19, y + 14, x + 28, y + 14);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 30, y + 14, x + 30, y + 14);
+
+// start of line 15
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 1, y + 15, x + 1, y + 15);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 3, y + 15, x + 13, y + 15);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 15, x + 16, y + 15);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 18, y + 15, x + 28, y + 15);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 30, y + 15, x + 30, y + 15);
+
+// start of line 16
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 1, y + 16, x + 1, y + 16);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 3, y + 16, x + 13, y + 16);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 16, x + 16, y + 16);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 18, y + 16, x + 28, y + 16);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 30, y + 16, x + 30, y + 16);
+
+// start of line 17
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 1, y + 17, x + 1, y + 17);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 3, y + 17, x + 13, y + 17);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 17, x + 16, y + 17);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 18, y + 17, x + 28, y + 17);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 30, y + 17, x + 30, y + 17);
+
+// start of line 18
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 1, y + 18, x + 1, y + 18);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 3, y + 18, x + 13, y + 18);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 18, x + 16, y + 18);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 18, y + 18, x + 28, y + 18);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 30, y + 18, x + 30, y + 18);
+
+// start of line 19
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 2, y + 19, x + 2, y + 19);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 4, y + 19, x + 13, y + 19);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 19, x + 16, y + 19);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 18, y + 19, x + 27, y + 19);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 29, y + 19, x + 29, y + 19);
+
+// start of line 20
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 2, y + 20, x + 2, y + 20);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 4, y + 20, x + 13, y + 20);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 20, x + 16, y + 20);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 18, y + 20, x + 27, y + 20);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 29, y + 20, x + 29, y + 20);
+
+// start of line 21
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 3, y + 21, x + 3, y + 21);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 5, y + 21, x + 13, y + 21);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 21, x + 16, y + 21);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 18, y + 21, x + 26, y + 21);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 28, y + 21, x + 28, y + 21);
+
+// start of line 22
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 4, y + 22, x + 4, y + 22);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 6, y + 22, x + 13, y + 22);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 22, x + 16, y + 22);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 18, y + 22, x + 25, y + 22);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 27, y + 22, x + 27, y + 22);
+
+// start of line 23
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 4, y + 23, x + 4, y + 23);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 6, y + 23, x + 13, y + 23);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 23, x + 16, y + 23);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 18, y + 23, x + 25, y + 23);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 27, y + 23, x + 27, y + 23);
+
+// start of line 24
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 4, y + 24, x + 5, y + 24);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 8, y + 24, x + 13, y + 24);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 24, x + 16, y + 24);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 18, y + 24, x + 23, y + 24);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 26, y + 24, x + 27, y + 24);
+
+// start of line 25
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 5, y + 25, x + 7, y + 25);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 15, y + 25, x + 16, y + 25);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 24, y + 25, x + 26, y + 25);
+
+// start of line 26
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 4, y + 26, x + 4, y + 26);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 8, y + 26, x + 23, y + 26);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 27, y + 26, x + 27, y + 26);
+
+// start of line 27
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 4, y + 27, x + 4, y + 27);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 6, y + 27, x + 7, y + 27);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 24, y + 27, x + 25, y + 27);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 27, y + 27, x + 27, y + 27);
+
+// start of line 28
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 4, y + 28, x + 4, y + 28);
+do Screen.setColor(pieceColor);
+do Screen.drawLine(x + 7, y + 28, x + 24, y + 28);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 27, y + 28, x + 27, y + 28);
+
+// start of line 29
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 4, y + 29, x + 6, y + 29);
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 25, y + 29, x + 27, y + 29);
+
+// start of line 30
+do Screen.setColor(~squareColor);
+do Screen.drawLine(x + 6, y + 30, x + 25, y + 30);
+
+// start of line 31
+
+		return;
+	}
+
+}
+		
