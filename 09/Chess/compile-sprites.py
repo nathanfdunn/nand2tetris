@@ -387,7 +387,7 @@ def compile(piece, methodName):
 			let whitePieceWhiteSquare = Array.new(64);
 			let pieceDefinitions[{pieceIndex}] = whitePieceWhiteSquare;
 			let blackPieceWhiteSquare = Array.new(64);
-			let pieceDefinitions[{pieceIndex} + 6] = blackPieceWhiteSquare;
+			let pieceDefinitions[{pieceIndex} + 7] = blackPieceWhiteSquare;
 			{body}
 ''')
 	# for x in out:
@@ -424,6 +424,8 @@ def parseLineWithInfo(line, y, sameColor):
 		else:
 			wordToAppend.append('0')
 
+
+
 	# intVal = eval(binRep)
 	# try:
 	# 	intVal = eval(binRep)
@@ -433,15 +435,43 @@ def parseLineWithInfo(line, y, sameColor):
 	# 	return ret
 	# TODO convert
 	# TODO this could cause an issue with producing an unrepresentable integer
+	# def twos_complement(j):
+	# 	return j-(1<<(j.bit_length()))
+
+	# Not sure why reversing is necessary. Endianness?
+	leftBits = list(reversed(leftBits))
+	leftBits = eval('0b' + ''.join(leftBits))
+	if leftBits == 32768:
+		leftBits = '16384 + 16384'
+	elif leftBits > 32767:
+		leftBits = -(2**16 - leftBits)
+
+	rightBits = list(reversed(rightBits))
+	rightBits = eval('0b' + ''.join(rightBits))
+	if rightBits == 32768:
+		rightBits = '16384 + 16384'
+	elif rightBits > 32767:
+		rightBits = -(2**16 - rightBits)
+
+	# if rightBits[0] == '1':
+	# 	rightBits = twos_complement(eval('0b' + ''.join(rightBits)))
+	# else:
+	# 	rightBits = eval('0b' + ''.join(rightBits))
+
+	# leftBits = ''.join(leftBits)
+	# rightBits = ''.join(rightBits)
+	# leftBits = 0b00011101
+	# rightBits = 0b000100101
+
 	index = 2*y
 	arrayName = 'whitePieceWhiteSquare' if sameColor else 'blackPieceWhiteSquare'
 	template = 'let {ARR}[{IND1}] = {LBITS}; let {ARR}[{IND2}] = {RBITS};'
 	template = template.format(
 		ARR = arrayName,
 		IND1 = str(index).rjust(3),
-		LBITS = ''.join(leftBits),
+		LBITS = leftBits,
 		IND2 = str(index+1).rjust(3),
-		RBITS = ''.join(rightBits)
+		RBITS = rightBits
 		)
 	ret.append(template)
 	# ret.append(f'let somarray[{str(2*y + 1).rjust(2)}] = {binRep};')
@@ -516,7 +546,7 @@ with open(path, 'w') as file:
 	file.write('''
 class Sprites {
 	static Array pieceDefinitions;
-	function drawSprite(int pieceType, boolean pieceColor, int rankInd, int fileInd) {
+	function void drawSprite(int pieceType, boolean pieceColor, int rankInd, int fileInd) {
 		var int screenAddress;
 		var int index;
 		var Array pieceArray;
@@ -535,12 +565,12 @@ class Sprites {
 				let pieceArray = pieceDefinitions[pieceType];
 			}
 			else {
-				let pieceArray = pieceDefinitions[pieceType + 6];
+				let pieceArray = pieceDefinitions[pieceType + 7];
 			}
 		}
 		else {
 			if (pieceColor) {
-				let pieceArray = pieceDefinitions[pieceType + 6];
+				let pieceArray = pieceDefinitions[pieceType + 7];
 			}
 			else {
 				let pieceArray = pieceDefinitions[pieceType];
@@ -558,17 +588,27 @@ class Sprites {
 			}
 
 			let index = index + 2;
-			# 32 words is an entire row of pixels
+			// 32 words is an entire row of pixels
 			let screenAddress = screenAddress + 32;
 		}
+		return;
 	}
 
-	function init() {
+	function void init() {
 		var Array whitePieceWhiteSquare;
 		var Array blackPieceWhiteSquare;
+		var Array temp;
+		var int index;
 
-		let pieceDefinitions = Array.new(13);
-
+		let index = 0;
+		let pieceDefinitions = Array.new(14);
+		let temp = Array.new(64);
+		while (index < 64) {
+			let temp[index] = 0;
+			let index = index + 1;
+		}
+		let pieceDefinitions[0] = temp;
+		let pieceDefinitions[7] = temp;
 
 		''')
 
@@ -598,6 +638,7 @@ compileFromPico8(king2, 'king')
 
 with open(path, 'a') as file:
 	file.write('''
+			return;
 		}		// end init
 } // end class
 		''')
