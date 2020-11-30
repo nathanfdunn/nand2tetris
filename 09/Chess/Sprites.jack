@@ -1,1671 +1,862 @@
 
 class Sprites {
-			function void drawPawn (int x, int y, boolean squareColor, boolean pieceColor) {
-		// start of line 0
+	static Array pieceDefinitions;
+	function void drawSprite(int pieceType, boolean pieceColor, int rankInd, int fileInd) {
+		var int screenAddress;
+		var int index;
+		var Array pieceArray;
+		var boolean invert;
+		
+		let screenAddress = 16384 + 	// Screen start
+			(1024 * rankInd) + 					// 1024 = 32 * 32. Each square you go down by is 32 rows, each of which is 32 segments
+			(2*fileInd) + 							// Each square is 2 segments wide
+			16;													// Always draw on the right half of the screen i.e. 16 segments over
 
-// start of line 1
+		if (((rankInd + fileInd) & 1) > 0) {
+			// Square is black
+			let invert = true;
 
-// start of line 2
+			if (pieceColor) {
+				let pieceArray = pieceDefinitions[pieceType];
+			}
+			else {
+				let pieceArray = pieceDefinitions[pieceType + 7];
+			}
+		}
+		else {
+			if (pieceColor) {
+				let pieceArray = pieceDefinitions[pieceType + 7];
+			}
+			else {
+				let pieceArray = pieceDefinitions[pieceType];
+			}
+		}
 
-// start of line 3
+		while (index < 64) {
+			if (invert) {
+				let screenAddress[0] = ~pieceArray[index];
+				let screenAddress[1] = ~pieceArray[index + 1];
+			}
+			else {
+				let screenAddress[0] = pieceArray[index];
+				let screenAddress[1] = pieceArray[index + 1];			
+			}
 
-// start of line 4
-
-// start of line 5
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 5, x + 16, y + 5);
-
-// start of line 6
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 6, x + 13, y + 6);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 6, x + 16, y + 6);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 6, x + 18, y + 6);
-
-// start of line 7
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 7, x + 11, y + 7);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 7, x + 18, y + 7);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 7, x + 19, y + 7);
-
-// start of line 8
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 8, x + 11, y + 8);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 8, x + 18, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 8, x + 19, y + 8);
-
-// start of line 9
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 9, x + 10, y + 9);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 9, x + 19, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 9, x + 20, y + 9);
-
-// start of line 10
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 10, x + 10, y + 10);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 10, x + 19, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 10, x + 20, y + 10);
-
-// start of line 11
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 11, x + 10, y + 11);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 11, x + 19, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 11, x + 20, y + 11);
-
-// start of line 12
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 12, x + 11, y + 12);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 12, x + 18, y + 12);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 12, x + 19, y + 12);
-
-// start of line 13
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 13, x + 11, y + 13);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 13, x + 18, y + 13);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 13, x + 19, y + 13);
-
-// start of line 14
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 14, x + 12, y + 14);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 14, x + 17, y + 14);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 14, x + 18, y + 14);
-
-// start of line 15
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 15, x + 12, y + 15);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 15, x + 17, y + 15);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 15, x + 19, y + 15);
-
-// start of line 16
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 16, x + 11, y + 16);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 16, x + 18, y + 16);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 16, x + 20, y + 16);
-
-// start of line 17
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 17, x + 12, y + 17);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 17, x + 17, y + 17);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 17, x + 19, y + 17);
-
-// start of line 18
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 18, x + 12, y + 18);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 18, x + 17, y + 18);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 18, x + 18, y + 18);
-
-// start of line 19
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 19, x + 12, y + 19);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 19, x + 17, y + 19);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 19, x + 18, y + 19);
-
-// start of line 20
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 20, x + 12, y + 20);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 20, x + 17, y + 20);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 20, x + 18, y + 20);
-
-// start of line 21
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 21, x + 12, y + 21);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 21, x + 17, y + 21);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 21, x + 18, y + 21);
-
-// start of line 22
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 22, x + 12, y + 22);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 22, x + 17, y + 22);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 22, x + 18, y + 22);
-
-// start of line 23
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 23, x + 11, y + 23);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 23, x + 18, y + 23);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 23, x + 19, y + 23);
-
-// start of line 24
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 24, x + 11, y + 24);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 24, x + 18, y + 24);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 24, x + 19, y + 24);
-
-// start of line 25
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 25, x + 10, y + 25);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 25, x + 19, y + 25);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 25, x + 20, y + 25);
-
-// start of line 26
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 26, x + 9, y + 26);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 26, x + 20, y + 26);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 26, x + 21, y + 26);
-
-// start of line 27
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 27, x + 8, y + 27);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 27, x + 21, y + 27);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 27, x + 23, y + 27);
-
-// start of line 28
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 28, x + 23, y + 28);
-
+			let index = index + 2;
+			// 32 words is an entire row of pixels
+			let screenAddress = screenAddress + 32;
+		}
 		return;
 	}
-	function void drawKnight (int x, int y, boolean squareColor, boolean pieceColor) {
-		// start of line 0
+
+	function void init() {
+		var Array whitePieceWhiteSquare;
+		var Array blackPieceWhiteSquare;
+		var Array temp;
+		var int index;
+
+		let index = 0;
+		let pieceDefinitions = Array.new(14);
+		let temp = Array.new(64);
+		while (index < 64) {
+			let temp[index] = 0;
+			let index = index + 1;
+		}
+		let pieceDefinitions[0] = temp;
+		let pieceDefinitions[7] = temp;
+
+					// pawn
+			let whitePieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[1] = whitePieceWhiteSquare;
+			let blackPieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[1 + 7] = blackPieceWhiteSquare;
+			// start of line 0
+let whitePieceWhiteSquare[  0] = 0; let whitePieceWhiteSquare[  1] = 0;
+let blackPieceWhiteSquare[  0] = 0; let blackPieceWhiteSquare[  1] = 0;
 
 // start of line 1
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 1, x + 20, y + 1);
+let whitePieceWhiteSquare[  2] = 0; let whitePieceWhiteSquare[  3] = 0;
+let blackPieceWhiteSquare[  2] = 0; let blackPieceWhiteSquare[  3] = 0;
 
 // start of line 2
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 2, x + 21, y + 2);
+let whitePieceWhiteSquare[  4] = 0; let whitePieceWhiteSquare[  5] = 0;
+let blackPieceWhiteSquare[  4] = 0; let blackPieceWhiteSquare[  5] = 0;
 
 // start of line 3
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 3, x + 20, y + 3);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 21, y + 3, x + 21, y + 3);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 3, x + 22, y + 3);
+let whitePieceWhiteSquare[  6] = 0; let whitePieceWhiteSquare[  7] = 0;
+let blackPieceWhiteSquare[  6] = 0; let blackPieceWhiteSquare[  7] = 0;
 
 // start of line 4
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 4, x + 20, y + 4);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 21, y + 4, x + 22, y + 4);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 4, x + 23, y + 4);
+let whitePieceWhiteSquare[  8] = 0; let whitePieceWhiteSquare[  9] = 0;
+let blackPieceWhiteSquare[  8] = 0; let blackPieceWhiteSquare[  9] = 0;
 
 // start of line 5
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 5, x + 19, y + 5);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 20, y + 5, x + 22, y + 5);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 5, x + 23, y + 5);
+let whitePieceWhiteSquare[ 10] = -16384; let whitePieceWhiteSquare[ 11] = 1;
+let blackPieceWhiteSquare[ 10] = -16384; let blackPieceWhiteSquare[ 11] = 1;
 
 // start of line 6
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 6, x + 14, y + 6);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 6, x + 23, y + 6);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 6, x + 24, y + 6);
+let whitePieceWhiteSquare[ 12] = 12288; let whitePieceWhiteSquare[ 13] = 6;
+let blackPieceWhiteSquare[ 12] = -4096; let blackPieceWhiteSquare[ 13] = 7;
 
 // start of line 7
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 7, x + 13, y + 7);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 7, x + 24, y + 7);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 7, x + 25, y + 7);
+let whitePieceWhiteSquare[ 14] = 2048; let whitePieceWhiteSquare[ 15] = 8;
+let blackPieceWhiteSquare[ 14] = -2048; let blackPieceWhiteSquare[ 15] = 15;
 
 // start of line 8
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 8, x + 9, y + 8);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 8, x + 25, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 8, x + 26, y + 8);
+let whitePieceWhiteSquare[ 16] = 2048; let whitePieceWhiteSquare[ 17] = 8;
+let blackPieceWhiteSquare[ 16] = -2048; let blackPieceWhiteSquare[ 17] = 15;
 
 // start of line 9
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 6, y + 9, x + 6, y + 9);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 7, y + 9, x + 25, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 9, x + 26, y + 9);
+let whitePieceWhiteSquare[ 18] = 1024; let whitePieceWhiteSquare[ 19] = 16;
+let blackPieceWhiteSquare[ 18] = -1024; let blackPieceWhiteSquare[ 19] = 31;
 
 // start of line 10
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 6, y + 10, x + 6, y + 10);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 7, y + 10, x + 25, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 10, x + 26, y + 10);
+let whitePieceWhiteSquare[ 20] = 1024; let whitePieceWhiteSquare[ 21] = 16;
+let blackPieceWhiteSquare[ 20] = -1024; let blackPieceWhiteSquare[ 21] = 31;
 
 // start of line 11
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 6, y + 11, x + 6, y + 11);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 7, y + 11, x + 25, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 11, x + 26, y + 11);
+let whitePieceWhiteSquare[ 22] = 1024; let whitePieceWhiteSquare[ 23] = 16;
+let blackPieceWhiteSquare[ 22] = -1024; let blackPieceWhiteSquare[ 23] = 31;
 
 // start of line 12
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 6, y + 12, x + 6, y + 12);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 7, y + 12, x + 24, y + 12);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 12, x + 25, y + 12);
+let whitePieceWhiteSquare[ 24] = 2048; let whitePieceWhiteSquare[ 25] = 8;
+let blackPieceWhiteSquare[ 24] = -2048; let blackPieceWhiteSquare[ 25] = 15;
 
 // start of line 13
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 13, x + 8, y + 13);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 13, x + 24, y + 13);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 13, x + 25, y + 13);
+let whitePieceWhiteSquare[ 26] = 2048; let whitePieceWhiteSquare[ 27] = 8;
+let blackPieceWhiteSquare[ 26] = -2048; let blackPieceWhiteSquare[ 27] = 15;
 
 // start of line 14
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 14, x + 13, y + 14);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 14, x + 23, y + 14);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 14, x + 24, y + 14);
+let whitePieceWhiteSquare[ 28] = 4096; let whitePieceWhiteSquare[ 29] = 4;
+let blackPieceWhiteSquare[ 28] = -4096; let blackPieceWhiteSquare[ 29] = 7;
 
 // start of line 15
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 15, x + 14, y + 15);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 15, x + 22, y + 15);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 15, x + 23, y + 15);
+let whitePieceWhiteSquare[ 30] = 6144; let whitePieceWhiteSquare[ 31] = 12;
+let blackPieceWhiteSquare[ 30] = -2048; let blackPieceWhiteSquare[ 31] = 15;
 
 // start of line 16
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 16, x + 14, y + 16);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 16, x + 22, y + 16);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 16, x + 23, y + 16);
+let whitePieceWhiteSquare[ 32] = 3072; let whitePieceWhiteSquare[ 33] = 24;
+let blackPieceWhiteSquare[ 32] = -1024; let blackPieceWhiteSquare[ 33] = 31;
 
 // start of line 17
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 13, y + 17, x + 13, y + 17);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 17, x + 22, y + 17);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 17, x + 23, y + 17);
+let whitePieceWhiteSquare[ 34] = 6144; let whitePieceWhiteSquare[ 35] = 12;
+let blackPieceWhiteSquare[ 34] = -2048; let blackPieceWhiteSquare[ 35] = 15;
 
 // start of line 18
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 18, x + 12, y + 18);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 18, x + 22, y + 18);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 18, x + 23, y + 18);
+let whitePieceWhiteSquare[ 36] = 4096; let whitePieceWhiteSquare[ 37] = 4;
+let blackPieceWhiteSquare[ 36] = -4096; let blackPieceWhiteSquare[ 37] = 7;
 
 // start of line 19
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 19, x + 12, y + 19);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 19, x + 22, y + 19);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 19, x + 23, y + 19);
+let whitePieceWhiteSquare[ 38] = 4096; let whitePieceWhiteSquare[ 39] = 4;
+let blackPieceWhiteSquare[ 38] = -4096; let blackPieceWhiteSquare[ 39] = 7;
 
 // start of line 20
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 20, x + 12, y + 20);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 20, x + 22, y + 20);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 20, x + 23, y + 20);
+let whitePieceWhiteSquare[ 40] = 4096; let whitePieceWhiteSquare[ 41] = 4;
+let blackPieceWhiteSquare[ 40] = -4096; let blackPieceWhiteSquare[ 41] = 7;
 
 // start of line 21
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 21, x + 11, y + 21);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 21, x + 22, y + 21);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 21, x + 23, y + 21);
+let whitePieceWhiteSquare[ 42] = 4096; let whitePieceWhiteSquare[ 43] = 4;
+let blackPieceWhiteSquare[ 42] = -4096; let blackPieceWhiteSquare[ 43] = 7;
 
 // start of line 22
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 22, x + 11, y + 22);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 22, x + 23, y + 22);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 22, x + 24, y + 22);
+let whitePieceWhiteSquare[ 44] = 4096; let whitePieceWhiteSquare[ 45] = 4;
+let blackPieceWhiteSquare[ 44] = -4096; let blackPieceWhiteSquare[ 45] = 7;
 
 // start of line 23
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 23, x + 10, y + 23);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 23, x + 23, y + 23);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 23, x + 24, y + 23);
+let whitePieceWhiteSquare[ 46] = 2048; let whitePieceWhiteSquare[ 47] = 8;
+let blackPieceWhiteSquare[ 46] = -2048; let blackPieceWhiteSquare[ 47] = 15;
 
 // start of line 24
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 24, x + 10, y + 24);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 24, x + 24, y + 24);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 24, x + 25, y + 24);
+let whitePieceWhiteSquare[ 48] = 2048; let whitePieceWhiteSquare[ 49] = 8;
+let blackPieceWhiteSquare[ 48] = -2048; let blackPieceWhiteSquare[ 49] = 15;
 
 // start of line 25
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 25, x + 10, y + 25);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 25, x + 24, y + 25);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 25, x + 25, y + 25);
+let whitePieceWhiteSquare[ 50] = 1024; let whitePieceWhiteSquare[ 51] = 16;
+let blackPieceWhiteSquare[ 50] = -1024; let blackPieceWhiteSquare[ 51] = 31;
 
 // start of line 26
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 26, x + 9, y + 26);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 26, x + 25, y + 26);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 26, x + 26, y + 26);
+let whitePieceWhiteSquare[ 52] = 512; let whitePieceWhiteSquare[ 53] = 32;
+let blackPieceWhiteSquare[ 52] = -512; let blackPieceWhiteSquare[ 53] = 63;
 
 // start of line 27
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 27, x + 8, y + 27);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 27, x + 26, y + 27);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 27, y + 27, x + 27, y + 27);
+let whitePieceWhiteSquare[ 54] = 384; let whitePieceWhiteSquare[ 55] = 192;
+let blackPieceWhiteSquare[ 54] = -128; let blackPieceWhiteSquare[ 55] = 255;
 
 // start of line 28
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 28, x + 8, y + 28);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 28, x + 26, y + 28);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 27, y + 28, x + 27, y + 28);
+let whitePieceWhiteSquare[ 56] = -128; let whitePieceWhiteSquare[ 57] = 255;
+let blackPieceWhiteSquare[ 56] = -128; let blackPieceWhiteSquare[ 57] = 255;
 
 // start of line 29
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 29, x + 9, y + 29);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 29, x + 25, y + 29);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 29, x + 26, y + 29);
+let whitePieceWhiteSquare[ 58] = 0; let whitePieceWhiteSquare[ 59] = 0;
+let blackPieceWhiteSquare[ 58] = 0; let blackPieceWhiteSquare[ 59] = 0;
 
 // start of line 30
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 30, x + 25, y + 30);
+let whitePieceWhiteSquare[ 60] = 0; let whitePieceWhiteSquare[ 61] = 0;
+let blackPieceWhiteSquare[ 60] = 0; let blackPieceWhiteSquare[ 61] = 0;
+
+// start of line 31
+let whitePieceWhiteSquare[ 62] = 0; let whitePieceWhiteSquare[ 63] = 0;
+let blackPieceWhiteSquare[ 62] = 0; let blackPieceWhiteSquare[ 63] = 0;
+
+			// knight
+			let whitePieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[2] = whitePieceWhiteSquare;
+			let blackPieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[2 + 7] = blackPieceWhiteSquare;
+			// start of line 0
+let whitePieceWhiteSquare[  0] = 0; let whitePieceWhiteSquare[  1] = 0;
+let blackPieceWhiteSquare[  0] = 0; let blackPieceWhiteSquare[  1] = 0;
+
+// start of line 1
+let whitePieceWhiteSquare[  2] = 0; let whitePieceWhiteSquare[  3] = 16;
+let blackPieceWhiteSquare[  2] = 0; let blackPieceWhiteSquare[  3] = 16;
+
+// start of line 2
+let whitePieceWhiteSquare[  4] = 0; let whitePieceWhiteSquare[  5] = 48;
+let blackPieceWhiteSquare[  4] = 0; let blackPieceWhiteSquare[  5] = 48;
+
+// start of line 3
+let whitePieceWhiteSquare[  6] = 0; let whitePieceWhiteSquare[  7] = 80;
+let blackPieceWhiteSquare[  6] = 0; let blackPieceWhiteSquare[  7] = 112;
+
+// start of line 4
+let whitePieceWhiteSquare[  8] = 0; let whitePieceWhiteSquare[  9] = 144;
+let blackPieceWhiteSquare[  8] = 0; let blackPieceWhiteSquare[  9] = 240;
+
+// start of line 5
+let whitePieceWhiteSquare[ 10] = 16384 + 16384; let whitePieceWhiteSquare[ 11] = 143;
+let blackPieceWhiteSquare[ 10] = 16384 + 16384; let blackPieceWhiteSquare[ 11] = 255;
+
+// start of line 6
+let whitePieceWhiteSquare[ 12] = 16384; let whitePieceWhiteSquare[ 13] = 256;
+let blackPieceWhiteSquare[ 12] = -16384; let blackPieceWhiteSquare[ 13] = 511;
+
+// start of line 7
+let whitePieceWhiteSquare[ 14] = 15360; let whitePieceWhiteSquare[ 15] = 512;
+let blackPieceWhiteSquare[ 14] = -1024; let blackPieceWhiteSquare[ 15] = 1023;
+
+// start of line 8
+let whitePieceWhiteSquare[ 16] = 896; let whitePieceWhiteSquare[ 17] = 1024;
+let blackPieceWhiteSquare[ 16] = -128; let blackPieceWhiteSquare[ 17] = 2047;
+
+// start of line 9
+let whitePieceWhiteSquare[ 18] = 64; let whitePieceWhiteSquare[ 19] = 1024;
+let blackPieceWhiteSquare[ 18] = -64; let blackPieceWhiteSquare[ 19] = 2047;
+
+// start of line 10
+let whitePieceWhiteSquare[ 20] = 64; let whitePieceWhiteSquare[ 21] = 1024;
+let blackPieceWhiteSquare[ 20] = -64; let blackPieceWhiteSquare[ 21] = 2047;
+
+// start of line 11
+let whitePieceWhiteSquare[ 22] = 64; let whitePieceWhiteSquare[ 23] = 1024;
+let blackPieceWhiteSquare[ 22] = -64; let blackPieceWhiteSquare[ 23] = 2047;
+
+// start of line 12
+let whitePieceWhiteSquare[ 24] = 64; let whitePieceWhiteSquare[ 25] = 512;
+let blackPieceWhiteSquare[ 24] = -64; let blackPieceWhiteSquare[ 25] = 1023;
+
+// start of line 13
+let whitePieceWhiteSquare[ 26] = 384; let whitePieceWhiteSquare[ 27] = 512;
+let blackPieceWhiteSquare[ 26] = -128; let blackPieceWhiteSquare[ 27] = 1023;
+
+// start of line 14
+let whitePieceWhiteSquare[ 28] = 15872; let whitePieceWhiteSquare[ 29] = 256;
+let blackPieceWhiteSquare[ 28] = -512; let blackPieceWhiteSquare[ 29] = 511;
+
+// start of line 15
+let whitePieceWhiteSquare[ 30] = 16384; let whitePieceWhiteSquare[ 31] = 128;
+let blackPieceWhiteSquare[ 30] = -16384; let blackPieceWhiteSquare[ 31] = 255;
+
+// start of line 16
+let whitePieceWhiteSquare[ 32] = 16384; let whitePieceWhiteSquare[ 33] = 128;
+let blackPieceWhiteSquare[ 32] = -16384; let blackPieceWhiteSquare[ 33] = 255;
+
+// start of line 17
+let whitePieceWhiteSquare[ 34] = 8192; let whitePieceWhiteSquare[ 35] = 128;
+let blackPieceWhiteSquare[ 34] = -8192; let blackPieceWhiteSquare[ 35] = 255;
+
+// start of line 18
+let whitePieceWhiteSquare[ 36] = 4096; let whitePieceWhiteSquare[ 37] = 128;
+let blackPieceWhiteSquare[ 36] = -4096; let blackPieceWhiteSquare[ 37] = 255;
+
+// start of line 19
+let whitePieceWhiteSquare[ 38] = 4096; let whitePieceWhiteSquare[ 39] = 128;
+let blackPieceWhiteSquare[ 38] = -4096; let blackPieceWhiteSquare[ 39] = 255;
+
+// start of line 20
+let whitePieceWhiteSquare[ 40] = 4096; let whitePieceWhiteSquare[ 41] = 128;
+let blackPieceWhiteSquare[ 40] = -4096; let blackPieceWhiteSquare[ 41] = 255;
+
+// start of line 21
+let whitePieceWhiteSquare[ 42] = 2048; let whitePieceWhiteSquare[ 43] = 128;
+let blackPieceWhiteSquare[ 42] = -2048; let blackPieceWhiteSquare[ 43] = 255;
+
+// start of line 22
+let whitePieceWhiteSquare[ 44] = 2048; let whitePieceWhiteSquare[ 45] = 256;
+let blackPieceWhiteSquare[ 44] = -2048; let blackPieceWhiteSquare[ 45] = 511;
+
+// start of line 23
+let whitePieceWhiteSquare[ 46] = 1024; let whitePieceWhiteSquare[ 47] = 256;
+let blackPieceWhiteSquare[ 46] = -1024; let blackPieceWhiteSquare[ 47] = 511;
+
+// start of line 24
+let whitePieceWhiteSquare[ 48] = 1024; let whitePieceWhiteSquare[ 49] = 512;
+let blackPieceWhiteSquare[ 48] = -1024; let blackPieceWhiteSquare[ 49] = 1023;
+
+// start of line 25
+let whitePieceWhiteSquare[ 50] = 1024; let whitePieceWhiteSquare[ 51] = 512;
+let blackPieceWhiteSquare[ 50] = -1024; let blackPieceWhiteSquare[ 51] = 1023;
+
+// start of line 26
+let whitePieceWhiteSquare[ 52] = 512; let whitePieceWhiteSquare[ 53] = 1024;
+let blackPieceWhiteSquare[ 52] = -512; let blackPieceWhiteSquare[ 53] = 2047;
+
+// start of line 27
+let whitePieceWhiteSquare[ 54] = 256; let whitePieceWhiteSquare[ 55] = 2048;
+let blackPieceWhiteSquare[ 54] = -256; let blackPieceWhiteSquare[ 55] = 4095;
+
+// start of line 28
+let whitePieceWhiteSquare[ 56] = 256; let whitePieceWhiteSquare[ 57] = 2048;
+let blackPieceWhiteSquare[ 56] = -256; let blackPieceWhiteSquare[ 57] = 4095;
+
+// start of line 29
+let whitePieceWhiteSquare[ 58] = 512; let whitePieceWhiteSquare[ 59] = 1024;
+let blackPieceWhiteSquare[ 58] = -512; let blackPieceWhiteSquare[ 59] = 2047;
+
+// start of line 30
+let whitePieceWhiteSquare[ 60] = -1024; let whitePieceWhiteSquare[ 61] = 1023;
+let blackPieceWhiteSquare[ 60] = -1024; let blackPieceWhiteSquare[ 61] = 1023;
 
 // start of line 31
 
-		return;
-	}
-	function void drawBishop (int x, int y, boolean squareColor, boolean pieceColor) {
-		// start of line 0
+			// bishop
+			let whitePieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[3] = whitePieceWhiteSquare;
+			let blackPieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[3 + 7] = blackPieceWhiteSquare;
+			// start of line 0
+let whitePieceWhiteSquare[  0] = 0; let whitePieceWhiteSquare[  1] = 0;
+let blackPieceWhiteSquare[  0] = 0; let blackPieceWhiteSquare[  1] = 0;
 
 // start of line 1
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 1, x + 16, y + 1);
+let whitePieceWhiteSquare[  2] = 16384 + 16384; let whitePieceWhiteSquare[  3] = 1;
+let blackPieceWhiteSquare[  2] = 16384 + 16384; let blackPieceWhiteSquare[  3] = 1;
 
 // start of line 2
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 2, x + 14, y + 2);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 2, x + 16, y + 2);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 2, x + 17, y + 2);
+let whitePieceWhiteSquare[  4] = 16384; let whitePieceWhiteSquare[  5] = 2;
+let blackPieceWhiteSquare[  4] = -16384; let blackPieceWhiteSquare[  5] = 3;
 
 // start of line 3
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 3, x + 14, y + 3);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 3, x + 16, y + 3);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 3, x + 17, y + 3);
+let whitePieceWhiteSquare[  6] = 16384; let whitePieceWhiteSquare[  7] = 2;
+let blackPieceWhiteSquare[  6] = -16384; let blackPieceWhiteSquare[  7] = 3;
 
 // start of line 4
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 4, x + 16, y + 4);
+let whitePieceWhiteSquare[  8] = 16384 + 16384; let whitePieceWhiteSquare[  9] = 1;
+let blackPieceWhiteSquare[  8] = 16384 + 16384; let blackPieceWhiteSquare[  9] = 1;
 
 // start of line 5
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 5, x + 14, y + 5);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 5, x + 16, y + 5);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 5, x + 17, y + 5);
+let whitePieceWhiteSquare[ 10] = 16384; let whitePieceWhiteSquare[ 11] = 2;
+let blackPieceWhiteSquare[ 10] = -16384; let blackPieceWhiteSquare[ 11] = 3;
 
 // start of line 6
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 6, x + 14, y + 6);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 6, x + 16, y + 6);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 6, x + 17, y + 6);
+let whitePieceWhiteSquare[ 12] = 16384; let whitePieceWhiteSquare[ 13] = 2;
+let blackPieceWhiteSquare[ 12] = -16384; let blackPieceWhiteSquare[ 13] = 3;
 
 // start of line 7
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 13, y + 7, x + 13, y + 7);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 7, x + 17, y + 7);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 7, x + 18, y + 7);
+let whitePieceWhiteSquare[ 14] = 8192; let whitePieceWhiteSquare[ 15] = 4;
+let blackPieceWhiteSquare[ 14] = -8192; let blackPieceWhiteSquare[ 15] = 7;
 
 // start of line 8
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 8, x + 12, y + 8);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 8, x + 17, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 8, x + 18, y + 8);
+let whitePieceWhiteSquare[ 16] = 4096; let whitePieceWhiteSquare[ 17] = 4;
+let blackPieceWhiteSquare[ 16] = -4096; let blackPieceWhiteSquare[ 17] = 7;
 
 // start of line 9
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 9, x + 11, y + 9);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 9, x + 16, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 9, x + 17, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 9, x + 20, y + 9);
+let whitePieceWhiteSquare[ 18] = 2048; let whitePieceWhiteSquare[ 19] = 18;
+let blackPieceWhiteSquare[ 18] = -2048; let blackPieceWhiteSquare[ 19] = 19;
 
 // start of line 10
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 10, x + 10, y + 10);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 10, x + 16, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 10, x + 17, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 10, x + 19, y + 10);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 20, y + 10, x + 20, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 10, x + 21, y + 10);
+let whitePieceWhiteSquare[ 20] = 1024; let whitePieceWhiteSquare[ 21] = 42;
+let blackPieceWhiteSquare[ 20] = -1024; let blackPieceWhiteSquare[ 21] = 59;
 
 // start of line 11
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 11, x + 9, y + 11);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 11, x + 16, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 11, x + 17, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 11, x + 19, y + 11);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 20, y + 11, x + 21, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 11, x + 22, y + 11);
+let whitePieceWhiteSquare[ 22] = 512; let whitePieceWhiteSquare[ 23] = 74;
+let blackPieceWhiteSquare[ 22] = -512; let blackPieceWhiteSquare[ 23] = 123;
 
 // start of line 12
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 12, x + 9, y + 12);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 12, x + 16, y + 12);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 12, x + 17, y + 12);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 12, x + 19, y + 12);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 20, y + 12, x + 21, y + 12);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 12, x + 22, y + 12);
+let whitePieceWhiteSquare[ 24] = 512; let whitePieceWhiteSquare[ 25] = 74;
+let blackPieceWhiteSquare[ 24] = -512; let blackPieceWhiteSquare[ 25] = 123;
 
 // start of line 13
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 13, x + 8, y + 13);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 13, x + 15, y + 13);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 16, y + 13, x + 16, y + 13);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 13, x + 18, y + 13);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 19, y + 13, x + 22, y + 13);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 13, x + 23, y + 13);
+let whitePieceWhiteSquare[ 26] = 256; let whitePieceWhiteSquare[ 27] = 133;
+let blackPieceWhiteSquare[ 26] = -256; let blackPieceWhiteSquare[ 27] = 253;
 
 // start of line 14
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 14, x + 8, y + 14);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 14, x + 16, y + 14);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 14, x + 17, y + 14);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 18, y + 14, x + 22, y + 14);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 14, x + 23, y + 14);
+let whitePieceWhiteSquare[ 28] = 256; let whitePieceWhiteSquare[ 29] = 130;
+let blackPieceWhiteSquare[ 28] = -256; let blackPieceWhiteSquare[ 29] = 255;
 
 // start of line 15
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 15, x + 8, y + 15);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 15, x + 22, y + 15);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 15, x + 23, y + 15);
+let whitePieceWhiteSquare[ 30] = 256; let whitePieceWhiteSquare[ 31] = 128;
+let blackPieceWhiteSquare[ 30] = -256; let blackPieceWhiteSquare[ 31] = 255;
 
 // start of line 16
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 16, x + 8, y + 16);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 16, x + 22, y + 16);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 16, x + 23, y + 16);
+let whitePieceWhiteSquare[ 32] = 256; let whitePieceWhiteSquare[ 33] = 128;
+let blackPieceWhiteSquare[ 32] = -256; let blackPieceWhiteSquare[ 33] = 255;
 
 // start of line 17
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 17, x + 8, y + 17);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 17, x + 22, y + 17);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 17, x + 23, y + 17);
+let whitePieceWhiteSquare[ 34] = 256; let whitePieceWhiteSquare[ 35] = 128;
+let blackPieceWhiteSquare[ 34] = -256; let blackPieceWhiteSquare[ 35] = 255;
 
 // start of line 18
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 18, x + 8, y + 18);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 18, x + 22, y + 18);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 18, x + 23, y + 18);
+let whitePieceWhiteSquare[ 36] = 256; let whitePieceWhiteSquare[ 37] = 128;
+let blackPieceWhiteSquare[ 36] = -256; let blackPieceWhiteSquare[ 37] = 255;
 
 // start of line 19
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 19, x + 9, y + 19);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 19, x + 21, y + 19);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 19, x + 22, y + 19);
+let whitePieceWhiteSquare[ 38] = 512; let whitePieceWhiteSquare[ 39] = 64;
+let blackPieceWhiteSquare[ 38] = -512; let blackPieceWhiteSquare[ 39] = 127;
 
 // start of line 20
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 20, x + 9, y + 20);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 20, x + 21, y + 20);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 20, x + 22, y + 20);
+let whitePieceWhiteSquare[ 40] = 512; let whitePieceWhiteSquare[ 41] = 64;
+let blackPieceWhiteSquare[ 40] = -512; let blackPieceWhiteSquare[ 41] = 127;
 
 // start of line 21
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 21, x + 10, y + 21);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 21, x + 20, y + 21);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 21, x + 21, y + 21);
+let whitePieceWhiteSquare[ 42] = 1024; let whitePieceWhiteSquare[ 43] = 32;
+let blackPieceWhiteSquare[ 42] = -1024; let blackPieceWhiteSquare[ 43] = 63;
 
 // start of line 22
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 22, x + 10, y + 22);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 22, x + 20, y + 22);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 22, x + 21, y + 22);
+let whitePieceWhiteSquare[ 44] = 1024; let whitePieceWhiteSquare[ 45] = 32;
+let blackPieceWhiteSquare[ 44] = -1024; let blackPieceWhiteSquare[ 45] = 63;
 
 // start of line 23
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 23, x + 11, y + 23);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 23, x + 14, y + 23);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 23, x + 16, y + 23);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 17, y + 23, x + 19, y + 23);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 23, x + 20, y + 23);
+let whitePieceWhiteSquare[ 46] = -30720; let whitePieceWhiteSquare[ 47] = 17;
+let blackPieceWhiteSquare[ 46] = -2048; let blackPieceWhiteSquare[ 47] = 31;
 
 // start of line 24
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 24, x + 11, y + 24);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 24, x + 12, y + 24);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 13, y + 24, x + 14, y + 24);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 24, x + 16, y + 24);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 24, x + 18, y + 24);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 19, y + 24, x + 19, y + 24);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 24, x + 20, y + 24);
+let whitePieceWhiteSquare[ 48] = 26624; let whitePieceWhiteSquare[ 49] = 22;
+let blackPieceWhiteSquare[ 48] = -2048; let blackPieceWhiteSquare[ 49] = 31;
 
 // start of line 25
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 25, x + 12, y + 25);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 13, y + 25, x + 18, y + 25);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 25, x + 19, y + 25);
+let whitePieceWhiteSquare[ 50] = 4096; let whitePieceWhiteSquare[ 51] = 8;
+let blackPieceWhiteSquare[ 50] = -4096; let blackPieceWhiteSquare[ 51] = 15;
 
 // start of line 26
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 26, x + 11, y + 26);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 12, y + 26, x + 19, y + 26);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 26, x + 20, y + 26);
+let whitePieceWhiteSquare[ 52] = 2048; let whitePieceWhiteSquare[ 53] = 16;
+let blackPieceWhiteSquare[ 52] = -2048; let blackPieceWhiteSquare[ 53] = 31;
 
 // start of line 27
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 2, y + 27, x + 2, y + 27);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 27, x + 10, y + 27);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 27, x + 14, y + 27);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 27, x + 16, y + 27);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 17, y + 27, x + 20, y + 27);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 27, x + 21, y + 27);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 29, y + 27, x + 29, y + 27);
+let whitePieceWhiteSquare[ 54] = -31740; let whitePieceWhiteSquare[ 55] = 8225;
+let blackPieceWhiteSquare[ 54] = -1020; let blackPieceWhiteSquare[ 55] = 8255;
 
 // start of line 28
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 2, y + 28, x + 4, y + 28);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 28, x + 9, y + 28);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 28, x + 12, y + 28);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 13, y + 28, x + 14, y + 28);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 28, x + 18, y + 28);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 19, y + 28, x + 21, y + 28);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 28, x + 23, y + 28);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 27, y + 28, x + 29, y + 28);
+let whitePieceWhiteSquare[ 56] = 25372; let whitePieceWhiteSquare[ 57] = 14534;
+let blackPieceWhiteSquare[ 56] = 32540; let blackPieceWhiteSquare[ 57] = 14590;
 
 // start of line 29
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 3, y + 29, x + 7, y + 29);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 29, x + 11, y + 29);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 29, x + 12, y + 29);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 29, x + 19, y + 29);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 20, y + 29, x + 23, y + 29);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 29, x + 28, y + 29);
+let whitePieceWhiteSquare[ 58] = 4344; let whitePieceWhiteSquare[ 59] = 7944;
+let blackPieceWhiteSquare[ 58] = 8184; let blackPieceWhiteSquare[ 59] = 8184;
 
 // start of line 30
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 5, y + 30, x + 11, y + 30);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 30, x + 26, y + 30);
+let whitePieceWhiteSquare[ 60] = 4064; let whitePieceWhiteSquare[ 61] = 2032;
+let blackPieceWhiteSquare[ 60] = 4064; let blackPieceWhiteSquare[ 61] = 2032;
 
 // start of line 31
 
-		return;
-	}
-	function void drawRook (int x, int y, boolean squareColor, boolean pieceColor) {
-		// start of line 0
+			// rook
+			let whitePieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[4] = whitePieceWhiteSquare;
+			let blackPieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[4 + 7] = blackPieceWhiteSquare;
+			// start of line 0
+let whitePieceWhiteSquare[  0] = 0; let whitePieceWhiteSquare[  1] = 0;
+let blackPieceWhiteSquare[  0] = 0; let blackPieceWhiteSquare[  1] = 0;
 
 // start of line 1
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 1, x + 10, y + 1);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 1, x + 17, y + 1);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 1, x + 24, y + 1);
+let whitePieceWhiteSquare[  2] = -14464; let whitePieceWhiteSquare[  3] = 483;
+let blackPieceWhiteSquare[  2] = -14464; let blackPieceWhiteSquare[  3] = 483;
 
 // start of line 2
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 2, x + 7, y + 2);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 2, x + 9, y + 2);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 2, x + 10, y + 2);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 2, x + 14, y + 2);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 2, x + 16, y + 2);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 2, x + 17, y + 2);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 2, x + 21, y + 2);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 22, y + 2, x + 23, y + 2);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 2, x + 24, y + 2);
+let whitePieceWhiteSquare[  4] = 17536; let whitePieceWhiteSquare[  5] = 290;
+let blackPieceWhiteSquare[  4] = -14464; let blackPieceWhiteSquare[  5] = 483;
 
 // start of line 3
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 3, x + 7, y + 3);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 3, x + 9, y + 3);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 3, x + 14, y + 3);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 3, x + 16, y + 3);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 3, x + 21, y + 3);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 22, y + 3, x + 23, y + 3);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 3, x + 24, y + 3);
+let whitePieceWhiteSquare[  6] = 31872; let whitePieceWhiteSquare[  7] = 318;
+let blackPieceWhiteSquare[  6] = -128; let blackPieceWhiteSquare[  7] = 511;
 
 // start of line 4
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 4, x + 7, y + 4);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 4, x + 23, y + 4);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 4, x + 24, y + 4);
+let whitePieceWhiteSquare[  8] = 128; let whitePieceWhiteSquare[  9] = 256;
+let blackPieceWhiteSquare[  8] = -128; let blackPieceWhiteSquare[  9] = 511;
 
 // start of line 5
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 5, x + 7, y + 5);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 5, x + 23, y + 5);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 5, x + 24, y + 5);
+let whitePieceWhiteSquare[ 10] = 128; let whitePieceWhiteSquare[ 11] = 256;
+let blackPieceWhiteSquare[ 10] = -128; let blackPieceWhiteSquare[ 11] = 511;
 
 // start of line 6
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 6, x + 7, y + 6);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 6, x + 23, y + 6);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 6, x + 24, y + 6);
+let whitePieceWhiteSquare[ 12] = 128; let whitePieceWhiteSquare[ 13] = 256;
+let blackPieceWhiteSquare[ 12] = -128; let blackPieceWhiteSquare[ 13] = 511;
 
 // start of line 7
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 7, x + 7, y + 7);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 7, x + 23, y + 7);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 7, x + 24, y + 7);
+let whitePieceWhiteSquare[ 14] = 128; let whitePieceWhiteSquare[ 15] = 256;
+let blackPieceWhiteSquare[ 14] = -128; let blackPieceWhiteSquare[ 15] = 511;
 
 // start of line 8
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 8, x + 8, y + 8);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 8, x + 22, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 8, x + 23, y + 8);
+let whitePieceWhiteSquare[ 16] = 256; let whitePieceWhiteSquare[ 17] = 128;
+let blackPieceWhiteSquare[ 16] = -256; let blackPieceWhiteSquare[ 17] = 255;
 
 // start of line 9
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 9, x + 10, y + 9);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 9, x + 20, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 9, x + 22, y + 9);
+let whitePieceWhiteSquare[ 18] = 1536; let whitePieceWhiteSquare[ 19] = 96;
+let blackPieceWhiteSquare[ 18] = -512; let blackPieceWhiteSquare[ 19] = 127;
 
 // start of line 10
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 10, x + 10, y + 10);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 10, x + 20, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 10, x + 21, y + 10);
+let whitePieceWhiteSquare[ 20] = 1024; let whitePieceWhiteSquare[ 21] = 32;
+let blackPieceWhiteSquare[ 20] = -1024; let blackPieceWhiteSquare[ 21] = 63;
 
 // start of line 11
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 11, x + 10, y + 11);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 11, x + 20, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 11, x + 21, y + 11);
+let whitePieceWhiteSquare[ 22] = 1024; let whitePieceWhiteSquare[ 23] = 32;
+let blackPieceWhiteSquare[ 22] = -1024; let blackPieceWhiteSquare[ 23] = 63;
 
 // start of line 12
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 12, x + 10, y + 12);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 12, x + 20, y + 12);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 12, x + 21, y + 12);
+let whitePieceWhiteSquare[ 24] = 1024; let whitePieceWhiteSquare[ 25] = 32;
+let blackPieceWhiteSquare[ 24] = -1024; let blackPieceWhiteSquare[ 25] = 63;
 
 // start of line 13
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 13, x + 10, y + 13);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 13, x + 20, y + 13);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 13, x + 21, y + 13);
+let whitePieceWhiteSquare[ 26] = 1024; let whitePieceWhiteSquare[ 27] = 32;
+let blackPieceWhiteSquare[ 26] = -1024; let blackPieceWhiteSquare[ 27] = 63;
 
 // start of line 14
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 14, x + 10, y + 14);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 14, x + 20, y + 14);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 14, x + 21, y + 14);
+let whitePieceWhiteSquare[ 28] = 1024; let whitePieceWhiteSquare[ 29] = 32;
+let blackPieceWhiteSquare[ 28] = -1024; let blackPieceWhiteSquare[ 29] = 63;
 
 // start of line 15
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 15, x + 10, y + 15);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 15, x + 20, y + 15);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 15, x + 21, y + 15);
+let whitePieceWhiteSquare[ 30] = 1024; let whitePieceWhiteSquare[ 31] = 32;
+let blackPieceWhiteSquare[ 30] = -1024; let blackPieceWhiteSquare[ 31] = 63;
 
 // start of line 16
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 16, x + 9, y + 16);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 16, x + 21, y + 16);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 16, x + 22, y + 16);
+let whitePieceWhiteSquare[ 32] = 512; let whitePieceWhiteSquare[ 33] = 64;
+let blackPieceWhiteSquare[ 32] = -512; let blackPieceWhiteSquare[ 33] = 127;
 
 // start of line 17
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 17, x + 9, y + 17);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 17, x + 21, y + 17);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 17, x + 22, y + 17);
+let whitePieceWhiteSquare[ 34] = 512; let whitePieceWhiteSquare[ 35] = 64;
+let blackPieceWhiteSquare[ 34] = -512; let blackPieceWhiteSquare[ 35] = 127;
 
 // start of line 18
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 18, x + 9, y + 18);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 18, x + 21, y + 18);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 18, x + 22, y + 18);
+let whitePieceWhiteSquare[ 36] = 512; let whitePieceWhiteSquare[ 37] = 64;
+let blackPieceWhiteSquare[ 36] = -512; let blackPieceWhiteSquare[ 37] = 127;
 
 // start of line 19
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 19, x + 9, y + 19);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 19, x + 21, y + 19);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 19, x + 22, y + 19);
+let whitePieceWhiteSquare[ 38] = 512; let whitePieceWhiteSquare[ 39] = 64;
+let blackPieceWhiteSquare[ 38] = -512; let blackPieceWhiteSquare[ 39] = 127;
 
 // start of line 20
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 20, x + 9, y + 20);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 20, x + 21, y + 20);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 20, x + 22, y + 20);
+let whitePieceWhiteSquare[ 40] = 512; let whitePieceWhiteSquare[ 41] = 64;
+let blackPieceWhiteSquare[ 40] = -512; let blackPieceWhiteSquare[ 41] = 127;
 
 // start of line 21
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 21, x + 9, y + 21);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 21, x + 21, y + 21);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 21, x + 22, y + 21);
+let whitePieceWhiteSquare[ 42] = 512; let whitePieceWhiteSquare[ 43] = 64;
+let blackPieceWhiteSquare[ 42] = -512; let blackPieceWhiteSquare[ 43] = 127;
 
 // start of line 22
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 22, x + 8, y + 22);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 22, x + 22, y + 22);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 22, x + 23, y + 22);
+let whitePieceWhiteSquare[ 44] = 256; let whitePieceWhiteSquare[ 45] = 128;
+let blackPieceWhiteSquare[ 44] = -256; let blackPieceWhiteSquare[ 45] = 255;
 
 // start of line 23
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 23, x + 8, y + 23);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 23, x + 22, y + 23);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 23, x + 23, y + 23);
+let whitePieceWhiteSquare[ 46] = 256; let whitePieceWhiteSquare[ 47] = 128;
+let blackPieceWhiteSquare[ 46] = -256; let blackPieceWhiteSquare[ 47] = 255;
 
 // start of line 24
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 24, x + 8, y + 24);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 24, x + 22, y + 24);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 24, x + 23, y + 24);
+let whitePieceWhiteSquare[ 48] = 256; let whitePieceWhiteSquare[ 49] = 128;
+let blackPieceWhiteSquare[ 48] = -256; let blackPieceWhiteSquare[ 49] = 255;
 
 // start of line 25
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 25, x + 7, y + 25);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 25, x + 23, y + 25);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 25, x + 24, y + 25);
+let whitePieceWhiteSquare[ 50] = 128; let whitePieceWhiteSquare[ 51] = 256;
+let blackPieceWhiteSquare[ 50] = -128; let blackPieceWhiteSquare[ 51] = 511;
 
 // start of line 26
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 26, x + 7, y + 26);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 26, x + 23, y + 26);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 26, x + 24, y + 26);
+let whitePieceWhiteSquare[ 52] = 128; let whitePieceWhiteSquare[ 53] = 256;
+let blackPieceWhiteSquare[ 52] = -128; let blackPieceWhiteSquare[ 53] = 511;
 
 // start of line 27
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 6, y + 27, x + 6, y + 27);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 7, y + 27, x + 24, y + 27);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 27, x + 25, y + 27);
+let whitePieceWhiteSquare[ 54] = 64; let whitePieceWhiteSquare[ 55] = 512;
+let blackPieceWhiteSquare[ 54] = -64; let blackPieceWhiteSquare[ 55] = 1023;
 
 // start of line 28
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 6, y + 28, x + 6, y + 28);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 7, y + 28, x + 24, y + 28);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 28, x + 25, y + 28);
+let whitePieceWhiteSquare[ 56] = 64; let whitePieceWhiteSquare[ 57] = 512;
+let blackPieceWhiteSquare[ 56] = -64; let blackPieceWhiteSquare[ 57] = 1023;
 
 // start of line 29
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 29, x + 7, y + 29);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 29, x + 23, y + 29);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 29, x + 24, y + 29);
+let whitePieceWhiteSquare[ 58] = 128; let whitePieceWhiteSquare[ 59] = 256;
+let blackPieceWhiteSquare[ 58] = -128; let blackPieceWhiteSquare[ 59] = 511;
 
 // start of line 30
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 30, x + 23, y + 30);
+let whitePieceWhiteSquare[ 60] = -256; let whitePieceWhiteSquare[ 61] = 255;
+let blackPieceWhiteSquare[ 60] = -256; let blackPieceWhiteSquare[ 61] = 255;
 
-		return;
-	}
-	function void drawQueen (int x, int y, boolean squareColor, boolean pieceColor) {
-		// start of line 0
+// start of line 31
+let whitePieceWhiteSquare[ 62] = 0; let whitePieceWhiteSquare[ 63] = 0;
+let blackPieceWhiteSquare[ 62] = 0; let blackPieceWhiteSquare[ 63] = 0;
+
+			// queen
+			let whitePieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[5] = whitePieceWhiteSquare;
+			let blackPieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[5 + 7] = blackPieceWhiteSquare;
+			// start of line 0
+let whitePieceWhiteSquare[  0] = 0; let whitePieceWhiteSquare[  1] = 0;
+let blackPieceWhiteSquare[  0] = 0; let blackPieceWhiteSquare[  1] = 0;
 
 // start of line 1
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 1, x + 16, y + 1);
+let whitePieceWhiteSquare[  2] = 16384 + 16384; let whitePieceWhiteSquare[  3] = 1;
+let blackPieceWhiteSquare[  2] = 16384 + 16384; let blackPieceWhiteSquare[  3] = 1;
 
 // start of line 2
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 2, x + 10, y + 2);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 2, x + 14, y + 2);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 2, x + 16, y + 2);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 2, x + 17, y + 2);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 2, x + 22, y + 2);
+let whitePieceWhiteSquare[  4] = 17920; let whitePieceWhiteSquare[  5] = 98;
+let blackPieceWhiteSquare[  4] = -14848; let blackPieceWhiteSquare[  5] = 99;
 
 // start of line 3
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 3, x + 8, y + 3);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 3, x + 10, y + 3);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 3, x + 11, y + 3);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 3, x + 14, y + 3);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 3, x + 16, y + 3);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 3, x + 17, y + 3);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 3, x + 20, y + 3);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 21, y + 3, x + 22, y + 3);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 3, x + 23, y + 3);
+let whitePieceWhiteSquare[  6] = 18688; let whitePieceWhiteSquare[  7] = 146;
+let blackPieceWhiteSquare[  6] = -12544; let blackPieceWhiteSquare[  7] = 243;
 
 // start of line 4
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 3, y + 4, x + 4, y + 4);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 4, x + 8, y + 4);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 4, x + 10, y + 4);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 4, x + 11, y + 4);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 4, x + 16, y + 4);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 4, x + 20, y + 4);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 21, y + 4, x + 22, y + 4);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 4, x + 23, y + 4);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 27, y + 4, x + 28, y + 4);
+let whitePieceWhiteSquare[  8] = -30440; let whitePieceWhiteSquare[  9] = 6289;
+let blackPieceWhiteSquare[  8] = -28904; let blackPieceWhiteSquare[  9] = 6385;
 
 // start of line 5
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 2, y + 5, x + 2, y + 5);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 3, y + 5, x + 4, y + 5);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 5, y + 5, x + 5, y + 5);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 5, x + 10, y + 5);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 5, x + 16, y + 5);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 5, x + 22, y + 5);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 5, x + 26, y + 5);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 27, y + 5, x + 28, y + 5);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 29, y + 5, x + 29, y + 5);
+let whitePieceWhiteSquare[ 10] = -31196; let whitePieceWhiteSquare[ 11] = 9313;
+let blackPieceWhiteSquare[ 10] = -31172; let blackPieceWhiteSquare[ 11] = 15457;
 
 // start of line 6
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 2, y + 6, x + 2, y + 6);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 3, y + 6, x + 4, y + 6);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 5, y + 6, x + 5, y + 6);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 6, x + 11, y + 6);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 6, x + 14, y + 6);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 6, x + 16, y + 6);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 6, x + 17, y + 6);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 6, x + 21, y + 6);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 6, x + 26, y + 6);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 27, y + 6, x + 28, y + 6);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 29, y + 6, x + 29, y + 6);
+let whitePieceWhiteSquare[ 12] = 19492; let whitePieceWhiteSquare[ 13] = 9266;
+let blackPieceWhiteSquare[ 12] = -13252; let blackPieceWhiteSquare[ 13] = 15411;
 
 // start of line 7
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 3, y + 7, x + 4, y + 7);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 5, y + 7, x + 5, y + 7);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 6, y + 7, x + 6, y + 7);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 7, x + 11, y + 7);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 7, x + 14, y + 7);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 7, x + 16, y + 7);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 7, x + 17, y + 7);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 20, y + 7, x + 21, y + 7);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 7, x + 25, y + 7);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 26, y + 7, x + 26, y + 7);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 27, y + 7, x + 28, y + 7);
+let whitePieceWhiteSquare[ 14] = 19544; let whitePieceWhiteSquare[ 15] = 6706;
+let blackPieceWhiteSquare[ 14] = -13192; let blackPieceWhiteSquare[ 15] = 7731;
 
 // start of line 8
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 5, y + 8, x + 5, y + 8);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 6, y + 8, x + 6, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 8, x + 7, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 8, x + 10, y + 8);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 8, x + 11, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 8, x + 12, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 8, x + 14, y + 8);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 8, x + 16, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 8, x + 17, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 8, x + 19, y + 8);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 20, y + 8, x + 20, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 8, x + 21, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 8, x + 24, y + 8);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 25, y + 8, x + 25, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 8, x + 26, y + 8);
+let whitePieceWhiteSquare[ 16] = 21664; let whitePieceWhiteSquare[ 17] = 1322;
+let blackPieceWhiteSquare[ 16] = -8992; let blackPieceWhiteSquare[ 17] = 1851;
 
 // start of line 9
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 5, y + 9, x + 5, y + 9);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 6, y + 9, x + 6, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 9, x + 7, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 9, x + 10, y + 9);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 9, x + 11, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 9, x + 12, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 9, x + 14, y + 9);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 15, y + 9, x + 16, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 17, y + 9, x + 17, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 9, x + 19, y + 9);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 20, y + 9, x + 20, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 9, x + 21, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 9, x + 24, y + 9);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 25, y + 9, x + 25, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 9, x + 26, y + 9);
+let whitePieceWhiteSquare[ 18] = 21664; let whitePieceWhiteSquare[ 19] = 1322;
+let blackPieceWhiteSquare[ 18] = -8992; let blackPieceWhiteSquare[ 19] = 1851;
 
 // start of line 10
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 6, y + 10, x + 6, y + 10);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 7, y + 10, x + 7, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 10, x + 8, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 10, x + 10, y + 10);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 11, y + 10, x + 12, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 13, y + 10, x + 13, y + 10);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 10, x + 17, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 10, x + 18, y + 10);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 19, y + 10, x + 20, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 10, x + 21, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 10, x + 23, y + 10);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 24, y + 10, x + 24, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 10, x + 25, y + 10);
+let whitePieceWhiteSquare[ 20] = 9536; let whitePieceWhiteSquare[ 21] = 676;
+let blackPieceWhiteSquare[ 20] = -576; let blackPieceWhiteSquare[ 21] = 959;
 
 // start of line 11
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 6, y + 11, x + 6, y + 11);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 7, y + 11, x + 8, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 11, x + 9, y + 11);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 11, x + 21, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 11, x + 22, y + 11);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 23, y + 11, x + 24, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 11, x + 25, y + 11);
+let whitePieceWhiteSquare[ 22] = 576; let whitePieceWhiteSquare[ 23] = 576;
+let blackPieceWhiteSquare[ 22] = -64; let blackPieceWhiteSquare[ 23] = 1023;
 
 // start of line 12
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 12, x + 7, y + 12);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 12, x + 23, y + 12);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 12, x + 24, y + 12);
+let whitePieceWhiteSquare[ 24] = 128; let whitePieceWhiteSquare[ 25] = 256;
+let blackPieceWhiteSquare[ 24] = -128; let blackPieceWhiteSquare[ 25] = 511;
 
 // start of line 13
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 13, x + 7, y + 13);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 13, x + 23, y + 13);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 13, x + 24, y + 13);
+let whitePieceWhiteSquare[ 26] = 128; let whitePieceWhiteSquare[ 27] = 256;
+let blackPieceWhiteSquare[ 26] = -128; let blackPieceWhiteSquare[ 27] = 511;
 
 // start of line 14
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 14, x + 7, y + 14);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 14, x + 23, y + 14);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 14, x + 24, y + 14);
+let whitePieceWhiteSquare[ 28] = 128; let whitePieceWhiteSquare[ 29] = 256;
+let blackPieceWhiteSquare[ 28] = -128; let blackPieceWhiteSquare[ 29] = 511;
 
 // start of line 15
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 15, x + 7, y + 15);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 15, x + 23, y + 15);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 15, x + 24, y + 15);
+let whitePieceWhiteSquare[ 30] = 128; let whitePieceWhiteSquare[ 31] = 256;
+let blackPieceWhiteSquare[ 30] = -128; let blackPieceWhiteSquare[ 31] = 511;
 
 // start of line 16
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 16, x + 8, y + 16);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 16, x + 22, y + 16);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 16, x + 23, y + 16);
+let whitePieceWhiteSquare[ 32] = 256; let whitePieceWhiteSquare[ 33] = 128;
+let blackPieceWhiteSquare[ 32] = -256; let blackPieceWhiteSquare[ 33] = 255;
 
 // start of line 17
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 17, x + 8, y + 17);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 17, x + 22, y + 17);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 17, x + 23, y + 17);
+let whitePieceWhiteSquare[ 34] = 256; let whitePieceWhiteSquare[ 35] = 128;
+let blackPieceWhiteSquare[ 34] = -256; let blackPieceWhiteSquare[ 35] = 255;
 
 // start of line 18
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 18, x + 8, y + 18);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 18, x + 22, y + 18);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 18, x + 23, y + 18);
+let whitePieceWhiteSquare[ 36] = 256; let whitePieceWhiteSquare[ 37] = 128;
+let blackPieceWhiteSquare[ 36] = -256; let blackPieceWhiteSquare[ 37] = 255;
 
 // start of line 19
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 19, x + 8, y + 19);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 19, x + 22, y + 19);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 19, x + 23, y + 19);
+let whitePieceWhiteSquare[ 38] = 256; let whitePieceWhiteSquare[ 39] = 128;
+let blackPieceWhiteSquare[ 38] = -256; let blackPieceWhiteSquare[ 39] = 255;
 
 // start of line 20
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 20, x + 8, y + 20);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 20, x + 22, y + 20);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 20, x + 23, y + 20);
+let whitePieceWhiteSquare[ 40] = 256; let whitePieceWhiteSquare[ 41] = 128;
+let blackPieceWhiteSquare[ 40] = -256; let blackPieceWhiteSquare[ 41] = 255;
 
 // start of line 21
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 21, x + 8, y + 21);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 9, y + 21, x + 22, y + 21);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 23, y + 21, x + 23, y + 21);
+let whitePieceWhiteSquare[ 42] = 256; let whitePieceWhiteSquare[ 43] = 128;
+let blackPieceWhiteSquare[ 42] = -256; let blackPieceWhiteSquare[ 43] = 255;
 
 // start of line 22
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 9, y + 22, x + 9, y + 22);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 10, y + 22, x + 21, y + 22);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 22, x + 22, y + 22);
+let whitePieceWhiteSquare[ 44] = 512; let whitePieceWhiteSquare[ 45] = 64;
+let blackPieceWhiteSquare[ 44] = -512; let blackPieceWhiteSquare[ 45] = 127;
 
 // start of line 23
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 23, x + 23, y + 23);
+let whitePieceWhiteSquare[ 46] = -256; let whitePieceWhiteSquare[ 47] = 255;
+let blackPieceWhiteSquare[ 46] = -256; let blackPieceWhiteSquare[ 47] = 255;
 
 // start of line 24
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 24, x + 7, y + 24);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 24, x + 23, y + 24);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 24, x + 24, y + 24);
+let whitePieceWhiteSquare[ 48] = 128; let whitePieceWhiteSquare[ 49] = 256;
+let blackPieceWhiteSquare[ 48] = -128; let blackPieceWhiteSquare[ 49] = 511;
 
 // start of line 25
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 25, x + 7, y + 25);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 25, x + 23, y + 25);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 25, x + 24, y + 25);
+let whitePieceWhiteSquare[ 50] = 128; let whitePieceWhiteSquare[ 51] = 256;
+let blackPieceWhiteSquare[ 50] = -128; let blackPieceWhiteSquare[ 51] = 511;
 
 // start of line 26
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 26, x + 7, y + 26);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 26, x + 23, y + 26);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 26, x + 24, y + 26);
+let whitePieceWhiteSquare[ 52] = 128; let whitePieceWhiteSquare[ 53] = 256;
+let blackPieceWhiteSquare[ 52] = -128; let blackPieceWhiteSquare[ 53] = 511;
 
 // start of line 27
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 27, x + 7, y + 27);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 27, x + 23, y + 27);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 27, x + 24, y + 27);
+let whitePieceWhiteSquare[ 54] = 128; let whitePieceWhiteSquare[ 55] = 256;
+let blackPieceWhiteSquare[ 54] = -128; let blackPieceWhiteSquare[ 55] = 511;
 
 // start of line 28
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 7, y + 28, x + 7, y + 28);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 28, x + 23, y + 28);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 28, x + 24, y + 28);
+let whitePieceWhiteSquare[ 56] = 128; let whitePieceWhiteSquare[ 57] = 256;
+let blackPieceWhiteSquare[ 56] = -128; let blackPieceWhiteSquare[ 57] = 511;
 
 // start of line 29
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 29, x + 23, y + 29);
+let whitePieceWhiteSquare[ 58] = -256; let whitePieceWhiteSquare[ 59] = 255;
+let blackPieceWhiteSquare[ 58] = -256; let blackPieceWhiteSquare[ 59] = 255;
 
 // start of line 30
 
-		return;
-	}
-	function void drawKing (int x, int y, boolean squareColor, boolean pieceColor) {
-		// start of line 0
+// start of line 31
+let whitePieceWhiteSquare[ 62] = 0; let whitePieceWhiteSquare[ 63] = 0;
+let blackPieceWhiteSquare[ 62] = 0; let blackPieceWhiteSquare[ 63] = 0;
+
+			// king
+			let whitePieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[6] = whitePieceWhiteSquare;
+			let blackPieceWhiteSquare = Array.new(64);
+			let pieceDefinitions[6 + 7] = blackPieceWhiteSquare;
+			// start of line 0
+let whitePieceWhiteSquare[  0] = 0; let whitePieceWhiteSquare[  1] = 0;
+let blackPieceWhiteSquare[  0] = 0; let blackPieceWhiteSquare[  1] = 0;
 
 // start of line 1
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 1, x + 16, y + 1);
+let whitePieceWhiteSquare[  2] = 16384 + 16384; let whitePieceWhiteSquare[  3] = 1;
+let blackPieceWhiteSquare[  2] = 16384 + 16384; let blackPieceWhiteSquare[  3] = 1;
 
 // start of line 2
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 2, x + 16, y + 2);
+let whitePieceWhiteSquare[  4] = 16384 + 16384; let whitePieceWhiteSquare[  5] = 1;
+let blackPieceWhiteSquare[  4] = 16384 + 16384; let blackPieceWhiteSquare[  5] = 1;
 
 // start of line 3
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 13, y + 3, x + 18, y + 3);
+let whitePieceWhiteSquare[  6] = -8192; let whitePieceWhiteSquare[  7] = 7;
+let blackPieceWhiteSquare[  6] = -8192; let blackPieceWhiteSquare[  7] = 7;
 
 // start of line 4
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 13, y + 4, x + 18, y + 4);
+let whitePieceWhiteSquare[  8] = -8192; let whitePieceWhiteSquare[  9] = 7;
+let blackPieceWhiteSquare[  8] = -8192; let blackPieceWhiteSquare[  9] = 7;
 
 // start of line 5
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 5, x + 16, y + 5);
+let whitePieceWhiteSquare[ 10] = 16384 + 16384; let whitePieceWhiteSquare[ 11] = 1;
+let blackPieceWhiteSquare[ 10] = 16384 + 16384; let blackPieceWhiteSquare[ 11] = 1;
 
 // start of line 6
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 6, x + 16, y + 6);
+let whitePieceWhiteSquare[ 12] = 16384 + 16384; let whitePieceWhiteSquare[ 13] = 1;
+let blackPieceWhiteSquare[ 12] = 16384 + 16384; let blackPieceWhiteSquare[ 13] = 1;
 
 // start of line 7
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 7, x + 17, y + 7);
+let whitePieceWhiteSquare[ 14] = -16384; let whitePieceWhiteSquare[ 15] = 3;
+let blackPieceWhiteSquare[ 14] = -16384; let blackPieceWhiteSquare[ 15] = 3;
 
 // start of line 8
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 13, y + 8, x + 13, y + 8);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 8, x + 18, y + 8);
+let whitePieceWhiteSquare[ 16] = 8192; let whitePieceWhiteSquare[ 17] = 4;
+let blackPieceWhiteSquare[ 16] = 8192; let blackPieceWhiteSquare[ 17] = 4;
 
 // start of line 9
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 4, y + 9, x + 7, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 9, x + 12, y + 9);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 9, x + 17, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 9, x + 19, y + 9);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 9, x + 27, y + 9);
+let whitePieceWhiteSquare[ 18] = 4336; let whitePieceWhiteSquare[ 19] = 3848;
+let blackPieceWhiteSquare[ 18] = -12048; let blackPieceWhiteSquare[ 19] = 3851;
 
 // start of line 10
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 3, y + 10, x + 3, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 10, x + 9, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 10, x + 12, y + 10);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 10, x + 17, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 10, x + 19, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 22, y + 10, x + 23, y + 10);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 28, y + 10, x + 28, y + 10);
+let whitePieceWhiteSquare[ 20] = 4872; let whitePieceWhiteSquare[ 21] = 4296;
+let blackPieceWhiteSquare[ 20] = -11512; let blackPieceWhiteSquare[ 21] = 4299;
 
 // start of line 11
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 2, y + 11, x + 2, y + 11);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 4, y + 11, x + 7, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 10, y + 11, x + 10, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 12, y + 11, x + 12, y + 11);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 11, x + 17, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 11, x + 19, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 21, y + 11, x + 21, y + 11);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 24, y + 11, x + 27, y + 11);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 29, y + 11, x + 29, y + 11);
+let whitePieceWhiteSquare[ 22] = 5124; let whitePieceWhiteSquare[ 23] = 8232;
+let blackPieceWhiteSquare[ 22] = -11020; let blackPieceWhiteSquare[ 23] = 12075;
 
 // start of line 12
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 1, y + 12, x + 1, y + 12);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 3, y + 12, x + 9, y + 12);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 11, y + 12, x + 12, y + 12);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 14, y + 12, x + 17, y + 12);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 19, y + 12, x + 20, y + 12);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 22, y + 12, x + 28, y + 12);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 30, y + 12, x + 30, y + 12);
+let whitePieceWhiteSquare[ 24] = 6146; let whitePieceWhiteSquare[ 25] = 16408;
+let blackPieceWhiteSquare[ 24] = -9222; let blackPieceWhiteSquare[ 25] = 24539;
 
 // start of line 13
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 1, y + 13, x + 1, y + 13);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 3, y + 13, x + 10, y + 13);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 13, y + 13, x + 13, y + 13);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 18, y + 13, x + 18, y + 13);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 21, y + 13, x + 28, y + 13);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 30, y + 13, x + 30, y + 13);
+let whitePieceWhiteSquare[ 26] = 8194; let whitePieceWhiteSquare[ 27] = 16388;
+let blackPieceWhiteSquare[ 26] = 10234; let blackPieceWhiteSquare[ 27] = 24548;
 
 // start of line 14
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 1, y + 14, x + 1, y + 14);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 3, y + 14, x + 12, y + 14);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 14, y + 14, x + 17, y + 14);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 19, y + 14, x + 28, y + 14);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 30, y + 14, x + 30, y + 14);
+let whitePieceWhiteSquare[ 28] = -16382; let whitePieceWhiteSquare[ 29] = 16387;
+let blackPieceWhiteSquare[ 28] = -8198; let blackPieceWhiteSquare[ 29] = 24571;
 
 // start of line 15
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 1, y + 15, x + 1, y + 15);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 3, y + 15, x + 13, y + 15);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 15, x + 16, y + 15);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 18, y + 15, x + 28, y + 15);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 30, y + 15, x + 30, y + 15);
+let whitePieceWhiteSquare[ 30] = -32766; let whitePieceWhiteSquare[ 31] = 16385;
+let blackPieceWhiteSquare[ 30] = -16390; let blackPieceWhiteSquare[ 31] = 24573;
 
 // start of line 16
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 1, y + 16, x + 1, y + 16);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 3, y + 16, x + 13, y + 16);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 16, x + 16, y + 16);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 18, y + 16, x + 28, y + 16);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 30, y + 16, x + 30, y + 16);
+let whitePieceWhiteSquare[ 32] = -32766; let whitePieceWhiteSquare[ 33] = 16385;
+let blackPieceWhiteSquare[ 32] = -16390; let blackPieceWhiteSquare[ 33] = 24573;
 
 // start of line 17
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 1, y + 17, x + 1, y + 17);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 3, y + 17, x + 13, y + 17);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 17, x + 16, y + 17);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 18, y + 17, x + 28, y + 17);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 30, y + 17, x + 30, y + 17);
+let whitePieceWhiteSquare[ 34] = -32766; let whitePieceWhiteSquare[ 35] = 16385;
+let blackPieceWhiteSquare[ 34] = -16390; let blackPieceWhiteSquare[ 35] = 24573;
 
 // start of line 18
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 1, y + 18, x + 1, y + 18);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 3, y + 18, x + 13, y + 18);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 18, x + 16, y + 18);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 18, y + 18, x + 28, y + 18);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 30, y + 18, x + 30, y + 18);
+let whitePieceWhiteSquare[ 36] = -32766; let whitePieceWhiteSquare[ 37] = 16385;
+let blackPieceWhiteSquare[ 36] = -16390; let blackPieceWhiteSquare[ 37] = 24573;
 
 // start of line 19
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 2, y + 19, x + 2, y + 19);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 4, y + 19, x + 13, y + 19);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 19, x + 16, y + 19);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 18, y + 19, x + 27, y + 19);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 29, y + 19, x + 29, y + 19);
+let whitePieceWhiteSquare[ 38] = -32764; let whitePieceWhiteSquare[ 39] = 8193;
+let blackPieceWhiteSquare[ 38] = -16396; let blackPieceWhiteSquare[ 39] = 12285;
 
 // start of line 20
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 2, y + 20, x + 2, y + 20);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 4, y + 20, x + 13, y + 20);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 20, x + 16, y + 20);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 18, y + 20, x + 27, y + 20);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 29, y + 20, x + 29, y + 20);
+let whitePieceWhiteSquare[ 40] = -32764; let whitePieceWhiteSquare[ 41] = 8193;
+let blackPieceWhiteSquare[ 40] = -16396; let blackPieceWhiteSquare[ 41] = 12285;
 
 // start of line 21
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 3, y + 21, x + 3, y + 21);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 5, y + 21, x + 13, y + 21);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 21, x + 16, y + 21);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 18, y + 21, x + 26, y + 21);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 28, y + 21, x + 28, y + 21);
+let whitePieceWhiteSquare[ 42] = -32760; let whitePieceWhiteSquare[ 43] = 4097;
+let blackPieceWhiteSquare[ 42] = -16408; let blackPieceWhiteSquare[ 43] = 6141;
 
 // start of line 22
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 4, y + 22, x + 4, y + 22);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 6, y + 22, x + 13, y + 22);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 22, x + 16, y + 22);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 18, y + 22, x + 25, y + 22);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 27, y + 22, x + 27, y + 22);
+let whitePieceWhiteSquare[ 44] = -32752; let whitePieceWhiteSquare[ 45] = 2049;
+let blackPieceWhiteSquare[ 44] = -16432; let blackPieceWhiteSquare[ 45] = 3069;
 
 // start of line 23
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 4, y + 23, x + 4, y + 23);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 6, y + 23, x + 13, y + 23);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 23, x + 16, y + 23);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 18, y + 23, x + 25, y + 23);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 27, y + 23, x + 27, y + 23);
+let whitePieceWhiteSquare[ 46] = -32752; let whitePieceWhiteSquare[ 47] = 2049;
+let blackPieceWhiteSquare[ 46] = -16432; let blackPieceWhiteSquare[ 47] = 3069;
 
 // start of line 24
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 4, y + 24, x + 5, y + 24);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 8, y + 24, x + 13, y + 24);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 24, x + 16, y + 24);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 18, y + 24, x + 23, y + 24);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 26, y + 24, x + 27, y + 24);
+let whitePieceWhiteSquare[ 48] = -32720; let whitePieceWhiteSquare[ 49] = 3073;
+let blackPieceWhiteSquare[ 48] = -16592; let blackPieceWhiteSquare[ 49] = 3325;
 
 // start of line 25
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 5, y + 25, x + 7, y + 25);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 15, y + 25, x + 16, y + 25);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 24, y + 25, x + 26, y + 25);
+let whitePieceWhiteSquare[ 50] = -32544; let whitePieceWhiteSquare[ 51] = 1793;
+let blackPieceWhiteSquare[ 50] = -32544; let blackPieceWhiteSquare[ 51] = 1793;
 
 // start of line 26
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 4, y + 26, x + 4, y + 26);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 8, y + 26, x + 23, y + 26);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 27, y + 26, x + 27, y + 26);
+let whitePieceWhiteSquare[ 52] = -240; let whitePieceWhiteSquare[ 53] = 2303;
+let blackPieceWhiteSquare[ 52] = -240; let blackPieceWhiteSquare[ 53] = 2303;
 
 // start of line 27
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 4, y + 27, x + 4, y + 27);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 6, y + 27, x + 7, y + 27);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 24, y + 27, x + 25, y + 27);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 27, y + 27, x + 27, y + 27);
+let whitePieceWhiteSquare[ 54] = 16; let whitePieceWhiteSquare[ 55] = 2048;
+let blackPieceWhiteSquare[ 54] = 208; let blackPieceWhiteSquare[ 55] = 2816;
 
 // start of line 28
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 4, y + 28, x + 4, y + 28);
-do Screen.setColor(pieceColor);
-do Screen.drawLine(x + 7, y + 28, x + 24, y + 28);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 27, y + 28, x + 27, y + 28);
+let whitePieceWhiteSquare[ 56] = 16; let whitePieceWhiteSquare[ 57] = 2048;
+let blackPieceWhiteSquare[ 56] = -112; let blackPieceWhiteSquare[ 57] = 2559;
 
 // start of line 29
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 4, y + 29, x + 6, y + 29);
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 25, y + 29, x + 27, y + 29);
+let whitePieceWhiteSquare[ 58] = 112; let whitePieceWhiteSquare[ 59] = 3584;
+let blackPieceWhiteSquare[ 58] = 112; let blackPieceWhiteSquare[ 59] = 3584;
 
 // start of line 30
-do Screen.setColor(~squareColor);
-do Screen.drawLine(x + 6, y + 30, x + 25, y + 30);
+let whitePieceWhiteSquare[ 60] = -64; let whitePieceWhiteSquare[ 61] = 1023;
+let blackPieceWhiteSquare[ 60] = -64; let blackPieceWhiteSquare[ 61] = 1023;
 
 // start of line 31
 
-		return;
-	}
 
-}
+			return;
+		}		// end init
+} // end class
 		

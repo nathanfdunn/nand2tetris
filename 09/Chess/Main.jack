@@ -30,6 +30,9 @@ class Main {
         let myX = 0;
         let myY = 1;
 
+        let myY = 32767;
+
+        do Sprites.init();
         do Board.init();
 
         let board = Board.new();

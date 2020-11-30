@@ -351,8 +351,9 @@ class Board {
         var int j;
         var Array rank;
         var Piece piece;
-        var boolean color;
-        var boolean squareColor;
+        var int pieceType;
+        var boolean pieceColor;
+        // var boolean squareColor;
         var int dim;
         var int x1;
         var int x2;
@@ -360,31 +361,41 @@ class Board {
         var int y2;
 
         let i = 0;
-        let color = true;
         let dim = 32;
 
         while (i < 8){
             let j = 0;
             while (j < 8){
                 if (squareIsDirty(j, i)) {
-                    let squareColor = ~isEven(i + j);
-                    let color =squareColor;
-                    do Screen.setColor(color);
-                    // Add 8 to draw the board on the right side
-                    let x1 = (j + 8) * dim;
-                    // 7 - i so that we draw from white's perspective
-                    let y1 = (7 - i) * dim;
-                    let x2 = x1 + dim;
-                    let y2 = y1 + dim;
-
-                    do Screen.drawRectangle(x1, y1, x2-1, y2-1);
-
-                    let rank = ranks[i];
+                    let rank = ranks[7-i];          // TODO don't flip it
                     let piece = rank[j];
-                    //do Screen.drawRectangle(x1, y1)
-                    if (~(piece = 0)){
-                        do piece.draw(x1, y1, squareColor);
+                    if (piece = 0){
+                        let pieceType = 0;
                     }
+                    else {
+                        let pieceType = piece.getPieceType();
+                        let pieceColor = piece.getColor();
+                    }
+
+                    do Sprites.drawSprite(pieceType, pieceColor, i, j);
+                    // let squareColor = ~isEven(i + j);
+                    // let color =squareColor;
+                    // do Screen.setColor(color);
+                    // // Add 8 to draw the board on the right side
+                    // let x1 = (j + 8) * dim;
+                    // // 7 - i so that we draw from white's perspective
+                    // let y1 = (7 - i) * dim;
+                    // let x2 = x1 + dim;
+                    // let y2 = y1 + dim;
+
+                    // do Screen.drawRectangle(x1, y1, x2-1, y2-1);
+
+                    // let rank = ranks[i];
+                    // let piece = rank[j];
+                    // //do Screen.drawRectangle(x1, y1)
+                    // if (~(piece = 0)){
+                    //     do piece.draw(x1, y1, squareColor);
+                    // }
                 }
 
                 let j = j + 1;

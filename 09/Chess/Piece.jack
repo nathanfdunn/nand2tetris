@@ -7,6 +7,10 @@ class Piece {
     static Array pieceMapWhite;
     static Array pieceMapBlack;
 
+    method int getPieceType() {
+        return pieceType;
+    }
+
     method boolean isEnemy(Piece other) {
         return ~(color = other.getColor());
     }
@@ -77,35 +81,35 @@ class Piece {
         }
     }
 
-    method void draw(int x, int y, boolean squareColor){
-        var int i;
-        var int j;
-        var char current;
-        var String curString;
+    // method void draw(int x, int y, boolean squareColor){
+    //     var int i;
+    //     var int j;
+    //     var char current;
+    //     var String curString;
 
-    // 1 = pawn, 2 = knight, 3 = bishop, 4 = rook, 5 = queen, 6 = king
+    // // 1 = pawn, 2 = knight, 3 = bishop, 4 = rook, 5 = queen, 6 = king
 
-        if (pieceType = 1){
-            do Sprites.drawPawn(x, y, squareColor, color);
-        }
-        if (pieceType = 2){
-            do Sprites.drawKnight(x, y, squareColor, color);
-        }
-        if (pieceType = 3){
-            do Sprites.drawBishop(x, y, squareColor, color);
-        }
-        if (pieceType = 4){
-            do Sprites.drawRook(x, y, squareColor, color);
-        }
-        if (pieceType = 5){
-            do Sprites.drawQueen(x, y, squareColor, color);
-        }
-        if (pieceType = 6){
-            do Sprites.drawKing(x, y, squareColor, color);
-        }
+    //     if (pieceType = 1){
+    //         do Sprites.drawPawn(x, y, squareColor, color);
+    //     }
+    //     if (pieceType = 2){
+    //         do Sprites.drawKnight(x, y, squareColor, color);
+    //     }
+    //     if (pieceType = 3){
+    //         do Sprites.drawBishop(x, y, squareColor, color);
+    //     }
+    //     if (pieceType = 4){
+    //         do Sprites.drawRook(x, y, squareColor, color);
+    //     }
+    //     if (pieceType = 5){
+    //         do Sprites.drawQueen(x, y, squareColor, color);
+    //     }
+    //     if (pieceType = 6){
+    //         do Sprites.drawKing(x, y, squareColor, color);
+    //     }
 
-        return;
-    }
+    //     return;
+    // }
 
     method boolean isPawn() {
         return pieceType = 1;
