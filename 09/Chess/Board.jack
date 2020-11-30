@@ -7,11 +7,11 @@ class Board {
     field Array ranks;
 
     // TODO remove field
-    field boolean hasChanges;
+    // field boolean hasChanges;
 
     static boolean debug;
 
-    field List dirtySquares;
+    // field List dirtySquares;
 
     // i.e. who's turn is it?
     // true -> black
@@ -28,25 +28,25 @@ class Board {
     //     return debug;
     // }
 
-    method boolean getHasChanges() {
-        return hasChanges;
-    }
+    // method boolean getHasChanges() {
+    //     return hasChanges;
+    // }
 
-    method void refresh() {
-        let dirtySquares = 0;
-        // do Screen.clearScreen();
-        return;
-    }
+    // method void refresh() {
+    //     let dirtySquares = 0;
+    //     // do Screen.clearScreen();
+    //     return;
+    // }
 
-    method void acknowledgeChanges() {
-        let hasChanges = false;
-        return;
-    }
+    // method void acknowledgeChanges() {
+    //     let hasChanges = false;
+    //     return;
+    // }
 
-    method void touch() {
-        let hasChanges = true;
-        return;
-    }
+    // method void touch() {
+    //     let hasChanges = true;
+    //     return;
+    // }
 
     constructor Board new(){
         var int i;
@@ -55,7 +55,7 @@ class Board {
         let i = 0;
         let ranks = Array.new(8);
 
-        let hasChanges = true;
+        // let hasChanges = true;
 
         let castling = Array.new(4);
         let castling[0] = true;
@@ -205,7 +205,7 @@ class Board {
         let piece = rank[move.getStartFile() - 1];
         let rank[move.getStartFile() - 1] = 0;
 
-        let dirtySquares = List.empty();
+        // let dirtySquares = List.empty();
 
         let rank = ranks[move.getEndRank() - 1];
         let capturedPiece = rank[move.getEndFile() - 1];
@@ -218,18 +218,18 @@ class Board {
                     let capturedPiece = getPieceAt(move.getEndX(), move.getEndY() + 1);
                     do removePiece(move.getEndX(), move.getEndY() + 1);
                     do capturedPiece.dispose();
-                    do dirtySquares.append(Square.fromBoardIndices(
-                        move.getEndX(), move.getEndY() + 1
-                        ));
+                    // do dirtySquares.append(Square.fromBoardIndices(
+                    //     move.getEndX(), move.getEndY() + 1
+                    //     ));
                 }
                 else {      // white
                     // white en passant must be capturing 
                     let capturedPiece = getPieceAt(move.getEndX(), move.getEndY() - 1);
                     do removePiece(move.getEndX(), move.getEndY() - 1);
                     do capturedPiece.dispose();
-                    do dirtySquares.append(Square.fromBoardIndices(
-                        move.getEndX(), move.getEndY() - 1
-                        ));
+                    // do dirtySquares.append(Square.fromBoardIndices(
+                    //     move.getEndX(), move.getEndY() - 1
+                    //     ));
                 }
             }
         }
@@ -264,21 +264,21 @@ class Board {
                 let supplementalPiece = rank[0];
                 let rank[0] = 0;
                 let rank[move.getEndX() + 1] = supplementalPiece;
-                do dirtySquares.append(Square.fromBoardIndices(0, move.getStartY()));
-                do dirtySquares.append(Square.fromBoardIndices( move.getEndX() + 1, move.getStartY() ));
+                // do dirtySquares.append(Square.fromBoardIndices(0, move.getStartY()));
+                // do dirtySquares.append(Square.fromBoardIndices( move.getEndX() + 1, move.getStartY() ));
             }
             else {
                 let rank = ranks[move.getStartY()];
                 let supplementalPiece = rank[7];
                 let rank[7] = 0;
                 let rank[move.getEndX() - 1] = supplementalPiece;
-                do dirtySquares.append(Square.fromBoardIndices(7, move.getStartY()));
-                do dirtySquares.append(Square.fromBoardIndices( move.getEndX() - 1, move.getStartY() ));
+                // do dirtySquares.append(Square.fromBoardIndices(7, move.getStartY()));
+                // do dirtySquares.append(Square.fromBoardIndices( move.getEndX() - 1, move.getStartY() ));
             }
         }
 
-        do dirtySquares.append(Square.fromBoardIndices(move.getStartX(), move.getStartY()));
-        do dirtySquares.append(Square.fromBoardIndices(move.getEndX(), move.getEndY()));
+        // do dirtySquares.append(Square.fromBoardIndices(move.getStartX(), move.getStartY()));
+        // do dirtySquares.append(Square.fromBoardIndices(move.getEndX(), move.getEndY()));
 
         if (piece.isRook()) {
             if (piece.getColor() & (move.getStartY() = 7)) {     // if black
@@ -325,26 +325,26 @@ class Board {
         return;
     }
 
-    // TODO remove and just
-    method boolean squareIsDirty(int x, int y) {
-        var int index;
-        var Square square;
-        if (dirtySquares = 0) {
-            return true;
-        }
-        let index = dirtySquares.getLength() - 1;
-        while (index > -1) {
-            let square = dirtySquares.getElement(index);
-            if ((square.getX() = x) &
-                (square.getY() = y)) {
-                return true;
-            }
+    // // TODO remove and just
+    // method boolean squareIsDirty(int x, int y) {
+    //     var int index;
+    //     var Square square;
+    //     if (dirtySquares = 0) {
+    //         return true;
+    //     }
+    //     let index = dirtySquares.getLength() - 1;
+    //     while (index > -1) {
+    //         let square = dirtySquares.getElement(index);
+    //         if ((square.getX() = x) &
+    //             (square.getY() = y)) {
+    //             return true;
+    //         }
 
-            let index = index - 1;
-        }
+    //         let index = index - 1;
+    //     }
 
-        return false;
-    }
+    //     return false;
+    // }
 
     method void print(){
         var int i;
@@ -366,7 +366,7 @@ class Board {
         while (i < 8){
             let j = 0;
             while (j < 8){
-                if (squareIsDirty(j, i)) {
+                // if (squareIsDirty(j, i)) {
                     let rank = ranks[7-i];          // TODO don't flip it
                     let piece = rank[j];
                     if (piece = 0){
@@ -396,7 +396,7 @@ class Board {
                     // if (~(piece = 0)){
                     //     do piece.draw(x1, y1, squareColor);
                     // }
-                }
+                // }
 
                 let j = j + 1;
             }
@@ -404,7 +404,7 @@ class Board {
             let i = i + 1;
         }
 
-        let dirtySquares = List.empty();
+        // let dirtySquares = List.empty();
 
         if (debug){
             do Output.printString("En Passant: ");

@@ -74,7 +74,7 @@ class Main {
             do Main.drawBoard();
         // }
 
-        do board.acknowledgeChanges();
+        // do board.acknowledgeChanges();
 
         return;
     }
@@ -116,11 +116,11 @@ class Main {
             return;
         }
 
-        if (Util.strCmp(command, "REFRESH")) {
-            do board.refresh();
-            // do Main.draw();
-            return;
-        }
+        // if (Util.strCmp(command, "REFRESH")) {
+        //     // do board.refresh();
+        //     // do Main.draw();
+        //     return;
+        // }
 
         if (Util.strCmp(command, "QUIT")){
             do Output.printString("Good bye. TODO stop processing.");
